@@ -3,6 +3,7 @@
 import io
 
 import ezdxf
+from ezdxf import units
 
 from src.dxf.writer import create_dxf_document, doc_to_bytes
 
@@ -15,6 +16,8 @@ def test_doc_to_bytes_produces_readable_dxf():
 
     assert isinstance(dxf_bytes, bytes)
     reopened = ezdxf.read(io.StringIO(dxf_bytes.decode(doc.output_encoding)))
+    assert reopened.units == units.IN
+    assert reopened.header["$MEASUREMENT"] == 0
     lines = list(reopened.modelspace().query("LINE"))
     assert len(lines) == 1
     assert lines[0].dxf.layer == "WALLS"

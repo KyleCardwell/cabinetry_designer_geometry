@@ -98,6 +98,38 @@ class TestExpandBaseCabinet:
         assert len(fronts) == 3
         assert len(box_parts) == 3
 
+    def test_top_drawer_and_pair_of_doors_use_explicit_reveals(self):
+        obj = _make_base_cabinet(
+            width=30.0,
+            door_count=2,
+            drawer_count=1,
+            drawer_heights=[5.875],
+            face_top_reveal=0.25,
+            face_bottom_reveal=0.125,
+            face_left_reveal=0.0625,
+            face_right_reveal=0.0625,
+            face_horizontal_reveal=0.125,
+            face_vertical_reveal=0.125,
+        )
+
+        boxes = expand_cabinet(obj)
+        front = next(b for b in boxes if b.component_type == "drawer_front")
+        doors = [b for b in boxes if b.component_type == "door"]
+
+        assert front.origin.x == pytest.approx(0.0625)
+        assert front.origin.z == pytest.approx(28.375)
+        assert front.size.x == pytest.approx(29.875)
+        assert front.size.z == pytest.approx(5.875)
+
+        assert len(doors) == 2
+        assert doors[0].origin.x == pytest.approx(0.0625)
+        assert doors[1].origin.x == pytest.approx(15.0625)
+        assert doors[0].origin.z == pytest.approx(4.125)
+        assert doors[0].size.x == pytest.approx(14.875)
+        assert doors[0].size.z == pytest.approx(24.125)
+        assert doors[1].size.x == pytest.approx(14.875)
+        assert doors[1].size.z == pytest.approx(24.125)
+
     def test_wall_cabinet_no_toe_kick(self):
         obj = _make_base_cabinet(object_type="wall_cabinet", height=30.0, depth=12.0)
         boxes = expand_cabinet(obj)

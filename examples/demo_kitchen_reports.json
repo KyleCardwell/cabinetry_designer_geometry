@@ -18,16 +18,16 @@
       "object_id": "base-30",
       "object_type": "base_cabinet",
       "door_index": 0,
-      "width": 15.4375,
-      "height": 25.5,
+      "width": 14.875,
+      "height": 24.125,
       "hinge_side": "left"
     },
     {
       "object_id": "base-30",
       "object_type": "base_cabinet",
       "door_index": 1,
-      "width": 15.4375,
-      "height": 25.5,
+      "width": 14.875,
+      "height": 24.125,
       "hinge_side": "right"
     }
   ],
@@ -36,8 +36,8 @@
       "object_id": "base-30",
       "object_type": "base_cabinet",
       "drawer_index": 0,
-      "width": 31.0,
-      "height": 7.0
+      "width": 29.875,
+      "height": 5.875
     }
   ],
   "drawer_box_list": [
@@ -46,7 +46,7 @@
       "object_type": "base_cabinet",
       "drawer_index": 0,
       "width": 29.0,
-      "height": 5.25,
+      "height": 5.125,
       "depth": 21.0
     }
   ]
