@@ -94,6 +94,6 @@ def add_text(
 def doc_to_bytes(doc: Drawing) -> bytes:
     """Serialize a DXF document to bytes."""
     import io
-    stream = io.BytesIO()
+    stream = io.StringIO()
     doc.write(stream)
-    return stream.getvalue()
+    return doc.encode(stream.getvalue())
