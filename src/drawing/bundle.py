@@ -16,7 +16,7 @@ def draw(payload: dict) -> dict:
     ]
     buffer = io.BytesIO()
     with ZipFile(buffer, "w", compression=ZIP_DEFLATED) as archive:
-        for name, content in [("payload.json", model.model_dump_json(indent=2)), *elevations]:
+        for name, content in [("payload.json", model.model_dump_json(indent=2, exclude_defaults=True)), *elevations]:
             entry = ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
             entry.compress_type = ZIP_DEFLATED
             archive.writestr(entry, content)

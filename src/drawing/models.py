@@ -12,6 +12,31 @@ class PayloadRoom(BaseModel):
     name: str
 
 
+class PayloadHole(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    x: float
+    z: float
+    width: float = Field(gt=0)
+    height: float = Field(gt=0)
+
+
+class PayloadPart(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    id: str = Field(min_length=1)
+    kind: Literal["cabinet", "face", "filler", "end_panel", "panel", "frame", "shelf"]
+    runId: str
+    x: float
+    z: float
+    width: float = Field(gt=0)
+    height: float = Field(gt=0)
+    back: float
+    front: float
+    coversBoxEdges: bool
+    holes: list[PayloadHole] = []
+
+
 class PayloadElevation(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -23,6 +48,7 @@ class PayloadElevation(BaseModel):
     wallLabel: str
     length: float = Field(gt=0)
     height: float = Field(gt=0)
+    parts: list[PayloadPart] = []
 
 
 class DrawingPayload(BaseModel):

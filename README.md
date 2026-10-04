@@ -37,9 +37,22 @@ src/
 │   ├── elevation_dxf.py    # DXF per elevation
 │   └── bundle.py           # Payload validation and zip assembly
 ├── dxf/writer.py           # DXF document, layers, and units
-├── projection/hlr.py       # Hidden-line removal, kept for round 41
+├── projection/hlr.py       # hidden-line removal: nearer parts hide farther ones; hidden edges dashed on HIDDEN (SPEC-41)
 ├── models/geometry.py      # Geometry primitives used by hidden-line removal
 └── utils/                  # Math helpers and constants
 ```
 
 Geometry renders the dimensions supplied by the designer. Hidden-line removal and the shared DXF writer remain available for round 41.
+
+## Layers
+
+| Part kind | Visible layer |
+|---|---|
+| `cabinet` | `CABINETS` |
+| `face` | `FACES` |
+| `filler` | `FILLERS` |
+| `end_panel`, `panel` | `PANELS` |
+| `frame` | `FRAMES` |
+| `shelf` | `SHELVES` |
+
+Hidden segments use the dashed `HIDDEN` layer.

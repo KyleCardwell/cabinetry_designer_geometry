@@ -15,18 +15,16 @@ from ..models.geometry import Line2D
 # Standard layer definitions: (name, color_index, linetype)
 # AutoCAD Color Index: 7=white, 1=red, 2=yellow, 3=green, 4=cyan, 5=blue, 6=magenta
 LAYER_DEFS = {
-    "WALLS":          (7, "CONTINUOUS"),
-    "WALLS-CENTER":   (8, "CENTER"),
-    "CABINETS-BASE":  (3, "CONTINUOUS"),
-    "CABINETS-WALL":  (4, "CONTINUOUS"),
-    "CABINETS-TALL":  (5, "CONTINUOUS"),
-    "APPLIANCES":     (1, "CONTINUOUS"),
-    "FILLERS":        (6, "CONTINUOUS"),
-    "ELEVATION-VISIBLE": (7, "CONTINUOUS"),
-    "ELEVATION-HIDDEN":  (8, "DASHED"),
-    "SECTION-CUT":    (1, "CONTINUOUS"),
-    "DIMENSIONS":     (2, "CONTINUOUS"),
-    "TEXT":           (7, "CONTINUOUS"),
+    "WALLS":      (7, "CONTINUOUS"),
+    "CABINETS":   (5, "CONTINUOUS"),
+    "FACES":      (7, "CONTINUOUS"),
+    "FILLERS":    (30, "CONTINUOUS"),
+    "PANELS":     (6, "CONTINUOUS"),
+    "FRAMES":     (3, "CONTINUOUS"),
+    "SHELVES":    (4, "CONTINUOUS"),
+    "HIDDEN":     (8, "DASHED"),
+    "DIMENSIONS": (2, "CONTINUOUS"),
+    "TEXT":       (7, "CONTINUOUS"),
 }
 
 

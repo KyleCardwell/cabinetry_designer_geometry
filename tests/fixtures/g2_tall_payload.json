@@ -1,0 +1,23 @@
+{
+  "payloadVersion": 1,
+  "units": "in",
+  "room": { "id": "df64d3e7-dda7-438b-98a1-19586637c2f1", "name": "G2 Face frame kitchen" },
+  "elevations": [
+    {
+      "key": "e10e98d3-30bd-4ec1-8a67-81d3923598e1", "letter": "A", "wallId": "e10e98d3-30bd-4ec1-8a67-81d3923598e1",
+      "side": "front", "title": "Elevation A", "wallLabel": "Wall 1", "length": 172, "height": 96,
+      "parts": [
+        { "id": "352bd8c0-79a1-4210-a428-cfe95038118f", "kind": "cabinet", "runId": "a42e9a57-a98f-47f0-b6b4-9076b513db6e", "x": 51, "z": 4, "width": 24.5, "height": 64, "back": 0, "front": 25, "coversBoxEdges": false },
+        { "id": "3e5f512e-1e43-4f30-85c4-b74b1936fb7d", "kind": "cabinet", "runId": "a42e9a57-a98f-47f0-b6b4-9076b513db6e", "x": 51, "z": 68, "width": 24.5, "height": 22, "back": 0, "front": 25, "coversBoxEdges": false },
+        { "id": "a42e9a57-a98f-47f0-b6b4-9076b513db6e:left", "kind": "end_panel", "runId": "a42e9a57-a98f-47f0-b6b4-9076b513db6e", "x": 50, "z": 4, "width": 0.75, "height": 86, "back": 0, "front": 25, "coversBoxEdges": false },
+        { "id": "a42e9a57-a98f-47f0-b6b4-9076b513db6e:right", "kind": "end_panel", "runId": "a42e9a57-a98f-47f0-b6b4-9076b513db6e", "x": 75.75, "z": 4, "width": 0.75, "height": 86, "back": 0, "front": 25, "coversBoxEdges": false },
+        { "id": "frame:352bd8c0-79a1-4210-a428-cfe95038118f", "kind": "frame", "runId": "a42e9a57-a98f-47f0-b6b4-9076b513db6e", "x": 50, "z": 4, "width": 26.5, "height": 86, "back": 25, "front": 25.8125, "coversBoxEdges": true,
+          "holes": [ { "x": 51.75, "z": 5.75, "width": 23, "height": 61.25 }, { "x": 51.75, "z": 69, "width": 23, "height": 19.25 } ] },
+        { "id": "352bd8c0-79a1-4210-a428-cfe95038118f:rleft", "kind": "face", "runId": "a42e9a57-a98f-47f0-b6b4-9076b513db6e", "x": 51.75, "z": 5.75, "width": 11.5, "height": 61.25, "back": 25, "front": 25.8125, "coversBoxEdges": true },
+        { "id": "352bd8c0-79a1-4210-a428-cfe95038118f:rright", "kind": "face", "runId": "a42e9a57-a98f-47f0-b6b4-9076b513db6e", "x": 63.25, "z": 5.75, "width": 11.5, "height": 61.25, "back": 25, "front": 25.8125, "coversBoxEdges": true },
+        { "id": "3e5f512e-1e43-4f30-85c4-b74b1936fb7d:rleft", "kind": "face", "runId": "a42e9a57-a98f-47f0-b6b4-9076b513db6e", "x": 51.75, "z": 69, "width": 11.5, "height": 19.25, "back": 25, "front": 25.8125, "coversBoxEdges": true },
+        { "id": "3e5f512e-1e43-4f30-85c4-b74b1936fb7d:rright", "kind": "face", "runId": "a42e9a57-a98f-47f0-b6b4-9076b513db6e", "x": 63.25, "z": 69, "width": 11.5, "height": 19.25, "back": 25, "front": 25.8125, "coversBoxEdges": true }
+      ]
+    }
+  ]
+}
