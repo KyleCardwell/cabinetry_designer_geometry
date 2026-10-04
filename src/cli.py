@@ -2,9 +2,12 @@
 CLI entry point for the geometry engine.
 
 Usage:
+    python -m src draw < drawing-payload.json
     echo '{"room_id": "...", ...}' | python -m src.cli generate
 
-Reads resolved room JSON from stdin, outputs JSON to stdout:
+Reads JSON from stdin, outputs JSON to stdout:
+    draw: { "payloadVersion": 1, "files": [...], "zip_base64": "..." }
+    generate:
     { "dxf_base64": "...", "reports": { ... } }
 """
 
@@ -13,6 +16,9 @@ import sys
 import json
 import base64
 
+from pydantic import ValidationError
+
+from .drawing.bundle import draw
 from .models.room import ResolvedRoom
 from .parametric.cabinet_builder import expand_cabinet
 from .projection.floorplan import generate_floorplan
@@ -76,12 +82,25 @@ def generate(room_data: dict) -> dict:
 
 def main():
     if len(sys.argv) < 2:
-        print(json.dumps({"error": "Usage: python -m src.cli generate"}), file=sys.stderr)
+        print(json.dumps({"error": "Usage: python -m src <draw|generate>"}), file=sys.stderr)
         sys.exit(1)
 
     command = sys.argv[1]
 
-    if command == "generate":
+    if command == "draw":
+        try:
+            input_data = json.load(sys.stdin)
+            json.dump(draw(input_data), sys.stdout)
+        except ValidationError as e:
+            print(json.dumps({
+                "error": "Invalid drawing payload",
+                "details": json.loads(e.json(include_url=False)),
+            }), file=sys.stderr)
+            sys.exit(2)
+        except Exception as e:
+            print(json.dumps({"error": str(e)}), file=sys.stderr)
+            sys.exit(1)
+    elif command == "generate":
         try:
             input_data = json.load(sys.stdin)
             result = generate(input_data)
