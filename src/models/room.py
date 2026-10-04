@@ -42,6 +42,12 @@ class ResolvedObject(BaseModel):
     door_overlay: float
     reveal_gap: float
     hinge_side: str
+    face_top_reveal: Optional[float] = None
+    face_bottom_reveal: Optional[float] = None
+    face_left_reveal: Optional[float] = None
+    face_right_reveal: Optional[float] = None
+    face_horizontal_reveal: Optional[float] = None
+    face_vertical_reveal: Optional[float] = None
 
     # Drawers
     drawer_slide_clearance: float

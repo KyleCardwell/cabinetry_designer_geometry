@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from ..models.room import ResolvedObject
+from ..parametric.face_layout import calculate_face_layout
 
 
 def build_drawer_front_list(objects: list[ResolvedObject]) -> list[dict]:
@@ -13,19 +14,16 @@ def build_drawer_front_list(objects: list[ResolvedObject]) -> list[dict]:
         if not obj.drawer_count or obj.drawer_count <= 0:
             continue
 
-        overlay = obj.door_overlay
-        reveal = obj.reveal_gap
-        front_w = obj.width + 2 * overlay
-        heights = obj.drawer_heights or [6.0] * obj.drawer_count
+        toe_kick = obj.toe_kick_height if obj.object_type != "wall_cabinet" else 0
+        layout = calculate_face_layout(obj, obj.z + toe_kick)
 
-        for i, dh in enumerate(heights):
-            front_h = dh + 2 * overlay - (reveal if i > 0 else 0)
+        for front in layout.drawer_fronts:
             fronts.append({
                 "object_id": obj.object_id,
                 "object_type": obj.object_type,
-                "drawer_index": i,
-                "width": round(front_w, 4),
-                "height": round(front_h, 4),
+                "drawer_index": front.index,
+                "width": round(front.width, 4),
+                "height": round(front.height, 4),
             })
 
     return fronts

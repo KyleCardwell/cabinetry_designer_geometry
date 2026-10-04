@@ -1,0 +1,51 @@
+{
+  "room_id": "demo-kitchen",
+  "name": "Demo Kitchen",
+  "floor_to_ceiling": 96,
+  "walls": [
+    {
+      "wall_id": "wall-north",
+      "x1": 0,
+      "y1": 0,
+      "x2": 120,
+      "y2": 0,
+      "thickness": 4.5,
+      "height": 96
+    }
+  ],
+  "objects": [
+    {
+      "object_id": "base-30",
+      "object_type": "base_cabinet",
+      "wall_id": "wall-north",
+      "x": 24,
+      "y": 0,
+      "z": 0,
+      "rotation": 0,
+      "width": 30,
+      "height": 34.5,
+      "depth": 24,
+      "material_thickness": 0.75,
+      "back_material_thickness": 0.25,
+      "toe_kick_height": 4,
+      "toe_kick_depth": 3,
+      "has_stretchers": true,
+      "door_count": 2,
+      "drawer_count": 1,
+      "door_overlay": 0.5,
+      "reveal_gap": 0.125,
+      "face_top_reveal": 0.25,
+      "face_bottom_reveal": 0.125,
+      "face_left_reveal": 0.0625,
+      "face_right_reveal": 0.0625,
+      "face_horizontal_reveal": 0.125,
+      "face_vertical_reveal": 0.125,
+      "hinge_side": "left",
+      "drawer_slide_clearance": 0.5,
+      "drawer_heights": [5.875],
+      "drawer_box_depth": 21,
+      "shelf_count": 1,
+      "shelf_setback": 0.125
+    }
+  ]
+}

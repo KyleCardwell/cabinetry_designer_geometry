@@ -7,6 +7,7 @@ for writing Line2D segments to named layers.
 
 from __future__ import annotations
 import ezdxf
+from ezdxf import units
 from ezdxf.document import Drawing
 from ..models.geometry import Line2D
 
@@ -32,6 +33,10 @@ LAYER_DEFS = {
 def create_dxf_document() -> Drawing:
     """Create a new DXF document with standard layers and linetypes."""
     doc = ezdxf.new("R2010")
+    doc.units = units.IN
+    doc.header["$MEASUREMENT"] = 0  # English/imperial
+    doc.header["$LUNITS"] = 4       # Architectural
+    doc.header["$LUPREC"] = 4       # Display to 1/16 inch
 
     # Ensure linetypes exist
     if "CENTER" not in doc.linetypes:
@@ -94,6 +99,6 @@ def add_text(
 def doc_to_bytes(doc: Drawing) -> bytes:
     """Serialize a DXF document to bytes."""
     import io
-    stream = io.BytesIO()
+    stream = io.StringIO()
     doc.write(stream)
-    return stream.getvalue()
+    return doc.encode(stream.getvalue())

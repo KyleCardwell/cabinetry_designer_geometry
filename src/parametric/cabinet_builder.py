@@ -12,6 +12,7 @@ The builder is purely deterministic: same inputs always produce same outputs.
 from __future__ import annotations
 from ..models.geometry import BoxPrimitive, Point3D
 from ..models.room import ResolvedObject
+from .face_layout import FaceLayout, calculate_face_layout
 
 
 def expand_cabinet(obj: ResolvedObject) -> list[BoxPrimitive]:
@@ -132,44 +133,29 @@ def expand_cabinet(obj: ResolvedObject) -> list[BoxPrimitive]:
                 component_type="shelf",
             ))
 
+    face_layout = calculate_face_layout(obj, case_z)
+
     # --- Doors ---
-    boxes.extend(_build_doors(obj, case_z, interior_w, interior_h, mt))
+    boxes.extend(_build_doors(obj, face_layout, mt))
 
     # --- Drawers ---
-    boxes.extend(_build_drawers(obj, case_z, interior_w, mt))
+    boxes.extend(_build_drawers(obj, face_layout, mt))
 
     return boxes
 
 
 def _build_doors(
-    obj: ResolvedObject, case_z: float, interior_w: float, interior_h: float, mt: float
+    obj: ResolvedObject, face_layout: FaceLayout, mt: float
 ) -> list[BoxPrimitive]:
     """Generate door box primitives for a cabinet."""
-    if obj.door_count <= 0:
-        return []
-
     boxes: list[BoxPrimitive] = []
-    overlay = obj.door_overlay
-    reveal = obj.reveal_gap
     door_thickness = mt  # doors are material_thickness thick
 
-    # Drawer total height (doors occupy remaining space)
-    drawer_total = sum(obj.drawer_heights or [])
-
-    door_zone_h = obj.height - (obj.toe_kick_height if obj.object_type != "wall_cabinet" else 0) - drawer_total
-    door_h = door_zone_h + 2 * overlay
-    door_w = (obj.width + 2 * overlay - (obj.door_count - 1) * reveal) / obj.door_count
-
-    door_z = case_z + drawer_total - overlay
-
-    for i in range(obj.door_count):
-        door_x = -overlay + i * (door_w + reveal)
-        hinge = obj.hinge_side if obj.door_count == 1 else ("left" if i == 0 else "right")
-
+    for door in face_layout.doors:
         boxes.append(BoxPrimitive(
-            label=f"door_{hinge}_{i}",
-            origin=Point3D(x=door_x, y=-door_thickness, z=door_z),
-            size=Point3D(x=door_w, y=door_thickness, z=door_h),
+            label=f"door_{door.hinge_side}_{door.index}",
+            origin=Point3D(x=door.x, y=-door_thickness, z=door.z),
+            size=Point3D(x=door.width, y=door_thickness, z=door.height),
             material="solid",
             parent_object_id=obj.object_id,
             component_type="door",
@@ -178,49 +164,37 @@ def _build_doors(
     return boxes
 
 
-def _build_drawers(obj: ResolvedObject, case_z: float, interior_w: float, mt: float) -> list[BoxPrimitive]:
+def _build_drawers(
+    obj: ResolvedObject, face_layout: FaceLayout, mt: float
+) -> list[BoxPrimitive]:
     """Generate drawer front + drawer box primitives."""
-    if obj.drawer_count <= 0:
-        return []
-
     boxes: list[BoxPrimitive] = []
-    overlay = obj.door_overlay
-    reveal = obj.reveal_gap
     slide_clr = obj.drawer_slide_clearance
-    heights = obj.drawer_heights or [6.0] * obj.drawer_count
-
-    front_w = obj.width + 2 * overlay
     box_w = obj.width - 2 * slide_clr
     box_d = obj.drawer_box_depth or (obj.depth - 3)
 
-    current_z = case_z + mt  # start above bottom panel
-
-    for i, dh in enumerate(heights):
-        front_h = dh + 2 * overlay - (reveal if i > 0 else 0)
-        front_z = current_z - overlay + (reveal if i > 0 else 0)
-
+    for front in face_layout.drawer_fronts:
         # Drawer front
         boxes.append(BoxPrimitive(
-            label=f"drawer_front_{i}",
-            origin=Point3D(x=-overlay, y=-mt, z=front_z),
-            size=Point3D(x=front_w, y=mt, z=front_h),
+            label=f"drawer_front_{front.index}",
+            origin=Point3D(x=front.x, y=-mt, z=front.z),
+            size=Point3D(x=front.width, y=mt, z=front.height),
             material="solid",
             parent_object_id=obj.object_id,
             component_type="drawer_front",
         ))
 
         # Drawer box
-        box_h = dh - mt
+        box_h = front.height - mt
+        box_z = front.z + mt / 2
         boxes.append(BoxPrimitive(
-            label=f"drawer_box_{i}",
-            origin=Point3D(x=slide_clr, y=0.0, z=current_z),
+            label=f"drawer_box_{front.index}",
+            origin=Point3D(x=slide_clr, y=0.0, z=box_z),
             size=Point3D(x=box_w, y=box_d, z=box_h),
             material=f"plywood_{mt}",
             parent_object_id=obj.object_id,
             component_type="drawer_box",
         ))
-
-        current_z += dh
 
     return boxes
 

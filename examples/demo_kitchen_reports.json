@@ -1,0 +1,53 @@
+{
+  "shipping_list": [
+    {
+      "item": 1,
+      "object_id": "base-30",
+      "type": "base_cabinet",
+      "width": 30.0,
+      "height": 34.5,
+      "depth": 24.0,
+      "door_count": 2,
+      "drawer_count": 1,
+      "hinge_side": "left",
+      "shelf_count": 1
+    }
+  ],
+  "door_list": [
+    {
+      "object_id": "base-30",
+      "object_type": "base_cabinet",
+      "door_index": 0,
+      "width": 14.875,
+      "height": 24.125,
+      "hinge_side": "left"
+    },
+    {
+      "object_id": "base-30",
+      "object_type": "base_cabinet",
+      "door_index": 1,
+      "width": 14.875,
+      "height": 24.125,
+      "hinge_side": "right"
+    }
+  ],
+  "drawer_front_list": [
+    {
+      "object_id": "base-30",
+      "object_type": "base_cabinet",
+      "drawer_index": 0,
+      "width": 29.875,
+      "height": 5.875
+    }
+  ],
+  "drawer_box_list": [
+    {
+      "object_id": "base-30",
+      "object_type": "base_cabinet",
+      "drawer_index": 0,
+      "width": 29.0,
+      "height": 5.125,
+      "depth": 21.0
+    }
+  ]
+}
