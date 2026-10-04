@@ -20,6 +20,8 @@ class HlrShape:
     front: float
     is_box: bool = False
     covers_box_edges: bool = False
+    drop_hidden: bool = False   # hidden edges are left out, never dashed (SPEC-42)
+    lines: tuple = ()           # detail lines inside the shape: ((x1, z1), (x2, z2)) pairs
 
 
 def rect_polygon(x: float, z: float, width: float, height: float, holes=()) -> Polygon:
@@ -51,13 +53,15 @@ def hidden_line_removal(shapes: list[HlrShape]) -> dict[str, tuple[list[Line2D],
     result = {}
     for shape in shapes:
         edges = shape.polygon.boundary
+        if shape.lines:
+            edges = unary_union([edges, *(LineString(line) for line in shape.lines)])
         nearer = [other for other in shapes if other.front > shape.front + EPSILON]
         if not nearer:
             result[shape.id] = (_geometry_to_lines(edges), [])
             continue
 
         visible = edges.difference(unary_union([other.polygon for other in nearer]))
-        dashing = [
+        dashing = [] if shape.drop_hidden else [
             other.polygon for other in nearer
             if not (shape.is_box and other.covers_box_edges)
         ]

@@ -86,3 +86,32 @@ def test_an_edge_on_a_nearer_parts_edge_is_drawn_once():
     assert len(visible) == 3
     assert _length(visible) == pytest.approx(30)
     assert hidden == []
+
+
+def test_detail_lines_are_drawn_and_hidden_like_the_outline():
+    chip = (((0, 0.125), (3, 0.125)),)
+    visible, hidden = _run(HlrShape("panel", rect_polygon(0, 0, 3, 30), 24.875, lines=chip))["panel"]
+    assert _length(visible) == pytest.approx(69)  # 66 of outline + the 3" chip line
+    assert hidden == []
+    visible, hidden = _run(
+        HlrShape("panel", rect_polygon(0, 0, 3, 30), 24.875, lines=chip),
+        HlrShape("door", rect_polygon(2, -1, 10, 30), 25.6875, covers_box_edges=True),
+    )["panel"]
+    assert _length(visible) == pytest.approx(38)
+    assert _length(hidden) == pytest.approx(31)
+    assert any(
+        sorted([line.start.x, line.end.x]) == pytest.approx([2, 3])
+        and [line.start.y, line.end.y] == pytest.approx([0.125, 0.125])
+        for line in hidden
+    )
+
+
+def test_drop_hidden_leaves_hidden_edges_out_instead_of_dashing_them():
+    crown = HlrShape("crown", rect_polygon(0, 91.5, 33, 4.5), 28.875)
+    visible, hidden = _run(
+        HlrShape("mold", rect_polygon(0, 90, 30.25, 3), 26.125, drop_hidden=True), crown,
+    )["mold"]
+    assert _length(visible) == pytest.approx(33.25)  # its bottom and its sides below the crown
+    assert hidden == []
+    dashed = HlrShape("mold", rect_polygon(0, 90, 30.25, 3), 26.125)
+    assert _length(_run(dashed, crown)["mold"][1]) == pytest.approx(31.75)
