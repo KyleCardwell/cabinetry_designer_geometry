@@ -22,6 +22,8 @@ LAYER_DEFS = {
     "PANELS":     (6, "CONTINUOUS"),
     "FRAMES":     (3, "CONTINUOUS"),
     "SHELVES":    (4, "CONTINUOUS"),
+    "COUNTERTOPS": (9, "CONTINUOUS"),
+    "MOLDINGS":   (1, "CONTINUOUS"),
     "HIDDEN":     (8, "DASHED"),
     "DIMENSIONS": (2, "CONTINUOUS"),
     "TEXT":       (7, "CONTINUOUS"),

@@ -21,11 +21,24 @@ class PayloadHole(BaseModel):
     height: float = Field(gt=0)
 
 
+class PayloadLine(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    x1: float
+    z1: float
+    x2: float
+    z2: float
+
+
 class PayloadPart(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     id: str = Field(min_length=1)
-    kind: Literal["cabinet", "face", "filler", "end_panel", "panel", "frame", "shelf"]
+    kind: Literal[
+        "cabinet", "face", "filler", "end_panel", "panel", "frame", "shelf",
+        "toe_kick", "countertop", "top_mold", "crown",
+        "light_rail", "light_trough", "bottom_cap", "corbels",
+    ]
     runId: str
     x: float
     z: float
@@ -35,6 +48,8 @@ class PayloadPart(BaseModel):
     front: float
     coversBoxEdges: bool
     holes: list[PayloadHole] = []
+    lines: list[PayloadLine] = []
+    profileId: str | None = None
 
 
 class PayloadElevation(BaseModel):

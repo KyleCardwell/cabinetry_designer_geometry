@@ -14,7 +14,18 @@ KIND_LAYERS = {
     "panel": "PANELS",
     "frame": "FRAMES",
     "shelf": "SHELVES",
+    "toe_kick": "MOLDINGS",
+    "countertop": "COUNTERTOPS",
+    "top_mold": "MOLDINGS",
+    "crown": "MOLDINGS",
+    "light_rail": "MOLDINGS",
+    "light_trough": "MOLDINGS",
+    "bottom_cap": "MOLDINGS",
+    "corbels": "MOLDINGS",
 }
+
+# Kinds whose hidden edges are left out rather than dashed (SPEC-42).
+NEVER_DASHED = {"toe_kick", "top_mold", "crown"}
 
 
 def build_elevation_dxf(elevation: PayloadElevation, room: PayloadRoom) -> bytes:
@@ -45,6 +56,8 @@ def build_elevation_dxf(elevation: PayloadElevation, room: PayloadRoom) -> bytes
             front=part.front,
             is_box=part.kind == "cabinet",
             covers_box_edges=part.coversBoxEdges,
+            drop_hidden=part.kind in NEVER_DASHED,
+            lines=tuple(((line.x1, line.z1), (line.x2, line.z2)) for line in part.lines),
         )
         for part in parts
     ]

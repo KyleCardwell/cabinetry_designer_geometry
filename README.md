@@ -54,5 +54,9 @@ Geometry renders the dimensions supplied by the designer. Hidden-line removal an
 | `end_panel`, `panel` | `PANELS` |
 | `frame` | `FRAMES` |
 | `shelf` | `SHELVES` |
+| `countertop` | `COUNTERTOPS` |
+| `toe_kick`, `top_mold`, `crown`, `light_rail`, `light_trough`, `bottom_cap`, `corbels` | `MOLDINGS` |
+
+A part's `lines` are detail lines drawn inside it and hidden like its outline; toe kicks, top molds and crowns are never dashed (their hidden edges are left out); `profileId` is accepted and ignored until profiles exist (SPEC-42).
 
 Hidden segments use the dashed `HIDDEN` layer.
