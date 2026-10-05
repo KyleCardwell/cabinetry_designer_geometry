@@ -51,12 +51,16 @@ Geometry renders the dimensions supplied by the designer. Hidden-line removal an
 | `cabinet` | `CABINETS` |
 | `face` | `FACES` |
 | `filler` | `FILLERS` |
-| `end_panel`, `panel` | `PANELS` |
+| `end_panel`, `panel`, `wall_end_panel` | `PANELS` |
 | `frame` | `FRAMES` |
 | `shelf` | `SHELVES` |
 | `countertop` | `COUNTERTOPS` |
 | `toe_kick`, `top_mold`, `crown`, `light_rail`, `light_trough`, `bottom_cap`, `corbels` | `MOLDINGS` |
+| `opening`, `casing` | `OPENINGS` |
+| `soffit`, `recess`, `projection`, `wing_wall` | `WALLS` |
 
 A part's `lines` are detail lines drawn inside it and hidden like its outline; toe kicks, top molds and crowns are never dashed (their hidden edges are left out); `profileId` is accepted and ignored until profiles exist (SPEC-42).
+
+Openings, casing, soffits, recesses, projections and wing walls are outlines (`opaque: false`): they can be hidden but hide nothing; `openEdges` leaves sides of a part's rectangle undrawn (SPEC-42.1).
 
 Hidden segments use the dashed `HIDDEN` layer.

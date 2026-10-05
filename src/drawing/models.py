@@ -38,8 +38,9 @@ class PayloadPart(BaseModel):
         "cabinet", "face", "filler", "end_panel", "panel", "frame", "shelf",
         "toe_kick", "countertop", "top_mold", "crown",
         "light_rail", "light_trough", "bottom_cap", "corbels",
+        "wall_end_panel", "opening", "casing", "soffit", "recess", "projection", "wing_wall",
     ]
-    runId: str
+    runId: str | None = None
     x: float
     z: float
     width: float = Field(gt=0)
@@ -50,6 +51,8 @@ class PayloadPart(BaseModel):
     holes: list[PayloadHole] = []
     lines: list[PayloadLine] = []
     profileId: str | None = None
+    opaque: bool = True
+    openEdges: list[Literal["left", "right", "top", "bottom"]] = []
 
 
 class PayloadElevation(BaseModel):

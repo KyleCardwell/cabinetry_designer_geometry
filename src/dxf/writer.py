@@ -24,6 +24,7 @@ LAYER_DEFS = {
     "SHELVES":    (4, "CONTINUOUS"),
     "COUNTERTOPS": (9, "CONTINUOUS"),
     "MOLDINGS":   (1, "CONTINUOUS"),
+    "OPENINGS":   (40, "CONTINUOUS"),
     "HIDDEN":     (8, "DASHED"),
     "DIMENSIONS": (2, "CONTINUOUS"),
     "TEXT":       (7, "CONTINUOUS"),

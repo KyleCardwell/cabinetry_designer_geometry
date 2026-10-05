@@ -22,10 +22,32 @@ KIND_LAYERS = {
     "light_trough": "MOLDINGS",
     "bottom_cap": "MOLDINGS",
     "corbels": "MOLDINGS",
+    "wall_end_panel": "PANELS",
+    "opening": "OPENINGS",
+    "casing": "OPENINGS",
+    "soffit": "WALLS",
+    "recess": "WALLS",
+    "projection": "WALLS",
+    "wing_wall": "WALLS",
 }
 
 # Kinds whose hidden edges are left out rather than dashed (SPEC-42).
 NEVER_DASHED = {"toe_kick", "top_mold", "crown"}
+
+
+def _edge_lines(part) -> tuple:
+    """A part's own lines, plus its rectangle's sides when some are left open (SPEC-42.1)."""
+    lines = tuple(((line.x1, line.z1), (line.x2, line.z2)) for line in part.lines)
+    if not part.openEdges:
+        return lines
+    left, right, bottom, top = part.x, part.x + part.width, part.z, part.z + part.height
+    sides = {
+        "bottom": ((left, bottom), (right, bottom)),
+        "right": ((right, bottom), (right, top)),
+        "top": ((left, top), (right, top)),
+        "left": ((left, bottom), (left, top)),
+    }
+    return tuple(side for name, side in sides.items() if name not in part.openEdges) + lines
 
 
 def build_elevation_dxf(elevation: PayloadElevation, room: PayloadRoom) -> bytes:
@@ -57,7 +79,9 @@ def build_elevation_dxf(elevation: PayloadElevation, room: PayloadRoom) -> bytes
             is_box=part.kind == "cabinet",
             covers_box_edges=part.coversBoxEdges,
             drop_hidden=part.kind in NEVER_DASHED,
-            lines=tuple(((line.x1, line.z1), (line.x2, line.z2)) for line in part.lines),
+            lines=_edge_lines(part),
+            opaque=part.opaque,
+            outlined=not part.openEdges,
         )
         for part in parts
     ]
