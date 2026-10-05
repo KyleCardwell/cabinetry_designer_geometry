@@ -1,7 +1,9 @@
 """Render a wall face and its labels as an elevation DXF."""
 
+from shapely.geometry import Polygon
+
 from src.dxf.writer import create_dxf_document, doc_to_bytes, write_lines_to_layer
-from src.projection.hlr import EPSILON, HlrShape, hidden_line_removal, rect_polygon
+from src.projection.hlr import EPSILON, HlrShape, hidden_line_removal, rect_polygon, visible_regions
 
 from .models import PayloadElevation, PayloadRoom
 
@@ -29,7 +31,14 @@ KIND_LAYERS = {
     "recess": "WALLS",
     "projection": "WALLS",
     "wing_wall": "WALLS",
+    "section": "SECTIONS",
+    "profile": "CABINETS",
 }
+
+# Kinds drawn hatched where they show (SPEC-42.2): a neighbour cut where it meets this wall face.
+HATCHED = {"section"}
+# ANSI31 lines are 1/8" apart at scale 1; 24 puts them 1/8" apart on paper at 1/2" = 1'-0".
+HATCH_SCALE = 24
 
 # Kinds whose hidden edges are left out rather than dashed (SPEC-42).
 NEVER_DASHED = {"toe_kick", "top_mold", "crown"}
@@ -48,6 +57,25 @@ def _edge_lines(part) -> tuple:
         "left": ((left, bottom), (left, top)),
     }
     return tuple(side for name, side in sides.items() if name not in part.openEdges) + lines
+
+
+def _polygons(region) -> list:
+    """The non-empty polygons in a shapely region (a Polygon, MultiPolygon or GeometryCollection)."""
+    if isinstance(region, Polygon):
+        return [] if region.is_empty else [region]
+    return [part for geom in getattr(region, "geoms", []) for part in _polygons(geom)]
+
+
+def _add_hatch(modelspace, layer, region) -> None:
+    """One ANSI31 hatch per polygon of a region, holes included (SPEC-42.2)."""
+    for polygon in _polygons(region):
+        if polygon.area <= EPSILON:
+            continue
+        hatch = modelspace.add_hatch(dxfattribs={"layer": layer})
+        hatch.set_pattern_fill("ANSI31", scale=HATCH_SCALE)
+        hatch.paths.add_polyline_path(list(polygon.exterior.coords)[:-1], is_closed=True, flags=1)
+        for ring in polygon.interiors:
+            hatch.paths.add_polyline_path(list(ring.coords)[:-1], is_closed=True, flags=16)
 
 
 def build_elevation_dxf(elevation: PayloadElevation, room: PayloadRoom) -> bytes:
@@ -90,6 +118,11 @@ def build_elevation_dxf(elevation: PayloadElevation, room: PayloadRoom) -> bytes
         visible, hidden = lines[part.id]
         write_lines_to_layer(doc, KIND_LAYERS[part.kind], visible)
         write_lines_to_layer(doc, "HIDDEN", hidden)
+
+    regions = visible_regions(shapes, {part.id for part in parts if part.kind in HATCHED})
+    for part in parts:
+        if part.id in regions:
+            _add_hatch(modelspace, KIND_LAYERS[part.kind], regions[part.id])
 
     wall_label = elevation.wallLabel
     if elevation.side == "back":

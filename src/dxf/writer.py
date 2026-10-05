@@ -25,6 +25,7 @@ LAYER_DEFS = {
     "COUNTERTOPS": (9, "CONTINUOUS"),
     "MOLDINGS":   (1, "CONTINUOUS"),
     "OPENINGS":   (40, "CONTINUOUS"),
+    "SECTIONS":   (8, "CONTINUOUS"),
     "HIDDEN":     (8, "DASHED"),
     "DIMENSIONS": (2, "CONTINUOUS"),
     "TEXT":       (7, "CONTINUOUS"),

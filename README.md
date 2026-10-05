@@ -48,7 +48,8 @@ Geometry renders the dimensions supplied by the designer. Hidden-line removal an
 
 | Part kind | Visible layer |
 |---|---|
-| `cabinet` | `CABINETS` |
+| `cabinet`, `profile` | `CABINETS` |
+| `section` | `SECTIONS` |
 | `face` | `FACES` |
 | `filler` | `FILLERS` |
 | `end_panel`, `panel`, `wall_end_panel` | `PANELS` |
@@ -62,5 +63,7 @@ Geometry renders the dimensions supplied by the designer. Hidden-line removal an
 A part's `lines` are detail lines drawn inside it and hidden like its outline; toe kicks, top molds and crowns are never dashed (their hidden edges are left out); `profileId` is accepted and ignored until profiles exist (SPEC-42).
 
 Openings, casing, soffits, recesses, projections and wing walls are outlines (`opaque: false`): they can be hidden but hide nothing; `openEdges` leaves sides of a part's rectangle undrawn (SPEC-42.1).
+
+A `section` is a neighbour cut where it meets this wall face: outlined and hatched (ANSI31) where it shows; a `profile` is a neighbour seen from the side (SPEC-42.2).
 
 Hidden segments use the dashed `HIDDEN` layer.

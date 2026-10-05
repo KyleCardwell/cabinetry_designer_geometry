@@ -39,6 +39,7 @@ class PayloadPart(BaseModel):
         "toe_kick", "countertop", "top_mold", "crown",
         "light_rail", "light_trough", "bottom_cap", "corbels",
         "wall_end_panel", "opening", "casing", "soffit", "recess", "projection", "wing_wall",
+        "section", "profile",
     ]
     runId: str | None = None
     x: float
