@@ -48,7 +48,7 @@ def test_sections_are_outlined_and_hatched_on_sections():
     assert _length(_lines(msp, "SECTIONS")) == pytest.approx(171.75)
     hatches = list(msp.query("HATCH"))
     assert [(hatch.dxf.layer, hatch.dxf.pattern_name, hatch.dxf.pattern_scale) for hatch in hatches] == [
-        ("SECTIONS", "ANSI31", 24), ("SECTIONS", "ANSI31", 24),
+        ("SECTIONS", "ANSI31", 8), ("SECTIONS", "ANSI31", 8),
     ]
     assert _hatch_areas(msp) == pytest.approx([732, 26.6875])
 

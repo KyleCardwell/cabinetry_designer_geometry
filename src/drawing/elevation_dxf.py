@@ -37,8 +37,8 @@ KIND_LAYERS = {
 
 # Kinds drawn hatched where they show (SPEC-42.2): a neighbour cut where it meets this wall face.
 HATCHED = {"section"}
-# ANSI31 lines are 1/8" apart at scale 1; 24 puts them 1/8" apart on paper at 1/2" = 1'-0".
-HATCH_SCALE = 24
+# ANSI31 lines are 1/8" apart at scale 1; 8 puts them 1" apart in the drawing (1/24" on paper at 1/2" = 1'-0").
+HATCH_SCALE = 8
 
 # Kinds whose hidden edges are left out rather than dashed (SPEC-42).
 NEVER_DASHED = {"toe_kick", "top_mold", "crown"}
