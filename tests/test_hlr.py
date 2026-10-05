@@ -115,3 +115,27 @@ def test_drop_hidden_leaves_hidden_edges_out_instead_of_dashing_them():
     assert hidden == []
     dashed = HlrShape("mold", rect_polygon(0, 90, 30.25, 3), 26.125)
     assert _length(_run(dashed, crown)["mold"][1]) == pytest.approx(31.75)
+
+
+def test_an_outline_that_is_not_opaque_hides_nothing():
+    result = _run(
+        HlrShape("recess", rect_polygon(60, 0, 48, 96), 0, opaque=False),
+        HlrShape("inside", rect_polygon(80, 4, 20, 30.5), -12, is_box=True),
+        HlrShape("face", rect_polygon(40, 4, 30, 30.5), 24, is_box=True),
+    )
+    assert _length(result["inside"][0]) == pytest.approx(101)  # all of it, though the recess outline is nearer
+    assert result["inside"][1] == []
+    visible, hidden = result["recess"]
+    assert _length(hidden) == pytest.approx(30.5)  # its left edge behind the face cabinet, dashed
+    assert _length(visible) == pytest.approx(288 - 30.5)
+
+
+def test_a_shape_without_its_outline_draws_only_its_lines():
+    wing = HlrShape(
+        "wing", rect_polygon(72, 0, 4.5, 96), 30, outlined=False,
+        lines=(((72, 0), (76.5, 0)), ((72, 0), (72, 84))),
+    )
+    visible, hidden = _run(wing)["wing"]
+    assert _length(visible) == pytest.approx(88.5)
+    assert hidden == []
+    assert _run(HlrShape("bare", rect_polygon(0, 0, 1, 1), 0, outlined=False))["bare"] == ([], [])

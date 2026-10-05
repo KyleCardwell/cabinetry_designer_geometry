@@ -22,6 +22,8 @@ class HlrShape:
     covers_box_edges: bool = False
     drop_hidden: bool = False   # hidden edges are left out, never dashed (SPEC-42)
     lines: tuple = ()           # detail lines inside the shape: ((x1, z1), (x2, z2)) pairs
+    opaque: bool = True         # hides what's behind it; an outline (recess, opening, soffit) doesn't (SPEC-42.1)
+    outlined: bool = True       # draws the polygon's boundary; False draws only `lines` (SPEC-42.1)
 
 
 def rect_polygon(x: float, z: float, width: float, height: float, holes=()) -> Polygon:
@@ -52,10 +54,13 @@ def hidden_line_removal(shapes: list[HlrShape]) -> dict[str, tuple[list[Line2D],
     """For each shape id: (visible, hidden) segments of its outline (exterior and hole rings)."""
     result = {}
     for shape in shapes:
-        edges = shape.polygon.boundary
-        if shape.lines:
-            edges = unary_union([edges, *(LineString(line) for line in shape.lines)])
-        nearer = [other for other in shapes if other.front > shape.front + EPSILON]
+        drawn = [shape.polygon.boundary] if shape.outlined else []
+        drawn.extend(LineString(line) for line in shape.lines)
+        if not drawn:
+            result[shape.id] = ([], [])
+            continue
+        edges = drawn[0] if len(drawn) == 1 else unary_union(drawn)
+        nearer = [other for other in shapes if other.opaque and other.front > shape.front + EPSILON]
         if not nearer:
             result[shape.id] = (_geometry_to_lines(edges), [])
             continue
