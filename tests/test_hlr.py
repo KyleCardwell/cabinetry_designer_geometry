@@ -2,7 +2,7 @@
 
 import pytest
 
-from src.projection.hlr import HlrShape, hidden_line_removal, rect_polygon
+from src.projection.hlr import HlrShape, hidden_line_removal, rect_polygon, visible_regions
 
 
 def _length(lines):
@@ -139,3 +139,17 @@ def test_a_shape_without_its_outline_draws_only_its_lines():
     assert _length(visible) == pytest.approx(88.5)
     assert hidden == []
     assert _run(HlrShape("bare", rect_polygon(0, 0, 1, 1), 0, outlined=False))["bare"] == ([], [])
+
+
+def test_visible_regions_leave_out_what_nearer_opaque_shapes_cover():
+    shapes = [
+        HlrShape("section", rect_polygon(0, 4, 24.875, 30.5), 138),
+        HlrShape("box", rect_polygon(9.1875, 4, 48, 30.5), 24, is_box=True),
+        HlrShape("post", rect_polygon(20, 0, 10, 40), 200),
+        HlrShape("glass", rect_polygon(0, 0, 60, 50), 300, opaque=False),
+    ]
+    regions = visible_regions(shapes, {"section", "box"})
+    assert set(regions) == {"section", "box"}
+    assert regions["section"].area == pytest.approx(20 * 30.5)  # the post covers 20 to 24 7/8
+    assert regions["box"].area == pytest.approx(27.1875 * 30.5)  # the section and the post cover it to 30
+    assert visible_regions(shapes[:1], {"section"})["section"].area == pytest.approx(24.875 * 30.5)

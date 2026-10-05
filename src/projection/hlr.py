@@ -50,6 +50,17 @@ def _geometry_to_lines(geometry) -> list[Line2D]:
     return []
 
 
+def visible_regions(shapes: list[HlrShape], ids: set[str]) -> dict[str, object]:
+    """For each shape whose id is in `ids`: the part of its polygon no nearer opaque shape covers (SPEC-42.2)."""
+    regions = {}
+    for shape in shapes:
+        if shape.id not in ids:
+            continue
+        nearer = [other.polygon for other in shapes if other.opaque and other.front > shape.front + EPSILON]
+        regions[shape.id] = shape.polygon.difference(unary_union(nearer)) if nearer else shape.polygon
+    return regions
+
+
 def hidden_line_removal(shapes: list[HlrShape]) -> dict[str, tuple[list[Line2D], list[Line2D]]]:
     """For each shape id: (visible, hidden) segments of its outline (exterior and hole rings)."""
     result = {}
