@@ -104,3 +104,22 @@ def test_rejects_a_bad_plot_scale_or_an_unknown_dimension_field():
     payload["elevations"][0]["dimensions"][0]["offset"] = 9
     with pytest.raises(ValidationError):
         draw(payload)
+
+
+
+def test_text_that_doesnt_fit_goes_where_the_designer_put_it():
+    payload = _payload()
+    payload["elevations"][0]["dimensions"] = [
+        {"row": "lower.inner", "kind": "piece", "start": 0, "end": 0.75, "base": 0, "at": -9,
+         "text": '3/4"', "textX": 0.375, "textZ": -12.375},
+        {"row": "lower.inner", "kind": "piece", "start": 0.75, "end": 29.25, "base": 0, "at": -9, "text": '28 1/2"'},
+    ]
+    doc = _dxf(payload)
+    moved, inline = list(doc.modelspace().query("DIMENSION"))
+    assert tuple(moved.dxf.text_midpoint)[:2] == (0.375, -12.375)
+    assert moved.dxf.dimtype & 128 == 128
+    texts = [entity for entity in doc.blocks.get(moved.dxf.geometry) if entity.dxftype() == "MTEXT"]
+    assert [(text.dxf.text, tuple(text.dxf.insert)[:2]) for text in texts] == [('3/4"', (0.375, -12.375))]
+    assert [entity.dxftype() for entity in doc.blocks.get(moved.dxf.geometry)].count("LINE") == 3
+    assert inline.dxf.dimtype & 128 == 0
+    assert json.loads(zipfile.ZipFile(io.BytesIO(base64.b64decode(draw(payload)["zip_base64"]))).read("payload.json")) == payload

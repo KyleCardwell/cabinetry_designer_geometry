@@ -8,8 +8,8 @@ DEFAULT_PLOT_SCALE = 24
 
 
 def add_dimensions(modelspace, dimensions) -> None:
-    """Horizontal linear dimensions in the FF style. The block shows the designer's text; the entity keeps
-    `<>` so CAD re-measures it if the drawing is edited."""
+    """Horizontal linear dimensions in the FF style. The block shows the designer's text, at `textX`/`textZ`
+    when it's given; the entity keeps `<>` so CAD re-measures it if the drawing is edited."""
     for dimension in dimensions:
         if dimension.end - dimension.start <= EPSILON:
             continue
@@ -21,5 +21,8 @@ def add_dimensions(modelspace, dimensions) -> None:
             text=dimension.text,
             dxfattribs={"layer": "DIMENSIONS"},
         )
+        if dimension.textX is not None and dimension.textZ is not None:
+            # Text that doesn't fit, moved where the designer put it (SPEC-43.1), with no leader.
+            override.set_location((dimension.textX, dimension.textZ), leader=False, relative=False)
         override.render()
         override.dimension.dxf.text = "<>"

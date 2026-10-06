@@ -69,6 +69,9 @@ class PayloadDimension(BaseModel):
     base: float
     at: float
     text: str = Field(min_length=1)
+    # Where the text's middle goes when it doesn't fit between the ticks (SPEC-43.1); None = on the line.
+    textX: float | None = None
+    textZ: float | None = None
 
 
 class PayloadElevation(BaseModel):

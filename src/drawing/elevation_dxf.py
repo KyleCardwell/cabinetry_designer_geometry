@@ -132,8 +132,12 @@ def build_elevation_dxf(
 
     add_dimensions(modelspace, elevation.dimensions)
 
-    # The title sits under the lowest dimension line (SPEC-43); with none, where it always has.
-    low = min([0.0, *(dimension.at for dimension in elevation.dimensions)])
+    # The title sits under the lowest dimension line or moved text (SPEC-43, 43.1); with none, where it always has.
+    low = min([
+        0.0,
+        *(dimension.at for dimension in elevation.dimensions),
+        *(dimension.textZ for dimension in elevation.dimensions if dimension.textZ is not None),
+    ])
 
     wall_label = elevation.wallLabel
     if elevation.side == "back":
