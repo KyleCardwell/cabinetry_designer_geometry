@@ -8,20 +8,25 @@ DEFAULT_PLOT_SCALE = 24
 
 
 def add_dimensions(modelspace, dimensions) -> None:
-    """Horizontal or vertical linear dimensions in the FF style (SPEC-43.2). The block shows the designer's text, at `textX`/`textZ`
-    when it's given; the entity keeps `<>` so CAD re-measures it if the drawing is edited."""
+    """Horizontal or vertical linear dimensions in the FF style (SPEC-43.2). The block shows the designer's
+    text, at `textX`/`textZ` when it's given; the entity keeps `<>` so CAD re-measures it if the drawing
+    is edited.
+    Each end's extension line from its own base, left out when it's on the line (SPEC-43.3).
+    """
     for dimension in dimensions:
         if dimension.end - dimension.start <= EPSILON:
             continue
+        start_base = dimension.base if dimension.startBase is None else dimension.startBase
+        end_base = dimension.base if dimension.endBase is None else dimension.endBase
         if dimension.orientation == "vertical":
             base = (dimension.at, dimension.start)
-            p1 = (dimension.base, dimension.start)
-            p2 = (dimension.base, dimension.end)
+            p1 = (start_base, dimension.start)
+            p2 = (end_base, dimension.end)
             angle = 90
         else:
             base = (dimension.start, dimension.at)
-            p1 = (dimension.start, dimension.base)
-            p2 = (dimension.end, dimension.base)
+            p1 = (dimension.start, start_base)
+            p2 = (dimension.end, end_base)
             angle = 0
         override = modelspace.add_linear_dim(
             base=base,
@@ -30,6 +35,10 @@ def add_dimensions(modelspace, dimensions) -> None:
             angle=angle,
             dimstyle=DIMSTYLE,
             text=dimension.text,
+            override={
+                "dimse1": 1 if abs(start_base - dimension.at) <= EPSILON else 0,
+                "dimse2": 1 if abs(end_base - dimension.at) <= EPSILON else 0,
+            },
             dxfattribs={"layer": "DIMENSIONS"},
         )
         if dimension.textX is not None and dimension.textZ is not None:

@@ -165,3 +165,46 @@ def test_vertical_dimensions_dont_move_the_title_and_round_trip():
     payload["elevations"][0]["dimensions"][0]["orientation"] = "diagonal"
     with pytest.raises(ValidationError):
         draw(payload)
+
+
+# G1 elevation A's casing clearance to the tall, and a pin callout from the window's centre to the sink's
+# centre 3" right of it, as the designer sends them (SPEC-43.3).
+CALLOUTS = [
+    {"row": "clearances", "kind": "clearance", "start": 30, "end": 45, "base": 64.5, "at": 64.5, "text": '15"'},
+    {"row": "pins", "kind": "pin", "start": 72, "end": 75, "base": 48, "startBase": 66, "endBase": 34.5, "at": 48,
+     "text": 'CL 3"', "textX": 73.5, "textZ": 54.375},
+    {"row": "pins", "kind": "pin", "start": 0, "end": 60, "base": 40, "startBase": 40, "endBase": 34.5, "at": 40,
+     "text": '60"'},
+]
+
+
+def _lines(doc, dimension):
+    return sorted(
+        (tuple(entity.dxf.start)[:2], tuple(entity.dxf.end)[:2])
+        for entity in doc.blocks.get(dimension.dxf.geometry) if entity.dxftype() == "LINE"
+    )
+
+
+def test_an_extension_line_on_its_dimension_line_is_left_out():
+    payload = _payload()
+    payload["elevations"][0]["dimensions"] = copy.deepcopy(CALLOUTS)
+    doc = _dxf(payload)
+    clearance, pin, wall_pin = doc.modelspace().query("DIMENSION")
+    assert [dimension.get_measurement() for dimension in (clearance, pin, wall_pin)] == [15, 3, 60]
+    assert tuple(clearance.dxf.defpoint2)[:2] == (30, 64.5)
+    assert _lines(doc, clearance) == [((30, 64.5), (45, 64.5))]
+    assert _lines(doc, wall_pin) == [((0, 40), (60, 40)), ((60, 36), (60, 41.5))]
+
+
+def test_each_end_of_a_dimension_can_have_its_own_base_and_round_trips():
+    payload = _payload()
+    payload["elevations"][0]["dimensions"] = copy.deepcopy(CALLOUTS)
+    doc = _dxf(payload)
+    pin = list(doc.modelspace().query("DIMENSION"))[1]
+    assert tuple(pin.dxf.defpoint2)[:2] == (72, 66)
+    assert tuple(pin.dxf.defpoint3)[:2] == (75, 34.5)
+    assert tuple(pin.dxf.defpoint)[:2] == (72, 48)
+    assert _lines(doc, pin) == [((72, 48), (75, 48)), ((72, 64.5), (72, 46.5)), ((75, 36), (75, 49.5))]
+    assert tuple(pin.dxf.text_midpoint)[:2] == (73.5, 54.375)
+    archive = zipfile.ZipFile(io.BytesIO(base64.b64decode(draw(payload)["zip_base64"])))
+    assert json.loads(archive.read("payload.json")) == payload

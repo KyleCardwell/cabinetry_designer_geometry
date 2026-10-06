@@ -74,6 +74,9 @@ class PayloadDimension(BaseModel):
     # Where the text's middle goes when it doesn't fit between the ticks (SPEC-43.1); None = on the line.
     textX: float | None = None
     textZ: float | None = None
+    # Where the extension line at start / end begins (SPEC-43.3); None = base.
+    startBase: float | None = None
+    endBase: float | None = None
 
 
 class PayloadElevation(BaseModel):
