@@ -4,14 +4,16 @@ import base64
 import io
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
+from .dimensions import DEFAULT_PLOT_SCALE
 from .elevation_dxf import build_elevation_dxf
 from .models import DrawingPayload
 
 
 def draw(payload: dict) -> dict:
     model = DrawingPayload.model_validate(payload)
+    plot_scale = model.plotScale or DEFAULT_PLOT_SCALE
     elevations = [
-        (f"elevation-{elevation.letter}.dxf", build_elevation_dxf(elevation, model.room))
+        (f"elevation-{elevation.letter}.dxf", build_elevation_dxf(elevation, model.room, plot_scale))
         for elevation in model.elevations
     ]
     buffer = io.BytesIO()

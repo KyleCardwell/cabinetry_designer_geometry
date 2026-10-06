@@ -56,6 +56,21 @@ class PayloadPart(BaseModel):
     openEdges: list[Literal["left", "right", "top", "bottom"]] = []
 
 
+class PayloadDimension(BaseModel):
+    """One linear dimension (SPEC-43): from start to end along the elevation, extension lines from
+    `base`, the dimension line at `at`, its text as the designer formats it."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    row: str = Field(min_length=1)
+    kind: str = Field(min_length=1)
+    start: float
+    end: float
+    base: float
+    at: float
+    text: str = Field(min_length=1)
+
+
 class PayloadElevation(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -68,6 +83,7 @@ class PayloadElevation(BaseModel):
     length: float = Field(gt=0)
     height: float = Field(gt=0)
     parts: list[PayloadPart] = []
+    dimensions: list[PayloadDimension] = []
 
 
 class DrawingPayload(BaseModel):
@@ -77,3 +93,5 @@ class DrawingPayload(BaseModel):
     units: Literal["in"]
     room: PayloadRoom
     elevations: list[PayloadElevation]
+    # Drawing scale (SPEC-43): 24 is 1/2" = 1'-0". None draws at 24, so a payload without it round-trips.
+    plotScale: float | None = Field(default=None, gt=0)

@@ -2,9 +2,10 @@
 
 from shapely.geometry import Polygon
 
-from src.dxf.writer import create_dxf_document, doc_to_bytes, write_lines_to_layer
+from src.dxf.writer import add_dimstyle, create_dxf_document, doc_to_bytes, write_lines_to_layer
 from src.projection.hlr import EPSILON, HlrShape, hidden_line_removal, rect_polygon, visible_regions
 
+from .dimensions import DEFAULT_PLOT_SCALE, add_dimensions
 from .models import PayloadElevation, PayloadRoom
 
 
@@ -78,8 +79,11 @@ def _add_hatch(modelspace, layer, region) -> None:
             hatch.paths.add_polyline_path(list(ring.coords)[:-1], is_closed=True, flags=16)
 
 
-def build_elevation_dxf(elevation: PayloadElevation, room: PayloadRoom) -> bytes:
+def build_elevation_dxf(
+    elevation: PayloadElevation, room: PayloadRoom, plot_scale: float = DEFAULT_PLOT_SCALE,
+) -> bytes:
     doc = create_dxf_document()
+    add_dimstyle(doc, plot_scale)
     modelspace = doc.modelspace()
     modelspace.add_lwpolyline(
         [
@@ -124,13 +128,18 @@ def build_elevation_dxf(elevation: PayloadElevation, room: PayloadRoom) -> bytes
         if part.id in regions:
             _add_hatch(modelspace, KIND_LAYERS[part.kind], regions[part.id])
 
+    add_dimensions(modelspace, elevation.dimensions)
+
+    # The title sits under the lowest dimension line (SPEC-43); with none, where it always has.
+    low = min([0.0, *(dimension.at for dimension in elevation.dimensions)])
+
     wall_label = elevation.wallLabel
     if elevation.side == "back":
         wall_label += " (back)"
     for text, position, height in [
-        (elevation.title.upper(), (0, -12), 4),
-        (wall_label, (0, -18), 3),
-        (room.name, (0, -23), 3),
+        (elevation.title.upper(), (0, low - 12), 4),
+        (wall_label, (0, low - 18), 3),
+        (room.name, (0, low - 23), 3),
     ]:
         modelspace.add_text(
             text,

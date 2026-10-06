@@ -61,6 +61,33 @@ def create_dxf_document() -> Drawing:
     return doc
 
 
+# The dimension style (SPEC-43). Sizes are paper inches; DIMSCALE (the plot scale) makes them drawing inches.
+DIMSTYLE = "FF"
+DIMSTYLE_PAPER = {
+    "dimtxt": 0.125,    # 1/8" text
+    "dimtsz": 0.0625,   # architectural ticks, not arrows
+    "dimexo": 0.0625,   # extension lines start 1/16" off the drawing
+    "dimexe": 0.0625,   # and run 1/16" past the dimension line
+    "dimgap": 0.0625,   # text 1/16" above the line
+}
+
+
+def add_dimstyle(doc: Drawing, plot_scale: float) -> None:
+    """The FF dimension style (SPEC-43): fractional inches to 1/16", ticks, text above the line. The inch mark
+    comes with the designer's text; ezdxf doesn't write DIMPOST, so a dimension CAD re-measures has none."""
+    style = doc.dimstyles.new(DIMSTYLE)
+    for key, value in DIMSTYLE_PAPER.items():
+        style.dxf.set(key, value)
+    style.dxf.dimscale = plot_scale
+    style.dxf.dimtad = 1        # text above the dimension line
+    style.dxf.dimtih = 0        # text aligned with the line, inside
+    style.dxf.dimtoh = 0        # and outside
+    style.dxf.dimlunit = 5      # fractional
+    style.dxf.dimdec = 4        # to 1/16"
+    style.dxf.dimfrac = 2       # not stacked: 30 1/2
+    style.dxf.dimdsep = ord(".")
+
+
 def write_lines_to_layer(
     doc: Drawing,
     layer_name: str,
