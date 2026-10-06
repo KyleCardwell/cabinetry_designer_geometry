@@ -123,3 +123,45 @@ def test_text_that_doesnt_fit_goes_where_the_designer_put_it():
     assert [entity.dxftype() for entity in doc.blocks.get(moved.dxf.geometry)].count("LINE") == 3
     assert inline.dxf.dimtype & 128 == 0
     assert json.loads(zipfile.ZipFile(io.BytesIO(base64.b64decode(draw(payload)["zip_base64"]))).read("payload.json")) == payload
+
+
+# G1 elevation A's left edge, as the designer sends it (SPEC-43.2): toe kick (its text moved), box, molding, wall.
+VERTICAL = [
+    {"row": "left.inner", "orientation": "vertical", "kind": "toe-kick", "start": 0, "end": 4, "base": 0, "at": -9,
+     "text": '4"', "textX": -15.375, "textZ": 2},
+    {"row": "left.inner", "orientation": "vertical", "kind": "box", "start": 4, "end": 90, "base": 0, "at": -9,
+     "text": '86"'},
+    {"row": "left.inner", "orientation": "vertical", "kind": "molding", "start": 90, "end": 96, "base": 0, "at": -9,
+     "text": '6"'},
+    {"row": "left.outer", "orientation": "vertical", "kind": "wall", "start": 0, "end": 96, "base": 0, "at": -21.75,
+     "text": '96"'},
+]
+
+
+def test_a_vertical_record_dimensions_up_the_wall():
+    payload = _payload()
+    payload["elevations"][0]["dimensions"] = copy.deepcopy(VERTICAL)
+    doc = _dxf(payload)
+    toe, box, molding, wall = doc.modelspace().query("DIMENSION")
+    assert {dimension.dxf.angle for dimension in (toe, box, molding, wall)} == {90}
+    assert tuple(box.dxf.defpoint2)[:2] == (0, 4)
+    assert tuple(box.dxf.defpoint3)[:2] == (0, 90)
+    assert tuple(box.dxf.defpoint)[:2] == (-9, 4)
+    assert [dimension.get_measurement() for dimension in (toe, box, molding, wall)] == [4, 86, 6, 96]
+    assert tuple(wall.dxf.defpoint)[:2] == (-21.75, 0)
+    assert tuple(toe.dxf.text_midpoint)[:2] == (-15.375, 2)
+    assert toe.dxf.dimtype & 128 == 128
+    texts = [entity for entity in doc.blocks.get(box.dxf.geometry) if entity.dxftype() == "MTEXT"]
+    assert [(text.dxf.text, text.dxf.rotation) for text in texts] == [('86"', 90)]
+
+
+def test_vertical_dimensions_dont_move_the_title_and_round_trip():
+    payload = _payload()
+    payload["elevations"][0]["dimensions"] = copy.deepcopy(VERTICAL)
+    texts = {text.dxf.text: tuple(text.dxf.insert)[:2] for text in _dxf(payload).modelspace().query("TEXT")}
+    assert texts == {"ELEVATION A": (0, -12), "Wall 1": (0, -18), "G1 Euro kitchen": (0, -23)}
+    archive = zipfile.ZipFile(io.BytesIO(base64.b64decode(draw(payload)["zip_base64"])))
+    assert json.loads(archive.read("payload.json")) == payload
+    payload["elevations"][0]["dimensions"][0]["orientation"] = "diagonal"
+    with pytest.raises(ValidationError):
+        draw(payload)

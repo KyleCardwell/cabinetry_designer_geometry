@@ -63,6 +63,8 @@ class PayloadDimension(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     row: str = Field(min_length=1)
+    # Vertical dimensions run up the wall (SPEC-43.2): start/end are heights, base/at are x.
+    orientation: Literal["horizontal", "vertical"] = "horizontal"
     kind: str = Field(min_length=1)
     start: float
     end: float
