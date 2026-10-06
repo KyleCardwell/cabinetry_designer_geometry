@@ -110,6 +110,28 @@ class PayloadElevation(BaseModel):
     marks: list[PayloadMark] = []
 
 
+class PayloadPlanPart(BaseModel):
+    """One outline in plan (SPEC-44), in plan inches with y up. Walls are joined and voids cut out of them."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    id: str = Field(min_length=1)
+    kind: Literal[
+        "wall", "void", "opening", "casing", "recess", "soffit", "cabinet", "face",
+        "filler", "end_panel", "panel", "frame", "shelf", "wall_end_panel",
+    ]
+    runId: str | None = None
+    points: list[tuple[float, float]] = Field(min_length=2)
+    closed: bool = True
+    dashed: bool = False
+
+
+class PayloadPlan(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    parts: list[PayloadPlanPart] = []
+
+
 class DrawingPayload(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -119,3 +141,5 @@ class DrawingPayload(BaseModel):
     elevations: list[PayloadElevation]
     # Drawing scale (SPEC-43): 24 is 1/2" = 1'-0". None draws at 24, so a payload without it round-trips.
     plotScale: float | None = Field(default=None, gt=0)
+    # The room in plan (SPEC-44). None draws no plan.dxf, so a payload without it round-trips.
+    plan: PayloadPlan | None = None

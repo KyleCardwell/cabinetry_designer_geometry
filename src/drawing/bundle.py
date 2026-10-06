@@ -7,24 +7,28 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 from .dimensions import DEFAULT_PLOT_SCALE
 from .elevation_dxf import build_elevation_dxf
 from .models import DrawingPayload
+from .plan_dxf import build_plan_dxf
 
 
 def draw(payload: dict) -> dict:
     model = DrawingPayload.model_validate(payload)
     plot_scale = model.plotScale or DEFAULT_PLOT_SCALE
-    elevations = [
+    files = []
+    if model.plan is not None:
+        files.append(("plan.dxf", build_plan_dxf(model.plan, model.room, plot_scale)))
+    files.extend([
         (f"elevation-{elevation.letter}.dxf", build_elevation_dxf(elevation, model.room, plot_scale))
         for elevation in model.elevations
-    ]
+    ])
     buffer = io.BytesIO()
     with ZipFile(buffer, "w", compression=ZIP_DEFLATED) as archive:
-        for name, content in [("payload.json", model.model_dump_json(indent=2, exclude_defaults=True)), *elevations]:
+        for name, content in [("payload.json", model.model_dump_json(indent=2, exclude_defaults=True)), *files]:
             entry = ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
             entry.compress_type = ZIP_DEFLATED
             archive.writestr(entry, content)
 
     return {
         "payloadVersion": 1,
-        "files": [name for name, _ in elevations],
+        "files": [name for name, _ in files],
         "zip_base64": base64.b64encode(buffer.getvalue()).decode("ascii"),
     }
