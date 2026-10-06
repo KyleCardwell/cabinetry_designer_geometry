@@ -73,14 +73,14 @@ def test_the_style_is_paper_sizes_times_the_plot_scale():
     style = _dxf(_payload()).dimstyles.get("FF")
     assert style.dxf.dimscale == 24
     assert (style.dxf.dimtxt, style.dxf.dimtsz, style.dxf.dimexo, style.dxf.dimexe, style.dxf.dimgap) == (
-        0.125, 0.0625, 0.0625, 0.0625, 0.0625,
+        0.09375, 0.0625, 0.0625, 0.0625, 0.0625,
     )
     assert (style.dxf.dimlunit, style.dxf.dimdec, style.dxf.dimfrac, style.dxf.dimtad) == (5, 4, 2, 1)
     doc = _dxf(_payload(plot_scale=48))
     assert doc.dimstyles.get("FF").dxf.dimscale == 48
     dimension = next(iter(doc.modelspace().query("DIMENSION")))
     heights = [entity.dxf.char_height for entity in doc.blocks.get(dimension.dxf.geometry) if entity.dxftype() == "MTEXT"]
-    assert heights == [6]
+    assert heights == [4.5]
 
 
 def test_the_title_moves_under_the_lowest_dimension_line():

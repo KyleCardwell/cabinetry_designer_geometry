@@ -2,7 +2,7 @@
 
 from shapely.geometry import Polygon
 
-from src.dxf.writer import add_dimstyle, create_dxf_document, doc_to_bytes, write_lines_to_layer
+from src.dxf.writer import TEXT_STYLE, add_dimstyle, create_dxf_document, doc_to_bytes, write_lines_to_layer
 from src.projection.hlr import EPSILON, HlrShape, hidden_line_removal, rect_polygon, visible_regions
 
 from .dimensions import DEFAULT_PLOT_SCALE, add_dimensions
@@ -84,6 +84,8 @@ def build_elevation_dxf(
 ) -> bytes:
     doc = create_dxf_document()
     add_dimstyle(doc, plot_scale)
+    # Dashes 1/4" and gaps 1/8" on paper at any plot scale (SPEC-43.1): DASHED is 1/2" + 1/4" at LTSCALE 1.
+    doc.header["$LTSCALE"] = plot_scale / 2
     modelspace = doc.modelspace()
     modelspace.add_lwpolyline(
         [
@@ -143,7 +145,7 @@ def build_elevation_dxf(
     ]:
         modelspace.add_text(
             text,
-            dxfattribs={"layer": "TEXT", "insert": position, "height": height},
+            dxfattribs={"layer": "TEXT", "style": TEXT_STYLE, "insert": position, "height": height},
         )
 
     return doc_to_bytes(doc)

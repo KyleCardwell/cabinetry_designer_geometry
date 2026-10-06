@@ -12,24 +12,31 @@ from ezdxf.document import Drawing
 from ..models.geometry import Line2D
 
 
-# Standard layer definitions: (name, color_index, linetype)
+# Standard layer definitions: (color_index, linetype, lineweight)
 # AutoCAD Color Index: 7=white, 1=red, 2=yellow, 3=green, 4=cyan, 5=blue, 6=magenta
+# Lineweights are in 1/100 mm (SPEC-43.1): walls heaviest, boxes and tops next, faces and parts medium,
+# hidden lines, dimensions and text lightest.
 LAYER_DEFS = {
-    "WALLS":      (7, "CONTINUOUS"),
-    "CABINETS":   (5, "CONTINUOUS"),
-    "FACES":      (7, "CONTINUOUS"),
-    "FILLERS":    (30, "CONTINUOUS"),
-    "PANELS":     (6, "CONTINUOUS"),
-    "FRAMES":     (3, "CONTINUOUS"),
-    "SHELVES":    (4, "CONTINUOUS"),
-    "COUNTERTOPS": (9, "CONTINUOUS"),
-    "MOLDINGS":   (1, "CONTINUOUS"),
-    "OPENINGS":   (40, "CONTINUOUS"),
-    "SECTIONS":   (8, "CONTINUOUS"),
-    "HIDDEN":     (8, "DASHED"),
-    "DIMENSIONS": (2, "CONTINUOUS"),
-    "TEXT":       (7, "CONTINUOUS"),
+    "WALLS":      (7, "CONTINUOUS", 50),
+    "CABINETS":   (5, "CONTINUOUS", 35),
+    "FACES":      (7, "CONTINUOUS", 25),
+    "FILLERS":    (30, "CONTINUOUS", 25),
+    "PANELS":     (6, "CONTINUOUS", 25),
+    "FRAMES":     (3, "CONTINUOUS", 25),
+    "SHELVES":    (4, "CONTINUOUS", 18),
+    "COUNTERTOPS": (9, "CONTINUOUS", 35),
+    "MOLDINGS":   (1, "CONTINUOUS", 25),
+    "OPENINGS":   (40, "CONTINUOUS", 25),
+    "SECTIONS":   (8, "CONTINUOUS", 25),
+    "HIDDEN":     (8, "DASHED", 18),
+    "DIMENSIONS": (2, "CONTINUOUS", 18),
+    "TEXT":       (7, "CONTINUOUS", 18),
 }
+
+# Every label and dimension uses one text style (SPEC-43.1). The DXF names the font; the viewer supplies it.
+TEXT_STYLE = "FF_TEXT"
+TEXT_FONT = "arialn.ttf"
+TEXT_FAMILY = "Arial Narrow"
 
 
 def create_dxf_document() -> Drawing:
@@ -54,9 +61,14 @@ def create_dxf_document() -> Drawing:
             description="Dashed ---- ---- ----",
         )
 
+    doc.header["$LWDISPLAY"] = 1    # show lineweights
+
     # Create layers
-    for layer_name, (color, linetype) in LAYER_DEFS.items():
-        doc.layers.add(layer_name, color=color, linetype=linetype)
+    for layer_name, (color, linetype, lineweight) in LAYER_DEFS.items():
+        doc.layers.add(layer_name, color=color, linetype=linetype, lineweight=lineweight)
+
+    style = doc.styles.new(TEXT_STYLE, dxfattribs={"font": TEXT_FONT})
+    style.set_extended_font_data(family=TEXT_FAMILY, italic=False, bold=False)
 
     return doc
 
@@ -64,7 +76,7 @@ def create_dxf_document() -> Drawing:
 # The dimension style (SPEC-43). Sizes are paper inches; DIMSCALE (the plot scale) makes them drawing inches.
 DIMSTYLE = "FF"
 DIMSTYLE_PAPER = {
-    "dimtxt": 0.125,    # 1/8" text
+    "dimtxt": 0.09375,  # 3/32" text (SPEC-43.1)
     "dimtsz": 0.0625,   # architectural ticks, not arrows
     "dimexo": 0.0625,   # extension lines start 1/16" off the drawing
     "dimexe": 0.0625,   # and run 1/16" past the dimension line
@@ -73,12 +85,14 @@ DIMSTYLE_PAPER = {
 
 
 def add_dimstyle(doc: Drawing, plot_scale: float) -> None:
-    """The FF dimension style (SPEC-43): fractional inches to 1/16", ticks, text above the line. The inch mark
-    comes with the designer's text; ezdxf doesn't write DIMPOST, so a dimension CAD re-measures has none."""
+    """The FF dimension style (SPEC-43, 43.1): fractional inches to 1/16", ticks, text above the line, in
+    FF_TEXT. The inch mark comes with the designer's text; ezdxf doesn't write DIMPOST, so a dimension
+    CAD re-measures has none."""
     style = doc.dimstyles.new(DIMSTYLE)
     for key, value in DIMSTYLE_PAPER.items():
         style.dxf.set(key, value)
     style.dxf.dimscale = plot_scale
+    style.dxf.dimtxsty = TEXT_STYLE
     style.dxf.dimtad = 1        # text above the dimension line
     style.dxf.dimtih = 0        # text aligned with the line, inside
     style.dxf.dimtoh = 0        # and outside
