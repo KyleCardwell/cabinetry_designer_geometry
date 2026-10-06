@@ -68,13 +68,16 @@ def _polygons(region) -> list:
     return [part for geom in getattr(region, "geoms", []) for part in _polygons(geom)]
 
 
-def _add_hatch(modelspace, layer, region) -> None:
-    """One ANSI31 hatch per polygon of a region, holes included (SPEC-42.2)."""
+def _add_hatch(modelspace, layer, region, solid: bool = False) -> None:
+    """One ANSI31 hatch per polygon of a region, holes included, or solid when asked (SPEC-44.1)."""
     for polygon in _polygons(region):
         if polygon.area <= EPSILON:
             continue
         hatch = modelspace.add_hatch(dxfattribs={"layer": layer})
-        hatch.set_pattern_fill("ANSI31", scale=HATCH_SCALE)
+        if solid:
+            hatch.set_solid_fill(color=256)
+        else:
+            hatch.set_pattern_fill("ANSI31", scale=HATCH_SCALE)
         hatch.paths.add_polyline_path(list(polygon.exterior.coords)[:-1], is_closed=True, flags=1)
         for ring in polygon.interiors:
             hatch.paths.add_polyline_path(list(ring.coords)[:-1], is_closed=True, flags=16)

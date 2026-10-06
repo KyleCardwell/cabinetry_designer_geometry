@@ -64,8 +64,9 @@ def test_walls_join_at_the_corner_and_the_window_cuts_them():
     assert all(polyline.closed for polyline in walls)
     assert sorted(round(_area(polyline), 4) for polyline in walls) == [162, 506.25]
     hatches = list(msp.query("HATCH"))
-    assert [(hatch.dxf.layer, hatch.dxf.pattern_name, hatch.dxf.pattern_scale) for hatch in hatches] == [
-        ("SECTIONS", "ANSI31", 8), ("SECTIONS", "ANSI31", 8),
+    # Solid, in the layer's colour (SPEC-44.1).
+    assert [(hatch.dxf.layer, hatch.dxf.solid_fill, hatch.dxf.color) for hatch in hatches] == [
+        ("SECTIONS", 1, 256), ("SECTIONS", 1, 256),
     ]
     assert sorted(round(Polygon([v[:2] for v in hatch.paths.paths[0].vertices]).area, 4) for hatch in hatches) == [
         162, 506.25,

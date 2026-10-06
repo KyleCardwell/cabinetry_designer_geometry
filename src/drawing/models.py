@@ -124,6 +124,8 @@ class PayloadPlanPart(BaseModel):
     points: list[tuple[float, float]] = Field(min_length=2)
     closed: bool = True
     dashed: bool = False
+    # How high its top is (SPEC-44.1). A part with a top hides the lines of lower parts under it; None is drawn over all.
+    top: float | None = None
 
 
 class PayloadPlan(BaseModel):
