@@ -30,6 +30,8 @@ LAYER_DEFS = {
     "SECTIONS":   (8, "CONTINUOUS", 25),
     "HIDDEN":     (8, "DASHED", 18),
     "DIMENSIONS": (2, "CONTINUOUS", 18),
+    # Centrelines are as light as dimensions (SPEC-43.3).
+    "CENTERLINES": (2, "CENTER", 18),
     "TEXT":       (7, "CONTINUOUS", 18),
 }
 

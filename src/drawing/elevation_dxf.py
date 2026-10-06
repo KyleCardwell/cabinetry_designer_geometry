@@ -6,6 +6,7 @@ from src.dxf.writer import TEXT_STYLE, add_dimstyle, create_dxf_document, doc_to
 from src.projection.hlr import EPSILON, HlrShape, hidden_line_removal, rect_polygon, visible_regions
 
 from .dimensions import DEFAULT_PLOT_SCALE, add_dimensions
+from .marks import add_marks
 from .models import PayloadElevation, PayloadRoom
 
 
@@ -131,6 +132,7 @@ def build_elevation_dxf(
             _add_hatch(modelspace, KIND_LAYERS[part.kind], regions[part.id])
 
     add_dimensions(modelspace, elevation.dimensions)
+    add_marks(modelspace, elevation.marks, plot_scale)
 
     # The title sits under the lowest horizontal dimension line or moved text (SPEC-43, 43.1, 43.2); with none, where it always has.
     low = min([

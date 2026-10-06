@@ -79,6 +79,21 @@ class PayloadDimension(BaseModel):
     endBase: float | None = None
 
 
+class PayloadMark(BaseModel):
+    """A centreline mark (SPEC-43.3): a centre line at `x` from `bottom` to `top`,
+    its label's middle at `textX`/`textZ`."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    kind: Literal["centerline"]
+    x: float
+    bottom: float
+    top: float
+    text: str = Field(min_length=1)
+    textX: float
+    textZ: float
+
+
 class PayloadElevation(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -92,6 +107,7 @@ class PayloadElevation(BaseModel):
     height: float = Field(gt=0)
     parts: list[PayloadPart] = []
     dimensions: list[PayloadDimension] = []
+    marks: list[PayloadMark] = []
 
 
 class DrawingPayload(BaseModel):
