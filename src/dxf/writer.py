@@ -7,6 +7,7 @@ for writing Line2D segments to named layers.
 
 from __future__ import annotations
 import ezdxf
+from ezdxf import bbox
 from ezdxf import units
 from ezdxf.document import Drawing
 from ..models.geometry import Line2D
@@ -39,6 +40,9 @@ LAYER_DEFS = {
 TEXT_STYLE = "FF_TEXT"
 TEXT_FONT = "arialn.ttf"
 TEXT_FAMILY = "Arial Narrow"
+
+# Space left around everything drawn (SPEC-44.1), paper inches: 1/2" is 12" at 1/2" = 1'-0".
+DRAWING_PADDING = 0.5
 
 
 def create_dxf_document() -> Drawing:
@@ -139,6 +143,22 @@ def add_text(
             "insert": (x, y),
         },
     )
+
+
+def frame_drawing(doc: Drawing, plot_scale: float) -> None:
+    """Extents, limits and the opening view: everything drawn, dimensions and text included, plus the padding."""
+    extents = bbox.extents(doc.modelspace())
+    if not extents.has_data:
+        return
+    pad = DRAWING_PADDING * plot_scale
+    x0, y0 = extents.extmin.x - pad, extents.extmin.y - pad
+    x1, y1 = extents.extmax.x + pad, extents.extmax.y + pad
+    # ezdxf copies these into $EXTMIN/$EXTMAX/$LIMMIN/$LIMMAX when it writes; setting the header directly gets overwritten.
+    doc.modelspace().dxf.extmin = (x0, y0, 0)
+    doc.modelspace().dxf.extmax = (x1, y1, 0)
+    doc.modelspace().dxf.limmin = (x0, y0)
+    doc.modelspace().dxf.limmax = (x1, y1)
+    doc.set_modelspace_vport(height=y1 - y0, center=((x0 + x1) / 2, (y0 + y1) / 2))
 
 
 def doc_to_bytes(doc: Drawing) -> bytes:

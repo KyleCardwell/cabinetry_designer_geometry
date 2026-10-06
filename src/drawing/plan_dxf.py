@@ -3,7 +3,7 @@
 from shapely.geometry import Polygon
 from shapely.ops import unary_union
 
-from src.dxf.writer import TEXT_STYLE, create_dxf_document, doc_to_bytes, write_lines_to_layer
+from src.dxf.writer import TEXT_STYLE, create_dxf_document, doc_to_bytes, frame_drawing, write_lines_to_layer
 from src.projection.hlr import HlrShape, hidden_line_removal
 
 from .dimensions import DEFAULT_PLOT_SCALE
@@ -85,4 +85,5 @@ def build_plan_dxf(
                 dxfattribs={"layer": "TEXT", "style": TEXT_STYLE, "insert": position, "height": height},
             )
 
+    frame_drawing(doc, plot_scale)
     return doc_to_bytes(doc)
