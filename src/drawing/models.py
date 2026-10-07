@@ -128,10 +128,28 @@ class PayloadPlanPart(BaseModel):
     top: float | None = None
 
 
+class PayloadPlanDimension(BaseModel):
+    """One aligned dimension in plan (SPEC-45), plan inches with y up: measured from start to end,
+    extension lines from those points, the dimension line `offset` to the left of start→end (negative: right)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    row: str = Field(min_length=1)
+    kind: str = Field(min_length=1)
+    start: tuple[float, float]
+    end: tuple[float, float]
+    offset: float
+    text: str = Field(min_length=1)
+    # Where the text's middle goes when it doesn't fit between the ticks; None = on the line.
+    textAt: tuple[float, float] | None = None
+
+
 class PayloadPlan(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     parts: list[PayloadPlanPart] = []
+    # Wall lengths and the rows along each face (SPEC-45); depths and clearances in 45.2.
+    dimensions: list[PayloadPlanDimension] = []
 
 
 class DrawingPayload(BaseModel):

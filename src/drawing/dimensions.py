@@ -1,5 +1,7 @@
 """Elevation dimensions (SPEC-43): one DIMENSION per record the designer sends, on DIMENSIONS."""
 
+from math import dist
+
 from src.dxf.writer import DIMSTYLE
 from src.projection.hlr import EPSILON
 
@@ -44,5 +46,27 @@ def add_dimensions(modelspace, dimensions) -> None:
         if dimension.textX is not None and dimension.textZ is not None:
             # Text that doesn't fit, moved where the designer put it (SPEC-43.1), with no leader.
             override.set_location((dimension.textX, dimension.textZ), leader=False, relative=False)
+        override.render()
+        override.dimension.dxf.text = "<>"
+
+
+def add_plan_dimensions(modelspace, dimensions) -> None:
+    """Aligned dimensions in plan (SPEC-45), in the FF style. At offset 0 the dimension line is the
+    measured line, with no extension lines."""
+    for dimension in dimensions:
+        if dist(dimension.start, dimension.end) <= EPSILON:
+            continue
+        on_line = 1 if abs(dimension.offset) <= EPSILON else 0
+        override = modelspace.add_aligned_dim(
+            p1=dimension.start,
+            p2=dimension.end,
+            distance=dimension.offset,
+            dimstyle=DIMSTYLE,
+            text=dimension.text,
+            override={"dimse1": on_line, "dimse2": on_line},
+            dxfattribs={"layer": "DIMENSIONS"},
+        )
+        if dimension.textAt is not None:
+            override.set_location(dimension.textAt, leader=False, relative=False)
         override.render()
         override.dimension.dxf.text = "<>"

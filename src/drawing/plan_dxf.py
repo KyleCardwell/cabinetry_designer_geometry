@@ -1,12 +1,14 @@
 """Render a room's plan as a DXF (SPEC-44)."""
 
+from math import hypot
+
 from shapely.geometry import Polygon
 from shapely.ops import unary_union
 
-from src.dxf.writer import TEXT_STYLE, create_dxf_document, doc_to_bytes, frame_drawing, write_lines_to_layer
-from src.projection.hlr import HlrShape, hidden_line_removal
+from src.dxf.writer import TEXT_STYLE, add_dimstyle, create_dxf_document, doc_to_bytes, frame_drawing, write_lines_to_layer
+from src.projection.hlr import EPSILON, HlrShape, hidden_line_removal
 
-from .dimensions import DEFAULT_PLOT_SCALE
+from .dimensions import DEFAULT_PLOT_SCALE, add_plan_dimensions
 from .elevation_dxf import _add_hatch, _polygons
 from .models import PayloadPlan, PayloadRoom
 
@@ -42,10 +44,33 @@ def wall_region(plan: PayloadPlan):
     return region
 
 
+def dimension_points(dimensions) -> list:
+    """Every point a plan dimension reaches (SPEC-45): its ends, its dimension line's ends and moved text."""
+    points = []
+    for dimension in dimensions:
+        dx = dimension.end[0] - dimension.start[0]
+        dy = dimension.end[1] - dimension.start[1]
+        length = hypot(dx, dy)
+        if length <= EPSILON:
+            continue
+        offset_x = -dy / length * dimension.offset
+        offset_y = dx / length * dimension.offset
+        points.extend([
+            dimension.start,
+            dimension.end,
+            (dimension.start[0] + offset_x, dimension.start[1] + offset_y),
+            (dimension.end[0] + offset_x, dimension.end[1] + offset_y),
+        ])
+        if dimension.textAt is not None:
+            points.append(dimension.textAt)
+    return points
+
+
 def build_plan_dxf(
     plan: PayloadPlan, room: PayloadRoom, plot_scale: float = DEFAULT_PLOT_SCALE,
 ) -> bytes:
     doc = create_dxf_document()
+    add_dimstyle(doc, plot_scale)
     doc.header["$LTSCALE"] = plot_scale / 2
     modelspace = doc.modelspace()
     region = wall_region(plan)
@@ -72,10 +97,12 @@ def build_plan_dxf(
             attributes["linetype"] = "DASHED"
         modelspace.add_lwpolyline(part.points, close=part.closed, dxfattribs=attributes)
 
+    add_plan_dimensions(modelspace, plan.dimensions)
+
     points = [point for part in plan.parts for point in part.points]
     if points:
         left = min(x for x, _ in points)
-        low = min(y for _, y in points)
+        low = min(y for _, y in points + dimension_points(plan.dimensions))
         for text, position, height in [
             ("PLAN", (left, low - 12), 4),
             (room.name, (left, low - 18), 3),
