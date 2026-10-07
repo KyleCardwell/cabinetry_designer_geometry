@@ -36,7 +36,7 @@ def test_each_layer_has_its_lineweight_and_they_show():
     assert weights == {
         "WALLS": 50, "CABINETS": 35, "FACES": 25, "FILLERS": 25, "PANELS": 25, "FRAMES": 25,
         "SHELVES": 18, "COUNTERTOPS": 35, "MOLDINGS": 25, "OPENINGS": 25, "SECTIONS": 25,
-        "HIDDEN": 18, "DIMENSIONS": 18, "CENTERLINES": 18, "TEXT": 18,
+        "HIDDEN": 18, "DIMENSIONS": 18, "CENTERLINES": 18, "TEXT": 18, "MARKERS": 25,
     }
     assert doc.header["$LWDISPLAY"] == 1
 

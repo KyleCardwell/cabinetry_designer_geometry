@@ -11,6 +11,7 @@ from src.projection.hlr import EPSILON, HlrShape, hidden_line_removal
 from .dimensions import DEFAULT_PLOT_SCALE, add_plan_dimensions
 from .elevation_dxf import _add_hatch, _polygons
 from .models import PayloadPlan, PayloadRoom
+from .plan_marks import add_plan_marks, mark_points
 
 
 PLAN_LAYERS = {
@@ -98,11 +99,12 @@ def build_plan_dxf(
         modelspace.add_lwpolyline(part.points, close=part.closed, dxfattribs=attributes)
 
     add_plan_dimensions(modelspace, plan.dimensions)
+    add_plan_marks(modelspace, plan.marks, plot_scale)
 
     points = [point for part in plan.parts for point in part.points]
     if points:
         left = min(x for x, _ in points)
-        low = min(y for _, y in points + dimension_points(plan.dimensions))
+        low = min(y for _, y in points + dimension_points(plan.dimensions) + mark_points(plan.marks, plot_scale))
         for text, position, height in [
             ("PLAN", (left, low - 12), 4),
             (room.name, (left, low - 18), 3),

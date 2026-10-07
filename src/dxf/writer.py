@@ -34,6 +34,8 @@ LAYER_DEFS = {
     # Centrelines are as light as dimensions (SPEC-43.3).
     "CENTERLINES": (2, "CENTER", 18),
     "TEXT":       (7, "CONTINUOUS", 18),
+    # Elevation markers in plan (SPEC-45.1).
+    "MARKERS":    (7, "CONTINUOUS", 25),
 }
 
 # Every label and dimension uses one text style (SPEC-43.1). The DXF names the font; the viewer supplies it.

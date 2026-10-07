@@ -144,12 +144,29 @@ class PayloadPlanDimension(BaseModel):
     textAt: tuple[float, float] | None = None
 
 
+class PayloadPlanMark(BaseModel):
+    """An elevation marker or a label in plan (SPEC-45.1), plan inches with y up. Geometry draws the symbol
+    at its paper size; the designer places it."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    kind: Literal["elevation", "label"]
+    at: tuple[float, float]
+    text: str = Field(min_length=1)
+    # An elevation marker's flag points this way, at the wall face it looks at (a unit vector).
+    direction: tuple[float, float] | None = None
+    # A label's angle, degrees counter-clockwise.
+    rotation: float = 0
+
+
 class PayloadPlan(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     parts: list[PayloadPlanPart] = []
     # Wall lengths and the rows along each face (SPEC-45); depths and clearances in 45.2.
     dimensions: list[PayloadPlanDimension] = []
+    # Elevation markers and door, window and recess labels (SPEC-45.1).
+    marks: list[PayloadPlanMark] = []
 
 
 class DrawingPayload(BaseModel):
