@@ -1,8 +1,9 @@
 """Render a wall face and its labels as an elevation DXF."""
 
+from ezdxf.enums import TextEntityAlignment
 from shapely.geometry import Polygon
 
-from src.dxf.writer import TEXT_STYLE, add_dimstyle, create_dxf_document, doc_to_bytes, frame_drawing, write_lines_to_layer
+from src.dxf.writer import DIMSTYLE_PAPER, TEXT_STYLE, add_dimstyle, create_dxf_document, doc_to_bytes, frame_drawing, write_lines_to_layer
 from src.projection.hlr import EPSILON, HlrShape, hidden_line_removal, rect_polygon, visible_regions
 
 from .dimensions import DEFAULT_PLOT_SCALE, add_dimensions
@@ -74,6 +75,24 @@ def _opening_lines(openings) -> tuple:
             ((left, bottom), (left, top)),
         ])
     return tuple(lines)
+
+
+def _add_tags(modelspace, details, by_id, plot_scale) -> None:
+    """Style labels in each part's top-left corner, sized for paper (SPEC-46.4)."""
+    for detail in details:
+        if not detail.tag:
+            continue
+        h = DIMSTYLE_PAPER["dimtxt"] * plot_scale
+        part = by_id[detail.partId]
+        if part.width < 4 * h - 1e-9 or part.height < 2 * h - 1e-9:
+            continue
+        modelspace.add_text(
+            detail.tag,
+            height=h,
+            dxfattribs={"layer": "DOOR_TAGS", "style": TEXT_STYLE},
+        ).set_placement(
+            (part.x + h / 2, part.z + part.height - h / 2), align=TextEntityAlignment.TOP_LEFT,
+        )
 
 
 def _polygons(region) -> list:
@@ -160,6 +179,7 @@ def build_elevation_dxf(
 
     for shape in detail_shapes:
         write_lines_to_layer(doc, "DOOR_DETAILS", lines[shape.id][0])
+    _add_tags(modelspace, elevation.doorDetails, by_id, plot_scale)
 
     regions = visible_regions(shapes, {part.id for part in parts if part.kind in HATCHED})
     for part in parts:

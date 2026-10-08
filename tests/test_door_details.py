@@ -9,6 +9,7 @@ from pathlib import Path
 
 import ezdxf
 import pytest
+from ezdxf.enums import TextEntityAlignment
 from pydantic import ValidationError
 
 from src.drawing.bundle import draw
@@ -100,3 +101,26 @@ def test_door_details_round_trip_and_must_name_a_part_in_their_elevation():
     ):
         with pytest.raises(ValidationError):
             draw(_payload([DOOR], [detail]))
+
+
+def test_a_style_tag_sits_in_its_parts_top_left_corner():
+    msp = _msp(_payload([DOOR], [{"partId": "door", "tag": "A"}]))
+    [tag] = msp.query('TEXT[layer=="DOOR_TAGS"]')
+    assert (tag.dxf.text, tag.dxf.style, tag.dxf.height) == ("A", "FF_TEXT", 2.25)
+    align, point, _ = tag.get_placement()
+    assert (align, tuple(point)[:2]) == (TextEntityAlignment.TOP_LEFT, (31.1875, 33.125))
+    assert _lines(msp, "DOOR_DETAILS") == []
+
+
+def test_tags_scale_with_the_drawing_and_skip_parts_too_small_for_them():
+    details = [{"partId": "door", "tag": "A"}, {"partId": "drawer", "tag": "B"}]
+
+    def tags(plot_scale=None):
+        msp = _msp(_payload([DOOR, DRAWER], details, plot_scale))
+        return [
+            (text.dxf.text, text.dxf.height, tuple(text.get_placement()[1])[:2])
+            for text in msp.query('TEXT[layer=="DOOR_TAGS"]')
+        ]
+
+    assert tags() == [("A", 2.25, (31.1875, 33.125)), ("B", 2.25, (2.6875, 33.125))]
+    assert tags(48) == [("A", 4.5, (32.3125, 32.0))]
