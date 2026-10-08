@@ -2,7 +2,7 @@
 
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
 class PayloadRoom(BaseModel):
@@ -94,6 +94,17 @@ class PayloadMark(BaseModel):
     textZ: float
 
 
+class PayloadDoorDetail(BaseModel):
+    """A part's frame openings (5-piece) or molding rectangles (Slab AM) (SPEC-46.4),
+    drawn at its part's depth on DOOR_DETAILS; its style tag on DOOR_TAGS (none = no tag)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    partId: str = Field(min_length=1)
+    openings: list[PayloadHole] = []
+    tag: str | None = Field(default=None, min_length=1)
+
+
 class PayloadElevation(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -108,6 +119,16 @@ class PayloadElevation(BaseModel):
     parts: list[PayloadPart] = []
     dimensions: list[PayloadDimension] = []
     marks: list[PayloadMark] = []
+    # Door details per part (SPEC-46.4); each names a part in this elevation.
+    doorDetails: list[PayloadDoorDetail] = []
+
+    @model_validator(mode="after")
+    def check_door_detail_parts(self):
+        part_ids = {part.id for part in self.parts}
+        unknown_ids = sorted({detail.partId for detail in self.doorDetails} - part_ids)
+        if unknown_ids:
+            raise ValueError(f"Door details name unknown part ids: {', '.join(unknown_ids)}")
+        return self
 
 
 class PayloadPlanPart(BaseModel):

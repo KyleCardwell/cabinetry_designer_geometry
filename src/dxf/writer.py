@@ -36,6 +36,9 @@ LAYER_DEFS = {
     "TEXT":       (7, "CONTINUOUS", 18),
     # Elevation markers in plan (SPEC-45.1).
     "MARKERS":    (7, "CONTINUOUS", 25),
+    # Door details and style tags in elevation (SPEC-46.4): lighter than faces.
+    "DOOR_DETAILS": (7, "CONTINUOUS", 13),
+    "DOOR_TAGS":    (6, "CONTINUOUS", 18),
 }
 
 # Every label and dimension uses one text style (SPEC-43.1). The DXF names the font; the viewer supplies it.

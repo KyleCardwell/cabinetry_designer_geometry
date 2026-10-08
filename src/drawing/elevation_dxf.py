@@ -61,6 +61,21 @@ def _edge_lines(part) -> tuple:
     return tuple(side for name, side in sides.items() if name not in part.openEdges) + lines
 
 
+def _opening_lines(openings) -> tuple:
+    """The four sides of each door opening, in wall coordinates (SPEC-46.4)."""
+    lines = []
+    for opening in openings:
+        left, right = opening.x, opening.x + opening.width
+        bottom, top = opening.z, opening.z + opening.height
+        lines.extend([
+            ((left, bottom), (right, bottom)),
+            ((right, bottom), (right, top)),
+            ((left, top), (right, top)),
+            ((left, bottom), (left, top)),
+        ])
+    return tuple(lines)
+
+
 def _polygons(region) -> list:
     """The non-empty polygons in a shapely region (a Polygon, MultiPolygon or GeometryCollection)."""
     if isinstance(region, Polygon):
@@ -123,11 +138,28 @@ def build_elevation_dxf(
         )
         for part in parts
     ]
-    lines = hidden_line_removal(shapes)
+    by_id = {part.id: part for part in parts}
+    detail_shapes = [
+        HlrShape(
+            id=f"{part.id}#door",
+            polygon=rect_polygon(part.x, part.z, part.width, part.height),
+            front=part.front,
+            drop_hidden=True,
+            lines=_opening_lines(detail.openings),
+            opaque=False,
+            outlined=False,
+        )
+        for detail in elevation.doorDetails if detail.openings
+        for part in [by_id[detail.partId]]
+    ]
+    lines = hidden_line_removal(shapes + detail_shapes)
     for part in parts:
         visible, hidden = lines[part.id]
         write_lines_to_layer(doc, KIND_LAYERS[part.kind], visible)
         write_lines_to_layer(doc, "HIDDEN", hidden)
+
+    for shape in detail_shapes:
+        write_lines_to_layer(doc, "DOOR_DETAILS", lines[shape.id][0])
 
     regions = visible_regions(shapes, {part.id for part in parts if part.kind in HATCHED})
     for part in parts:
