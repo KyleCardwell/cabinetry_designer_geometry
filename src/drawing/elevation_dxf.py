@@ -63,7 +63,7 @@ def _edge_lines(part) -> tuple:
 
 
 def _opening_lines(openings) -> tuple:
-    """The four sides of each door opening, in wall coordinates (SPEC-46.4)."""
+    """The four sides of each door opening or profile line rectangle, in wall coordinates (SPEC-46.4, SPEC-50)."""
     lines = []
     for opening in openings:
         left, right = opening.x, opening.x + opening.width
@@ -164,11 +164,11 @@ def build_elevation_dxf(
             polygon=rect_polygon(part.x, part.z, part.width, part.height),
             front=part.front,
             drop_hidden=True,
-            lines=_opening_lines(detail.openings),
+            lines=_opening_lines([*detail.openings, *detail.profileLines]),
             opaque=False,
             outlined=False,
         )
-        for detail in elevation.doorDetails if detail.openings
+        for detail in elevation.doorDetails if detail.openings or detail.profileLines
         for part in [by_id[detail.partId]]
     ]
     lines = hidden_line_removal(shapes + detail_shapes)

@@ -65,6 +65,7 @@ Geometry renders the dimensions supplied by the designer. Hidden-line removal an
 A part's `lines` are detail lines drawn inside it and hidden like its outline; toe kicks, top molds and crowns are never dashed (their hidden edges are left out); `profileId` is accepted and ignored until profiles exist (SPEC-42).
 
 An elevation's `doorDetails` (SPEC-46.4) give a part's frame openings or molding rectangles, drawn at its depth on `DOOR_DETAILS` (hidden segments left out), and its style tag in its top-left corner on `DOOR_TAGS`.
+A detail may also carry `profileLines` (rectangles from door profiles, SPEC-50), drawn on `DOOR_DETAILS` like openings.
 
 Openings, casing, soffits, recesses, projections and wing walls are outlines (`opaque: false`): they can be hidden but hide nothing; `openEdges` leaves sides of a part's rectangle undrawn (SPEC-42.1).
 

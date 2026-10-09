@@ -124,3 +124,24 @@ def test_tags_scale_with_the_drawing_and_skip_parts_too_small_for_them():
 
     assert tags() == [("A", 2.25, (31.1875, 33.125)), ("B", 2.25, (2.6875, 33.125))]
     assert tags(48) == [("A", 4.5, (32.3125, 32.0))]
+
+
+# G1's base door with a 1/4" round-over (outside, 1/4" in) and a 1/4" step on the stile (inside, 1/4" out) (SPEC-50).
+PROFILE_LINES = [_box(30.3125, 4.375, 23.375, 29.625), _box(32.8125, 6.875, 18.375, 24.625)]
+
+
+def test_profile_lines_draw_on_door_details_beside_the_openings():
+    msp = _msp(_payload([DOOR], [{"partId": "door", "openings": [DOOR_OPENING], "profileLines": PROFILE_LINES}]))
+    details = _lines(msp, "DOOR_DETAILS")
+    assert len(details) == 12
+    assert _length(details) == pytest.approx(276)
+    assert len(_lines(msp, "FACES")) == 4
+
+
+def test_a_part_can_send_profile_lines_alone_and_they_must_have_size():
+    msp = _msp(_payload([DOOR], [{"partId": "door", "profileLines": PROFILE_LINES[:1]}]))
+    details = _lines(msp, "DOOR_DETAILS")
+    assert len(details) == 4
+    assert _length(details) == pytest.approx(106)
+    with pytest.raises(ValidationError):
+        draw(_payload([DOOR], [{"partId": "door", "profileLines": [_box(30, 4, 0, 29)]}]))
