@@ -145,3 +145,57 @@ def test_a_part_can_send_profile_lines_alone_and_they_must_have_size():
     assert _length(details) == pytest.approx(106)
     with pytest.raises(ValidationError):
         draw(_payload([DOOR], [{"partId": "door", "profileLines": [_box(30, 4, 0, 29)]}]))
+
+
+# SPEC-50.4: an 18" x 30" face with a 5/8" miter at the opening's bottom-left.
+MITER_DOOR = {**DOOR, "x": 0, "z": 0, "width": 18, "height": 30}
+MITER = {"x1": 3, "z1": 3, "x2": 2.375, "z2": 2.375}
+MITER_DETAIL = {"partId": "door", "openings": [_box(3, 3, 12, 24)], "miters": [MITER]}
+
+
+def test_miters_draw_beside_openings_and_round_trip():
+    payload = _payload([MITER_DOOR], [MITER_DETAIL])
+    details = _lines(_msp(payload), "DOOR_DETAILS")
+    assert len(details) == 5
+    diagonals = [line for line in details if line.dxf.start.x != line.dxf.end.x
+                 and line.dxf.start.y != line.dxf.end.y]
+    assert len(diagonals) == 1
+    assert _length(diagonals) == pytest.approx(0.883883, abs=1e-6)
+    assert _length([line for line in details if line not in diagonals]) == pytest.approx(72)
+    [miter] = diagonals
+    assert tuple(miter.dxf.start)[:2] == pytest.approx((3, 3))
+    assert tuple(miter.dxf.end)[:2] == pytest.approx((2.375, 2.375))
+    archive = zipfile.ZipFile(io.BytesIO(base64.b64decode(draw(payload)["zip_base64"])))
+    assert json.loads(archive.read("payload.json")) == payload
+
+
+def test_a_nearer_opaque_part_drops_openings_and_miters_without_dashing_them():
+    shade = {**SHADE, "x": -1, "z": -1, "width": 20, "height": 32}
+    msp = _msp(_payload([MITER_DOOR, shade], [MITER_DETAIL]))
+    assert _lines(msp, "DOOR_DETAILS") == []
+    # Only the face's four outline edges remain on HIDDEN; no door detail does.
+    hidden = _lines(msp, "HIDDEN")
+    assert len(hidden) == 4
+    assert _length(hidden) == pytest.approx(96)
+    assert all(line.dxf.start.x == line.dxf.end.x or line.dxf.start.y == line.dxf.end.y
+               for line in hidden)
+
+
+def test_a_part_can_send_miters_alone():
+    msp = _msp(_payload([MITER_DOOR], [{"partId": "door", "miters": [MITER]}]))
+    details = _lines(msp, "DOOR_DETAILS")
+    assert len(details) == 1
+    assert _length(details) == pytest.approx(0.883883, abs=1e-6)
+    assert _lines(msp, "HIDDEN") == []
+    with pytest.raises(ValidationError):
+        draw(_payload([MITER_DOOR], [{"partId": "door", "miters": [{**MITER, "color": "red"}]}]))
+
+
+def test_a_partly_hidden_miter_keeps_only_its_visible_segment():
+    shade = {**SHADE, "x": -1, "z": 2.5, "width": 20, "height": 29}
+    msp = _msp(_payload([MITER_DOOR, shade], [{"partId": "door", "miters": [MITER]}]))
+    [miter] = _lines(msp, "DOOR_DETAILS")
+    assert tuple(miter.dxf.start)[:2] == pytest.approx((2.5, 2.5))
+    assert tuple(miter.dxf.end)[:2] == pytest.approx((2.375, 2.375))
+    assert all(line.dxf.start.x == line.dxf.end.x or line.dxf.start.y == line.dxf.end.y
+               for line in _lines(msp, "HIDDEN"))

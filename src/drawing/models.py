@@ -133,7 +133,8 @@ class PayloadMark(BaseModel):
 
 class PayloadDoorDetail(BaseModel):
     """A part's frame openings (5-piece) or molding rectangles (Slab AM) (SPEC-46.4)
-    and its profile lines (SPEC-50), drawn at its part's depth on DOOR_DETAILS;
+    and its profile lines (SPEC-50) and miter segments (SPEC-50.4), drawn at its
+    part's depth on DOOR_DETAILS with hidden segments dropped;
     its style tag on DOOR_TAGS (none = no tag)."""
 
     model_config = ConfigDict(extra="forbid")
@@ -141,6 +142,7 @@ class PayloadDoorDetail(BaseModel):
     partId: str = Field(min_length=1)
     openings: list[PayloadHole] = []
     profileLines: list[PayloadHole] = []
+    miters: list[PayloadLine] = []
     tag: str | None = Field(default=None, min_length=1)
 
 

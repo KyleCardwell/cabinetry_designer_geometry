@@ -166,11 +166,13 @@ def build_elevation_dxf(
             polygon=rect_polygon(part.x, part.z, part.width, part.height),
             front=part.front,
             drop_hidden=True,
-            lines=_opening_lines([*detail.openings, *detail.profileLines]),
+            lines=_opening_lines([*detail.openings, *detail.profileLines]) + tuple(
+                ((line.x1, line.z1), (line.x2, line.z2)) for line in detail.miters
+            ),
             opaque=False,
             outlined=False,
         )
-        for detail in elevation.doorDetails if detail.openings or detail.profileLines
+        for detail in elevation.doorDetails if detail.openings or detail.profileLines or detail.miters
         for part in [by_id[detail.partId]]
     ]
     lines = hidden_line_removal(shapes + detail_shapes)
