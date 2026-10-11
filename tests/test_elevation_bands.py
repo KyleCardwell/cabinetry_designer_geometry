@@ -65,3 +65,61 @@ def test_profile_ids_pass_through_and_bad_parts_are_rejected():
         bad["elevations"][0]["parts"][0].update(patch)
         with pytest.raises(ValidationError):
             draw(bad)
+
+
+def _furniture_base_payload():
+    payload = copy.deepcopy(PAYLOAD)
+    payload["elevations"][0]["parts"] = [{
+        "id": "furniture-base", "kind": "furniture_base",
+        "x": 0, "z": 0, "width": 10, "height": 4,
+        "back": 0, "front": 2, "coversBoxEdges": False,
+    }]
+    return payload
+
+
+def _segments(msp, layer):
+    return {
+        tuple(sorted(((line.dxf.start.x, line.dxf.start.y),
+                      (line.dxf.end.x, line.dxf.end.y))))
+        for line in _lines(msp, layer)
+    }
+
+
+def test_furniture_base_rectangle_draws_four_lines_on_moldings():
+    msp = _modelspace(_furniture_base_payload())
+    assert len(_lines(msp, "MOLDINGS")) == 4
+    assert _segments(msp, "MOLDINGS") == {
+        ((0, 0), (10, 0)), ((0, 4), (10, 4)),
+        ((0, 0), (0, 4)), ((10, 0), (10, 4)),
+    }
+    assert _lines(msp, "HIDDEN") == []
+
+
+def test_furniture_base_covered_half_is_omitted_without_hidden_lines():
+    payload = _furniture_base_payload()
+    payload["elevations"][0]["parts"].append({
+        "id": "cover", "kind": "cabinet",
+        "x": 5, "z": -1, "width": 5, "height": 6,
+        "back": 0, "front": 3, "coversBoxEdges": False,
+    })
+    msp = _modelspace(payload)
+    assert len(_lines(msp, "MOLDINGS")) == 3
+    assert _segments(msp, "MOLDINGS") == {
+        ((0, 0), (5, 0)), ((0, 4), (5, 4)), ((0, 0), (0, 4)),
+    }
+    assert _lines(msp, "HIDDEN") == []
+
+
+def test_furniture_base_supports_outline_and_detail_lines():
+    payload = _furniture_base_payload()
+    payload["elevations"][0]["parts"][0].update({
+        "outline": [[0, 0], [10, 0], [8, 4], [0, 4]],
+        "lines": [{"x1": 1, "z1": 2, "x2": 8, "z2": 2}],
+    })
+    msp = _modelspace(payload)
+    assert len(_lines(msp, "MOLDINGS")) == 5
+    assert _segments(msp, "MOLDINGS") == {
+        ((0, 0), (10, 0)), ((8, 4), (10, 0)),
+        ((0, 4), (8, 4)), ((0, 0), (0, 4)), ((1, 2), (8, 2)),
+    }
+    assert _lines(msp, "HIDDEN") == []

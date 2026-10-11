@@ -21,6 +21,7 @@ KIND_LAYERS = {
     "frame": "FRAMES",
     "shelf": "SHELVES",
     "toe_kick": "MOLDINGS",
+    "furniture_base": "MOLDINGS",
     "countertop": "COUNTERTOPS",
     "top_mold": "MOLDINGS",
     "crown": "MOLDINGS",
@@ -45,7 +46,7 @@ HATCHED = {"section"}
 HATCH_SCALE = 8
 
 # Kinds whose hidden edges are left out rather than dashed (SPEC-42).
-NEVER_DASHED = {"toe_kick", "top_mold", "crown"}
+NEVER_DASHED = {"toe_kick", "furniture_base", "top_mold", "crown"}
 
 
 def _edge_lines(part) -> tuple:

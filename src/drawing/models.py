@@ -50,7 +50,7 @@ class PayloadPart(BaseModel):
     id: str = Field(min_length=1)
     kind: Literal[
         "cabinet", "face", "filler", "end_panel", "panel", "frame", "shelf",
-        "toe_kick", "countertop", "top_mold", "crown",
+        "toe_kick", "furniture_base", "countertop", "top_mold", "crown",
         "light_rail", "light_trough", "bottom_cap", "corbels",
         "wall_end_panel", "opening", "casing", "soffit", "recess", "projection", "wing_wall",
         "section", "profile",
