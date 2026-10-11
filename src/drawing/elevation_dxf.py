@@ -3,9 +3,10 @@
 from ezdxf.enums import TextEntityAlignment
 from shapely.geometry import Polygon
 
-from src.dxf.writer import DIMSTYLE_PAPER, TEXT_STYLE, add_dimstyle, create_dxf_document, doc_to_bytes, frame_drawing, write_lines_to_layer
+from src.dxf.writer import DIMSTYLE_PAPER, TEXT_STYLE, add_dimstyle, create_dxf_document, doc_to_bytes, frame_drawing, write_arcs_to_layer, write_lines_to_layer
 from src.projection.hlr import EPSILON, HlrShape, hidden_line_removal, rect_polygon, visible_regions
 
+from .arcs import flatten_outline, rejoin_arcs
 from .dimensions import DEFAULT_PLOT_SCALE, add_dimensions
 from .marks import add_marks
 from .models import PayloadElevation, PayloadRoom
@@ -140,10 +141,11 @@ def build_elevation_dxf(
         part for part in elevation.parts
         if part.width > EPSILON and part.height > EPSILON
     ]
+    outlines = {part.id: flatten_outline(part.outline) for part in parts if part.outline is not None}
     shapes = [
         HlrShape(
             id=part.id,
-            polygon=Polygon(part.outline) if part.outline is not None else rect_polygon(
+            polygon=Polygon(outlines[part.id][0]) if part.outline is not None else rect_polygon(
                 part.x, part.z, part.width, part.height,
                 [(hole.x, hole.z, hole.width, hole.height) for hole in part.holes],
             ),
@@ -174,8 +176,13 @@ def build_elevation_dxf(
     lines = hidden_line_removal(shapes + detail_shapes)
     for part in parts:
         visible, hidden = lines[part.id]
+        sources = outlines[part.id][1] if part.outline is not None else []
+        visible, visible_arcs = rejoin_arcs(visible, sources)
+        hidden, hidden_arcs = rejoin_arcs(hidden, sources)
         write_lines_to_layer(doc, KIND_LAYERS[part.kind], visible)
         write_lines_to_layer(doc, "HIDDEN", hidden)
+        write_arcs_to_layer(doc, KIND_LAYERS[part.kind], visible_arcs)
+        write_arcs_to_layer(doc, "HIDDEN", hidden_arcs)
 
     for shape in detail_shapes:
         write_lines_to_layer(doc, "DOOR_DETAILS", lines[shape.id][0])

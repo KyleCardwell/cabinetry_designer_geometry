@@ -1,9 +1,14 @@
 """Drawing payload v1 models (SPEC-40)."""
 
-from typing import Literal
+from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 from shapely.geometry import Polygon
+
+from .arcs import flatten_outline
+
+
+Bulge = Annotated[float, Field(ge=-1, le=1, allow_inf_nan=False)]
 
 
 class PayloadRoom(BaseModel):
@@ -32,10 +37,12 @@ class PayloadLine(BaseModel):
 
 
 class PayloadPart(BaseModel):
-    """An elevation part, optionally outlined by a closed polygon of absolute (x, z) points.
+    """An elevation part, optionally outlined by absolute (x, z[, bulge]) points.
 
     `outline` closes implicitly, ignores holes, and uses the required x/z/width/height rectangle
-    as its bounds.
+    as its bounds. Bulge belongs to the next segment (including closure), is
+    tan(sweep / 4), positive counter-clockwise, and rounded to six places.
+    Omitted bulges are straight; arcs are at most 180 degrees.
     """
 
     model_config = ConfigDict(extra="forbid")
@@ -57,7 +64,7 @@ class PayloadPart(BaseModel):
     front: float
     coversBoxEdges: bool
     holes: list[PayloadHole] = []
-    outline: list[tuple[float, float]] | None = None
+    outline: list[tuple[float, float] | tuple[float, float, Bulge]] | None = None
     lines: list[PayloadLine] = []
     profileId: str | None = None
     opaque: bool = True
@@ -69,14 +76,19 @@ class PayloadPart(BaseModel):
             return self
         if len(self.outline) < 3:
             raise ValueError("Part outline must have at least 3 points")
+        self.outline = [
+            (point[0], point[1], round(point[2], 6)) if len(point) == 3 else point
+            for point in self.outline
+        ]
+        flattened, _ = flatten_outline(self.outline)
         tolerance = 1e-6
-        for x, z in self.outline:
+        for x, z in flattened:
             if not (
                 self.x - tolerance <= x <= self.x + self.width + tolerance
                 and self.z - tolerance <= z <= self.z + self.height + tolerance
             ):
                 raise ValueError("Part outline points must be inside the part's bounds")
-        if Polygon(self.outline).area <= 0:
+        if Polygon(flattened).area <= 0:
             raise ValueError("Part outline must have non-zero area")
         return self
 

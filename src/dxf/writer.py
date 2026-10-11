@@ -6,11 +6,16 @@ for writing Line2D segments to named layers.
 """
 
 from __future__ import annotations
+from math import degrees
+from typing import TYPE_CHECKING
 import ezdxf
 from ezdxf import bbox
 from ezdxf import units
 from ezdxf.document import Drawing
 from ..models.geometry import Line2D
+
+if TYPE_CHECKING:
+    from ..drawing.arcs import OutlineArc
 
 
 # Standard layer definitions: (color_index, linetype, lineweight)
@@ -126,6 +131,18 @@ def write_lines_to_layer(
         msp.add_line(
             (line.start.x + offset_x, line.start.y + offset_y),
             (line.end.x + offset_x, line.end.y + offset_y),
+            dxfattribs={"layer": layer_name},
+        )
+
+
+def write_arcs_to_layer(doc: Drawing, layer_name: str, arcs: list[OutlineArc]) -> None:
+    """Write circular edges in degrees; DXF ARC always walks counter-clockwise."""
+    for arc in arcs:
+        start, end = arc.start_angle, arc.end_angle
+        if not arc.ccw:
+            start, end = end, start
+        doc.modelspace().add_arc(
+            arc.center, arc.radius, degrees(start) % 360, degrees(end) % 360,
             dxfattribs={"layer": layer_name},
         )
 
