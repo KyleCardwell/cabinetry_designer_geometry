@@ -143,7 +143,7 @@ def build_elevation_dxf(
     shapes = [
         HlrShape(
             id=part.id,
-            polygon=rect_polygon(
+            polygon=Polygon(part.outline) if part.outline is not None else rect_polygon(
                 part.x, part.z, part.width, part.height,
                 [(hole.x, hole.z, hole.width, hole.height) for hole in part.holes],
             ),

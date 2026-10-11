@@ -3,6 +3,7 @@
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
+from shapely.geometry import Polygon
 
 
 class PayloadRoom(BaseModel):
@@ -31,6 +32,12 @@ class PayloadLine(BaseModel):
 
 
 class PayloadPart(BaseModel):
+    """An elevation part, optionally outlined by a closed polygon of absolute (x, z) points.
+
+    `outline` closes implicitly, ignores holes, and uses the required x/z/width/height rectangle
+    as its bounds.
+    """
+
     model_config = ConfigDict(extra="forbid")
 
     id: str = Field(min_length=1)
@@ -50,10 +57,28 @@ class PayloadPart(BaseModel):
     front: float
     coversBoxEdges: bool
     holes: list[PayloadHole] = []
+    outline: list[tuple[float, float]] | None = None
     lines: list[PayloadLine] = []
     profileId: str | None = None
     opaque: bool = True
     openEdges: list[Literal["left", "right", "top", "bottom"]] = []
+
+    @model_validator(mode="after")
+    def check_outline(self):
+        if self.outline is None:
+            return self
+        if len(self.outline) < 3:
+            raise ValueError("Part outline must have at least 3 points")
+        tolerance = 1e-6
+        for x, z in self.outline:
+            if not (
+                self.x - tolerance <= x <= self.x + self.width + tolerance
+                and self.z - tolerance <= z <= self.z + self.height + tolerance
+            ):
+                raise ValueError("Part outline points must be inside the part's bounds")
+        if Polygon(self.outline).area <= 0:
+            raise ValueError("Part outline must have non-zero area")
+        return self
 
 
 class PayloadDimension(BaseModel):
