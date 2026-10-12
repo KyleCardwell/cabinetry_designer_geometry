@@ -98,3 +98,23 @@ def test_rejects_an_unknown_plan_kind_or_a_single_point():
         payload["plan"]["parts"][5].update(change)
         with pytest.raises(ValidationError):
             draw(payload)
+
+
+def test_closed_countertop_at_top_36_draws_its_edges_on_countertops_layer():
+    points = [(28.5, 0), (30, 0), (30, -24.875), (28.5, -24.875)]
+    payload = {**ELEVATIONS, "plan": {"parts": [
+        {"id": "R1:waterfall:left", "kind": "countertop", "runId": "R1",
+         "points": points, "closed": True, "top": 36},
+    ]}}
+    msp = _modelspace(payload)
+    assert "COUNTERTOPS" in msp.doc.layers
+    lines = list(msp.query("LINE"))
+    assert len(lines) == 4
+    assert {line.dxf.layer for line in lines} == {"COUNTERTOPS"}
+    assert {
+        frozenset((tuple(line.dxf.start)[:2], tuple(line.dxf.end)[:2]))
+        for line in lines
+    } == {
+        frozenset((points[index], points[(index + 1) % len(points)]))
+        for index in range(len(points))
+    }

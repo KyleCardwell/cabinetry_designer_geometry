@@ -27,6 +27,7 @@ PLAN_LAYERS = {
     "wall_end_panel": "PANELS",
     "frame": "FRAMES",
     "shelf": "SHELVES",
+    "countertop": "COUNTERTOPS",
 }
 
 # Walls are joined 0.001" fat so mitre points that differ by noise still meet.

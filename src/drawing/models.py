@@ -180,7 +180,7 @@ class PayloadPlanPart(BaseModel):
     id: str = Field(min_length=1)
     kind: Literal[
         "wall", "void", "opening", "casing", "recess", "soffit", "cabinet", "face",
-        "filler", "end_panel", "panel", "frame", "shelf", "wall_end_panel",
+        "filler", "end_panel", "panel", "frame", "shelf", "wall_end_panel", "countertop",
     ]
     runId: str | None = None
     points: list[tuple[float, float]] = Field(min_length=2)
