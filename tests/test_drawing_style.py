@@ -43,10 +43,11 @@ def test_each_layer_has_its_lineweight_and_they_show():
     assert doc.header["$LWDISPLAY"] == 1
 
 
-def test_layer_colours_are_black_or_white_except_grey_hidden_and_sections():
+def test_layer_colours_are_black_or_white_except_grey_hidden_and_sections_and_red_part_numbers():
     doc = _dxf(PAYLOAD)
     for name in LAYER_DEFS:
-        assert doc.layers.get(name).dxf.color == (8 if name in {"HIDDEN", "SECTIONS"} else 7)
+        expected = 1 if name == "PART_NUMBERS" else 8 if name in {"HIDDEN", "SECTIONS"} else 7
+        assert doc.layers.get(name).dxf.color == expected
     assert all(entity.dxf.color == 256 for entity in doc.modelspace())
 
 

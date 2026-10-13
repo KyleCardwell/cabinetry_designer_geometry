@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 
 
 # Standard layer definitions: (color_index, linetype, lineweight)
-# AutoCAD Color Index: 7=black on paper/white on dark screens, 8=dark grey.
+# AutoCAD Color Index: 1=red, 7=black on paper/white on dark screens, 8=dark grey.
 # Lineweights are in 1/100 mm (SPEC-43.1): walls heaviest, boxes and tops next, faces and parts medium,
 # hidden lines, dimensions and text lightest.
 LAYER_DEFS = {
@@ -44,7 +44,7 @@ LAYER_DEFS = {
     # Door details and style tags in elevation (SPEC-46.4): lighter than faces.
     "DOOR_DETAILS": (7, "CONTINUOUS", 13),
     "DOOR_TAGS":    (7, "CONTINUOUS", 18),
-    "PART_NUMBERS": (7, "CONTINUOUS", 18),
+    "PART_NUMBERS": (1, "CONTINUOUS", 18),
     "FRAME":      (7, "CONTINUOUS", 0),
 }
 
