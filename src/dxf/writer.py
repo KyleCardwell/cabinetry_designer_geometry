@@ -21,12 +21,12 @@ if TYPE_CHECKING:
 # Standard layer definitions: (color_index, linetype, lineweight)
 # AutoCAD Color Index: 1=red, 7=black on paper/white on dark screens, 8=dark grey.
 # Lineweights are in 1/100 mm (SPEC-43.1): walls heaviest, boxes and tops next, openings and markers medium,
-# faces/panels/fillers/frames/moldings fine (0.18 mm ≈ 0.5 pt, SPEC-50.16), dimensions/text/hidden lines next,
-# sections lighter, door details finest.
+# panels/fillers/frames/moldings and dimensions/text/hidden lines fine (0.18 mm ≈ 0.5 pt), sections lighter,
+# door/drawer face outlines and door details finest (0.09 mm ≈ 0.25 pt, SPEC-50.16).
 LAYER_DEFS = {
     "WALLS":      (7, "CONTINUOUS", 50),
     "CABINETS":   (7, "CONTINUOUS", 35),
-    "FACES":      (7, "CONTINUOUS", 18),
+    "FACES":      (7, "CONTINUOUS", 9),
     "FILLERS":    (7, "CONTINUOUS", 18),
     "PANELS":     (7, "CONTINUOUS", 18),
     "FRAMES":     (7, "CONTINUOUS", 18),
@@ -42,7 +42,7 @@ LAYER_DEFS = {
     "TEXT":       (7, "CONTINUOUS", 18),
     # Elevation markers in plan (SPEC-45.1).
     "MARKERS":    (7, "CONTINUOUS", 25),
-    # finest: lighter than faces (SPEC-46.4, 50.16).
+    # finest, same as face outlines (SPEC-46.4, 50.16)
     "DOOR_DETAILS": (7, "CONTINUOUS", 9),
     "DOOR_TAGS":    (7, "CONTINUOUS", 18),
     "PART_NUMBERS": (1, "CONTINUOUS", 18),

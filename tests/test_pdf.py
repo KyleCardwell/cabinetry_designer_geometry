@@ -137,6 +137,9 @@ def test_render_preserves_page_scale_lineweights_colours_and_invisible_points(mo
     msp = doc.modelspace()
     msp.add_line((0, 0), (456, 96), dxfattribs={"layer": "WALLS"})
     msp.add_line((0, 96), (456, 0), dxfattribs={"layer": "PART_NUMBERS"})
+    msp.add_line((0, 24), (456, 24), dxfattribs={"layer": "FACES"})
+    msp.add_line((0, 48), (456, 48), dxfattribs={"layer": "DOOR_DETAILS"})
+    msp.add_line((0, 72), (456, 72), dxfattribs={"layer": "SECTIONS"})
     hatch = msp.add_hatch(dxfattribs={"layer": "SECTIONS"})
     hatch.set_solid_fill(color=256)
     hatch.paths.add_polyline_path([(0, 0), (20, 0), (20, 20), (0, 20)], is_closed=True)
@@ -175,6 +178,8 @@ def test_render_preserves_page_scale_lineweights_colours_and_invisible_points(mo
     widths = [float(args[0]) for args, op in operations if op == b"w"]
     assert any(width == pytest.approx(0.50 * 72 / 25.4) for width in widths)
     assert any(width == pytest.approx(0.18 * 72 / 25.4) for width in widths)
+    assert any(width == pytest.approx(0.13 * 72 / 25.4) for width in widths)
+    assert any(width == pytest.approx(0.09 * 72 / 25.4) for width in widths)
     assert any(list(args) == [1, 0, 0] for args, op in operations if op == b"RG")
     assert any(list(args) in ([0], [0, 0, 0]) for args, op in operations if op in (b"G", b"RG"))
     assert any(0 < float(args[0]) < 1 and len(set(args)) == 1 for args, op in operations if op in (b"g", b"rg"))
