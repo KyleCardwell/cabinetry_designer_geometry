@@ -10,7 +10,7 @@ from pathlib import Path
 import ezdxf
 
 from src.drawing.bundle import draw
-from src.dxf.writer import create_dxf_document
+from src.dxf.writer import LAYER_DEFS, create_dxf_document
 
 ROOT = Path(__file__).resolve().parent.parent
 PAYLOAD = json.loads((ROOT / "tests" / "fixtures" / "g1_payload.json").read_text())
@@ -40,6 +40,13 @@ def test_each_layer_has_its_lineweight_and_they_show():
         "DOOR_DETAILS": 13, "DOOR_TAGS": 18,
     }
     assert doc.header["$LWDISPLAY"] == 1
+
+
+def test_layer_colours_are_black_or_white_except_grey_hidden_and_sections():
+    doc = _dxf(PAYLOAD)
+    for name in LAYER_DEFS:
+        assert doc.layers.get(name).dxf.color == (8 if name in {"HIDDEN", "SECTIONS"} else 7)
+    assert all(entity.dxf.color == 256 for entity in doc.modelspace())
 
 
 def test_dashes_are_sized_for_paper_at_the_plot_scale():

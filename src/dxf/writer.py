@@ -19,31 +19,31 @@ if TYPE_CHECKING:
 
 
 # Standard layer definitions: (color_index, linetype, lineweight)
-# AutoCAD Color Index: 7=white, 1=red, 2=yellow, 3=green, 4=cyan, 5=blue, 6=magenta
+# AutoCAD Color Index: 7=black on paper/white on dark screens, 8=dark grey.
 # Lineweights are in 1/100 mm (SPEC-43.1): walls heaviest, boxes and tops next, faces and parts medium,
 # hidden lines, dimensions and text lightest.
 LAYER_DEFS = {
     "WALLS":      (7, "CONTINUOUS", 50),
-    "CABINETS":   (5, "CONTINUOUS", 35),
+    "CABINETS":   (7, "CONTINUOUS", 35),
     "FACES":      (7, "CONTINUOUS", 25),
-    "FILLERS":    (30, "CONTINUOUS", 25),
-    "PANELS":     (6, "CONTINUOUS", 25),
-    "FRAMES":     (3, "CONTINUOUS", 25),
-    "SHELVES":    (4, "CONTINUOUS", 18),
-    "COUNTERTOPS": (9, "CONTINUOUS", 35),
-    "MOLDINGS":   (1, "CONTINUOUS", 25),
-    "OPENINGS":   (40, "CONTINUOUS", 25),
+    "FILLERS":    (7, "CONTINUOUS", 25),
+    "PANELS":     (7, "CONTINUOUS", 25),
+    "FRAMES":     (7, "CONTINUOUS", 25),
+    "SHELVES":    (7, "CONTINUOUS", 18),
+    "COUNTERTOPS": (7, "CONTINUOUS", 35),
+    "MOLDINGS":   (7, "CONTINUOUS", 25),
+    "OPENINGS":   (7, "CONTINUOUS", 25),
     "SECTIONS":   (8, "CONTINUOUS", 25),
     "HIDDEN":     (8, "DASHED", 18),
-    "DIMENSIONS": (2, "CONTINUOUS", 18),
+    "DIMENSIONS": (7, "CONTINUOUS", 18),
     # Centrelines are as light as dimensions (SPEC-43.3).
-    "CENTERLINES": (2, "CENTER", 18),
+    "CENTERLINES": (7, "CENTER", 18),
     "TEXT":       (7, "CONTINUOUS", 18),
     # Elevation markers in plan (SPEC-45.1).
     "MARKERS":    (7, "CONTINUOUS", 25),
     # Door details and style tags in elevation (SPEC-46.4): lighter than faces.
     "DOOR_DETAILS": (7, "CONTINUOUS", 13),
-    "DOOR_TAGS":    (6, "CONTINUOUS", 18),
+    "DOOR_TAGS":    (7, "CONTINUOUS", 18),
 }
 
 # Every label and dimension uses one text style (SPEC-43.1). The DXF names the font; the viewer supplies it.
@@ -51,8 +51,8 @@ TEXT_STYLE = "FF_TEXT"
 TEXT_FONT = "arialn.ttf"
 TEXT_FAMILY = "Arial Narrow"
 
-# Space left around everything drawn (SPEC-44.1), paper inches: 1/2" is 12" at 1/2" = 1'-0".
-DRAWING_PADDING = 0.5
+# Space left around everything drawn, paper inches: 1" is 24" at 1/2" = 1'-0".
+DRAWING_PADDING = 1.0
 
 
 def create_dxf_document() -> Drawing:
@@ -180,7 +180,11 @@ def frame_drawing(doc: Drawing, plot_scale: float) -> None:
     doc.modelspace().dxf.extmax = (x1, y1, 0)
     doc.modelspace().dxf.limmin = (x0, y0)
     doc.modelspace().dxf.limmax = (x1, y1)
-    doc.set_modelspace_vport(height=y1 - y0, center=((x0 + x1) / 2, (y0 + y1) / 2))
+    doc.set_modelspace_vport(
+        height=y1 - y0,
+        center=((x0 + x1) / 2, (y0 + y1) / 2),
+        dxfattribs={"aspect_ratio": (x1 - x0) / (y1 - y0)},
+    )
 
 
 def doc_to_bytes(doc: Drawing) -> bytes:
