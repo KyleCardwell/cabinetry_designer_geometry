@@ -1,4 +1,4 @@
-"""The drawing style (SPEC-43.1): one text style in Arial Narrow, lineweights per layer, dashes sized for paper."""
+"""The drawing style (SPEC-43.1, 50.15): one text style in Arial, lineweights per layer, dashes sized for paper."""
 
 import base64
 import copy
@@ -8,6 +8,8 @@ import zipfile
 from pathlib import Path
 
 import ezdxf
+import pytest
+from ezdxf.fonts import fonts
 
 from src.drawing.bundle import draw
 from src.dxf.writer import LAYER_DEFS, create_dxf_document
@@ -21,13 +23,22 @@ def _dxf(payload, letter="A"):
     return ezdxf.read(io.StringIO(archive.read(f"elevation-{letter}.dxf").decode("utf-8")))
 
 
-def test_one_text_style_in_arial_narrow_for_labels_and_dimensions():
+def test_one_text_style_in_arial_for_labels_and_dimensions():
     doc = _dxf(PAYLOAD)
     style = doc.styles.get("FF_TEXT")
-    assert style.dxf.font == "arialn.ttf"
-    assert style.get_extended_font_data() == ("Arial Narrow", False, False)
+    assert style.dxf.font == "arial.ttf"
+    assert style.get_extended_font_data() == ("Arial", False, False)
     assert {text.dxf.style for text in doc.modelspace().query("TEXT")} == {"FF_TEXT"}
     assert doc.dimstyles.get("FF").dxf.dimtxsty == "FF_TEXT"
+
+
+def test_arial_label_widths_fit_the_designer_estimate():
+    if not fonts.font_manager.has_font("arial.ttf"):
+        pytest.skip("Arial (arial.ttf) is not installed or available to ezdxf; cannot measure its label widths")
+    font = fonts.make_font("arial.ttf", cap_height=1)
+    for text in ("24 15/16", "105 1/2", "CL 3", "TK 7"):
+        width = font.text_width(text)
+        assert width <= 0.7 * len(text), f"{text!r}: Arial width {width} exceeds the designer estimate"
 
 
 def test_each_layer_has_its_lineweight_and_they_show():

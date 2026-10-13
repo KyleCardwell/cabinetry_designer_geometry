@@ -50,8 +50,8 @@ LAYER_DEFS = {
 
 # Every label and dimension uses one text style (SPEC-43.1). The DXF names the font; the viewer supplies it.
 TEXT_STYLE = "FF_TEXT"
-TEXT_FONT = "arialn.ttf"
-TEXT_FAMILY = "Arial Narrow"
+TEXT_FONT = "arial.ttf"
+TEXT_FAMILY = "Arial"
 
 # Space left around everything drawn, paper inches: 1/2" is 12" at 1/2" = 1'-0".
 DRAWING_PADDING = 0.5
