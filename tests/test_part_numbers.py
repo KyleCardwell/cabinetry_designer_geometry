@@ -92,7 +92,7 @@ def test_omitted_badges_leave_empty_part_numbers_layer():
 
 def test_frame_includes_badge_below_fixture():
     doc = _dxf([{**BADGE, "z": -40}])
-    assert doc.header["$EXTMIN"][1] <= -40 - 2.25 - 24
+    assert doc.header["$EXTMIN"][1] <= -40 - 2.25 - 12
 
 
 def test_multiple_badges_keep_supplied_sizes_and_positions_at_other_plot_scale():

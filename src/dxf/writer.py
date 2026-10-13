@@ -45,6 +45,7 @@ LAYER_DEFS = {
     "DOOR_DETAILS": (7, "CONTINUOUS", 13),
     "DOOR_TAGS":    (7, "CONTINUOUS", 18),
     "PART_NUMBERS": (7, "CONTINUOUS", 18),
+    "FRAME":      (7, "CONTINUOUS", 0),
 }
 
 # Every label and dimension uses one text style (SPEC-43.1). The DXF names the font; the viewer supplies it.
@@ -52,8 +53,8 @@ TEXT_STYLE = "FF_TEXT"
 TEXT_FONT = "arialn.ttf"
 TEXT_FAMILY = "Arial Narrow"
 
-# Space left around everything drawn, paper inches: 1" is 24" at 1/2" = 1'-0".
-DRAWING_PADDING = 1.0
+# Space left around everything drawn, paper inches: 1/2" is 12" at 1/2" = 1'-0".
+DRAWING_PADDING = 0.5
 
 
 def create_dxf_document() -> Drawing:
@@ -63,6 +64,8 @@ def create_dxf_document() -> Drawing:
     doc.header["$MEASUREMENT"] = 0  # English/imperial
     doc.header["$LUNITS"] = 4       # Architectural
     doc.header["$LUPREC"] = 4       # Display to 1/16 inch
+    doc.header["$PDMODE"] = 1       # Frame points contribute extents without drawing
+    doc.header["$PDSIZE"] = 0
 
     # Ensure linetypes exist
     if "CENTER" not in doc.linetypes:
@@ -83,6 +86,7 @@ def create_dxf_document() -> Drawing:
     # Create layers
     for layer_name, (color, linetype, lineweight) in LAYER_DEFS.items():
         doc.layers.add(layer_name, color=color, linetype=linetype, lineweight=lineweight)
+    doc.layers.get("FRAME").dxf.plot = 1
 
     style = doc.styles.new(TEXT_STYLE, dxfattribs={"font": TEXT_FONT})
     style.set_extended_font_data(family=TEXT_FAMILY, italic=False, bold=False)
@@ -186,6 +190,8 @@ def frame_drawing(doc: Drawing, plot_scale: float) -> None:
         center=((x0 + x1) / 2, (y0 + y1) / 2),
         dxfattribs={"aspect_ratio": (x1 - x0) / (y1 - y0)},
     )
+    for corner in ((x0, y0), (x1, y0), (x1, y1), (x0, y1)):
+        doc.modelspace().add_point(corner, dxfattribs={"layer": "FRAME"})
 
 
 def doc_to_bytes(doc: Drawing) -> bytes:
