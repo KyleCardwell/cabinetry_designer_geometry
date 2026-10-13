@@ -44,6 +44,7 @@ LAYER_DEFS = {
     # Door details and style tags in elevation (SPEC-46.4): lighter than faces.
     "DOOR_DETAILS": (7, "CONTINUOUS", 13),
     "DOOR_TAGS":    (7, "CONTINUOUS", 18),
+    "PART_NUMBERS": (7, "CONTINUOUS", 18),
 }
 
 # Every label and dimension uses one text style (SPEC-43.1). The DXF names the font; the viewer supplies it.

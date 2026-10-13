@@ -36,6 +36,24 @@ class PayloadLine(BaseModel):
     z2: float
 
 
+class PayloadPartNumber(BaseModel):
+    """A pre-positioned part badge (SPEC-50.13), centred at x/z in wall inches.
+
+    Width and height are already scaled to drawing inches by the designer;
+    an optional leader connects the badge to its part or anchor.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    key: str
+    text: str = Field(min_length=1)
+    x: float
+    z: float
+    width: float = Field(gt=0)
+    height: float = Field(gt=0)
+    leader: PayloadLine | None = None
+
+
 class PayloadPart(BaseModel):
     """An elevation part, optionally outlined by absolute (x, z[, bulge]) points.
 
@@ -162,6 +180,8 @@ class PayloadElevation(BaseModel):
     marks: list[PayloadMark] = []
     # Door details per part (SPEC-46.4); each names a part in this elevation.
     doorDetails: list[PayloadDoorDetail] = []
+    # Pre-positioned badges in drawing inches (SPEC-50.13), always exported.
+    partNumbers: list[PayloadPartNumber] = []
 
     @model_validator(mode="after")
     def check_door_detail_parts(self):

@@ -10,6 +10,7 @@ from .arcs import flatten_outline, rejoin_arcs
 from .dimensions import DEFAULT_PLOT_SCALE, add_dimensions
 from .marks import add_marks
 from .models import PayloadElevation, PayloadRoom
+from .part_numbers import add_part_numbers
 
 
 KIND_LAYERS = {
@@ -220,5 +221,6 @@ def build_elevation_dxf(
             dxfattribs={"layer": "TEXT", "style": TEXT_STYLE, "insert": position, "height": height},
         )
 
+    add_part_numbers(modelspace, elevation.partNumbers)
     frame_drawing(doc, plot_scale)
     return doc_to_bytes(doc)
