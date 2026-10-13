@@ -45,10 +45,10 @@ def test_each_layer_has_its_lineweight_and_they_show():
     doc = create_dxf_document()
     weights = {layer.dxf.name: layer.dxf.lineweight for layer in doc.layers if layer.dxf.name not in ("0", "Defpoints")}
     assert weights == {
-        "WALLS": 50, "CABINETS": 35, "FACES": 25, "FILLERS": 25, "PANELS": 25, "FRAMES": 25,
-        "SHELVES": 18, "COUNTERTOPS": 35, "MOLDINGS": 25, "OPENINGS": 25, "SECTIONS": 25,
+        "WALLS": 50, "CABINETS": 35, "FACES": 18, "FILLERS": 18, "PANELS": 18, "FRAMES": 18,
+        "SHELVES": 18, "COUNTERTOPS": 35, "MOLDINGS": 18, "OPENINGS": 25, "SECTIONS": 13,
         "HIDDEN": 18, "DIMENSIONS": 18, "CENTERLINES": 18, "TEXT": 18, "MARKERS": 25,
-        "DOOR_DETAILS": 13, "DOOR_TAGS": 18,
+        "DOOR_DETAILS": 9, "DOOR_TAGS": 18,
         "PART_NUMBERS": 18, "FRAME": 0,
     }
     assert doc.header["$LWDISPLAY"] == 1
