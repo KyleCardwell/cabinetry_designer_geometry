@@ -1,12 +1,12 @@
 # Cabinetry Designer — Geometry Engine
 
-Python renderer for drawing payload v1 built by the designer's `toDrawingPayload` function. The designer supplies the wall face dimensions in inches; geometry draws one DXF per elevation and bundles them into a zip with `payload.json`.
+Python renderer for drawing payload v1 built by the designer's `toDrawingPayload` function. The designer supplies the wall face dimensions in inches; geometry bundles the plan and elevation DXFs, a vector `drawings.pdf`, and `payload.json` into a zip.
 
 ## Getting Started
 
 ```bash
 python -m venv .venv
-.venv/bin/pip install -r requirements.txt pytest
+.venv/bin/pip install -r requirements.txt '.[dev]'
 .venv/bin/python -m pytest
 .venv/bin/python -m src draw < tests/fixtures/g1_payload.json
 ```
@@ -18,12 +18,16 @@ python -m venv .venv
 ```json
 {
   "payloadVersion": 1,
-  "files": ["elevation-A.dxf", "elevation-B.dxf", "elevation-C.dxf", "elevation-D.dxf"],
+  "files": ["elevation-A.dxf", "elevation-B.dxf", "elevation-C.dxf", "elevation-D.dxf", "drawings.pdf"],
   "zip_base64": "..."
 }
 ```
 
-Decode `zip_base64` to obtain the zip. It contains `payload.json` first, followed by one `elevation-<letter>.dxf` per elevation in payload order. Each DXF shows the wall face rectangle, elevation title, wall label, and room name, with units set to inches.
+Decode `zip_base64` to obtain the zip. It contains `payload.json` first, optional `plan.dxf`, then one `elevation-<letter>.dxf` per elevation in payload order, and `drawings.pdf` last. Each DXF shows the wall face rectangle, elevation title, wall label, and room name, with units set to inches. The PDF renders those same documents, plan first, one per page; no drawings means no PDF.
+
+`paperSize` accepts `letter` (default), `ledger`, or `archD`. Pages independently choose landscape or portrait, leaving a 1/4-inch printer margin. Drawings that cannot fit at `plotScale` shrink to fit and say `NOT TO SCALE`.
+
+PDF text uses Arial installed on the machine (available on macOS). Linux servers need Arial or the metric-compatible Liberation Sans / Arimo installed so ezdxf and matplotlib can find suitable fonts. PDF rendering uses matplotlib; pypdf is only a dev/test dependency.
 
 Payload validation errors are written to stderr as JSON with exit code 2. Other errors use exit code 1.
 

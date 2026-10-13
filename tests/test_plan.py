@@ -52,10 +52,10 @@ def _area(polyline):
 def test_plan_dxf_comes_first_only_when_the_payload_has_a_plan():
     result = draw(PAYLOAD)
     elevations = ["elevation-A.dxf", "elevation-B.dxf", "elevation-C.dxf", "elevation-D.dxf"]
-    assert result["files"] == ["plan.dxf", *elevations]
-    assert _archive(PAYLOAD).namelist() == ["payload.json", "plan.dxf", *elevations]
+    assert result["files"] == ["plan.dxf", *elevations, "drawings.pdf"]
+    assert _archive(PAYLOAD).namelist() == ["payload.json", "plan.dxf", *elevations, "drawings.pdf"]
     assert json.loads(_archive(PAYLOAD).read("payload.json")) == PAYLOAD
-    assert draw(ELEVATIONS)["files"] == elevations
+    assert draw(ELEVATIONS)["files"] == [*elevations, "drawings.pdf"]
 
 
 def test_walls_join_at_the_corner_and_the_window_cuts_them():

@@ -252,6 +252,8 @@ class PayloadPlan(BaseModel):
 
 
 class DrawingPayload(BaseModel):
+    """Drawing request; paperSize selects PDF paper, defaulting to letter when omitted."""
+
     model_config = ConfigDict(extra="forbid")
 
     payloadVersion: Literal[1]
@@ -260,5 +262,6 @@ class DrawingPayload(BaseModel):
     elevations: list[PayloadElevation]
     # Drawing scale (SPEC-43): 24 is 1/2" = 1'-0". None draws at 24, so a payload without it round-trips.
     plotScale: float | None = Field(default=None, gt=0)
+    paperSize: Literal["letter", "ledger", "archD"] | None = None
     # The room in plan (SPEC-44). None draws no plan.dxf, so a payload without it round-trips.
     plan: PayloadPlan | None = None

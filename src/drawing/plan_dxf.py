@@ -2,6 +2,7 @@
 
 from math import hypot
 
+from ezdxf.document import Drawing
 from shapely.geometry import Polygon
 from shapely.ops import unary_union
 
@@ -68,9 +69,9 @@ def dimension_points(dimensions) -> list:
     return points
 
 
-def build_plan_dxf(
+def make_plan_doc(
     plan: PayloadPlan, room: PayloadRoom, plot_scale: float = DEFAULT_PLOT_SCALE,
-) -> bytes:
+) -> Drawing:
     doc = create_dxf_document()
     add_dimstyle(doc, plot_scale)
     doc.header["$LTSCALE"] = plot_scale / 2
@@ -116,4 +117,11 @@ def build_plan_dxf(
             )
 
     frame_drawing(doc, plot_scale)
-    return doc_to_bytes(doc)
+    doc.update_extents()
+    return doc
+
+
+def build_plan_dxf(
+    plan: PayloadPlan, room: PayloadRoom, plot_scale: float = DEFAULT_PLOT_SCALE,
+) -> bytes:
+    return doc_to_bytes(make_plan_doc(plan, room, plot_scale))

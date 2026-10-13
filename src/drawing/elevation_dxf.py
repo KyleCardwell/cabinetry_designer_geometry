@@ -1,5 +1,6 @@
 """Render a wall face and its labels as an elevation DXF."""
 
+from ezdxf.document import Drawing
 from ezdxf.enums import TextEntityAlignment
 from shapely.geometry import Polygon
 
@@ -120,9 +121,9 @@ def _add_hatch(modelspace, layer, region, solid: bool = False) -> None:
             hatch.paths.add_polyline_path(list(ring.coords)[:-1], is_closed=True, flags=16)
 
 
-def build_elevation_dxf(
+def make_elevation_doc(
     elevation: PayloadElevation, room: PayloadRoom, plot_scale: float = DEFAULT_PLOT_SCALE,
-) -> bytes:
+) -> Drawing:
     doc = create_dxf_document()
     add_dimstyle(doc, plot_scale)
     # Dashes 1/4" and gaps 1/8" on paper at any plot scale (SPEC-43.1): DASHED is 1/2" + 1/4" at LTSCALE 1.
@@ -223,4 +224,11 @@ def build_elevation_dxf(
 
     add_part_numbers(modelspace, elevation.partNumbers)
     frame_drawing(doc, plot_scale)
-    return doc_to_bytes(doc)
+    doc.update_extents()
+    return doc
+
+
+def build_elevation_dxf(
+    elevation: PayloadElevation, room: PayloadRoom, plot_scale: float = DEFAULT_PLOT_SCALE,
+) -> bytes:
+    return doc_to_bytes(make_elevation_doc(elevation, room, plot_scale))
