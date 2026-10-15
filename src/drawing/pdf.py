@@ -45,8 +45,8 @@ def scale_label(plot_scale: float, to_scale: bool) -> str:
     return f"SCALE 1:{plot_scale:g}"
 
 
-def render_pdf(docs: list[Drawing], paper: str, plot_scale: float) -> bytes:
-    """Render one page per document; log each scale note for verification."""
+def render_pdf(docs: list[Drawing], paper: str, plot_scale: float, revision: str | None = None) -> bytes:
+    """Render one page per document; log scale notes and nonblank revision labels."""
     buffer = io.BytesIO()
     available_fonts = {font.name for font in font_manager.fontManager.ttflist}
     note_family = next(
@@ -82,6 +82,13 @@ def render_pdf(docs: list[Drawing], paper: str, plot_scale: float) -> bytes:
                 fontsize=72 / 8, color="black",
             )
             logger.info("PDF page %d scale note: %s", page, label)
+            if revision and revision.strip():
+                fig.text(
+                    3 / 16, 3 / 16, revision,
+                    transform=fig.dpi_scale_trans, ha="left", va="bottom",
+                    family=note_family, fontsize=9, color="black",
+                )
+                logger.info("PDF page %d revision: %s", page, revision)
             pdf.savefig(fig, bbox_inches=None)
             fig.clear()
     return buffer.getvalue()

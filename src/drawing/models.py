@@ -12,10 +12,13 @@ Bulge = Annotated[float, Field(ge=-1, le=1, allow_inf_nan=False)]
 
 
 class PayloadRoom(BaseModel):
+    """Room identity with an optional revision label printed only on PDF pages."""
+
     model_config = ConfigDict(extra="forbid")
 
     id: str = Field(min_length=1)
     name: str
+    revision: str | None = Field(default=None, max_length=80)
 
 
 class PayloadHole(BaseModel):

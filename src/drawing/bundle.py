@@ -27,7 +27,9 @@ def draw(payload: dict) -> dict:
         files.append((f"elevation-{elevation.letter}.dxf", doc_to_bytes(doc)))
         docs.append(doc)
     if docs:
-        files.append(("drawings.pdf", render_pdf(docs, model.paperSize or "letter", plot_scale)))
+        files.append(("drawings.pdf", render_pdf(
+            docs, model.paperSize or "letter", plot_scale, revision=model.room.revision,
+        )))
     buffer = io.BytesIO()
     with ZipFile(buffer, "w", compression=ZIP_DEFLATED) as archive:
         for name, content in [("payload.json", model.model_dump_json(indent=2, exclude_defaults=True)), *files]:

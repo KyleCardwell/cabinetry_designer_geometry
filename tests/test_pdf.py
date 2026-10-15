@@ -69,12 +69,13 @@ def test_bundle_paper_page_order_and_shared_documents(paper, points, monkeypatch
         serialized.append(data)
         return data
 
-    def render(docs, paper, scale):
+    def render(docs, paper, scale, revision=None):
+        assert revision is None
         assert len(docs) == len(written)
         assert all(doc is written[index] for index, doc in enumerate(docs))
         titles = [list(doc.modelspace().query("TEXT"))[0].dxf.text for doc in docs]
         assert titles == ["PLAN", *[elevation["title"].upper() for elevation in ELEVATIONS["elevations"]]]
-        return original_render(docs, paper, scale)
+        return original_render(docs, paper, scale, revision=revision)
 
     monkeypatch.setattr(bundle, "doc_to_bytes", write)
     monkeypatch.setattr(bundle, "render_pdf", render)
@@ -95,6 +96,96 @@ def test_bundle_paper_page_order_and_shared_documents(paper, points, monkeypatch
     low, high = doc.header["$EXTMIN"], doc.header["$EXTMAX"]
     assert fit_page(high[0] - low[0], high[1] - low[1], paper or "letter", 24)[3]
     assert caplog.records[0].getMessage() == 'PDF page 1 scale note: SCALE 1/2" = 1\'-0"'
+    assert not any(" revision: " in record.getMessage() for record in caplog.records)
+
+
+def test_revision_on_every_page_and_identical_dxf_bytes(monkeypatch, caplog):
+    from matplotlib.backends.backend_pdf import PdfPages
+
+    monkeypatch.setattr(ezdxf.options, "write_fixed_meta_data_for_testing", True)
+    payload = {**ELEVATIONS, "plan": PLAN, "paperSize": "letter"}
+    original_result = bundle.draw(payload)
+    revision = "KC 10/15/26 (v2)"
+    payload["room"] = {**payload["room"], "revision": revision}
+    original_save = PdfPages.savefig
+    pages = []
+
+    def save(pdf, fig, **kwargs):
+        assert len(fig.texts) == 2
+        scale_note, revision_note = fig.texts
+        assert revision_note.get_text() == revision
+        assert revision_note.get_position() == (3 / 16, 3 / 16)
+        assert revision_note.get_transform() is fig.dpi_scale_trans
+        assert revision_note.get_ha() == "left"
+        assert revision_note.get_va() == "bottom"
+        assert revision_note.get_fontfamily() == scale_note.get_fontfamily()
+        assert revision_note.get_fontsize() == scale_note.get_fontsize() == 9
+        assert revision_note.get_color() == scale_note.get_color() == "black"
+        pages.append(fig)
+        return original_save(pdf, fig, **kwargs)
+
+    monkeypatch.setattr(PdfPages, "savefig", save)
+    caplog.set_level(logging.INFO, logger="src.drawing.pdf")
+    result = bundle.draw(payload)
+    with (
+        ZipFile(io.BytesIO(base64.b64decode(original_result["zip_base64"]))) as original,
+        ZipFile(io.BytesIO(base64.b64decode(result["zip_base64"]))) as archive,
+    ):
+        assert json.loads(archive.read("payload.json"))["room"]["revision"] == revision
+        for name in result["files"]:
+            if name.endswith(".dxf"):
+                assert archive.read(name) == original.read(name)
+        reader = PdfReader(io.BytesIO(archive.read("drawings.pdf")))
+        assert len(reader.pages) == len(pages) == 1 + len(ELEVATIONS["elevations"])
+        assert all(revision in page.extract_text() for page in reader.pages)
+    assert [record.getMessage() for record in caplog.records if " revision: " in record.getMessage()] == [
+        f"PDF page {page} revision: {revision}" for page in range(1, len(pages) + 1)
+    ]
+
+
+@pytest.mark.parametrize("revision", [None, "", "   "])
+def test_missing_or_blank_revision_prints_and_logs_nothing(revision, monkeypatch, caplog):
+    from matplotlib.backends.backend_pdf import PdfPages
+
+    payload = {**ELEVATIONS, "plan": PLAN}
+    if revision is not None:
+        payload["room"] = {**payload["room"], "revision": revision}
+    original_save = PdfPages.savefig
+    pages = []
+
+    def save(pdf, fig, **kwargs):
+        assert len(fig.texts) == 1
+        assert fig.texts[0].get_ha() == "right"
+        pages.append(fig)
+        return original_save(pdf, fig, **kwargs)
+
+    monkeypatch.setattr(PdfPages, "savefig", save)
+    caplog.set_level(logging.INFO, logger="src.drawing.pdf")
+    result = bundle.draw(payload)
+    assert len(pages) == 1 + len(ELEVATIONS["elevations"])
+    assert not any(" revision: " in record.getMessage() for record in caplog.records)
+    with ZipFile(io.BytesIO(base64.b64decode(result["zip_base64"]))) as archive:
+        saved_room = json.loads(archive.read("payload.json"))["room"]
+        if revision is None:
+            assert "revision" not in saved_room
+        else:
+            assert saved_room["revision"] == revision
+
+
+def test_revision_length_limit_and_cli_exit_2():
+    payload = {**ELEVATIONS, "room": {**ELEVATIONS["room"], "revision": "R" * 80}}
+    assert DrawingPayload.model_validate(payload).room.revision == "R" * 80
+    payload["room"]["revision"] += "R"
+    with pytest.raises(ValidationError) as error:
+        bundle.draw(payload)
+    assert error.value.errors()[0]["loc"] == ("room", "revision")
+    assert error.value.errors()[0]["type"] == "string_too_long"
+    run = subprocess.run(
+        [sys.executable, "-m", "src", "draw"], input=json.dumps(payload),
+        capture_output=True, text=True, cwd=ROOT,
+    )
+    assert run.returncode == 2
+    assert json.loads(run.stderr)["error"] == "Invalid drawing payload"
 
 
 def test_invalid_paper_is_a_validation_error_and_cli_exit_2():
