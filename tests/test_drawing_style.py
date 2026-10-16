@@ -48,7 +48,7 @@ def test_each_layer_has_its_lineweight_and_they_show():
         "WALLS": 50, "CABINETS": 9, "FACES": 9, "FILLERS": 18, "PANELS": 18, "FRAMES": 18,
         "SHELVES": 18, "COUNTERTOPS": 35, "MOLDINGS": 18, "OPENINGS": 25, "SECTIONS": 13,
         "HIDDEN": 18, "DIMENSIONS": 18, "CENTERLINES": 18, "TEXT": 18, "MARKERS": 25,
-        "DOOR_DETAILS": 9, "DOOR_TAGS": 18,
+        "DOOR_DETAILS": 9, "SWING_MARKS": 9, "DOOR_TAGS": 18,
         "PART_NUMBERS": 18, "FRAME": 0,
     }
     assert doc.header["$LWDISPLAY"] == 1

@@ -167,6 +167,15 @@ class PayloadDoorDetail(BaseModel):
     tag: str | None = Field(default=None, min_length=1)
 
 
+class PayloadSwingMark(BaseModel):
+    """A part's swing-mark segments in wall inches, drawn at its depth with hidden segments dropped."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    partId: str = Field(min_length=1)
+    lines: list[PayloadLine] = Field(min_length=1)
+
+
 class PayloadElevation(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -183,6 +192,8 @@ class PayloadElevation(BaseModel):
     marks: list[PayloadMark] = []
     # Door details per part (SPEC-46.4); each names a part in this elevation.
     doorDetails: list[PayloadDoorDetail] = []
+    # Swing marks per part (SPEC-HP2); each names a part in this elevation.
+    swingMarks: list[PayloadSwingMark] = []
     # Pre-positioned badges in drawing inches (SPEC-50.13), always exported.
     partNumbers: list[PayloadPartNumber] = []
 
@@ -192,6 +203,9 @@ class PayloadElevation(BaseModel):
         unknown_ids = sorted({detail.partId for detail in self.doorDetails} - part_ids)
         if unknown_ids:
             raise ValueError(f"Door details name unknown part ids: {', '.join(unknown_ids)}")
+        unknown_ids = sorted({mark.partId for mark in self.swingMarks} - part_ids)
+        if unknown_ids:
+            raise ValueError(f"Swing marks name unknown part ids: {', '.join(unknown_ids)}")
         return self
 
 
