@@ -176,6 +176,35 @@ class PayloadSwingMark(BaseModel):
     lines: list[PayloadLine] = Field(min_length=1)
 
 
+class PayloadPull(BaseModel):
+    """A part's closed pull outlines in wall (x, z[, bulge]) inches.
+
+    Bulges leave each point and round to six places, as in PayloadPart;
+    two bulged points can describe a knob. Drawn at the part's depth on
+    PULLS with hidden segments dropped, without hiding other geometry.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    partId: str = Field(min_length=1)
+    outlines: list[list[tuple[float, float] | tuple[float, float, Bulge]]] = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def check_outlines(self):
+        for index, outline in enumerate(self.outlines):
+            if len(outline) < 2:
+                raise ValueError("Pull outline must have at least 2 points")
+            outline = [
+                (point[0], point[1], round(point[2], 6)) if len(point) == 3 else point
+                for point in outline
+            ]
+            flattened, _ = flatten_outline(outline)
+            if len(flattened) < 3 or Polygon(flattened).area <= 0:
+                raise ValueError("Pull outline must have non-zero area")
+            self.outlines[index] = outline
+        return self
+
+
 class PayloadElevation(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -194,6 +223,8 @@ class PayloadElevation(BaseModel):
     doorDetails: list[PayloadDoorDetail] = []
     # Swing marks per part (SPEC-HP2); each names a part in this elevation.
     swingMarks: list[PayloadSwingMark] = []
+    # Pull outlines per part (SPEC-HP5); each names a part in this elevation.
+    pulls: list[PayloadPull] = []
     # Pre-positioned badges in drawing inches (SPEC-50.13), always exported.
     partNumbers: list[PayloadPartNumber] = []
 
@@ -206,6 +237,9 @@ class PayloadElevation(BaseModel):
         unknown_ids = sorted({mark.partId for mark in self.swingMarks} - part_ids)
         if unknown_ids:
             raise ValueError(f"Swing marks name unknown part ids: {', '.join(unknown_ids)}")
+        unknown_ids = sorted({pull.partId for pull in self.pulls} - part_ids)
+        if unknown_ids:
+            raise ValueError(f"Pulls name unknown part ids: {', '.join(unknown_ids)}")
         return self
 
 

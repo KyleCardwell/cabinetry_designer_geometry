@@ -45,6 +45,7 @@ LAYER_DEFS = {
     # finest, same as face outlines (SPEC-46.4, 50.16)
     "DOOR_DETAILS": (7, "CONTINUOUS", 9),
     "SWING_MARKS":  (7, "DASHED", 9),
+    "PULLS":        (7, "CONTINUOUS", 13),
     "DOOR_TAGS":    (7, "CONTINUOUS", 18),
     "PART_NUMBERS": (1, "CONTINUOUS", 18),
     "FRAME":      (7, "CONTINUOUS", 0),

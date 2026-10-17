@@ -191,7 +191,24 @@ def make_elevation_doc(
         for mark in elevation.swingMarks
         for part in [by_id[mark.partId]]
     ]
-    lines = hidden_line_removal(shapes + detail_shapes + swing_shapes)
+    pull_shapes = []
+    pull_sources = {}
+    for pull in elevation.pulls:
+        part = by_id[pull.partId]
+        for outline in pull.outlines:
+            points, sources = flatten_outline(outline)
+            shape_id = f"{part.id}#pull{len(pull_shapes)}"
+            pull_sources[shape_id] = sources
+            pull_shapes.append(HlrShape(
+                id=shape_id,
+                polygon=rect_polygon(part.x, part.z, part.width, part.height),
+                front=part.front,
+                drop_hidden=True,
+                lines=tuple(zip(points, points[1:] + points[:1])),
+                opaque=False,
+                outlined=False,
+            ))
+    lines = hidden_line_removal(shapes + detail_shapes + swing_shapes + pull_shapes)
     for part in parts:
         visible, hidden = lines[part.id]
         sources = outlines[part.id][1] if part.outline is not None else []
@@ -206,6 +223,10 @@ def make_elevation_doc(
         write_lines_to_layer(doc, "DOOR_DETAILS", lines[shape.id][0])
     for shape in swing_shapes:
         write_lines_to_layer(doc, "SWING_MARKS", lines[shape.id][0])
+    for shape in pull_shapes:
+        visible, arcs = rejoin_arcs(lines[shape.id][0], pull_sources[shape.id])
+        write_lines_to_layer(doc, "PULLS", visible)
+        write_arcs_to_layer(doc, "PULLS", arcs)
     _add_tags(modelspace, elevation.doorDetails, by_id, plot_scale)
 
     regions = visible_regions(shapes, {part.id for part in parts if part.kind in HATCHED})
