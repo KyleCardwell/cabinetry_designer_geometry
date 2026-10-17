@@ -31,6 +31,22 @@ PDF text uses Arial installed on the machine (available on macOS). Linux servers
 
 Payload validation errors are written to stderr as JSON with exit code 2. Other errors use exit code 1.
 
+## Payload elevations
+
+An elevation may include `faces` for a combined view. Each face has `key`, `wallId`,
+`side` (`front` or `back`), `wallLabel`, `dx` (nonnegative), `depth`, positive
+`length` and `height`, and an optional `note` (null or a nonempty string). Unknown
+keys are rejected. Each face must fit inside the elevation's length and height,
+with a tolerance of 1e-6 inches.
+
+When `faces` is present, each face replaces the single wall outline with a rectangle
+from `dx` to `dx + length`, sharing the floor at zero. A supplied note, such as
+`16" back`, is centred over that face at `height - 0.25 * plotScale`, using the
+dimension text style, layer, and paper text height. The designer supplies the note text;
+geometry does not calculate it from `depth`. Omitting `faces` or setting it to null
+preserves the existing single-face output. Parts, dimensions, and marks retain
+their supplied positions.
+
 ## Architecture
 
 ```text

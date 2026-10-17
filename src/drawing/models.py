@@ -205,7 +205,28 @@ class PayloadPull(BaseModel):
         return self
 
 
+class PayloadFace(BaseModel):
+    """One combined elevation face, offset along x with optional depth-note text.
+
+    Depth is toward the viewer; the designer supplies the note relative to the lead.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    key: str
+    wallId: str
+    side: Literal["front", "back"]
+    wallLabel: str
+    dx: float = Field(ge=0)
+    depth: float
+    length: float = Field(gt=0)
+    height: float = Field(gt=0)
+    note: str | None = Field(default=None, min_length=1)
+
+
 class PayloadElevation(BaseModel):
+    """An elevation whose optional faces replace its single wall outline."""
+
     model_config = ConfigDict(extra="forbid")
 
     key: str
@@ -216,6 +237,7 @@ class PayloadElevation(BaseModel):
     wallLabel: str
     length: float = Field(gt=0)
     height: float = Field(gt=0)
+    faces: list[PayloadFace] | None = None
     parts: list[PayloadPart] = []
     dimensions: list[PayloadDimension] = []
     marks: list[PayloadMark] = []
@@ -227,6 +249,13 @@ class PayloadElevation(BaseModel):
     pulls: list[PayloadPull] = []
     # Pre-positioned badges in drawing inches (SPEC-50.13), always exported.
     partNumbers: list[PayloadPartNumber] = []
+
+    @model_validator(mode="after")
+    def check_face_bounds(self):
+        for face in self.faces or []:
+            if face.dx + face.length > self.length + 1e-6 or face.height > self.height + 1e-6:
+                raise ValueError("Faces must fit inside the elevation's bounds")
+        return self
 
     @model_validator(mode="after")
     def check_door_detail_parts(self):

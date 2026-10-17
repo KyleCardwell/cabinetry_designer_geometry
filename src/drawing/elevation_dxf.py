@@ -129,16 +129,25 @@ def make_elevation_doc(
     # Dashes 1/4" and gaps 1/8" on paper at any plot scale (SPEC-43.1): DASHED is 1/2" + 1/4" at LTSCALE 1.
     doc.header["$LTSCALE"] = plot_scale / 2
     modelspace = doc.modelspace()
-    modelspace.add_lwpolyline(
-        [
-            (0, 0),
-            (elevation.length, 0),
-            (elevation.length, elevation.height),
-            (0, elevation.height),
-        ],
-        close=True,
-        dxfattribs={"layer": "WALLS"},
-    )
+    wall_outlines = [(0, elevation.length, elevation.height)] if elevation.faces is None else [
+        (face.dx, face.length, face.height) for face in elevation.faces
+    ]
+    for x, length, height in wall_outlines:
+        modelspace.add_lwpolyline(
+            [(x, 0), (x + length, 0), (x + length, height), (x, height)],
+            close=True,
+            dxfattribs={"layer": "WALLS"},
+        )
+    for face in elevation.faces or []:
+        if face.note is not None:
+            modelspace.add_text(
+                face.note,
+                height=DIMSTYLE_PAPER["dimtxt"] * plot_scale,
+                dxfattribs={"layer": "DIMENSIONS", "style": TEXT_STYLE},
+            ).set_placement(
+                (face.dx + face.length / 2, face.height - 0.25 * plot_scale),
+                align=TextEntityAlignment.MIDDLE_CENTER,
+            )
 
     parts = [
         part for part in elevation.parts
