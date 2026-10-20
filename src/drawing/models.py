@@ -176,6 +176,40 @@ class PayloadSwingMark(BaseModel):
     lines: list[PayloadLine] = Field(min_length=1)
 
 
+class PayloadInteriorLabel(BaseModel):
+    """An accessory label centred in its positive-size box in wall inches (SPEC-IN14)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    text: str = Field(min_length=1)
+    x: float
+    z: float
+    width: float = Field(gt=0)
+    height: float = Field(gt=0)
+
+
+class PayloadInterior(BaseModel):
+    """Interior segments at the cabinet's depth, with optional accessory labels (SPEC-IN14).
+
+    Hidden segments are dropped; visible segments and fitting labels use INTERIORS.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    partId: str = Field(min_length=1)
+    lines: list[PayloadLine] = Field(min_length=1)
+    labels: list[PayloadInteriorLabel] = []
+
+
+class PayloadGlassMark(BaseModel):
+    """Glass-mark segments at their part's depth, with hidden segments dropped (SPEC-IN14)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    partId: str = Field(min_length=1)
+    lines: list[PayloadLine] = Field(min_length=1)
+
+
 class PayloadPull(BaseModel):
     """A part's closed pull outlines in wall (x, z[, bulge]) inches.
 
@@ -245,6 +279,9 @@ class PayloadElevation(BaseModel):
     doorDetails: list[PayloadDoorDetail] = []
     # Swing marks per part (SPEC-HP2); each names a part in this elevation.
     swingMarks: list[PayloadSwingMark] = []
+    # Cabinet interiors and glass marks in wall inches (SPEC-IN14), each naming a part here.
+    interiors: list[PayloadInterior] = []
+    glassMarks: list[PayloadGlassMark] = []
     # Pull outlines per part (SPEC-HP5); each names a part in this elevation.
     pulls: list[PayloadPull] = []
     # Pre-positioned badges in drawing inches (SPEC-50.13), always exported.
@@ -266,6 +303,12 @@ class PayloadElevation(BaseModel):
         unknown_ids = sorted({mark.partId for mark in self.swingMarks} - part_ids)
         if unknown_ids:
             raise ValueError(f"Swing marks name unknown part ids: {', '.join(unknown_ids)}")
+        unknown_ids = sorted({interior.partId for interior in self.interiors} - part_ids)
+        if unknown_ids:
+            raise ValueError(f"Interiors name unknown part ids: {', '.join(unknown_ids)}")
+        unknown_ids = sorted({mark.partId for mark in self.glassMarks} - part_ids)
+        if unknown_ids:
+            raise ValueError(f"Glass marks name unknown part ids: {', '.join(unknown_ids)}")
         unknown_ids = sorted({pull.partId for pull in self.pulls} - part_ids)
         if unknown_ids:
             raise ValueError(f"Pulls name unknown part ids: {', '.join(unknown_ids)}")

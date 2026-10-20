@@ -106,6 +106,23 @@ def _polygons(region) -> list:
     return [part for geom in getattr(region, "geoms", []) for part in _polygons(geom)]
 
 
+def _add_interior_labels(modelspace, interiors, plot_scale) -> None:
+    """Centre accessory text in boxes that fit its paper-scaled height and estimated width."""
+    h = DIMSTYLE_PAPER["dimtxt"] * plot_scale
+    for interior in interiors:
+        for label in interior.labels:
+            if label.height < h or label.width < 0.6 * h * len(label.text):
+                continue
+            modelspace.add_text(
+                label.text,
+                height=h,
+                dxfattribs={"layer": "INTERIORS", "style": TEXT_STYLE},
+            ).set_placement(
+                (label.x + label.width / 2, label.z + label.height / 2),
+                align=TextEntityAlignment.MIDDLE_CENTER,
+            )
+
+
 def _add_hatch(modelspace, layer, region, solid: bool = False) -> None:
     """One ANSI31 hatch per polygon of a region, holes included, or solid when asked (SPEC-44.1)."""
     for polygon in _polygons(region):
@@ -200,6 +217,24 @@ def make_elevation_doc(
         for mark in elevation.swingMarks
         for part in [by_id[mark.partId]]
     ]
+    annotation_shapes = {}
+    for layer, suffix, records in (
+        ("INTERIORS", "interior", elevation.interiors),
+        ("GLASS_MARKS", "glass", elevation.glassMarks),
+    ):
+        annotation_shapes[layer] = [
+            HlrShape(
+                id=f"{part.id}#{suffix}",
+                polygon=rect_polygon(part.x, part.z, part.width, part.height),
+                front=part.front,
+                drop_hidden=True,
+                lines=tuple(((line.x1, line.z1), (line.x2, line.z2)) for line in record.lines),
+                opaque=False,
+                outlined=False,
+            )
+            for record in records
+            for part in [by_id[record.partId]]
+        ]
     pull_shapes = []
     pull_sources = {}
     for pull in elevation.pulls:
@@ -217,7 +252,10 @@ def make_elevation_doc(
                 opaque=False,
                 outlined=False,
             ))
-    lines = hidden_line_removal(shapes + detail_shapes + swing_shapes + pull_shapes)
+    lines = hidden_line_removal(
+        shapes + detail_shapes + swing_shapes + pull_shapes
+        + [shape for group in annotation_shapes.values() for shape in group]
+    )
     for part in parts:
         visible, hidden = lines[part.id]
         sources = outlines[part.id][1] if part.outline is not None else []
@@ -232,11 +270,15 @@ def make_elevation_doc(
         write_lines_to_layer(doc, "DOOR_DETAILS", lines[shape.id][0])
     for shape in swing_shapes:
         write_lines_to_layer(doc, "SWING_MARKS", lines[shape.id][0])
+    for layer, group in annotation_shapes.items():
+        for shape in group:
+            write_lines_to_layer(doc, layer, lines[shape.id][0])
     for shape in pull_shapes:
         visible, arcs = rejoin_arcs(lines[shape.id][0], pull_sources[shape.id])
         write_lines_to_layer(doc, "PULLS", visible)
         write_arcs_to_layer(doc, "PULLS", arcs)
     _add_tags(modelspace, elevation.doorDetails, by_id, plot_scale)
+    _add_interior_labels(modelspace, elevation.interiors, plot_scale)
 
     regions = visible_regions(shapes, {part.id for part in parts if part.kind in HATCHED})
     for part in parts:
