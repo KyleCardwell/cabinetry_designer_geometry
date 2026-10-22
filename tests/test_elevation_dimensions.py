@@ -200,11 +200,26 @@ def _assert_split_line(doc, dimension, axis, at, start, end):
 
 
 def _assert_leader(doc, dimension, midpoint, text_at):
-    assert any(
-        p1 == pytest.approx(midpoint)
-        and sum((p2[i] - p1[i]) * (text_at[i] - midpoint[i]) for i in (0, 1)) > 0
-        for p1, p2 in _lines(doc, dimension)
-    )
+    """One straight leader from the midpoint toward the text, stopping short of it; nothing under the text."""
+    leaders = [
+        (p1, p2) for p1, p2 in _lines(doc, dimension)
+        if p1 == pytest.approx(midpoint) or p2 == pytest.approx(midpoint)
+    ]
+    leaders = [
+        (p1, p2) if p1 == pytest.approx(midpoint) else (p2, p1) for p1, p2 in leaders
+        if sum((q[i] - midpoint[i]) * (text_at[i] - midpoint[i]) for q in (p1, p2) for i in (0, 1)) > 0
+    ]
+    assert len(leaders) == 1
+    (_, end), = leaders
+    reach = sum((end[i] - midpoint[i]) ** 2 for i in (0, 1)) ** 0.5
+    full = sum((text_at[i] - midpoint[i]) ** 2 for i in (0, 1)) ** 0.5
+    assert 0 < reach < full
+    # straight at the text: the end is on the midpoint→text line
+    cross = (end[0] - midpoint[0]) * (text_at[1] - midpoint[1]) - (end[1] - midpoint[1]) * (text_at[0] - midpoint[0])
+    assert cross == pytest.approx(0, abs=1e-9)
+    # no ezdxf underline: no line runs along the text's near edge
+    assert not any(p1 != pytest.approx(midpoint) and p2 != pytest.approx(midpoint) and (
+        p1 == pytest.approx(end) or p2 == pytest.approx(end)) for p1, p2 in _lines(doc, dimension))
 
 
 @pytest.mark.parametrize("orientation, axis, text_at", [
@@ -248,7 +263,7 @@ def test_each_end_of_a_dimension_can_have_its_own_base_and_round_trips():
     assert tuple(pin.dxf.defpoint2)[:2] == (72, 66)
     assert tuple(pin.dxf.defpoint3)[:2] == (75, 34.5)
     assert tuple(pin.dxf.defpoint)[:2] == (72, 48)
-    assert len(_lines(doc, pin)) == 5
+    assert len(_lines(doc, pin)) == 4  # lines, extension lines, one straight leader
     assert all(line in _lines(doc, pin) for line in [
         ((72, 48), (75, 48)), ((72, 64.5), (72, 46.5)), ((75, 36), (75, 49.5)),
     ])

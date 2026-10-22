@@ -94,11 +94,16 @@ def test_aligned_dimension_splits_around_inline_text_or_leads_to_moved_text(move
     assert text.dxf.attachment_point == 5  # middle centre
     lines = [(tuple(e.dxf.start)[:2], tuple(e.dxf.end)[:2]) for e in block.query("LINE")]
     if moved:
-        assert any(
-            p1 == pytest.approx(midpoint)
-            and sum((p2[i] - p1[i]) * (text_at[i] - midpoint[i]) for i in (0, 1)) > 0
-            for p1, p2 in lines
-        )
+        # One straight leader toward the text, stopping short of it, and no underline (ezdxf's own leader
+        # bent to a corner of the text and ran along under it).
+        leaders = [(p1, p2) for p1, p2 in lines if p1 == pytest.approx(midpoint)]
+        assert len(leaders) == 1
+        (_, end), = leaders
+        cross = (end[0] - midpoint[0]) * (text_at[1] - midpoint[1]) - (end[1] - midpoint[1]) * (text_at[0] - midpoint[0])
+        assert cross == pytest.approx(0, abs=1e-9)
+        assert 0 < (end[0] - midpoint[0]) / (text_at[0] - midpoint[0]) < 1
+        assert not any(p1 == pytest.approx(end) or p2 == pytest.approx(end) for p1, p2 in lines
+                       if p1 != pytest.approx(midpoint))
     else:
         # Project the rendered lines onto the dimension's direction and normal.
         local = [

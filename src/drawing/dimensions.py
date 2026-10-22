@@ -2,6 +2,8 @@
 
 from math import dist
 
+from ezdxf.math import Vec2
+
 from src.dxf.writer import DIMSTYLE
 from src.projection.hlr import EPSILON
 
@@ -45,8 +47,10 @@ def add_dimensions(modelspace, dimensions) -> None:
         )
         if dimension.textX is not None and dimension.textZ is not None:
             # Text that doesn't fit, moved where the designer put it, with a leader (SPEC-DM7).
-            override.set_location((dimension.textX, dimension.textZ), leader=True, relative=False)
-        override.render()
+            override.set_location((dimension.textX, dimension.textZ), leader=False, relative=False)
+            _add_leader(override, (dimension.textX, dimension.textZ))
+        else:
+            override.render()
         override.dimension.dxf.text = "<>"
 
 
@@ -67,6 +71,24 @@ def add_plan_dimensions(modelspace, dimensions) -> None:
             dxfattribs={"layer": "DIMENSIONS"},
         )
         if dimension.textAt is not None:
-            override.set_location(dimension.textAt, leader=True, relative=False)
-        override.render()
+            override.set_location(dimension.textAt, leader=False, relative=False)
+            _add_leader(override, dimension.textAt)
+        else:
+            override.render()
         override.dimension.dxf.text = "<>"
+
+
+def _add_leader(override, text_at) -> None:
+    """Render, then add one straight leader from the dimension line's midpoint to the moved text's near
+    edge (half the text height plus the gap short of its centre), like the canvas. ezdxf's own leader
+    bends to a corner of the text and underlines it, so it isn't used."""
+    renderer = override.render()
+    start = Vec2(renderer.dim_line_center)
+    text = Vec2(text_at)
+    measurement = renderer.measurement
+    clear = measurement.text_height / 2 + measurement.text_gap
+    if start.distance(text) <= clear:
+        return
+    end = text - (text - start).normalize(clear)
+    block = override.dimension.doc.blocks.get(override.dimension.dxf.geometry)
+    block.add_line(start, end, dxfattribs=renderer.dimension_line.dxfattribs())
