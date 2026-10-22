@@ -73,6 +73,47 @@ def test_on_the_line_no_extension_lines_and_moved_text_where_sent():
     assert _round(moved.dxf.insert) == (36, -12)
 
 
+@pytest.mark.parametrize("moved", [False, True])
+def test_aligned_dimension_splits_around_inline_text_or_leads_to_moved_text(moved):
+    payload = copy.deepcopy(PAYLOAD)
+    dimension = {
+        "row": "wall", "kind": "wall", "start": [0, 0], "end": [18, 24],
+        "offset": -10, "text": '30"',
+    }
+    # Unit direction (0.6, 0.8): the offset line runs (8, -6) -> (26, 18).
+    midpoint = (17, 6)
+    text_at = (25, 0) if moved else midpoint
+    if moved:
+        dimension["textAt"] = text_at
+    payload["plan"]["dimensions"] = [dimension]
+    doc = _dxf(payload)
+    rendered, = doc.modelspace().query("DIMENSION")
+    block = doc.blocks.get(rendered.dxf.geometry)
+    text, = block.query("MTEXT")
+    assert tuple(text.dxf.insert)[:2] == pytest.approx(text_at)
+    assert text.dxf.attachment_point == 5  # middle centre
+    lines = [(tuple(e.dxf.start)[:2], tuple(e.dxf.end)[:2]) for e in block.query("LINE")]
+    if moved:
+        assert any(
+            p1 == pytest.approx(midpoint)
+            and sum((p2[i] - p1[i]) * (text_at[i] - midpoint[i]) for i in (0, 1)) > 0
+            for p1, p2 in lines
+        )
+    else:
+        # Project the rendered lines onto the dimension's direction and normal.
+        local = [
+            [(0.6 * x + 0.8 * y, -0.8 * x + 0.6 * y) for x, y in line]
+            for line in lines
+        ]
+        along = sorted((p1[0], p2[0]) for p1, p2 in local
+                       if p1[1] == pytest.approx(-10) and p2[1] == pytest.approx(-10))
+        assert len(along) == 2
+        assert along[0][0] == pytest.approx(0)
+        assert along[1][1] == pytest.approx(30)
+        assert 0 < along[0][1] < 15 < along[1][0] < 30
+        assert along[0][1] + along[1][0] == pytest.approx(30)
+
+
 def test_the_title_goes_under_the_lowest_dimension_and_a_plan_without_them_is_unchanged():
     texts = [(t.dxf.text, _round(t.dxf.insert)) for t in _dxf(PAYLOAD).modelspace().query("TEXT")]
     assert texts == [("PLAN", (0, -72)), ("G1 Euro kitchen", (0, -78))]

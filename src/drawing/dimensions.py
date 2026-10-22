@@ -44,8 +44,8 @@ def add_dimensions(modelspace, dimensions) -> None:
             dxfattribs={"layer": "DIMENSIONS"},
         )
         if dimension.textX is not None and dimension.textZ is not None:
-            # Text that doesn't fit, moved where the designer put it (SPEC-43.1), with no leader.
-            override.set_location((dimension.textX, dimension.textZ), leader=False, relative=False)
+            # Text that doesn't fit, moved where the designer put it, with a leader (SPEC-DM7).
+            override.set_location((dimension.textX, dimension.textZ), leader=True, relative=False)
         override.render()
         override.dimension.dxf.text = "<>"
 
@@ -67,6 +67,6 @@ def add_plan_dimensions(modelspace, dimensions) -> None:
             dxfattribs={"layer": "DIMENSIONS"},
         )
         if dimension.textAt is not None:
-            override.set_location(dimension.textAt, leader=False, relative=False)
+            override.set_location(dimension.textAt, leader=True, relative=False)
         override.render()
         override.dimension.dxf.text = "<>"

@@ -75,7 +75,7 @@ def test_the_style_is_paper_sizes_times_the_plot_scale():
     assert (style.dxf.dimtxt, style.dxf.dimtsz, style.dxf.dimexo, style.dxf.dimexe, style.dxf.dimgap) == (
         0.09375, 0.0625, 0.0625, 0.0625, 0.0625,
     )
-    assert (style.dxf.dimlunit, style.dxf.dimdec, style.dxf.dimfrac, style.dxf.dimtad) == (5, 4, 2, 1)
+    assert (style.dxf.dimlunit, style.dxf.dimdec, style.dxf.dimfrac, style.dxf.dimtad, style.dxf.dimtix) == (5, 4, 2, 0, 1)
     doc = _dxf(_payload(plot_scale=48))
     assert doc.dimstyles.get("FF").dxf.dimscale == 48
     dimension = next(iter(doc.modelspace().query("DIMENSION")))
@@ -116,11 +116,10 @@ def test_text_that_doesnt_fit_goes_where_the_designer_put_it():
     ]
     doc = _dxf(payload)
     moved, inline = list(doc.modelspace().query("DIMENSION"))
-    assert tuple(moved.dxf.text_midpoint)[:2] == (0.375, -12.375)
     assert moved.dxf.dimtype & 128 == 128
     texts = [entity for entity in doc.blocks.get(moved.dxf.geometry) if entity.dxftype() == "MTEXT"]
     assert [(text.dxf.text, tuple(text.dxf.insert)[:2]) for text in texts] == [('3/4"', (0.375, -12.375))]
-    assert [entity.dxftype() for entity in doc.blocks.get(moved.dxf.geometry)].count("LINE") == 3
+    _assert_leader(doc, moved, (0.375, -9), (0.375, -12.375))
     assert inline.dxf.dimtype & 128 == 0
     assert json.loads(zipfile.ZipFile(io.BytesIO(base64.b64decode(draw(payload)["zip_base64"]))).read("payload.json")) == payload
 
@@ -149,8 +148,11 @@ def test_a_vertical_record_dimensions_up_the_wall():
     assert tuple(box.dxf.defpoint)[:2] == (-9, 4)
     assert [dimension.get_measurement() for dimension in (toe, box, molding, wall)] == [4, 86, 6, 96]
     assert tuple(wall.dxf.defpoint)[:2] == (-21.75, 0)
-    assert tuple(toe.dxf.text_midpoint)[:2] == (-15.375, 2)
+    # With a leader, ezdxf stores its bend in text_midpoint; MTEXT holds the label centre.
+    toe_text, = doc.blocks.get(toe.dxf.geometry).query("MTEXT")
+    assert tuple(toe_text.dxf.insert)[:2] == (-15.375, 2)
     assert toe.dxf.dimtype & 128 == 128
+    _assert_leader(doc, toe, (-9, 2), (-15.375, 2))
     texts = [entity for entity in doc.blocks.get(box.dxf.geometry) if entity.dxftype() == "MTEXT"]
     assert [(text.dxf.text, text.dxf.rotation) for text in texts] == [('86"', 90)]
 
@@ -185,6 +187,45 @@ def _lines(doc, dimension):
     )
 
 
+def _assert_split_line(doc, dimension, axis, at, start, end):
+    lines = [
+        (p1[axis], p2[axis]) for p1, p2 in _lines(doc, dimension)
+        if p1[1 - axis] == pytest.approx(at) and p2[1 - axis] == pytest.approx(at)
+    ]
+    assert len(lines) == 2
+    assert lines[0][0] == pytest.approx(start)
+    assert lines[1][1] == pytest.approx(end)
+    assert start < lines[0][1] < (start + end) / 2 < lines[1][0] < end
+    assert lines[0][1] + lines[1][0] == pytest.approx(start + end)
+
+
+def _assert_leader(doc, dimension, midpoint, text_at):
+    assert any(
+        p1 == pytest.approx(midpoint)
+        and sum((p2[i] - p1[i]) * (text_at[i] - midpoint[i]) for i in (0, 1)) > 0
+        for p1, p2 in _lines(doc, dimension)
+    )
+
+
+@pytest.mark.parametrize("orientation, axis, text_at", [
+    ("horizontal", 0, (15, -10)),
+    ("vertical", 1, (-10, 15)),
+])
+def test_inline_text_is_centred_in_a_split_dimension_line(orientation, axis, text_at):
+    payload = _payload(plot_scale=24)
+    payload["elevations"][0]["dimensions"] = [
+        {"row": "outer", "kind": "run", "orientation": orientation,
+         "start": 0, "end": 30, "base": 0, "at": -10, "text": '30"'},
+    ]
+    doc = _dxf(payload)
+    dimension, = doc.modelspace().query("DIMENSION")
+    _assert_split_line(doc, dimension, axis, -10, 0, 30)
+    text, = doc.blocks.get(dimension.dxf.geometry).query("MTEXT")
+    assert tuple(text.dxf.insert)[:2] == pytest.approx(text_at)
+    assert text.dxf.attachment_point == 5  # middle centre
+    assert text.dxf.rotation == pytest.approx(90 * axis)
+
+
 def test_an_extension_line_on_its_dimension_line_is_left_out():
     payload = _payload()
     payload["elevations"][0]["dimensions"] = copy.deepcopy(CALLOUTS)
@@ -192,8 +233,11 @@ def test_an_extension_line_on_its_dimension_line_is_left_out():
     clearance, pin, wall_pin = doc.modelspace().query("DIMENSION")
     assert [dimension.get_measurement() for dimension in (clearance, pin, wall_pin)] == [15, 3, 60]
     assert tuple(clearance.dxf.defpoint2)[:2] == (30, 64.5)
-    assert _lines(doc, clearance) == [((30, 64.5), (45, 64.5))]
-    assert _lines(doc, wall_pin) == [((0, 40), (60, 40)), ((60, 36), (60, 41.5))]
+    _assert_split_line(doc, clearance, 0, 64.5, 30, 45)
+    assert len(_lines(doc, clearance)) == 2
+    _assert_split_line(doc, wall_pin, 0, 40, 0, 60)
+    assert len(_lines(doc, wall_pin)) == 3
+    assert ((60, 36), (60, 41.5)) in _lines(doc, wall_pin)
 
 
 def test_each_end_of_a_dimension_can_have_its_own_base_and_round_trips():
@@ -204,7 +248,12 @@ def test_each_end_of_a_dimension_can_have_its_own_base_and_round_trips():
     assert tuple(pin.dxf.defpoint2)[:2] == (72, 66)
     assert tuple(pin.dxf.defpoint3)[:2] == (75, 34.5)
     assert tuple(pin.dxf.defpoint)[:2] == (72, 48)
-    assert _lines(doc, pin) == [((72, 48), (75, 48)), ((72, 64.5), (72, 46.5)), ((75, 36), (75, 49.5))]
-    assert tuple(pin.dxf.text_midpoint)[:2] == (73.5, 54.375)
+    assert len(_lines(doc, pin)) == 5
+    assert all(line in _lines(doc, pin) for line in [
+        ((72, 48), (75, 48)), ((72, 64.5), (72, 46.5)), ((75, 36), (75, 49.5)),
+    ])
+    _assert_leader(doc, pin, (73.5, 48), (73.5, 54.375))
+    pin_text, = doc.blocks.get(pin.dxf.geometry).query("MTEXT")
+    assert tuple(pin_text.dxf.insert)[:2] == (73.5, 54.375)
     archive = zipfile.ZipFile(io.BytesIO(base64.b64decode(draw(payload)["zip_base64"])))
     assert json.loads(archive.read("payload.json")) == payload

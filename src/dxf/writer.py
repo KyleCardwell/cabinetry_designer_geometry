@@ -106,12 +106,12 @@ DIMSTYLE_PAPER = {
     "dimtsz": 0.0625,   # architectural ticks, not arrows
     "dimexo": 0.0625,   # extension lines start 1/16" off the drawing
     "dimexe": 0.0625,   # and run 1/16" past the dimension line
-    "dimgap": 0.0625,   # text 1/16" above the line
+    "dimgap": 0.0625,   # 1/16" gap on each side of the centred text
 }
 
 
 def add_dimstyle(doc: Drawing, plot_scale: float) -> None:
-    """The FF dimension style (SPEC-43, 43.1): fractional inches to 1/16", ticks, text above the line, in
+    """The FF dimension style (SPEC-43, 43.1, DM7): fractional inches to 1/16", ticks, text centred on the line, in
     FF_TEXT. The inch mark comes with the designer's text; ezdxf doesn't write DIMPOST, so a dimension
     CAD re-measures has none."""
     style = doc.dimstyles.new(DIMSTYLE)
@@ -119,7 +119,8 @@ def add_dimstyle(doc: Drawing, plot_scale: float) -> None:
         style.dxf.set(key, value)
     style.dxf.dimscale = plot_scale
     style.dxf.dimtxsty = TEXT_STYLE
-    style.dxf.dimtad = 1        # text above the dimension line
+    style.dxf.dimtad = 0        # text centred on the dimension line
+    style.dxf.dimtix = 1        # keep text inside unless the designer moves it
     style.dxf.dimtih = 0        # text aligned with the line, inside
     style.dxf.dimtoh = 0        # and outside
     style.dxf.dimlunit = 5      # fractional
