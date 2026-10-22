@@ -50,26 +50,59 @@ def _length(msp, layer):
 
 def _hatch_area(msp):
     return sum(
-        Polygon([vertex[:2] for vertex in hatch.paths.paths[0].vertices]).area
+        Polygon(
+            [vertex[:2] for vertex in hatch.paths.paths[0].vertices],
+            [[vertex[:2] for vertex in path.vertices] for path in hatch.paths.paths[1:]],
+        ).area
         for hatch in msp.query('HATCH[layer=="SECTIONS"]')
     )
 
 
 def test_crown_outline_has_its_true_perimeter_and_round_trips():
-    part = _part(holes=[{"x": 0.5, "z": 0.25, "width": 0.5, "height": 0.5}])
-    msp = _modelspace(part)
-    assert len(msp.query('LINE[layer=="MOLDINGS"]')) == 4
-    assert _length(msp, "MOLDINGS") == pytest.approx(12.2426, abs=1e-4)
-    with _archive(part) as archive:
-        assert json.loads(archive.read("payload.json"))["elevations"][0]["parts"][0] == part
+    for holes in ([], [{"x": 0.5, "z": 0.25, "width": 0.5, "height": 0.5}]):
+        part = _part()
+        if holes:
+            part["holes"] = holes
+        msp = _modelspace(part)
+        assert len(msp.query('LINE[layer=="MOLDINGS"]')) == 4 + 4 * len(holes)
+        assert _length(msp, "MOLDINGS") == pytest.approx(12.2426 + 2 * len(holes), abs=1e-4)
+        with _archive(part) as archive:
+            assert json.loads(archive.read("payload.json"))["elevations"][0]["parts"][0] == part
 
 
-def test_section_outline_hatches_the_polygon_and_ignores_holes():
+def test_section_outline_hatches_the_polygon_with_its_holes():
     msp = _modelspace(_part(
-        kind="section", holes=[{"x": 0.5, "z": 0.25, "width": 0.5, "height": 0.5}],
+        kind="section", holes=[
+            {"x": 0.5, "z": 0.25, "width": 0.5, "height": 0.5},
+            {"x": 1.5, "z": 0.25, "width": 0.5, "height": 0.5},
+        ],
     ))
-    assert _hatch_area(msp) == pytest.approx(7.5)
-    assert _length(msp, "SECTIONS") == pytest.approx(12.2426, abs=1e-4)
+    assert _hatch_area(msp) == pytest.approx(7)
+    assert _length(msp, "SECTIONS") == pytest.approx(16.2426, abs=1e-4)
+
+
+@pytest.mark.parametrize("holes, area", [
+    ([], 96),
+    ([{"x": 1, "z": 1, "width": 2, "height": 2}], 92),
+])
+def test_notched_outline_keeps_its_area_and_draws_hole_edges(holes, area):
+    outline = [[0, 0], [10, 0], [10, 10], [6, 10], [6, 8], [4, 8], [4, 10], [0, 10]]
+    msp = _modelspace(_part(
+        kind="section", width=10, height=10, outline=outline, holes=holes,
+    ))
+    assert _hatch_area(msp) == pytest.approx(area)
+    expected_rings = [outline] + ([[[1, 1], [3, 1], [3, 3], [1, 3]]] if holes else [])
+    expected_edges = {
+        frozenset((tuple(start), tuple(end)))
+        for ring in expected_rings
+        for start, end in zip(ring, ring[1:] + ring[:1])
+    }
+    lines = msp.query('LINE[layer=="SECTIONS"]')
+    assert len(lines) == len(expected_edges)
+    assert {
+        frozenset((tuple(line.dxf.start)[:2], tuple(line.dxf.end)[:2]))
+        for line in lines
+    } == expected_edges
 
 
 @pytest.mark.parametrize("outline", [

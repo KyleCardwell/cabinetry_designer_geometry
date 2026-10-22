@@ -174,7 +174,13 @@ def make_elevation_doc(
     shapes = [
         HlrShape(
             id=part.id,
-            polygon=Polygon(outlines[part.id][0]) if part.outline is not None else rect_polygon(
+            polygon=Polygon(
+                outlines[part.id][0],
+                [[
+                    (hole.x, hole.z), (hole.x + hole.width, hole.z),
+                    (hole.x + hole.width, hole.z + hole.height), (hole.x, hole.z + hole.height),
+                ] for hole in part.holes],
+            ) if part.outline is not None else rect_polygon(
                 part.x, part.z, part.width, part.height,
                 [(hole.x, hole.z, hole.width, hole.height) for hole in part.holes],
             ),

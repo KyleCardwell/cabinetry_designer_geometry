@@ -60,10 +60,10 @@ class PayloadPartNumber(BaseModel):
 class PayloadPart(BaseModel):
     """An elevation part, optionally outlined by absolute (x, z[, bulge]) points.
 
-    `outline` closes implicitly, ignores holes, and uses the required x/z/width/height rectangle
-    as its bounds. Bulge belongs to the next segment (including closure), is
-    tan(sweep / 4), positive counter-clockwise, and rounded to six places.
-    Omitted bulges are straight; arcs are at most 180 degrees.
+    `outline` closes implicitly, keeps holes as interior rings, and uses the required
+    x/z/width/height rectangle as its bounds. Bulge belongs to the next segment
+    (including closure), is tan(sweep / 4), positive counter-clockwise, and rounded
+    to six places. Omitted bulges are straight; arcs are at most 180 degrees.
     """
 
     model_config = ConfigDict(extra="forbid")
