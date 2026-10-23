@@ -239,6 +239,30 @@ class PayloadPull(BaseModel):
         return self
 
 
+class PayloadEdgeSpan(BaseModel):
+    """A height span of a face's side edge, from bottom to top."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    bottom: float
+    top: float
+
+    @model_validator(mode="after")
+    def check_span(self):
+        if self.top <= self.bottom:
+            raise ValueError("Edge span top must be above its bottom")
+        return self
+
+
+class PayloadHiddenEdges(BaseModel):
+    """Side-edge spans of a face left undrawn where something in front covers the seam (CS3)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    left: list[PayloadEdgeSpan] = []
+    right: list[PayloadEdgeSpan] = []
+
+
 class PayloadFace(BaseModel):
     """One combined elevation face, offset along x with optional depth-note text.
 
@@ -256,6 +280,7 @@ class PayloadFace(BaseModel):
     length: float = Field(gt=0)
     height: float = Field(gt=0)
     note: str | None = Field(default=None, min_length=1)
+    hiddenEdges: PayloadHiddenEdges | None = None
 
 
 class PayloadElevation(BaseModel):

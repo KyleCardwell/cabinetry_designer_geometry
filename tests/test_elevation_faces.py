@@ -83,3 +83,30 @@ def test_faces_validate_shape_and_fit_with_tolerance():
             PayloadElevation.model_validate({**ELEVATION, "faces": [face]})
     for patch in ({"dx": 160 + 0.5e-6}, {"height": 96 + 0.5e-6}, {"depth": 16, "note": '16" out'}):
         PayloadElevation.model_validate({**ELEVATION, "faces": [{**FACES[0], **patch}]})
+
+
+def test_hidden_edge_spans_leave_the_seam_out_of_both_faces():
+    """CS3 (Kyle 2026-10-23): a soffit or crown across a seam hides both faces' edges there."""
+    faces = copy.deepcopy(FACES)
+    faces[1]["hiddenEdges"] = {"left": [{"bottom": 84, "top": 96}], "right": [{"bottom": 84, "top": 96}]}
+    faces[2]["hiddenEdges"] = {"left": [{"bottom": 30, "top": 40}, {"bottom": 84, "top": 96}]}
+    elevation = PayloadElevation.model_validate({**ELEVATION, "faces": faces})
+    msp = make_elevation_doc(elevation, ROOM, 24).modelspace()
+    assert [list(r.get_points("xy")) for r in msp.query('LWPOLYLINE[layer=="WALLS"]')] == [
+        [(0, 0), (80, 0), (80, 96), (0, 96)],
+    ]
+    lines = sorted(
+        tuple(round(value, 6) for value in (line.dxf.start.x, line.dxf.start.y, line.dxf.end.x, line.dxf.end.y))
+        for line in msp.query('LINE[layer=="WALLS"]')
+    )
+    assert lines == sorted([
+        (80, 0, 140, 0), (80, 96, 140, 96), (80, 0, 80, 84), (140, 0, 140, 84),
+        (140, 0, 240, 0), (140, 96, 240, 96), (140, 0, 140, 30), (140, 40, 140, 84), (240, 0, 240, 96),
+    ])
+
+
+def test_hidden_edge_span_must_run_upward():
+    faces = copy.deepcopy(FACES)
+    faces[1]["hiddenEdges"] = {"left": [{"bottom": 96, "top": 84}]}
+    with pytest.raises(ValidationError):
+        PayloadElevation.model_validate({**ELEVATION, "faces": faces})

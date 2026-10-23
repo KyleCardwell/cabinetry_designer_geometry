@@ -2,7 +2,8 @@
 
 from ezdxf.document import Drawing
 from ezdxf.enums import TextEntityAlignment
-from shapely.geometry import Polygon
+from shapely.geometry import LineString, Polygon
+from shapely.ops import unary_union
 
 from src.dxf.writer import DIMSTYLE_PAPER, TEXT_STYLE, add_dimstyle, create_dxf_document, doc_to_bytes, frame_drawing, write_arcs_to_layer, write_lines_to_layer
 from src.projection.hlr import EPSILON, HlrShape, hidden_line_removal, rect_polygon, visible_regions
@@ -138,6 +139,27 @@ def _add_hatch(modelspace, layer, region, solid: bool = False) -> None:
             hatch.paths.add_polyline_path(list(ring.coords)[:-1], is_closed=True, flags=16)
 
 
+def _add_face_outline(modelspace, x, length, height, hidden=None) -> None:
+    """A face's wall rectangle, or its edges as lines less any hidden side spans (CS3)."""
+    if hidden is None or not (hidden.left or hidden.right):
+        modelspace.add_lwpolyline(
+            [(x, 0), (x + length, 0), (x + length, height), (x, height)],
+            close=True,
+            dxfattribs={"layer": "WALLS"},
+        )
+        return
+    edges = [((x, 0), (x + length, 0)), ((x, height), (x + length, height))]
+    for edge_x, spans in ((x, hidden.left), (x + length, hidden.right)):
+        side = LineString([(edge_x, 0), (edge_x, height)])
+        covered = unary_union([LineString([(edge_x, span.bottom), (edge_x, span.top)]) for span in spans])
+        shown = side.difference(covered) if spans else side
+        for line in getattr(shown, "geoms", [shown]):
+            if not line.is_empty and line.length > EPSILON:
+                edges.append(tuple(line.coords)[:2])
+    for start, end in edges:
+        modelspace.add_line(start, end, dxfattribs={"layer": "WALLS"})
+
+
 def make_elevation_doc(
     elevation: PayloadElevation, room: PayloadRoom, plot_scale: float = DEFAULT_PLOT_SCALE,
 ) -> Drawing:
@@ -146,15 +168,11 @@ def make_elevation_doc(
     # Dashes 1/4" and gaps 1/8" on paper at any plot scale (SPEC-43.1): DASHED is 1/2" + 1/4" at LTSCALE 1.
     doc.header["$LTSCALE"] = plot_scale / 2
     modelspace = doc.modelspace()
-    wall_outlines = [(0, elevation.length, elevation.height)] if elevation.faces is None else [
-        (face.dx, face.length, face.height) for face in elevation.faces
+    wall_outlines = [(0, elevation.length, elevation.height, None)] if elevation.faces is None else [
+        (face.dx, face.length, face.height, face.hiddenEdges) for face in elevation.faces
     ]
-    for x, length, height in wall_outlines:
-        modelspace.add_lwpolyline(
-            [(x, 0), (x + length, 0), (x + length, height), (x, height)],
-            close=True,
-            dxfattribs={"layer": "WALLS"},
-        )
+    for x, length, height, hidden in wall_outlines:
+        _add_face_outline(modelspace, x, length, height, hidden)
     for face in elevation.faces or []:
         if face.note is not None:
             modelspace.add_text(
