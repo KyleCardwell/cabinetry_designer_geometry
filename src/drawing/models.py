@@ -245,6 +245,57 @@ class PayloadPull(BaseModel):
         return self
 
 
+class PayloadShapeLoop(BaseModel):
+    """A closed area or open path in wall (x, z[, bulge]) inches.
+
+    Bulges leave each point and round to six places. Closed loops close
+    implicitly and need non-zero area; open loops never add a closing segment.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    closed: bool
+    points: list[tuple[float, float] | tuple[float, float, Bulge]] = Field(min_length=2)
+
+    @model_validator(mode="after")
+    def check_points(self):
+        self.points = [
+            (point[0], point[1], round(point[2], 6)) if len(point) == 3 else point
+            for point in self.points
+        ]
+        flattened, _ = flatten_outline(self.points, closed=self.closed)
+        if self.closed and (len(flattened) < 3 or Polygon(flattened).area <= 0):
+            raise ValueError("Closed shape loop must have non-zero area")
+        return self
+
+
+class PayloadShapeBlock(BaseModel):
+    """Validated block identity and mirrored insertion point, reserved for inserts."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    name: str = Field(pattern=r"^[A-Z0-9_]{1,64}$")
+    x: float
+    z: float
+    mirror: bool
+
+
+class PayloadShape(BaseModel):
+    """An accessory item's loops and nearest-face depth behind its part's front.
+
+    Only outer closed loops hide deeper shapes of the same part. Optional block
+    metadata is stored while all loops are drawn as plain geometry (SH4 step b).
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    partId: str = Field(min_length=1)
+    kind: Literal["accessory"]
+    depth: float = Field(allow_inf_nan=False)
+    loops: list[PayloadShapeLoop] = Field(min_length=1)
+    block: PayloadShapeBlock | None = None
+
+
 class PayloadEdgeSpan(BaseModel):
     """A height span of a face's side edge, from bottom to top."""
 
@@ -315,6 +366,8 @@ class PayloadElevation(BaseModel):
     glassMarks: list[PayloadGlassMark] = []
     # Pull outlines per part (SPEC-HP5); each names a part in this elevation.
     pulls: list[PayloadPull] = []
+    # Accessory item loops and depth per part (SPEC-SH4), optional in payload v1.
+    shapes: list[PayloadShape] = []
     # Pre-positioned badges in drawing inches (SPEC-50.13), always exported.
     partNumbers: list[PayloadPartNumber] = []
 
@@ -343,6 +396,9 @@ class PayloadElevation(BaseModel):
         unknown_ids = sorted({pull.partId for pull in self.pulls} - part_ids)
         if unknown_ids:
             raise ValueError(f"Pulls name unknown part ids: {', '.join(unknown_ids)}")
+        unknown_ids = sorted({shape.partId for shape in self.shapes} - part_ids)
+        if unknown_ids:
+            raise ValueError(f"Shapes name unknown part ids: {', '.join(unknown_ids)}")
         return self
 
 

@@ -34,8 +34,10 @@ class OutlineArc:
         return progress
 
 
-def flatten_outline(outline: list[OutlinePoint]) -> tuple[list[tuple[float, float]], list[OutlineArc]]:
-    """Close implicitly; preserve straight vertices and remember each source arc.
+def flatten_outline(
+    outline: list[OutlinePoint], closed: bool = True,
+) -> tuple[list[tuple[float, float]], list[OutlineArc]]:
+    """Preserve straight vertices and source arcs, closing only when requested.
 
     Include arc extrema so the flattened bounds also capture bulges between
     supplied vertices. Two-number points retain their original straight edges.
@@ -44,8 +46,10 @@ def flatten_outline(outline: list[OutlinePoint]) -> tuple[list[tuple[float, floa
     arcs = []
     for index, point in enumerate(outline):
         x, y = point[:2]
-        end_x, end_y = outline[(index + 1) % len(outline)][:2]
         points.append((x, y))
+        if not closed and index == len(outline) - 1:
+            break
+        end_x, end_y = outline[(index + 1) % len(outline)][:2]
         bulge = point[2] if len(point) == 3 else 0.0
         if not bulge:
             continue

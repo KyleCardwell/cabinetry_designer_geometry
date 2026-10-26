@@ -41,6 +41,7 @@ KIND_LAYERS = {
     "wing_wall": "WALLS",
     "section": "SECTIONS",
     "profile": "CABINETS",
+    "accessory": "ACCESSORIES",
 }
 
 # Kinds drawn hatched where they show (SPEC-42.2): a neighbour cut where it meets this wall face.
@@ -163,7 +164,7 @@ def _add_face_outline(modelspace, x, length, height, hidden=None) -> None:
 def make_elevation_doc(
     elevation: PayloadElevation, room: PayloadRoom, plot_scale: float = DEFAULT_PLOT_SCALE,
 ) -> Drawing:
-    doc = create_dxf_document()
+    doc = create_dxf_document(include_accessories=bool(elevation.shapes))
     add_dimstyle(doc, plot_scale)
     # Dashes 1/4" and gaps 1/8" on paper at any plot scale (SPEC-43.1): DASHED is 1/2" + 1/4" at LTSCALE 1.
     doc.header["$LTSCALE"] = plot_scale / 2
@@ -287,9 +288,38 @@ def make_elevation_doc(
                 opaque=False,
                 outlined=False,
             ))
+    accessory_shapes = []
+    accessory_sources = {}
+    for record in elevation.shapes:
+        part = by_id[record.partId]
+        segments, sources, polygons = [], [], []
+        for loop in record.loops:
+            points, arcs = flatten_outline(loop.points, closed=loop.closed)
+            segments.extend(zip(points, points[1:] + (points[:1] if loop.closed else [])))
+            sources.extend(arcs)
+            if loop.closed:
+                polygons.append(Polygon(points))
+        # Inner loops are drawn, but only outer loops contribute opaque area.
+        outer = [polygon for polygon in polygons if not any(
+            other.area > polygon.area and other.contains(polygon) for other in polygons
+        )]
+        shape_id = f"{part.id}#shape{len(accessory_shapes)}"
+        accessory_sources[shape_id] = sources
+        accessory_shapes.append(HlrShape(
+            id=shape_id,
+            polygon=unary_union(outer) if outer else Polygon(),
+            front=part.front,
+            drop_hidden=True,
+            lines=tuple(segments),
+            opaque=False,
+            outlined=False,
+            group=part.id,
+            group_front=-record.depth,
+            group_opaque=bool(outer),
+        ))
     lines = hidden_line_removal(
         shapes + detail_shapes + swing_shapes + pull_shapes + interior_shapes
-        + [shape for shape, _ in glass_shapes]
+        + [shape for shape, _ in glass_shapes] + accessory_shapes
     )
     for part in parts:
         visible, hidden = lines[part.id]
@@ -313,6 +343,10 @@ def make_elevation_doc(
         visible, arcs = rejoin_arcs(lines[shape.id][0], pull_sources[shape.id])
         write_lines_to_layer(doc, "PULLS", visible)
         write_arcs_to_layer(doc, "PULLS", arcs)
+    for record, shape in zip(elevation.shapes, accessory_shapes):
+        visible, arcs = rejoin_arcs(lines[shape.id][0], accessory_sources[shape.id])
+        write_lines_to_layer(doc, KIND_LAYERS[record.kind], visible)
+        write_arcs_to_layer(doc, KIND_LAYERS[record.kind], arcs)
     _add_tags(modelspace, elevation.doorDetails, by_id, plot_scale)
     _add_interior_labels(modelspace, elevation.interiors, plot_scale)
 

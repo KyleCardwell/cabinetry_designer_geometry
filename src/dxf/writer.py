@@ -53,6 +53,9 @@ LAYER_DEFS = {
     "FRAME":      (7, "CONTINUOUS", 0),
 }
 
+# Optional layers stay separate so documents without shapes keep their bytes.
+ACCESSORY_LAYER_DEFS = {"ACCESSORIES": (7, "CONTINUOUS", 13)}
+
 # Every label and dimension uses one text style (SPEC-43.1). The DXF names the font; the viewer supplies it.
 TEXT_STYLE = "FF_TEXT"
 TEXT_FONT = "arial.ttf"
@@ -62,7 +65,7 @@ TEXT_FAMILY = "Arial"
 DRAWING_PADDING = 0.5
 
 
-def create_dxf_document() -> Drawing:
+def create_dxf_document(*, include_accessories: bool = False) -> Drawing:
     """Create a new DXF document with standard layers and linetypes."""
     doc = ezdxf.new("R2010")
     doc.units = units.IN
@@ -89,7 +92,8 @@ def create_dxf_document() -> Drawing:
     doc.header["$LWDISPLAY"] = 1    # show lineweights
 
     # Create layers
-    for layer_name, (color, linetype, lineweight) in LAYER_DEFS.items():
+    layer_defs = LAYER_DEFS | (ACCESSORY_LAYER_DEFS if include_accessories else {})
+    for layer_name, (color, linetype, lineweight) in layer_defs.items():
         doc.layers.add(layer_name, color=color, linetype=linetype, lineweight=lineweight)
     doc.layers.get("FRAME").dxf.plot = 1
 
