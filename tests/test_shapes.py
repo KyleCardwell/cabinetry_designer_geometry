@@ -1,4 +1,4 @@
-"""Accessory shape payload, room/group depth occlusion and PDF anchors (SH4 b)."""
+"""Accessory shape payload, occlusion, blocks and PDF anchors (SH4 b/c)."""
 
 import base64
 import copy
@@ -31,6 +31,11 @@ ROD = [
     {"closed": False, "points": [[103, 76.53125], [133, 76.53125]]},
     {"closed": False, "points": [[103, 75.46875], [133, 75.46875]]},
 ]
+HOOK = [
+    {"closed": True, "points": [[117, 60], [119, 60], [119, 64], [117, 64]]},
+    {"closed": False, "points": [[118, 64], [118, 66]]},
+]
+HOOK_BLOCK = {"name": "SHAPE_HOOK_A1B2C3", "x": 117, "z": 60, "mirror": False}
 
 
 def _shape(loops=ROD, depth=10, **kwargs):
@@ -200,16 +205,100 @@ def test_invalid_shape_anchor_and_nested_payload_validation():
     assert rounded.elevations[0].shapes[0].loops[0].points[0][2] == 0.123457
 
 
-def test_block_metadata_is_stored_but_still_drawn_as_plain_geometry():
-    block = {"name": "SHAPE_CLOSET_ROD_3F9A2C", "x": 100, "z": 76, "mirror": True}
-    payload = _payload(shapes=[_shape(block=block)])
+def test_hook_block_anchor_has_closed_and_open_polylines_and_one_insert():
+    payload = _payload(shapes=[_shape(HOOK, 0, block=HOOK_BLOCK)])
     model = DrawingPayload.model_validate(payload)
-    assert model.elevations[0].shapes[0].block.model_dump() == block
+    assert model.elevations[0].shapes[0].block.model_dump() == HOOK_BLOCK
     doc = _doc(payload)
-    assert _segments(doc) == _segments(_doc(_payload()))
-    assert len(_arcs(doc)) == 4
-    assert not list(doc.modelspace().query('INSERT[layer=="ACCESSORIES"]'))
-    assert block["name"] not in doc.blocks
+    closed, opened = doc.blocks[HOOK_BLOCK["name"]]
+    for polyline in (closed, opened):
+        assert polyline.dxftype() == "LWPOLYLINE"
+        assert polyline.dxf.layer == "0"
+        assert polyline.dxf.color == 256
+        assert polyline.dxf.linetype == "BYLAYER"
+        assert polyline.dxf.lineweight == -1
+    assert closed.closed and not opened.closed
+    assert list(closed.get_points("xyb")) == [(0, 0, 0), (2, 0, 0), (2, 4, 0), (0, 4, 0)]
+    assert list(opened.get_points("xyb")) == [(1, 4, 0), (1, 6, 0)]
+    insert, = doc.modelspace().query('INSERT[layer=="ACCESSORIES"]')
+    assert insert.dxf.name == HOOK_BLOCK["name"]
+    assert tuple(insert.dxf.insert) == (117, 60, 0)
+    assert insert.dxf.xscale == 1
+    assert _segments(doc) == _arcs(doc) == []
+
+
+def test_mirrored_hook_anchor_reuses_definition_even_when_mirrored_use_is_first():
+    mirrored = [
+        {"closed": True, "points": [[121, 60], [119, 60], [119, 64], [121, 64]]},
+        {"closed": False, "points": [[120, 64], [120, 66]]},
+    ]
+    shapes = [_shape(HOOK, 0, block=HOOK_BLOCK), _shape(mirrored, 0, block={
+        **HOOK_BLOCK, "x": 121, "mirror": True,
+    })]
+    for records in (shapes, shapes[::-1]):
+        doc = _doc(_payload(shapes=records))
+        assert [block.name for block in doc.blocks if block.name.startswith("SHAPE_")] == [HOOK_BLOCK["name"]]
+        closed, opened = doc.blocks[HOOK_BLOCK["name"]]
+        assert list(closed.get_points("xyb")) == [(0, 0, 0), (2, 0, 0), (2, 4, 0), (0, 4, 0)]
+        assert list(opened.get_points("xyb")) == [(1, 4, 0), (1, 6, 0)]
+        inserts = list(doc.modelspace().query('INSERT[layer=="ACCESSORIES"]'))
+        assert len(inserts) == 2
+        assert all(insert.dxf.name == HOOK_BLOCK["name"] for insert in inserts)
+        assert sorted((tuple(insert.dxf.insert), insert.dxf.xscale) for insert in inserts) == [
+            ((117, 60, 0), 1), ((121, 60, 0), -1),
+        ]
+        assert _segments(doc) == _arcs(doc) == []
+
+
+def test_occluded_hook_anchor_uses_plain_geometry_and_defines_only_inserted_names():
+    cover = {**CAB, "id": "cover", "kind": "panel", "front": 25, "z": 63, "height": 7}
+    hook = _shape(HOOK, 0, block=HOOK_BLOCK)
+    for z, expected in ((63, [
+        ((117, 60), (119, 60)), ((119, 60), (119, 63)), ((117, 63), (117, 60)),
+    ]), (59, [])):
+        doc = _doc(_payload(parts=[CAB, {**cover, "z": z}], shapes=[hook]))
+        assert not list(doc.modelspace().query('INSERT[layer=="ACCESSORIES"]'))
+        assert HOOK_BLOCK["name"] not in doc.blocks
+        assert _segments(doc) == _normalized(expected)
+        assert _arcs(doc) == _segments(doc, "HIDDEN") == []
+    # A hidden first use must not define the shared name; use the later visible loop.
+    visible = [_square(110, 30, 3)]
+    doc = _doc(_payload(parts=[CAB, cover], shapes=[hook, _shape(visible, 0, block={
+        **HOOK_BLOCK, "x": 110, "z": 30,
+    })]))
+    polyline, = doc.blocks[HOOK_BLOCK["name"]]
+    assert list(polyline.get_points("xyb")) == [(0, 0, 0), (3, 0, 0), (3, 3, 0), (0, 3, 0)]
+    insert, = doc.modelspace().query('INSERT[layer=="ACCESSORIES"]')
+    assert tuple(insert.dxf.insert) == (110, 30, 0)
+
+
+def test_circle_block_anchor_preserves_bulges_and_unmirrors_first_use():
+    for mirror, points in ((False, [[100.875, 76, 1], [102.125, 76, 1]]),
+                           (True, [[102.125, 76, -1], [100.875, 76, -1]])):
+        doc = _doc(_payload(shapes=[_shape([{"closed": True, "points": points}], block={
+            "name": "SHAPE_CIRCLE_ABC123", "x": 101.5, "z": 76, "mirror": mirror,
+        })]))
+        polyline, = doc.blocks["SHAPE_CIRCLE_ABC123"]
+        assert polyline.closed and polyline.dxf.layer == "0"
+        assert list(polyline.get_points("xyb")) == [(-0.625, 0, 1), (0.625, 0, 1)]
+        insert, = doc.modelspace().query('INSERT[layer=="ACCESSORIES"]')
+        assert tuple(insert.dxf.insert) == (101.5, 76, 0)
+        assert insert.dxf.xscale == (-1 if mirror else 1)
+        assert _segments(doc) == _arcs(doc) == []
+
+
+def test_group_occlusion_prevents_insert_when_segment_count_is_unchanged():
+    # Each clipped square still has four segments; count alone cannot detect clipping.
+    for depths, names in (((2, 6), ["SHAPE_A"]), ((6, 2), ["SHAPE_B"]),
+                         ((2, 2), ["SHAPE_A", "SHAPE_B"])):
+        doc = _doc(_payload(shapes=[
+            _shape(A, depths[0], block={**HOOK_BLOCK, "name": "SHAPE_A", "x": 110, "z": 30}),
+            _shape(B, depths[1], block={**HOOK_BLOCK, "name": "SHAPE_B", "x": 115, "z": 35}),
+        ]))
+        assert [insert.dxf.name for insert in doc.modelspace().query('INSERT[layer=="ACCESSORIES"]')] == names
+        assert [block.name for block in doc.blocks if block.name.startswith("SHAPE_")] == names
+        assert len(_segments(doc)) == (0 if depths[0] == depths[1] else 4 if depths[0] < depths[1] else 8)
+        assert _segments(doc, "HIDDEN") == []
 
 
 def test_omitted_shapes_preserve_payload_and_preexisting_dxf_bytes(monkeypatch):
@@ -228,7 +317,8 @@ def test_omitted_shapes_preserve_payload_and_preexisting_dxf_bytes(monkeypatch):
     assert omitted == build_elevation_dxf(model.elevations[0], model.room)
 
 
-def test_rod_anchor_pdf_uses_the_same_lines_and_arcs(monkeypatch):
+@pytest.mark.parametrize("blocked", [False, True])
+def test_rod_anchor_pdf_uses_the_same_lines_and_arcs(monkeypatch, blocked):
     rendered = []
 
     def record(original):
@@ -241,13 +331,21 @@ def test_rod_anchor_pdf_uses_the_same_lines_and_arcs(monkeypatch):
 
     monkeypatch.setattr(Frontend, "draw_line_entity", record(Frontend.draw_line_entity))
     monkeypatch.setattr(Frontend, "draw_curve_entity", record(Frontend.draw_curve_entity))
-    payload = _payload()
+    monkeypatch.setattr(Frontend, "draw_polyline_entity", record(Frontend.draw_polyline_entity))
+    payload = _payload(shapes=[_shape(block={
+        "name": "SHAPE_ROD_ABC123", "x": 100, "z": 76, "mirror": True,
+    })]) if blocked else _payload()
     result = draw(payload)
     with ZipFile(io.BytesIO(base64.b64decode(result["zip_base64"]))) as archive:
         assert json.loads(archive.read("payload.json")) == payload
         doc = ezdxf.read(io.StringIO(archive.read("elevation-A.dxf").decode("utf-8")))
-        assert len(_segments(doc)) == 10 and len(_arcs(doc)) == 4
+        if blocked:
+            assert len(doc.blocks["SHAPE_ROD_ABC123"]) == 6
+            assert len(doc.modelspace().query('INSERT[layer=="ACCESSORIES"]')) == 1
+            assert _segments(doc) == _arcs(doc) == []
+        else:
+            assert len(_segments(doc)) == 10 and len(_arcs(doc)) == 4
         reader = PdfReader(io.BytesIO(archive.read("drawings.pdf")))
-    assert sorted(rendered) == ["ARC"] * 4 + ["LINE"] * 10
+    assert sorted(rendered) == (["LWPOLYLINE"] * 6 if blocked else ["ARC"] * 4 + ["LINE"] * 10)
     assert len(reader.pages) == 1
     assert "SCALE" in reader.pages[0].extract_text()

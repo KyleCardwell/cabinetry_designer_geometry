@@ -108,6 +108,16 @@ def _polygons(region) -> list:
     return [part for geom in getattr(region, "geoms", []) for part in _polygons(geom)]
 
 
+def _all_segments_visible(segments, visible) -> bool:
+    """Compare HLR coverage, allowing segments split at a touching boundary."""
+    original = unary_union([LineString(segment) for segment in segments])
+    shown = unary_union([
+        LineString([(line.start.x, line.start.y), (line.end.x, line.end.y)])
+        for line in visible
+    ])
+    return original.equals(shown)
+
+
 def _add_interior_labels(modelspace, interiors, plot_scale) -> None:
     """Centre accessory text in boxes that fit its paper-scaled height and estimated width."""
     h = DIMSTYLE_PAPER["dimtxt"] * plot_scale
@@ -344,6 +354,22 @@ def make_elevation_doc(
         write_lines_to_layer(doc, "PULLS", visible)
         write_arcs_to_layer(doc, "PULLS", arcs)
     for record, shape in zip(elevation.shapes, accessory_shapes):
+        block = record.block
+        if block is not None and _all_segments_visible(shape.lines, lines[shape.id][0]):
+            scale = -1 if block.mirror else 1
+            if block.name not in doc.blocks:
+                definition = doc.blocks.new(block.name)
+                for loop in record.loops:
+                    definition.add_lwpolyline([
+                        ((point[0] - block.x) * scale, point[1] - block.z,
+                         (point[2] if len(point) == 3 else 0) * scale)
+                        for point in loop.points
+                    ], format="xyb", close=loop.closed, dxfattribs={"layer": "0"})
+            modelspace.add_blockref(
+                block.name, (block.x, block.z),
+                dxfattribs={"layer": KIND_LAYERS[record.kind], "xscale": scale},
+            )
+            continue
         visible, arcs = rejoin_arcs(lines[shape.id][0], accessory_sources[shape.id])
         write_lines_to_layer(doc, KIND_LAYERS[record.kind], visible)
         write_arcs_to_layer(doc, KIND_LAYERS[record.kind], arcs)
