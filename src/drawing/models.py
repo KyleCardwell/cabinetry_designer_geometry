@@ -39,6 +39,12 @@ class PayloadLine(BaseModel):
     z2: float
 
 
+class PayloadWeightedLine(PayloadLine):
+    """A glass-mark segment with an optional DXF lineweight in 1/100 mm."""
+
+    weight: int | None = Field(default=None, ge=0, le=211)
+
+
 class PayloadPartNumber(BaseModel):
     """A pre-positioned part badge (SPEC-50.13), centred at x/z in wall inches.
 
@@ -207,7 +213,7 @@ class PayloadGlassMark(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     partId: str = Field(min_length=1)
-    lines: list[PayloadLine] = Field(min_length=1)
+    lines: list[PayloadWeightedLine] = Field(min_length=1)
 
 
 class PayloadPull(BaseModel):

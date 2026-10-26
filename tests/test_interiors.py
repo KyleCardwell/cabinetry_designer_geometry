@@ -1,6 +1,7 @@
 """Interior and glass-mark validation, visibility and text anchors (SPEC-IN14 step f)."""
 
 import json
+from io import StringIO
 from pathlib import Path
 
 import ezdxf
@@ -82,12 +83,48 @@ def test_face_glass_mark_draws_on_the_finest_continuous_layer_without_occlusion(
     assert _segments(doc, "GLASS_MARKS") == [((10, 20), (14, 24))]
     layer = doc.layers.get("GLASS_MARKS")
     assert (layer.dxf.color, layer.dxf.linetype, layer.dxf.lineweight) == (7, "CONTINUOUS", 9)
+    [line] = doc.modelspace().query('LINE[layer=="GLASS_MARKS"]')
+    assert line.dxf.lineweight == -1
+    assert not line.dxf.hasattr("lineweight")
     without_marks = _doc(parts)
     for layer in ("CABINETS", "FACES", "INTERIORS", "HIDDEN"):
         assert _segments(doc, layer) == _segments(without_marks, layer)
 
 
-def test_cabinet_clips_window_glass_marks_and_drops_the_hidden_segments():
+def test_glass_mark_lineweights_survive_dxf_serialization():
+    marks = [{"partId": "c", "lines": [
+        {"x1": 1, "z1": z, "x2": 23, "z2": z, "weight": weight}
+        for z, weight in ((5, 70), (10, 100), (15, 35))
+    ]}]
+    data = build_elevation_dxf(_elevation(glass_marks=marks), ROOM)
+    doc = ezdxf.read(StringIO(data.decode()))
+    lines = list(doc.modelspace().query('LINE[layer=="GLASS_MARKS"]'))
+    assert [line.dxf.lineweight for line in lines] == [70, 100, 35]
+    assert _segments(doc, "GLASS_MARKS") == [
+        ((1, 5), (23, 5)), ((1, 10), (23, 10)), ((1, 15), (23, 15)),
+    ]
+
+
+def test_glass_marks_group_repeated_weights_and_mix_explicit_and_layer_defaults():
+    marks = [{"partId": "c", "lines": [
+        {"x1": 1, "z1": 2, "x2": 23, "z2": 2, "weight": 70},
+        {"x1": 1, "z1": 4, "x2": 23, "z2": 4, "weight": None},
+        {"x1": 1, "z1": 6, "x2": 23, "z2": 6, "weight": 70},
+        {"x1": 1, "z1": 8, "x2": 23, "z2": 8, "weight": 0},
+        {"x1": 1, "z1": 10, "x2": 23, "z2": 10, "weight": 211},
+        {"x1": 1, "z1": 12, "x2": 23, "z2": 12},
+    ]}]
+    doc = _doc(glass_marks=marks)
+    lines = list(doc.modelspace().query('LINE[layer=="GLASS_MARKS"]'))
+    assert len(lines) == 6
+    assert {line.dxf.start.y: line.dxf.lineweight for line in lines} == {
+        2: 70, 4: -1, 6: 70, 8: 0, 10: 211, 12: -1,
+    }
+    assert doc.layers.get("GLASS_MARKS").dxf.lineweight == 9
+
+
+@pytest.mark.parametrize("weights", [None, (70, 100, 35)])
+def test_cabinet_clips_window_glass_marks_and_drops_the_hidden_segments(weights):
     window = {
         "id": "w1", "kind": "opening", "x": 40, "z": 36, "width": 36, "height": 48,
         "back": -4.5, "front": 0, "coversBoxEdges": False,
@@ -98,9 +135,15 @@ def test_cabinet_clips_window_glass_marks_and_drops_the_hidden_segments():
         {"x1": 48, "z1": 62, "x2": 54, "z2": 68},
         {"x1": 60, "z1": 42, "x2": 66, "z2": 48},
     ]}]
+    if weights is not None:
+        for line, weight in zip(marks[0]["lines"], weights):
+            line["weight"] = weight
     parts = [CABINET, window, cover]
     doc = _doc(parts, glass_marks=marks)
     assert _segments(doc, "GLASS_MARKS") == [((56, 60), (62, 66)), ((48, 62), (54, 68))]
+    assert [line.dxf.lineweight for line in doc.modelspace().query('LINE[layer=="GLASS_MARKS"]')] == (
+        list(weights[:2]) if weights is not None else [-1, -1]
+    )
     assert _segments(doc, "HIDDEN") == _segments(_doc(parts), "HIDDEN")
 
 
@@ -141,6 +184,29 @@ def test_interior_and_glass_models_reject_unknown_parts_invalid_records_and_extr
         with pytest.raises(ValidationError):
             _elevation(interiors=[{**INTERIOR, "labels": [{**label, **change}]}])
     assert _elevation().interiors[0].labels == []
+
+
+@pytest.mark.parametrize("key", ["interiors", "swingMarks"])
+def test_weight_is_rejected_on_other_annotation_lines(key):
+    payload = _elevation().model_dump()
+    payload[key] = [{"partId": "c", "lines": [{**INTERIOR["lines"][0], "weight": 70}]}]
+    with pytest.raises(ValidationError) as exc:
+        PayloadElevation.model_validate(payload)
+    assert [(error["loc"], error["type"]) for error in exc.value.errors()] == [
+        ((key, 0, "lines", 0, "weight"), "extra_forbidden"),
+    ]
+
+
+@pytest.mark.parametrize("weight", [-1, 300])
+def test_glass_mark_rejects_lineweights_outside_dxf_range(weight):
+    with pytest.raises(ValidationError) as exc:
+        _elevation(glass_marks=[{
+            "partId": "c", "lines": [{**INTERIOR["lines"][0], "weight": weight}],
+        }])
+    assert exc.value.errors()[0]["loc"] == ("glassMarks", 0, "lines", 0, "weight")
+    assert exc.value.errors()[0]["type"] == (
+        "greater_than_equal" if weight < 0 else "less_than_equal"
+    )
 
 
 def test_existing_fixtures_default_to_empty_collections_and_preserve_dxf(monkeypatch):

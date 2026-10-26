@@ -135,14 +135,18 @@ def write_lines_to_layer(
     lines: list[Line2D],
     offset_x: float = 0.0,
     offset_y: float = 0.0,
+    lineweight: int | None = None,
 ) -> None:
     """Write a list of Line2D segments to a named layer in modelspace."""
     msp = doc.modelspace()
+    dxfattribs = {"layer": layer_name}
+    if lineweight is not None:
+        dxfattribs["lineweight"] = lineweight
     for line in lines:
         msp.add_line(
             (line.start.x + offset_x, line.start.y + offset_y),
             (line.end.x + offset_x, line.end.y + offset_y),
-            dxfattribs={"layer": layer_name},
+            dxfattribs=dxfattribs,
         )
 
 

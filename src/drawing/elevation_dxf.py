@@ -241,24 +241,35 @@ def make_elevation_doc(
         for mark in elevation.swingMarks
         for part in [by_id[mark.partId]]
     ]
-    annotation_shapes = {}
-    for layer, suffix, records in (
-        ("INTERIORS", "interior", elevation.interiors),
-        ("GLASS_MARKS", "glass", elevation.glassMarks),
-    ):
-        annotation_shapes[layer] = [
-            HlrShape(
-                id=f"{part.id}#{suffix}",
+    interior_shapes = [
+        HlrShape(
+            id=f"{part.id}#interior",
+            polygon=rect_polygon(part.x, part.z, part.width, part.height),
+            front=part.front,
+            drop_hidden=True,
+            lines=tuple(((line.x1, line.z1), (line.x2, line.z2)) for line in record.lines),
+            opaque=False,
+            outlined=False,
+        )
+        for record in elevation.interiors
+        for part in [by_id[record.partId]]
+    ]
+    glass_shapes = []
+    for record in elevation.glassMarks:
+        part = by_id[record.partId]
+        by_weight = {}
+        for line in record.lines:
+            by_weight.setdefault(line.weight, []).append(((line.x1, line.z1), (line.x2, line.z2)))
+        for weight, segments in by_weight.items():
+            glass_shapes.append((HlrShape(
+                id=f"{part.id}#glass{weight}" if weight is not None else f"{part.id}#glass",
                 polygon=rect_polygon(part.x, part.z, part.width, part.height),
                 front=part.front,
                 drop_hidden=True,
-                lines=tuple(((line.x1, line.z1), (line.x2, line.z2)) for line in record.lines),
+                lines=tuple(segments),
                 opaque=False,
                 outlined=False,
-            )
-            for record in records
-            for part in [by_id[record.partId]]
-        ]
+            ), weight))
     pull_shapes = []
     pull_sources = {}
     for pull in elevation.pulls:
@@ -277,8 +288,8 @@ def make_elevation_doc(
                 outlined=False,
             ))
     lines = hidden_line_removal(
-        shapes + detail_shapes + swing_shapes + pull_shapes
-        + [shape for group in annotation_shapes.values() for shape in group]
+        shapes + detail_shapes + swing_shapes + pull_shapes + interior_shapes
+        + [shape for shape, _ in glass_shapes]
     )
     for part in parts:
         visible, hidden = lines[part.id]
@@ -294,9 +305,10 @@ def make_elevation_doc(
         write_lines_to_layer(doc, "DOOR_DETAILS", lines[shape.id][0])
     for shape in swing_shapes:
         write_lines_to_layer(doc, "SWING_MARKS", lines[shape.id][0])
-    for layer, group in annotation_shapes.items():
-        for shape in group:
-            write_lines_to_layer(doc, layer, lines[shape.id][0])
+    for shape in interior_shapes:
+        write_lines_to_layer(doc, "INTERIORS", lines[shape.id][0])
+    for shape, weight in glass_shapes:
+        write_lines_to_layer(doc, "GLASS_MARKS", lines[shape.id][0], lineweight=weight)
     for shape in pull_shapes:
         visible, arcs = rejoin_arcs(lines[shape.id][0], pull_sources[shape.id])
         write_lines_to_layer(doc, "PULLS", visible)
