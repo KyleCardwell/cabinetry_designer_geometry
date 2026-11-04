@@ -6,11 +6,12 @@ from ezdxf.document import Drawing
 from shapely.geometry import Polygon
 from shapely.ops import unary_union
 
-from src.dxf.writer import TEXT_STYLE, add_dimstyle, create_dxf_document, doc_to_bytes, frame_drawing, write_lines_to_layer
+from src.dxf.writer import TEXT_STYLE, add_dimstyle, create_dxf_document, doc_to_bytes, frame_drawing, write_arcs_to_layer, write_lines_to_layer
 from src.projection.hlr import EPSILON, HlrShape, hidden_line_removal
 
+from .arcs import rejoin_arcs
 from .dimensions import DEFAULT_PLOT_SCALE, add_plan_dimensions
-from .elevation_dxf import _add_hatch, _polygons
+from .elevation_dxf import _add_hatch, _polygons, _shape_geometry
 from .models import PayloadPlan, PayloadRoom
 from .plan_marks import add_plan_marks, mark_points
 
@@ -72,7 +73,7 @@ def dimension_points(dimensions) -> list:
 def make_plan_doc(
     plan: PayloadPlan, room: PayloadRoom, plot_scale: float = DEFAULT_PLOT_SCALE,
 ) -> Drawing:
-    doc = create_dxf_document()
+    doc = create_dxf_document(include_legs=bool(plan.shapes))
     add_dimstyle(doc, plot_scale)
     doc.header["$LTSCALE"] = plot_scale / 2
     modelspace = doc.modelspace()
@@ -85,12 +86,26 @@ def make_plan_doc(
     _add_hatch(modelspace, "SECTIONS", region, solid=True)
 
     parts = [part for part in plan.parts if part.kind not in {"wall", "void"} and part.top is not None]
+    shapes, sources = [], {}
+    for record in plan.shapes:
+        polygon, segments, arcs = _shape_geometry(record.loops)
+        shape_id = f"shape:{record.id}"
+        sources[shape_id] = arcs
+        shapes.append(HlrShape(
+            id=shape_id, polygon=polygon, front=record.top, drop_hidden=True,
+            outlined=False, lines=segments,
+        ))
     result = hidden_line_removal([
         HlrShape(id=str(index), polygon=Polygon(part.points), front=part.top, drop_hidden=True)
         for index, part in enumerate(parts)
-    ])
+    ] + shapes)
     for index, part in enumerate(parts):
         write_lines_to_layer(doc, PLAN_LAYERS[part.kind], result[str(index)][0])
+
+    for shape in shapes:
+        visible, arcs = rejoin_arcs(result[shape.id][0], sources[shape.id])
+        write_lines_to_layer(doc, "LEGS", visible)
+        write_arcs_to_layer(doc, "LEGS", arcs)
 
     for part in plan.parts:
         if part.kind in {"wall", "void"} or part.top is not None:
@@ -104,6 +119,7 @@ def make_plan_doc(
     add_plan_marks(modelspace, plan.marks, plot_scale)
 
     points = [point for part in plan.parts for point in part.points]
+    points.extend(point[:2] for shape in plan.shapes for loop in shape.loops for point in loop.points)
     if points:
         left = min(x for x, _ in points)
         low = min(y for _, y in points + dimension_points(plan.dimensions) + mark_points(plan.marks, plot_scale))

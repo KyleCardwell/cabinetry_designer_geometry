@@ -80,7 +80,7 @@ class PayloadPart(BaseModel):
         "toe_kick", "furniture_base", "countertop", "top_mold", "crown",
         "light_rail", "light_trough", "bottom_cap", "corbels",
         "wall_end_panel", "opening", "casing", "soffit", "recess", "projection", "wing_wall",
-        "section", "profile",
+        "section", "profile", "leg",
     ]
     runId: str | None = None
     x: float
@@ -246,7 +246,7 @@ class PayloadPull(BaseModel):
 
 
 class PayloadShapeLoop(BaseModel):
-    """A closed area or open path in wall (x, z[, bulge]) inches.
+    """A closed area or open path in elevation or plan inches, with optional bulges.
 
     Bulges leave each point and round to six places. Closed loops close
     implicitly and need non-zero area; open loops never add a closing segment.
@@ -281,16 +281,16 @@ class PayloadShapeBlock(BaseModel):
 
 
 class PayloadShape(BaseModel):
-    """An accessory item's loops and nearest-face depth behind its part's front.
+    """Accessory or leg loops with optional block insertion metadata.
 
-    Only outer closed loops hide deeper shapes of the same part. Optional block
-    metadata is stored while all loops are drawn as plain geometry (SH4 step b).
+    Accessory outer loops hide deeper shapes of their own part using depth.
+    Leg outer loops hide all geometry behind their part's front.
     """
 
     model_config = ConfigDict(extra="forbid")
 
     partId: str = Field(min_length=1)
-    kind: Literal["accessory"]
+    kind: Literal["accessory", "leg"]
     depth: float = Field(allow_inf_nan=False)
     loops: list[PayloadShapeLoop] = Field(min_length=1)
     block: PayloadShapeBlock | None = None
@@ -366,7 +366,7 @@ class PayloadElevation(BaseModel):
     glassMarks: list[PayloadGlassMark] = []
     # Pull outlines per part (SPEC-HP5); each names a part in this elevation.
     pulls: list[PayloadPull] = []
-    # Accessory item loops and depth per part (SPEC-SH4), optional in payload v1.
+    # Accessory and leg loops per part (SPEC-SH4, SH7), optional in payload v1.
     shapes: list[PayloadShape] = []
     # Pre-positioned badges in drawing inches (SPEC-50.13), always exported.
     partNumbers: list[PayloadPartNumber] = []
@@ -420,6 +420,17 @@ class PayloadPlanPart(BaseModel):
     top: float | None = None
 
 
+class PayloadPlanShape(BaseModel):
+    """Leg loops in plan (x, y[, bulge]) inches, y up, occluding at top height."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    id: str = Field(min_length=1)
+    kind: Literal["leg"]
+    top: float = Field(allow_inf_nan=False)
+    loops: list[PayloadShapeLoop] = Field(min_length=1)
+
+
 class PayloadPlanDimension(BaseModel):
     """One aligned dimension in plan (SPEC-45), plan inches with y up: measured from start to end,
     extension lines from those points, the dimension line `offset` to the left of start→end (negative: right)."""
@@ -455,6 +466,8 @@ class PayloadPlan(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     parts: list[PayloadPlanPart] = []
+    # Leg outlines participate in the parts' hidden-line pass at their top height (SH7).
+    shapes: list[PayloadPlanShape] = []
     # Wall lengths and the rows along each face (SPEC-45); depths and clearances in 45.2.
     dimensions: list[PayloadPlanDimension] = []
     # Elevation markers and door, window and recess labels (SPEC-45.1).
