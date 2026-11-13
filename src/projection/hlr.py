@@ -20,6 +20,20 @@ class HlrShape:
     front: float
     is_box: bool = False
     covers_box_edges: bool = False
+    drop_hidden: bool = False   # hidden edges are left out, never dashed (SPEC-42)
+    lines: tuple = ()           # detail lines inside the shape: ((x1, z1), (x2, z2)) pairs
+    opaque: bool = True         # hides what's behind it; an outline (recess, opening, soffit) doesn't (SPEC-42.1)
+    outlined: bool = True       # draws the polygon's boundary; False draws only `lines` (SPEC-42.1)
+    group: str | None = None    # optional part id for accessory-to-accessory occlusion
+    group_front: float = 0      # nearer within the group, independent of room depth
+    group_opaque: bool = False  # hides deeper members of this group only
+
+
+def _is_nearer(other: HlrShape, shape: HlrShape) -> bool:
+    return (other.opaque and other.front > shape.front + EPSILON) or (
+        shape.group is not None and other.group == shape.group and other.group_opaque
+        and other.group_front > shape.group_front + EPSILON
+    )
 
 
 def rect_polygon(x: float, z: float, width: float, height: float, holes=()) -> Polygon:
@@ -46,24 +60,46 @@ def _geometry_to_lines(geometry) -> list[Line2D]:
     return []
 
 
+def visible_regions(shapes: list[HlrShape], ids: set[str]) -> dict[str, object]:
+    """For each shape whose id is in `ids`: the part of its polygon no nearer opaque shape covers (SPEC-42.2)."""
+    regions = {}
+    for shape in shapes:
+        if shape.id not in ids:
+            continue
+        nearer = [other.polygon for other in shapes if _is_nearer(other, shape)]
+        regions[shape.id] = shape.polygon.difference(unary_union(nearer)) if nearer else shape.polygon
+    return regions
+
+
 def hidden_line_removal(shapes: list[HlrShape]) -> dict[str, tuple[list[Line2D], list[Line2D]]]:
     """For each shape id: (visible, hidden) segments of its outline (exterior and hole rings)."""
     result = {}
     for shape in shapes:
-        edges = shape.polygon.boundary
-        nearer = [other for other in shapes if other.front > shape.front + EPSILON]
+        drawn = [shape.polygon.boundary] if shape.outlined else []
+        drawn.extend(LineString(line) for line in shape.lines)
+        if not drawn:
+            result[shape.id] = ([], [])
+            continue
+        # Grouped loops keep their source segments: unioning touching rod and
+        # bracket lines would split one bracket side into several DXF LINEs.
+        edges = drawn if shape.group is not None else [
+            drawn[0] if len(drawn) == 1 else unary_union(drawn)
+        ]
+        nearer = [other for other in shapes if _is_nearer(other, shape)]
         if not nearer:
-            result[shape.id] = (_geometry_to_lines(edges), [])
+            result[shape.id] = ([line for edge in edges for line in _geometry_to_lines(edge)], [])
             continue
 
-        visible = edges.difference(unary_union([other.polygon for other in nearer]))
-        dashing = [
+        covered = unary_union([other.polygon for other in nearer])
+        visible = [line for edge in edges for line in _geometry_to_lines(edge.difference(covered))]
+        dashing = [] if shape.drop_hidden else [
             other.polygon for other in nearer
             if not (shape.is_box and other.covers_box_edges)
         ]
         hidden_lines = []
         if dashing:
             union = unary_union(dashing)
-            hidden_lines = _geometry_to_lines(edges.intersection(union).difference(union.boundary))
-        result[shape.id] = (_geometry_to_lines(visible), hidden_lines)
+            hidden_lines = [line for edge in edges
+                            for line in _geometry_to_lines(edge.intersection(union).difference(union.boundary))]
+        result[shape.id] = (visible, hidden_lines)
     return result

@@ -1,0 +1,22 @@
+{
+  "payloadVersion": 1,
+  "units": "in",
+  "room": { "id": "spec-42-1", "name": "Wall things" },
+  "elevations": [
+    {
+      "key": "wall-1", "letter": "A", "wallId": "wall-1",
+      "side": "front", "title": "Elevation A", "wallLabel": "Wall 1", "length": 120, "height": 96,
+      "parts": [
+        {"id": "box-face", "kind": "cabinet", "runId": "run-face", "x": 40, "z": 4, "width": 30, "height": 30.5, "back": 0, "front": 24, "coversBoxEdges": false},
+        {"id": "box-recess", "kind": "cabinet", "runId": "run-recess", "x": 80, "z": 4, "width": 20, "height": 30.5, "back": -12, "front": 12, "coversBoxEdges": false},
+        {"id": "wall-1:endPanel:end", "kind": "wall_end_panel", "x": 119.25, "z": 0, "width": 0.75, "height": 34.5, "back": -12.875, "front": 24.875, "coversBoxEdges": false},
+        {"id": "D1:casing", "kind": "casing", "x": 2, "z": 0, "width": 36, "height": 83, "back": 0, "front": 0.75, "coversBoxEdges": false, "opaque": false},
+        {"id": "D1", "kind": "opening", "x": 5, "z": 0, "width": 30, "height": 80, "back": -4.5, "front": 0, "coversBoxEdges": false, "opaque": false},
+        {"id": "S1", "kind": "soffit", "x": 0, "z": 84, "width": 60, "height": 12, "back": 0, "front": 14, "coversBoxEdges": false, "opaque": false, "openEdges": ["right"]},
+        {"id": "R1", "kind": "recess", "x": 60, "z": 0, "width": 48, "height": 96, "back": -12, "front": 0, "coversBoxEdges": false, "opaque": false},
+        {"id": "W2", "kind": "wing_wall", "x": 112, "z": 0, "width": 4.5, "height": 96, "back": 0, "front": 30, "coversBoxEdges": false, "opaque": false, "openEdges": ["left", "right"],
+          "lines": [{"x1": 112, "z1": 0, "x2": 112, "z2": 96}, {"x1": 116.5, "z1": 0, "x2": 116.5, "z2": 84}]}
+      ]
+    }
+  ]
+}

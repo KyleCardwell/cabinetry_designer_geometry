@@ -1,0 +1,20 @@
+{
+  "payloadVersion": 1,
+  "units": "in",
+  "room": { "id": "spec-42-2", "name": "Corner returns" },
+  "elevations": [
+    {
+      "key": "wall-b", "letter": "B", "wallId": "wall-b",
+      "side": "front", "title": "Elevation B", "wallLabel": "Wall 2", "length": 120, "height": 96,
+      "parts": [
+        {"id": "blind", "kind": "cabinet", "runId": "run-b", "x": 9.1875, "z": 4, "width": 48, "height": 30.5, "back": 0, "front": 24, "coversBoxEdges": false},
+        {"id": "run-b:countertop", "kind": "countertop", "runId": "run-b", "x": 24.875, "z": 34.5, "width": 95.125, "height": 1.5, "back": 0, "front": 25.625, "coversBoxEdges": false},
+        {"id": "left:wall-a:run-a:box", "kind": "section", "runId": "run-a", "x": 0, "z": 4, "width": 24, "height": 30.5, "back": 24.875, "front": 138, "coversBoxEdges": false},
+        {"id": "left:wall-a:run-a:faces", "kind": "section", "runId": "run-a", "x": 24, "z": 4, "width": 0.875, "height": 30.5, "back": 24.875, "front": 138, "coversBoxEdges": false},
+        {"id": "left:wall-a:run-a:countertop", "kind": "countertop", "runId": "run-a", "x": 0, "z": 34.5, "width": 25.625, "height": 1.5, "back": 24.875, "front": 138, "coversBoxEdges": false, "opaque": false},
+        {"id": "wall-c:back:run-c:right:toe_kick", "kind": "toe_kick", "runId": "run-c", "x": 120, "z": 0, "width": 21, "height": 4, "back": 0, "front": 77.75, "coversBoxEdges": false},
+        {"id": "wall-c:back:run-c:right:box", "kind": "profile", "runId": "run-c", "x": 120, "z": 4, "width": 24, "height": 30.5, "back": 0, "front": 77.75, "coversBoxEdges": false}
+      ]
+    }
+  ]
+}

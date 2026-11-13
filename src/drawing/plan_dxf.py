@@ -1,0 +1,143 @@
+"""Render a room's plan as a DXF (SPEC-44)."""
+
+from math import hypot
+
+from ezdxf.document import Drawing
+from shapely.geometry import Polygon
+from shapely.ops import unary_union
+
+from src.dxf.writer import TEXT_STYLE, add_dimstyle, create_dxf_document, doc_to_bytes, frame_drawing, write_arcs_to_layer, write_lines_to_layer
+from src.projection.hlr import EPSILON, HlrShape, hidden_line_removal
+
+from .arcs import rejoin_arcs
+from .dimensions import DEFAULT_PLOT_SCALE, add_plan_dimensions
+from .elevation_dxf import _add_hatch, _polygons, _shape_geometry
+from .models import PayloadPlan, PayloadRoom
+from .plan_marks import add_plan_marks, mark_points
+
+
+PLAN_LAYERS = {
+    "opening": "OPENINGS",
+    "casing": "OPENINGS",
+    "recess": "WALLS",
+    "soffit": "WALLS",
+    "cabinet": "CABINETS",
+    "face": "FACES",
+    "filler": "FILLERS",
+    "end_panel": "PANELS",
+    "panel": "PANELS",
+    "wall_end_panel": "PANELS",
+    "frame": "FRAMES",
+    "shelf": "SHELVES",
+    "countertop": "COUNTERTOPS",
+}
+
+# Walls are joined 0.001" fat so mitre points that differ by noise still meet.
+SNAP = 1e-3
+
+
+def wall_region(plan: PayloadPlan):
+    walls = [
+        Polygon(part.points).buffer(SNAP, join_style="mitre")
+        for part in plan.parts if part.kind == "wall"
+    ]
+    region = unary_union(walls).buffer(-SNAP, join_style="mitre")
+    voids = [Polygon(part.points) for part in plan.parts if part.kind == "void"]
+    if voids:
+        region = region.difference(unary_union(voids))
+    return region
+
+
+def dimension_points(dimensions) -> list:
+    """Every point a plan dimension reaches (SPEC-45): its ends, its dimension line's ends and moved text."""
+    points = []
+    for dimension in dimensions:
+        dx = dimension.end[0] - dimension.start[0]
+        dy = dimension.end[1] - dimension.start[1]
+        length = hypot(dx, dy)
+        if length <= EPSILON:
+            continue
+        offset_x = -dy / length * dimension.offset
+        offset_y = dx / length * dimension.offset
+        points.extend([
+            dimension.start,
+            dimension.end,
+            (dimension.start[0] + offset_x, dimension.start[1] + offset_y),
+            (dimension.end[0] + offset_x, dimension.end[1] + offset_y),
+        ])
+        if dimension.textAt is not None:
+            points.append(dimension.textAt)
+    return points
+
+
+def make_plan_doc(
+    plan: PayloadPlan, room: PayloadRoom, plot_scale: float = DEFAULT_PLOT_SCALE,
+) -> Drawing:
+    doc = create_dxf_document(include_legs=bool(plan.shapes))
+    add_dimstyle(doc, plot_scale)
+    doc.header["$LTSCALE"] = plot_scale / 2
+    modelspace = doc.modelspace()
+    region = wall_region(plan)
+    for polygon in _polygons(region):
+        for ring in [polygon.exterior, *polygon.interiors]:
+            modelspace.add_lwpolyline(
+                list(ring.coords)[:-1], close=True, dxfattribs={"layer": "WALLS"},
+            )
+    _add_hatch(modelspace, "SECTIONS", region, solid=True)
+
+    parts = [part for part in plan.parts if part.kind not in {"wall", "void"} and part.top is not None]
+    shapes, sources = [], {}
+    for record in plan.shapes:
+        polygon, segments, arcs = _shape_geometry(record.loops)
+        shape_id = f"shape:{record.id}"
+        sources[shape_id] = arcs
+        shapes.append(HlrShape(
+            id=shape_id, polygon=polygon, front=record.top, drop_hidden=True,
+            outlined=False, lines=segments,
+        ))
+    result = hidden_line_removal([
+        HlrShape(id=str(index), polygon=Polygon(part.points), front=part.top, drop_hidden=True)
+        for index, part in enumerate(parts)
+    ] + shapes)
+    for index, part in enumerate(parts):
+        write_lines_to_layer(doc, PLAN_LAYERS[part.kind], result[str(index)][0])
+
+    for shape in shapes:
+        visible, arcs = rejoin_arcs(result[shape.id][0], sources[shape.id])
+        write_lines_to_layer(doc, "LEGS", visible)
+        write_arcs_to_layer(doc, "LEGS", arcs)
+
+    for part in plan.parts:
+        if part.kind in {"wall", "void"} or part.top is not None:
+            continue
+        attributes = {"layer": PLAN_LAYERS[part.kind]}
+        if part.dashed:
+            attributes["linetype"] = "DASHED"
+        modelspace.add_lwpolyline(part.points, close=part.closed, dxfattribs=attributes)
+
+    add_plan_dimensions(modelspace, plan.dimensions)
+    add_plan_marks(modelspace, plan.marks, plot_scale)
+
+    points = [point for part in plan.parts for point in part.points]
+    points.extend(point[:2] for shape in plan.shapes for loop in shape.loops for point in loop.points)
+    if points:
+        left = min(x for x, _ in points)
+        low = min(y for _, y in points + dimension_points(plan.dimensions) + mark_points(plan.marks, plot_scale))
+        for text, position, height in [
+            ("PLAN", (left, low - 12), 4),
+            (room.name, (left, low - 18), 3),
+        ]:
+            modelspace.add_text(
+                text,
+                dxfattribs={"layer": "TEXT", "style": TEXT_STYLE, "insert": position, "height": height},
+            )
+
+    frame_drawing(doc, plot_scale)
+    doc.update_extents()
+    return doc
+
+
+def build_plan_dxf(
+    plan: PayloadPlan, room: PayloadRoom, plot_scale: float = DEFAULT_PLOT_SCALE,
+) -> bytes:
+    return doc_to_bytes(make_plan_doc(plan, room, plot_scale))

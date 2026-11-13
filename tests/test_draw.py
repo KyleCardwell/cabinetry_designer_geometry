@@ -30,7 +30,7 @@ def _dxf(archive, name):
 
 def test_one_dxf_per_elevation_in_letter_order():
     result = draw(PAYLOAD)
-    names = ["elevation-A.dxf", "elevation-B.dxf", "elevation-C.dxf", "elevation-D.dxf"]
+    names = ["elevation-A.dxf", "elevation-B.dxf", "elevation-C.dxf", "elevation-D.dxf", "drawings.pdf"]
     assert result["payloadVersion"] == 1
     assert result["files"] == names
     assert _zip(result).namelist() == ["payload.json", *names]

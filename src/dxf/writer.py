@@ -6,35 +6,75 @@ for writing Line2D segments to named layers.
 """
 
 from __future__ import annotations
+from math import degrees
+from typing import TYPE_CHECKING
 import ezdxf
+from ezdxf import bbox
 from ezdxf import units
 from ezdxf.document import Drawing
 from ..models.geometry import Line2D
 
+if TYPE_CHECKING:
+    from ..drawing.arcs import OutlineArc
 
-# Standard layer definitions: (name, color_index, linetype)
-# AutoCAD Color Index: 7=white, 1=red, 2=yellow, 3=green, 4=cyan, 5=blue, 6=magenta
+
+# Standard layer definitions: (color_index, linetype, lineweight)
+# AutoCAD Color Index: 1=red, 7=black on paper/white on dark screens, 8=dark grey.
+# Lineweights are in 1/100 mm (SPEC-43.1): walls heaviest, countertops next, openings and markers medium,
+# panels/fillers/frames/moldings and dimensions/text/hidden lines fine (0.18 mm ≈ 0.5 pt), sections lighter,
+# cabinet boxes, door/drawer face outlines and door details finest (0.09 mm ≈ 0.25 pt, SPEC-50.16, 50.17).
 LAYER_DEFS = {
-    "WALLS":      (7, "CONTINUOUS"),
-    "CABINETS":   (5, "CONTINUOUS"),
-    "FACES":      (7, "CONTINUOUS"),
-    "FILLERS":    (30, "CONTINUOUS"),
-    "PANELS":     (6, "CONTINUOUS"),
-    "FRAMES":     (3, "CONTINUOUS"),
-    "SHELVES":    (4, "CONTINUOUS"),
-    "HIDDEN":     (8, "DASHED"),
-    "DIMENSIONS": (2, "CONTINUOUS"),
-    "TEXT":       (7, "CONTINUOUS"),
+    "WALLS":      (7, "CONTINUOUS", 50),
+    "CABINETS":   (7, "CONTINUOUS", 9),
+    "FACES":      (7, "CONTINUOUS", 9),
+    "FILLERS":    (7, "CONTINUOUS", 18),
+    "PANELS":     (7, "CONTINUOUS", 18),
+    "FRAMES":     (7, "CONTINUOUS", 18),
+    "SHELVES":    (7, "CONTINUOUS", 18),
+    "COUNTERTOPS": (7, "CONTINUOUS", 35),
+    "MOLDINGS":   (7, "CONTINUOUS", 18),
+    "OPENINGS":   (7, "CONTINUOUS", 25),
+    "SECTIONS":   (8, "CONTINUOUS", 13),
+    "HIDDEN":     (8, "DASHED", 18),
+    "DIMENSIONS": (7, "CONTINUOUS", 18),
+    # Centrelines are as light as dimensions (SPEC-43.3).
+    "CENTERLINES": (7, "CENTER", 18),
+    "TEXT":       (7, "CONTINUOUS", 18),
+    # Elevation markers in plan (SPEC-45.1).
+    "MARKERS":    (7, "CONTINUOUS", 25),
+    # finest, same as face outlines (SPEC-46.4, 50.16)
+    "DOOR_DETAILS": (7, "CONTINUOUS", 9),
+    "SWING_MARKS":  (7, "DASHED", 9),
+    "INTERIORS":    (7, "CONTINUOUS", 9),
+    "GLASS_MARKS":  (7, "CONTINUOUS", 9),
+    "PULLS":        (7, "CONTINUOUS", 13),
+    "DOOR_TAGS":    (7, "CONTINUOUS", 18),
+    "PART_NUMBERS": (1, "CONTINUOUS", 18),
+    "FRAME":      (7, "CONTINUOUS", 0),
 }
 
+# Optional layers stay separate so documents without shapes keep their bytes.
+ACCESSORY_LAYER_DEFS = {"ACCESSORIES": (7, "CONTINUOUS", 13)}
+LEG_LAYER_DEFS = {"LEGS": (7, "CONTINUOUS", 18)}
 
-def create_dxf_document() -> Drawing:
+# Every label and dimension uses one text style (SPEC-43.1). The DXF names the font; the viewer supplies it.
+TEXT_STYLE = "FF_TEXT"
+TEXT_FONT = "arial.ttf"
+TEXT_FAMILY = "Arial"
+
+# Space left around everything drawn, paper inches: 1/2" is 12" at 1/2" = 1'-0".
+DRAWING_PADDING = 0.5
+
+
+def create_dxf_document(*, include_accessories: bool = False, include_legs: bool = False) -> Drawing:
     """Create a new DXF document with standard layers and linetypes."""
     doc = ezdxf.new("R2010")
     doc.units = units.IN
     doc.header["$MEASUREMENT"] = 0  # English/imperial
     doc.header["$LUNITS"] = 4       # Architectural
     doc.header["$LUPREC"] = 4       # Display to 1/16 inch
+    doc.header["$PDMODE"] = 1       # Frame points contribute extents without drawing
+    doc.header["$PDSIZE"] = 0
 
     # Ensure linetypes exist
     if "CENTER" not in doc.linetypes:
@@ -50,11 +90,49 @@ def create_dxf_document() -> Drawing:
             description="Dashed ---- ---- ----",
         )
 
+    doc.header["$LWDISPLAY"] = 1    # show lineweights
+
     # Create layers
-    for layer_name, (color, linetype) in LAYER_DEFS.items():
-        doc.layers.add(layer_name, color=color, linetype=linetype)
+    layer_defs = (LAYER_DEFS | (ACCESSORY_LAYER_DEFS if include_accessories else {})
+                  | (LEG_LAYER_DEFS if include_legs else {}))
+    for layer_name, (color, linetype, lineweight) in layer_defs.items():
+        doc.layers.add(layer_name, color=color, linetype=linetype, lineweight=lineweight)
+    doc.layers.get("FRAME").dxf.plot = 1
+
+    style = doc.styles.new(TEXT_STYLE, dxfattribs={"font": TEXT_FONT})
+    style.set_extended_font_data(family=TEXT_FAMILY, italic=False, bold=False)
 
     return doc
+
+
+# The dimension style (SPEC-43). Sizes are paper inches; DIMSCALE (the plot scale) makes them drawing inches.
+DIMSTYLE = "FF"
+DIMSTYLE_PAPER = {
+    "dimtxt": 0.09375,  # 3/32" text (SPEC-43.1)
+    "dimtsz": 0.0625,   # architectural ticks, not arrows
+    "dimexo": 0.0625,   # extension lines start 1/16" off the drawing
+    "dimexe": 0.0625,   # and run 1/16" past the dimension line
+    "dimgap": 0.0625,   # 1/16" gap on each side of the centred text
+}
+
+
+def add_dimstyle(doc: Drawing, plot_scale: float) -> None:
+    """The FF dimension style (SPEC-43, 43.1, DM7): fractional inches to 1/16", ticks, text centred on the line, in
+    FF_TEXT. The inch mark comes with the designer's text; ezdxf doesn't write DIMPOST, so a dimension
+    CAD re-measures has none."""
+    style = doc.dimstyles.new(DIMSTYLE)
+    for key, value in DIMSTYLE_PAPER.items():
+        style.dxf.set(key, value)
+    style.dxf.dimscale = plot_scale
+    style.dxf.dimtxsty = TEXT_STYLE
+    style.dxf.dimtad = 0        # text centred on the dimension line
+    style.dxf.dimtix = 1        # keep text inside unless the designer moves it
+    style.dxf.dimtih = 0        # text aligned with the line, inside
+    style.dxf.dimtoh = 0        # and outside
+    style.dxf.dimlunit = 5      # fractional
+    style.dxf.dimdec = 4        # to 1/16"
+    style.dxf.dimfrac = 2       # not stacked: 30 1/2
+    style.dxf.dimdsep = ord(".")
 
 
 def write_lines_to_layer(
@@ -63,13 +141,29 @@ def write_lines_to_layer(
     lines: list[Line2D],
     offset_x: float = 0.0,
     offset_y: float = 0.0,
+    lineweight: int | None = None,
 ) -> None:
     """Write a list of Line2D segments to a named layer in modelspace."""
     msp = doc.modelspace()
+    dxfattribs = {"layer": layer_name}
+    if lineweight is not None:
+        dxfattribs["lineweight"] = lineweight
     for line in lines:
         msp.add_line(
             (line.start.x + offset_x, line.start.y + offset_y),
             (line.end.x + offset_x, line.end.y + offset_y),
+            dxfattribs=dxfattribs,
+        )
+
+
+def write_arcs_to_layer(doc: Drawing, layer_name: str, arcs: list[OutlineArc]) -> None:
+    """Write circular edges in degrees; DXF ARC always walks counter-clockwise."""
+    for arc in arcs:
+        start, end = arc.start_angle, arc.end_angle
+        if not arc.ccw:
+            start, end = end, start
+        doc.modelspace().add_arc(
+            arc.center, arc.radius, degrees(start) % 360, degrees(end) % 360,
             dxfattribs={"layer": layer_name},
         )
 
@@ -92,6 +186,28 @@ def add_text(
             "insert": (x, y),
         },
     )
+
+
+def frame_drawing(doc: Drawing, plot_scale: float) -> None:
+    """Extents, limits and the opening view: everything drawn, dimensions and text included, plus the padding."""
+    extents = bbox.extents(doc.modelspace())
+    if not extents.has_data:
+        return
+    pad = DRAWING_PADDING * plot_scale
+    x0, y0 = extents.extmin.x - pad, extents.extmin.y - pad
+    x1, y1 = extents.extmax.x + pad, extents.extmax.y + pad
+    # ezdxf copies these into $EXTMIN/$EXTMAX/$LIMMIN/$LIMMAX when it writes; setting the header directly gets overwritten.
+    doc.modelspace().dxf.extmin = (x0, y0, 0)
+    doc.modelspace().dxf.extmax = (x1, y1, 0)
+    doc.modelspace().dxf.limmin = (x0, y0)
+    doc.modelspace().dxf.limmax = (x1, y1)
+    doc.set_modelspace_vport(
+        height=y1 - y0,
+        center=((x0 + x1) / 2, (y0 + y1) / 2),
+        dxfattribs={"aspect_ratio": (x1 - x0) / (y1 - y0)},
+    )
+    for corner in ((x0, y0), (x1, y0), (x1, y1), (x0, y1)):
+        doc.modelspace().add_point(corner, dxfattribs={"layer": "FRAME"})
 
 
 def doc_to_bytes(doc: Drawing) -> bytes:

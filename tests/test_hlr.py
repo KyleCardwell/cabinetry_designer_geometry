@@ -2,7 +2,7 @@
 
 import pytest
 
-from src.projection.hlr import HlrShape, hidden_line_removal, rect_polygon
+from src.projection.hlr import HlrShape, hidden_line_removal, rect_polygon, visible_regions
 
 
 def _length(lines):
@@ -86,3 +86,70 @@ def test_an_edge_on_a_nearer_parts_edge_is_drawn_once():
     assert len(visible) == 3
     assert _length(visible) == pytest.approx(30)
     assert hidden == []
+
+
+def test_detail_lines_are_drawn_and_hidden_like_the_outline():
+    chip = (((0, 0.125), (3, 0.125)),)
+    visible, hidden = _run(HlrShape("panel", rect_polygon(0, 0, 3, 30), 24.875, lines=chip))["panel"]
+    assert _length(visible) == pytest.approx(69)  # 66 of outline + the 3" chip line
+    assert hidden == []
+    visible, hidden = _run(
+        HlrShape("panel", rect_polygon(0, 0, 3, 30), 24.875, lines=chip),
+        HlrShape("door", rect_polygon(2, -1, 10, 30), 25.6875, covers_box_edges=True),
+    )["panel"]
+    assert _length(visible) == pytest.approx(38)
+    assert _length(hidden) == pytest.approx(31)
+    assert any(
+        sorted([line.start.x, line.end.x]) == pytest.approx([2, 3])
+        and [line.start.y, line.end.y] == pytest.approx([0.125, 0.125])
+        for line in hidden
+    )
+
+
+def test_drop_hidden_leaves_hidden_edges_out_instead_of_dashing_them():
+    crown = HlrShape("crown", rect_polygon(0, 91.5, 33, 4.5), 28.875)
+    visible, hidden = _run(
+        HlrShape("mold", rect_polygon(0, 90, 30.25, 3), 26.125, drop_hidden=True), crown,
+    )["mold"]
+    assert _length(visible) == pytest.approx(33.25)  # its bottom and its sides below the crown
+    assert hidden == []
+    dashed = HlrShape("mold", rect_polygon(0, 90, 30.25, 3), 26.125)
+    assert _length(_run(dashed, crown)["mold"][1]) == pytest.approx(31.75)
+
+
+def test_an_outline_that_is_not_opaque_hides_nothing():
+    result = _run(
+        HlrShape("recess", rect_polygon(60, 0, 48, 96), 0, opaque=False),
+        HlrShape("inside", rect_polygon(80, 4, 20, 30.5), -12, is_box=True),
+        HlrShape("face", rect_polygon(40, 4, 30, 30.5), 24, is_box=True),
+    )
+    assert _length(result["inside"][0]) == pytest.approx(101)  # all of it, though the recess outline is nearer
+    assert result["inside"][1] == []
+    visible, hidden = result["recess"]
+    assert _length(hidden) == pytest.approx(30.5)  # its left edge behind the face cabinet, dashed
+    assert _length(visible) == pytest.approx(288 - 30.5)
+
+
+def test_a_shape_without_its_outline_draws_only_its_lines():
+    wing = HlrShape(
+        "wing", rect_polygon(72, 0, 4.5, 96), 30, outlined=False,
+        lines=(((72, 0), (76.5, 0)), ((72, 0), (72, 84))),
+    )
+    visible, hidden = _run(wing)["wing"]
+    assert _length(visible) == pytest.approx(88.5)
+    assert hidden == []
+    assert _run(HlrShape("bare", rect_polygon(0, 0, 1, 1), 0, outlined=False))["bare"] == ([], [])
+
+
+def test_visible_regions_leave_out_what_nearer_opaque_shapes_cover():
+    shapes = [
+        HlrShape("section", rect_polygon(0, 4, 24.875, 30.5), 138),
+        HlrShape("box", rect_polygon(9.1875, 4, 48, 30.5), 24, is_box=True),
+        HlrShape("post", rect_polygon(20, 0, 10, 40), 200),
+        HlrShape("glass", rect_polygon(0, 0, 60, 50), 300, opaque=False),
+    ]
+    regions = visible_regions(shapes, {"section", "box"})
+    assert set(regions) == {"section", "box"}
+    assert regions["section"].area == pytest.approx(20 * 30.5)  # the post covers 20 to 24 7/8
+    assert regions["box"].area == pytest.approx(27.1875 * 30.5)  # the section and the post cover it to 30
+    assert visible_regions(shapes[:1], {"section"})["section"].area == pytest.approx(24.875 * 30.5)
