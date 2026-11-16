@@ -1,0 +1,4805 @@
+{
+  "elevations": [
+    {
+      "dimensions": [
+        {
+          "at": -9,
+          "base": 0,
+          "end": 13.25,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 12.4375,
+          "text": "13/16",
+          "textX": 12.84375,
+          "textZ": -12.75
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 32.75,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 13.25,
+          "text": "19 1/2"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 52.25,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 32.75,
+          "text": "19 1/2"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 71.75,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 52.25,
+          "text": "19 1/2"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 72.5625,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 71.75,
+          "text": "13/16",
+          "textX": 72.15625,
+          "textZ": -12.75
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 159.52301527239922,
+          "kind": "neighbor",
+          "row": "lower.inner",
+          "start": 122.5,
+          "text": "37"
+        },
+        {
+          "at": -21.75,
+          "base": 0,
+          "end": 12.4375,
+          "kind": "open",
+          "row": "lower.outer",
+          "start": 0,
+          "text": "12 7/16",
+          "textX": 6.21875,
+          "textZ": -25.5
+        },
+        {
+          "at": -21.75,
+          "base": 0,
+          "end": 72.5625,
+          "kind": "run",
+          "row": "lower.outer",
+          "start": 12.4375,
+          "text": "60 1/8"
+        },
+        {
+          "at": -21.75,
+          "base": 0,
+          "end": 122.5,
+          "kind": "open",
+          "row": "lower.outer",
+          "start": 72.5625,
+          "text": "49 15/16"
+        },
+        {
+          "at": -21.75,
+          "base": 0,
+          "end": 159.52301527239922,
+          "kind": "neighbor",
+          "row": "lower.outer",
+          "start": 122.5,
+          "text": "37"
+        },
+        {
+          "at": -34.5,
+          "base": 0,
+          "end": 122.5,
+          "kind": "wall",
+          "row": "wall",
+          "start": 0,
+          "text": "122 1/2"
+        },
+        {
+          "at": 105,
+          "base": 96,
+          "end": 13.5,
+          "kind": "piece",
+          "row": "upper.inner",
+          "start": 12.6875,
+          "text": "13/16",
+          "textX": 13.09375,
+          "textZ": 108.75
+        },
+        {
+          "at": 105,
+          "base": 96,
+          "end": 30.5,
+          "kind": "piece",
+          "row": "upper.inner",
+          "start": 13.5,
+          "text": "17"
+        },
+        {
+          "at": 105,
+          "base": 96,
+          "end": 54.5,
+          "kind": "piece",
+          "row": "upper.inner",
+          "start": 30.5,
+          "text": "24"
+        },
+        {
+          "at": 105,
+          "base": 96,
+          "end": 71.5,
+          "kind": "piece",
+          "row": "upper.inner",
+          "start": 54.5,
+          "text": "17"
+        },
+        {
+          "at": 105,
+          "base": 96,
+          "end": 72.3125,
+          "kind": "piece",
+          "row": "upper.inner",
+          "start": 71.5,
+          "text": "13/16",
+          "textX": 71.90625,
+          "textZ": 108.75
+        },
+        {
+          "at": 117.75,
+          "base": 96,
+          "end": 12.6875,
+          "kind": "open",
+          "row": "upper.outer",
+          "start": 0,
+          "text": "12 11/16",
+          "textX": 6.34375,
+          "textZ": 121.5
+        },
+        {
+          "at": 117.75,
+          "base": 96,
+          "end": 72.3125,
+          "kind": "run",
+          "row": "upper.outer",
+          "start": 12.6875,
+          "text": "59 5/8"
+        },
+        {
+          "at": 117.75,
+          "base": 96,
+          "end": 122.5,
+          "kind": "open",
+          "row": "upper.outer",
+          "start": 72.3125,
+          "text": "50 3/16"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 4,
+          "kind": "toe-kick",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 0,
+          "text": "4",
+          "textX": -12.75,
+          "textZ": 2
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 34.5,
+          "kind": "box",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 4,
+          "text": "30 1/2"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 36,
+          "kind": "countertop",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 34.5,
+          "text": "1 1/2",
+          "textX": -12.75,
+          "textZ": 35.25
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 54,
+          "kind": "clearance",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 36,
+          "text": "18"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 55.5,
+          "kind": "bottom",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 54,
+          "text": "1 1/2",
+          "textX": -12.75,
+          "textZ": 54.75
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 84,
+          "kind": "box",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 55.5,
+          "text": "28 1/2"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 96,
+          "kind": "soffit",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 84,
+          "text": "12"
+        },
+        {
+          "at": -21.75,
+          "base": 0,
+          "end": 36,
+          "kind": "counter-height",
+          "orientation": "vertical",
+          "row": "left.middle",
+          "start": 0,
+          "text": "36"
+        },
+        {
+          "at": -30.75,
+          "base": 0,
+          "end": 96,
+          "kind": "wall",
+          "orientation": "vertical",
+          "row": "left.outer",
+          "start": 0,
+          "text": "96"
+        },
+        {
+          "at": 168.52301527239922,
+          "base": 159.52301527239922,
+          "end": 4,
+          "kind": "toe-kick",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 0,
+          "text": "4",
+          "textX": 172.27301527239922,
+          "textZ": 2
+        },
+        {
+          "at": 168.52301527239922,
+          "base": 159.52301527239922,
+          "end": 34.5,
+          "kind": "box",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 4,
+          "text": "30 1/2"
+        },
+        {
+          "at": 168.52301527239922,
+          "base": 159.52301527239922,
+          "end": 36,
+          "kind": "countertop",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 34.5,
+          "text": "1 1/2",
+          "textX": 172.27301527239922,
+          "textZ": 35.25
+        },
+        {
+          "at": 168.52301527239922,
+          "base": 159.52301527239922,
+          "end": 54,
+          "kind": "clearance",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 36,
+          "text": "18"
+        },
+        {
+          "at": 168.52301527239922,
+          "base": 159.52301527239922,
+          "end": 55.5,
+          "kind": "bottom",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 54,
+          "text": "1 1/2",
+          "textX": 172.27301527239922,
+          "textZ": 54.75
+        },
+        {
+          "at": 168.52301527239922,
+          "base": 159.52301527239922,
+          "end": 84,
+          "kind": "box",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 55.5,
+          "text": "28 1/2"
+        },
+        {
+          "at": 168.52301527239922,
+          "base": 159.52301527239922,
+          "end": 96,
+          "kind": "soffit",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 84,
+          "text": "12"
+        },
+        {
+          "at": 181.27301527239922,
+          "base": 159.52301527239922,
+          "end": 36,
+          "kind": "counter-height",
+          "orientation": "vertical",
+          "row": "right.middle",
+          "start": 0,
+          "text": "36"
+        },
+        {
+          "at": 190.27301527239922,
+          "base": 159.52301527239922,
+          "end": 96,
+          "kind": "wall",
+          "orientation": "vertical",
+          "row": "right.outer",
+          "start": 0,
+          "text": "96"
+        }
+      ],
+      "doorDetails": [
+        {
+          "openings": [
+            {
+              "height": 22.5,
+              "width": 10.875,
+              "x": 16.5625,
+              "z": 58.375
+            }
+          ],
+          "partId": "bfbac5fe-c42c-48fa-81ac-70a18a20703a:r"
+        },
+        {
+          "openings": [
+            {
+              "height": 22.5,
+              "width": 10.875,
+              "x": 57.5625,
+              "z": 58.375
+            }
+          ],
+          "partId": "e61ed4f6-7591-4055-9a32-12ff305c552b:r"
+        },
+        {
+          "openings": [
+            {
+              "height": 9,
+              "width": 13.375,
+              "x": 16.3125,
+              "z": 22.25
+            }
+          ],
+          "partId": "7db46102-9f69-446f-9002-4553a28de95e:r.0"
+        },
+        {
+          "openings": [
+            {
+              "height": 9,
+              "width": 13.375,
+              "x": 16.3125,
+              "z": 7.125
+            }
+          ],
+          "partId": "7db46102-9f69-446f-9002-4553a28de95e:r.1"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.125,
+              "width": 13.375,
+              "x": 35.8125,
+              "z": 7.125
+            }
+          ],
+          "partId": "ec63139d-0099-412e-8a36-2b122087a2e0:r"
+        },
+        {
+          "openings": [
+            {
+              "height": 2.125,
+              "width": 13.375,
+              "x": 55.3125,
+              "z": 30.25
+            }
+          ],
+          "partId": "c4a645e5-7a0c-497b-ace8-f0ecf926e916:r.0"
+        },
+        {
+          "openings": [
+            {
+              "height": 6,
+              "width": 13.375,
+              "x": 55.3125,
+              "z": 19.25
+            }
+          ],
+          "partId": "c4a645e5-7a0c-497b-ace8-f0ecf926e916:r.1"
+        },
+        {
+          "openings": [
+            {
+              "height": 6,
+              "width": 13.375,
+              "x": 55.3125,
+              "z": 7.125
+            }
+          ],
+          "partId": "c4a645e5-7a0c-497b-ace8-f0ecf926e916:r.2"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.5,
+              "width": 14.074258899149271,
+              "x": 143.21178807139844,
+              "z": 7
+            }
+          ],
+          "partId": "1ef55b05-c89b-4e88-b464-70f2c010b693:front:ee8399d7-7942-4e91-83b4-77e0d74e4ff5:right:end_panel"
+        }
+      ],
+      "height": 96,
+      "interiors": [
+        {
+          "labels": [],
+          "lines": [
+            {
+              "x1": 31.25,
+              "x2": 31.25,
+              "z1": 55.5,
+              "z2": 84
+            },
+            {
+              "x1": 53.75,
+              "x2": 53.75,
+              "z1": 55.5,
+              "z2": 84
+            },
+            {
+              "x1": 31.25,
+              "x2": 53.75,
+              "z1": 56.25,
+              "z2": 56.25
+            },
+            {
+              "x1": 31.25,
+              "x2": 53.75,
+              "z1": 83.25,
+              "z2": 83.25
+            },
+            {
+              "x1": 31.3125,
+              "x2": 53.6875,
+              "z1": 64.75,
+              "z2": 64.75
+            },
+            {
+              "x1": 53.6875,
+              "x2": 53.6875,
+              "z1": 64.75,
+              "z2": 65.5
+            },
+            {
+              "x1": 53.6875,
+              "x2": 31.3125,
+              "z1": 65.5,
+              "z2": 65.5
+            },
+            {
+              "x1": 31.3125,
+              "x2": 31.3125,
+              "z1": 65.5,
+              "z2": 64.75
+            },
+            {
+              "x1": 31.3125,
+              "x2": 53.6875,
+              "z1": 74,
+              "z2": 74
+            },
+            {
+              "x1": 53.6875,
+              "x2": 53.6875,
+              "z1": 74,
+              "z2": 74.75
+            },
+            {
+              "x1": 53.6875,
+              "x2": 31.3125,
+              "z1": 74.75,
+              "z2": 74.75
+            },
+            {
+              "x1": 31.3125,
+              "x2": 31.3125,
+              "z1": 74.75,
+              "z2": 74
+            }
+          ],
+          "partId": "f0fcc5b7-54ec-4d7d-8788-9af8fe6a2b60"
+        }
+      ],
+      "key": "d4b68f80-997b-473f-80d9-82c8ec473916",
+      "length": 122.5,
+      "letter": "A",
+      "marks": [],
+      "partNumbers": [
+        {
+          "height": 4.5,
+          "key": "43e9e27f-b268-4466-83c5-b8889c54f6c3:left",
+          "leader": {
+            "x1": 13.09375,
+            "x2": 13.09375,
+            "z1": 73.5,
+            "z2": 69.75
+          },
+          "text": "6",
+          "width": 6,
+          "x": 13.09375,
+          "z": 75.75
+        },
+        {
+          "height": 4.5,
+          "key": "bfbac5fe-c42c-48fa-81ac-70a18a20703a",
+          "leader": null,
+          "text": "7",
+          "width": 6,
+          "x": 22,
+          "z": 69.75
+        },
+        {
+          "height": 4.5,
+          "key": "f0fcc5b7-54ec-4d7d-8788-9af8fe6a2b60",
+          "leader": null,
+          "text": "8",
+          "width": 6,
+          "x": 42.5,
+          "z": 69.75
+        },
+        {
+          "height": 4.5,
+          "key": "e61ed4f6-7591-4055-9a32-12ff305c552b",
+          "leader": null,
+          "text": "9",
+          "width": 6,
+          "x": 63,
+          "z": 69.75
+        },
+        {
+          "height": 4.5,
+          "key": "43e9e27f-b268-4466-83c5-b8889c54f6c3:right",
+          "leader": {
+            "x1": 71.90625,
+            "x2": 71.90625,
+            "z1": 73.5,
+            "z2": 69.75
+          },
+          "text": "10",
+          "width": 6,
+          "x": 71.90625,
+          "z": 75.75
+        },
+        {
+          "height": 4.5,
+          "key": "18987cbe-0019-4d91-a3c2-b027e2bebfb0:left",
+          "leader": {
+            "x1": 12.84375,
+            "x2": 12.84375,
+            "z1": 23,
+            "z2": 19.25
+          },
+          "text": "1",
+          "width": 6,
+          "x": 12.84375,
+          "z": 25.25
+        },
+        {
+          "height": 4.5,
+          "key": "7db46102-9f69-446f-9002-4553a28de95e",
+          "leader": null,
+          "text": "2",
+          "width": 6,
+          "x": 23,
+          "z": 19.25
+        },
+        {
+          "height": 4.5,
+          "key": "ec63139d-0099-412e-8a36-2b122087a2e0",
+          "leader": null,
+          "text": "3",
+          "width": 6,
+          "x": 42.5,
+          "z": 19.25
+        },
+        {
+          "height": 4.5,
+          "key": "c4a645e5-7a0c-497b-ace8-f0ecf926e916",
+          "leader": null,
+          "text": "4",
+          "width": 6,
+          "x": 62,
+          "z": 19.25
+        },
+        {
+          "height": 4.5,
+          "key": "18987cbe-0019-4d91-a3c2-b027e2bebfb0:right",
+          "leader": {
+            "x1": 72.15625,
+            "x2": 72.15625,
+            "z1": 23,
+            "z2": 19.25
+          },
+          "text": "5",
+          "width": 6,
+          "x": 72.15625,
+          "z": 25.25
+        },
+        {
+          "height": 4.5,
+          "key": "molding:toeKick",
+          "leader": null,
+          "text": "TK 24",
+          "width": 11.399999999999999,
+          "x": 42.5,
+          "z": 2
+        }
+      ],
+      "parts": [
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 12,
+          "height": 28.5,
+          "id": "bfbac5fe-c42c-48fa-81ac-70a18a20703a",
+          "kind": "cabinet",
+          "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+          "width": 17,
+          "x": 13.5,
+          "z": 55.5
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 12,
+          "height": 28.5,
+          "id": "f0fcc5b7-54ec-4d7d-8788-9af8fe6a2b60",
+          "kind": "cabinet",
+          "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+          "width": 24,
+          "x": 30.5,
+          "z": 55.5
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 12,
+          "height": 28.5,
+          "id": "e61ed4f6-7591-4055-9a32-12ff305c552b",
+          "kind": "cabinet",
+          "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+          "width": 17,
+          "x": 54.5,
+          "z": 55.5
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 12.875,
+          "height": 28.625,
+          "id": "43e9e27f-b268-4466-83c5-b8889c54f6c3:left",
+          "kind": "end_panel",
+          "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+          "width": 0.8125,
+          "x": 12.6875,
+          "z": 55.375
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 12.875,
+          "height": 28.625,
+          "id": "43e9e27f-b268-4466-83c5-b8889c54f6c3:right",
+          "kind": "end_panel",
+          "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+          "width": 0.8125,
+          "x": 71.5,
+          "z": 55.375
+        },
+        {
+          "back": 12.0625,
+          "coversBoxEdges": true,
+          "front": 12.875,
+          "height": 28.5,
+          "id": "bfbac5fe-c42c-48fa-81ac-70a18a20703a:r",
+          "kind": "face",
+          "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+          "width": 16.875,
+          "x": 13.5625,
+          "z": 55.375
+        },
+        {
+          "back": 12.0625,
+          "coversBoxEdges": true,
+          "front": 12.875,
+          "height": 28.5,
+          "id": "e61ed4f6-7591-4055-9a32-12ff305c552b:r",
+          "kind": "face",
+          "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+          "width": 16.875,
+          "x": 54.5625,
+          "z": 55.375
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24,
+          "height": 30.5,
+          "id": "7db46102-9f69-446f-9002-4553a28de95e",
+          "kind": "cabinet",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 19.5,
+          "x": 13.25,
+          "z": 4
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24,
+          "height": 30.5,
+          "id": "ec63139d-0099-412e-8a36-2b122087a2e0",
+          "kind": "cabinet",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 19.5,
+          "x": 32.75,
+          "z": 4
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24,
+          "height": 30.5,
+          "id": "c4a645e5-7a0c-497b-ace8-f0ecf926e916",
+          "kind": "cabinet",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 19.5,
+          "x": 52.25,
+          "z": 4
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24.875,
+          "height": 30.5,
+          "id": "18987cbe-0019-4d91-a3c2-b027e2bebfb0:left",
+          "kind": "end_panel",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 0.8125,
+          "x": 12.4375,
+          "z": 4
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24.875,
+          "height": 30.5,
+          "id": "18987cbe-0019-4d91-a3c2-b027e2bebfb0:right",
+          "kind": "end_panel",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 0.8125,
+          "x": 71.75,
+          "z": 4
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 15,
+          "id": "7db46102-9f69-446f-9002-4553a28de95e:r.0",
+          "kind": "face",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 19.375,
+          "x": 13.3125,
+          "z": 19.25
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 15,
+          "id": "7db46102-9f69-446f-9002-4553a28de95e:r.1",
+          "kind": "face",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 19.375,
+          "x": 13.3125,
+          "z": 4.125
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.125,
+          "id": "ec63139d-0099-412e-8a36-2b122087a2e0:r",
+          "kind": "face",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 19.375,
+          "x": 32.8125,
+          "z": 4.125
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 5.875,
+          "id": "c4a645e5-7a0c-497b-ace8-f0ecf926e916:r.0",
+          "kind": "face",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 19.375,
+          "x": 52.3125,
+          "z": 28.375
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 12,
+          "id": "c4a645e5-7a0c-497b-ace8-f0ecf926e916:r.1",
+          "kind": "face",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 19.375,
+          "x": 52.3125,
+          "z": 16.25
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 12,
+          "id": "c4a645e5-7a0c-497b-ace8-f0ecf926e916:r.2",
+          "kind": "face",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 19.375,
+          "x": 52.3125,
+          "z": 4.125
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 12,
+          "height": 1.5,
+          "id": "6da7ba4e-c4dc-466c-b84e-b324f86468eb",
+          "kind": "light_rail",
+          "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+          "width": 58,
+          "x": 13.5,
+          "z": 54
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 21,
+          "height": 4,
+          "id": "18987cbe-0019-4d91-a3c2-b027e2bebfb0:toe_kick",
+          "kind": "toe_kick",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 58.125,
+          "x": 13.4375,
+          "z": 0
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 25.625,
+          "height": 1.5,
+          "id": "18987cbe-0019-4d91-a3c2-b027e2bebfb0:countertop",
+          "kind": "countertop",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 61.625,
+          "x": 11.6875,
+          "z": 34.5
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 14,
+          "height": 12,
+          "id": "9c653c50-9b53-4e98-9b1d-c629f4944920",
+          "kind": "soffit",
+          "opaque": false,
+          "width": 122.5,
+          "x": 0,
+          "z": 84
+        },
+        {
+          "back": 14.493690455746417,
+          "coversBoxEdges": false,
+          "front": 55.42346774467715,
+          "height": 4,
+          "id": "1ef55b05-c89b-4e88-b464-70f2c010b693:front:ee8399d7-7942-4e91-83b4-77e0d74e4ff5:right:toe_kick",
+          "kind": "toe_kick",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 37.02301527239922,
+          "x": 122.5,
+          "z": 0
+        },
+        {
+          "back": 14.493690455746417,
+          "coversBoxEdges": false,
+          "front": 57.42246069526789,
+          "height": 30.5,
+          "id": "1ef55b05-c89b-4e88-b464-70f2c010b693:front:ee8399d7-7942-4e91-83b4-77e0d74e4ff5:right:box",
+          "kind": "profile",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 37.02301527239922,
+          "x": 122.5,
+          "z": 4
+        },
+        {
+          "back": 30.485634060472293,
+          "coversBoxEdges": false,
+          "front": 58.00550030585685,
+          "height": 30.5,
+          "id": "1ef55b05-c89b-4e88-b464-70f2c010b693:front:ee8399d7-7942-4e91-83b4-77e0d74e4ff5:right:faces",
+          "kind": "profile",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 19.127268857586955,
+          "x": 122.5,
+          "z": 4
+        },
+        {
+          "back": 14.493690455746417,
+          "coversBoxEdges": false,
+          "front": 58.505248543504536,
+          "height": 1.5,
+          "id": "1ef55b05-c89b-4e88-b464-70f2c010b693:front:ee8399d7-7942-4e91-83b4-77e0d74e4ff5:right:countertop",
+          "kind": "countertop",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 37.02301527239922,
+          "x": 122.5,
+          "z": 34.5
+        },
+        {
+          "back": 14.493690455746417,
+          "coversBoxEdges": false,
+          "front": 58.00550030585685,
+          "height": 30.5,
+          "id": "1ef55b05-c89b-4e88-b464-70f2c010b693:front:ee8399d7-7942-4e91-83b4-77e0d74e4ff5:right:end_panel",
+          "kind": "end_panel",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 37.02301527239922,
+          "x": 122.5,
+          "z": 4
+        }
+      ],
+      "pulls": [
+        {
+          "outlines": [
+            [
+              [
+                29.125,
+                57.0625
+              ],
+              [
+                29.125,
+                61.4375,
+                1
+              ],
+              [
+                28.75,
+                61.4375
+              ],
+              [
+                28.75,
+                57.0625,
+                1
+              ]
+            ]
+          ],
+          "partId": "bfbac5fe-c42c-48fa-81ac-70a18a20703a:r"
+        },
+        {
+          "outlines": [
+            [
+              [
+                56.25,
+                57.0625
+              ],
+              [
+                56.25,
+                61.4375,
+                1
+              ],
+              [
+                55.875,
+                61.4375
+              ],
+              [
+                55.875,
+                57.0625,
+                1
+              ]
+            ]
+          ],
+          "partId": "e61ed4f6-7591-4055-9a32-12ff305c552b:r"
+        },
+        {
+          "outlines": [
+            [
+              [
+                20.8125,
+                26.5625
+              ],
+              [
+                25.1875,
+                26.5625,
+                1
+              ],
+              [
+                25.1875,
+                26.9375
+              ],
+              [
+                20.8125,
+                26.9375,
+                1
+              ]
+            ]
+          ],
+          "partId": "7db46102-9f69-446f-9002-4553a28de95e:r.0"
+        },
+        {
+          "outlines": [
+            [
+              [
+                20.8125,
+                11.4375
+              ],
+              [
+                25.1875,
+                11.4375,
+                1
+              ],
+              [
+                25.1875,
+                11.8125
+              ],
+              [
+                20.8125,
+                11.8125,
+                1
+              ]
+            ]
+          ],
+          "partId": "7db46102-9f69-446f-9002-4553a28de95e:r.1"
+        },
+        {
+          "outlines": [
+            [
+              [
+                40.3125,
+                32.5625
+              ],
+              [
+                44.6875,
+                32.5625,
+                1
+              ],
+              [
+                44.6875,
+                32.9375
+              ],
+              [
+                40.3125,
+                32.9375,
+                1
+              ]
+            ]
+          ],
+          "partId": "ec63139d-0099-412e-8a36-2b122087a2e0:r"
+        },
+        {
+          "outlines": [
+            [
+              [
+                59.8125,
+                31.125
+              ],
+              [
+                64.1875,
+                31.125,
+                1
+              ],
+              [
+                64.1875,
+                31.5
+              ],
+              [
+                59.8125,
+                31.5,
+                1
+              ]
+            ]
+          ],
+          "partId": "c4a645e5-7a0c-497b-ace8-f0ecf926e916:r.0"
+        },
+        {
+          "outlines": [
+            [
+              [
+                59.8125,
+                22.0625
+              ],
+              [
+                64.1875,
+                22.0625,
+                1
+              ],
+              [
+                64.1875,
+                22.4375
+              ],
+              [
+                59.8125,
+                22.4375,
+                1
+              ]
+            ]
+          ],
+          "partId": "c4a645e5-7a0c-497b-ace8-f0ecf926e916:r.1"
+        },
+        {
+          "outlines": [
+            [
+              [
+                59.8125,
+                9.9375
+              ],
+              [
+                64.1875,
+                9.9375,
+                1
+              ],
+              [
+                64.1875,
+                10.3125
+              ],
+              [
+                59.8125,
+                10.3125,
+                1
+              ]
+            ]
+          ],
+          "partId": "c4a645e5-7a0c-497b-ace8-f0ecf926e916:r.2"
+        }
+      ],
+      "side": "front",
+      "title": "Elevation A",
+      "wallId": "d4b68f80-997b-473f-80d9-82c8ec473916",
+      "wallLabel": "Wall 1"
+    },
+    {
+      "dimensions": [
+        {
+          "at": -9,
+          "base": 0,
+          "end": 0,
+          "kind": "neighbor",
+          "row": "lower.inner",
+          "start": -73.3380538747976,
+          "text": "73 5/16"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 20.25,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 19.4375,
+          "text": "13/16",
+          "textX": 19.84375,
+          "textZ": -12.75
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 54.75,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 20.25,
+          "text": "34 1/2"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 55.5625,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 54.75,
+          "text": "13/16",
+          "textX": 55.15625,
+          "textZ": -12.75
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 150.64632985979623,
+          "kind": "neighbor",
+          "row": "lower.inner",
+          "start": 63.03173803727769,
+          "text": "87 5/8"
+        },
+        {
+          "at": -21.75,
+          "base": 0,
+          "end": 0,
+          "kind": "neighbor",
+          "row": "lower.outer",
+          "start": -73.3380538747976,
+          "text": "73 5/16"
+        },
+        {
+          "at": -21.75,
+          "base": 0,
+          "end": 19.4375,
+          "kind": "open",
+          "row": "lower.outer",
+          "start": 0,
+          "text": "19 7/16"
+        },
+        {
+          "at": -21.75,
+          "base": 0,
+          "end": 55.5625,
+          "kind": "run",
+          "row": "lower.outer",
+          "start": 19.4375,
+          "text": "36 1/8"
+        },
+        {
+          "at": -21.75,
+          "base": 0,
+          "end": 63.03173803727769,
+          "kind": "open",
+          "row": "lower.outer",
+          "start": 55.5625,
+          "text": "7 1/2",
+          "textX": 59.297119018638845,
+          "textZ": -25.5
+        },
+        {
+          "at": -21.75,
+          "base": 0,
+          "end": 150.64632985979623,
+          "kind": "neighbor",
+          "row": "lower.outer",
+          "start": 63.03173803727769,
+          "text": "87 5/8"
+        },
+        {
+          "at": -34.5,
+          "base": 0,
+          "end": 63.03173803727769,
+          "kind": "wall",
+          "row": "wall",
+          "start": 0,
+          "text": "63 1/16"
+        },
+        {
+          "at": 105,
+          "base": 96,
+          "end": 0,
+          "kind": "neighbor",
+          "row": "upper.inner",
+          "start": -73.17147112891503,
+          "text": "73 3/16"
+        },
+        {
+          "at": 114,
+          "base": 96,
+          "end": 0,
+          "kind": "neighbor",
+          "row": "upper.outer",
+          "start": -73.17147112891503,
+          "text": "73 3/16"
+        },
+        {
+          "at": -82.3380538747976,
+          "base": -73.3380538747976,
+          "end": 4,
+          "kind": "toe-kick",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 0,
+          "text": "4",
+          "textX": -86.0880538747976,
+          "textZ": 2
+        },
+        {
+          "at": -82.3380538747976,
+          "base": -73.3380538747976,
+          "end": 34.5,
+          "kind": "box",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 4,
+          "text": "30 1/2"
+        },
+        {
+          "at": -82.3380538747976,
+          "base": -73.3380538747976,
+          "end": 36,
+          "kind": "countertop",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 34.5,
+          "text": "1 1/2",
+          "textX": -86.0880538747976,
+          "textZ": 35.25
+        },
+        {
+          "at": -82.3380538747976,
+          "base": -73.3380538747976,
+          "end": 96,
+          "kind": "open",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 36,
+          "text": "60"
+        },
+        {
+          "at": -95.0880538747976,
+          "base": -73.3380538747976,
+          "end": 36,
+          "kind": "counter-height",
+          "orientation": "vertical",
+          "row": "left.middle",
+          "start": 0,
+          "text": "36"
+        },
+        {
+          "at": -104.0880538747976,
+          "base": -73.3380538747976,
+          "end": 96,
+          "kind": "wall",
+          "orientation": "vertical",
+          "row": "left.outer",
+          "start": 0,
+          "text": "96"
+        },
+        {
+          "at": 159.64632985979623,
+          "base": 150.64632985979623,
+          "end": 4,
+          "kind": "toe-kick",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 0,
+          "text": "4",
+          "textX": 163.39632985979623,
+          "textZ": 2
+        },
+        {
+          "at": 159.64632985979623,
+          "base": 150.64632985979623,
+          "end": 34.5,
+          "kind": "box",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 4,
+          "text": "30 1/2"
+        },
+        {
+          "at": 159.64632985979623,
+          "base": 150.64632985979623,
+          "end": 36,
+          "kind": "countertop",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 34.5,
+          "text": "1 1/2",
+          "textX": 163.39632985979623,
+          "textZ": 35.25
+        },
+        {
+          "at": 159.64632985979623,
+          "base": 150.64632985979623,
+          "end": 96,
+          "kind": "open",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 36,
+          "text": "60"
+        },
+        {
+          "at": 172.39632985979623,
+          "base": 150.64632985979623,
+          "end": 36,
+          "kind": "counter-height",
+          "orientation": "vertical",
+          "row": "right.middle",
+          "start": 0,
+          "text": "36"
+        },
+        {
+          "at": 181.39632985979623,
+          "base": 150.64632985979623,
+          "end": 96,
+          "kind": "wall",
+          "orientation": "vertical",
+          "row": "right.outer",
+          "start": 0,
+          "text": "96"
+        }
+      ],
+      "doorDetails": [
+        {
+          "openings": [
+            {
+              "height": 24.125,
+              "width": 11.125,
+              "x": 23.3125,
+              "z": 7.125
+            }
+          ],
+          "partId": "ed81c0b1-bafa-441d-a58c-d5ee1f7b7484:rleft"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.125,
+              "width": 11.125,
+              "x": 40.5625,
+              "z": 7.125
+            }
+          ],
+          "partId": "ed81c0b1-bafa-441d-a58c-d5ee1f7b7484:rright"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.5,
+              "width": 14.074258899149257,
+              "x": -71.10108557294606,
+              "z": 7
+            }
+          ],
+          "partId": "d4b68f80-997b-473f-80d9-82c8ec473916:front:18987cbe-0019-4d91-a3c2-b027e2bebfb0:left:end_panel"
+        },
+        {
+          "openings": [
+            {
+              "height": 22.625,
+              "width": 5.12638569174311,
+              "x": -70.9345028270635,
+              "z": 58.375
+            }
+          ],
+          "partId": "d4b68f80-997b-473f-80d9-82c8ec473916:front:43e9e27f-b268-4466-83c5-b8889c54f6c3:left:end_panel"
+        }
+      ],
+      "height": 96,
+      "key": "1ef55b05-c89b-4e88-b464-70f2c010b693",
+      "length": 63.03173803727769,
+      "letter": "B",
+      "marks": [],
+      "partNumbers": [
+        {
+          "height": 4.5,
+          "key": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5:left",
+          "leader": {
+            "x1": 19.84375,
+            "x2": 19.84375,
+            "z1": 23,
+            "z2": 19.25
+          },
+          "text": "11",
+          "width": 6,
+          "x": 19.84375,
+          "z": 25.25
+        },
+        {
+          "height": 4.5,
+          "key": "ed81c0b1-bafa-441d-a58c-d5ee1f7b7484",
+          "leader": null,
+          "text": "12",
+          "width": 6,
+          "x": 37.5,
+          "z": 19.25
+        },
+        {
+          "height": 4.5,
+          "key": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5:right",
+          "leader": {
+            "x1": 55.15625,
+            "x2": 55.15625,
+            "z1": 23,
+            "z2": 19.25
+          },
+          "text": "13",
+          "width": 6,
+          "x": 55.15625,
+          "z": 25.25
+        },
+        {
+          "height": 4.5,
+          "key": "molding:toeKick",
+          "leader": null,
+          "text": "TK 24",
+          "width": 11.399999999999999,
+          "x": 37.5,
+          "z": 2
+        }
+      ],
+      "parts": [
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24,
+          "height": 30.5,
+          "id": "ed81c0b1-bafa-441d-a58c-d5ee1f7b7484",
+          "kind": "cabinet",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 34.5,
+          "x": 20.25,
+          "z": 4
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24.875,
+          "height": 30.5,
+          "id": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5:left",
+          "kind": "end_panel",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 0.8125,
+          "x": 19.4375,
+          "z": 4
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24.875,
+          "height": 30.5,
+          "id": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5:right",
+          "kind": "end_panel",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 0.8125,
+          "x": 54.75,
+          "z": 4
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.125,
+          "id": "ed81c0b1-bafa-441d-a58c-d5ee1f7b7484:rleft",
+          "kind": "face",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 17.125,
+          "x": 20.3125,
+          "z": 4.125
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.125,
+          "id": "ed81c0b1-bafa-441d-a58c-d5ee1f7b7484:rright",
+          "kind": "face",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 17.125,
+          "x": 37.5625,
+          "z": 4.125
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 21,
+          "height": 4,
+          "id": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5:toe_kick",
+          "kind": "toe_kick",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 34.125,
+          "x": 20.4375,
+          "z": 0
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 25.625,
+          "height": 1.5,
+          "id": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5:countertop",
+          "kind": "countertop",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 37.625,
+          "x": 18.6875,
+          "z": 34.5
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 122.5,
+          "height": 12,
+          "id": "soffit:left:d4b68f80-997b-473f-80d9-82c8ec473916:9c653c50-9b53-4e98-9b1d-c629f4944920",
+          "kind": "section",
+          "width": 18.77541133025294,
+          "x": 0,
+          "z": 84
+        },
+        {
+          "back": 37.23620152457037,
+          "coversBoxEdges": false,
+          "front": 96.06172522831339,
+          "height": 4,
+          "id": "d4b68f80-997b-473f-80d9-82c8ec473916:front:18987cbe-0019-4d91-a3c2-b027e2bebfb0:left:toe_kick",
+          "kind": "toe_kick",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 55.721928497716746,
+          "x": -73.3380538747976,
+          "z": 0
+        },
+        {
+          "back": 37.23620152457037,
+          "coversBoxEdges": false,
+          "front": 98.06071817890412,
+          "height": 30.5,
+          "id": "d4b68f80-997b-473f-80d9-82c8ec473916:front:18987cbe-0019-4d91-a3c2-b027e2bebfb0:left:box",
+          "kind": "profile",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 57.95889679956828,
+          "x": -73.3380538747976,
+          "z": 4
+        },
+        {
+          "back": 53.22814512929625,
+          "coversBoxEdges": false,
+          "front": 98.6437577894931,
+          "height": 30.5,
+          "id": "d4b68f80-997b-473f-80d9-82c8ec473916:front:18987cbe-0019-4d91-a3c2-b027e2bebfb0:left:faces",
+          "kind": "profile",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 40.715599472796015,
+          "x": -55.4423074599853,
+          "z": 4
+        },
+        {
+          "back": 37.23620152457037,
+          "coversBoxEdges": false,
+          "front": 99.14350602714077,
+          "height": 1.5,
+          "id": "d4b68f80-997b-473f-80d9-82c8ec473916:front:18987cbe-0019-4d91-a3c2-b027e2bebfb0:left:countertop",
+          "kind": "countertop",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 59.1705879630712,
+          "x": -73.3380538747976,
+          "z": 34.5
+        },
+        {
+          "back": 37.23620152457037,
+          "coversBoxEdges": false,
+          "front": 98.6437577894931,
+          "height": 30.5,
+          "id": "d4b68f80-997b-473f-80d9-82c8ec473916:front:18987cbe-0019-4d91-a3c2-b027e2bebfb0:left:end_panel",
+          "kind": "end_panel",
+          "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+          "width": 58.61134588760831,
+          "x": -73.3380538747976,
+          "z": 4
+        },
+        {
+          "back": 37.42261554972467,
+          "coversBoxEdges": false,
+          "front": 89.8783323513869,
+          "height": 28.5,
+          "id": "d4b68f80-997b-473f-80d9-82c8ec473916:front:43e9e27f-b268-4466-83c5-b8889c54f6c3:left:box",
+          "kind": "profile",
+          "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+          "width": 48.677858100397,
+          "x": -73.17147112891503,
+          "z": 55.5
+        },
+        {
+          "back": 45.418587352087606,
+          "coversBoxEdges": false,
+          "front": 90.46137196197586,
+          "height": 28.5,
+          "id": "d4b68f80-997b-473f-80d9-82c8ec473916:front:43e9e27f-b268-4466-83c5-b8889c54f6c3:left:faces",
+          "kind": "profile",
+          "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+          "width": 40.382433981030886,
+          "x": -64.22359792150888,
+          "z": 55.5
+        },
+        {
+          "back": 37.42261554972467,
+          "coversBoxEdges": false,
+          "front": 90.46137196197586,
+          "height": 28.625,
+          "id": "d4b68f80-997b-473f-80d9-82c8ec473916:front:43e9e27f-b268-4466-83c5-b8889c54f6c3:left:end_panel",
+          "kind": "end_panel",
+          "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+          "width": 49.33030718843703,
+          "x": -73.17147112891503,
+          "z": 55.375
+        },
+        {
+          "back": 37.64770056945884,
+          "coversBoxEdges": false,
+          "front": 93.95266867776454,
+          "height": 4,
+          "id": "c97e638b-c2fe-40af-adeb-74d65b73cfd5:front:1ef964a5-fda0-4930-a5ad-7d228434674a:right:toe_kick",
+          "kind": "toe_kick",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 59.47797279178306,
+          "x": 91.16835706801317,
+          "z": 0
+        },
+        {
+          "back": 37.64770056945884,
+          "coversBoxEdges": false,
+          "front": 96.18963697961607,
+          "height": 21.75,
+          "id": "c97e638b-c2fe-40af-adeb-74d65b73cfd5:front:1ef964a5-fda0-4930-a5ad-7d228434674a:right:box",
+          "kind": "profile",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 61.47696574237379,
+          "x": 89.16936411742243,
+          "z": 12.75
+        },
+        {
+          "back": 55.543446984271135,
+          "coversBoxEdges": false,
+          "front": 96.84208606765611,
+          "height": 21.75,
+          "id": "c97e638b-c2fe-40af-adeb-74d65b73cfd5:front:1ef964a5-fda0-4930-a5ad-7d228434674a:right:faces",
+          "kind": "profile",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 46.06806174823687,
+          "x": 88.58632450683346,
+          "z": 12.75
+        },
+        {
+          "back": 37.64770056945884,
+          "coversBoxEdges": false,
+          "front": 97.40132814311899,
+          "height": 1.5,
+          "id": "c97e638b-c2fe-40af-adeb-74d65b73cfd5:front:1ef964a5-fda0-4930-a5ad-7d228434674a:right:countertop",
+          "kind": "countertop",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 62.55975359061044,
+          "x": 88.08657626918578,
+          "z": 34.5
+        }
+      ],
+      "pulls": [
+        {
+          "outlines": [
+            [
+              [
+                36.125,
+                28.1875
+              ],
+              [
+                36.125,
+                32.5625,
+                1
+              ],
+              [
+                35.75,
+                32.5625
+              ],
+              [
+                35.75,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "ed81c0b1-bafa-441d-a58c-d5ee1f7b7484:rleft"
+        },
+        {
+          "outlines": [
+            [
+              [
+                39.25,
+                28.1875
+              ],
+              [
+                39.25,
+                32.5625,
+                1
+              ],
+              [
+                38.875,
+                32.5625
+              ],
+              [
+                38.875,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "ed81c0b1-bafa-441d-a58c-d5ee1f7b7484:rright"
+        }
+      ],
+      "side": "front",
+      "title": "Elevation B",
+      "wallId": "1ef55b05-c89b-4e88-b464-70f2c010b693",
+      "wallLabel": "Wall 2"
+    },
+    {
+      "dimensions": [
+        {
+          "at": -9,
+          "base": 0,
+          "end": 0,
+          "kind": "neighbor",
+          "row": "lower.inner",
+          "start": -32.50630954425358,
+          "text": "32 1/2"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 57.3125,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 56.5,
+          "text": "13/16",
+          "textX": 56.90625,
+          "textZ": -12.75
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 86.3125,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 57.3125,
+          "text": "29"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 115.3125,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 86.3125,
+          "text": "29"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 117.5,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 115.3125,
+          "text": "2 3/16",
+          "textX": 116.40625,
+          "textZ": -12.75
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 122,
+          "kind": "wall",
+          "row": "lower.inner",
+          "start": 117.5,
+          "text": "4 1/2",
+          "textX": 119.75,
+          "textZ": -16.5
+        },
+        {
+          "at": -25.5,
+          "base": 0,
+          "end": 0,
+          "kind": "neighbor",
+          "row": "lower.outer",
+          "start": -32.50630954425358,
+          "text": "32 1/2"
+        },
+        {
+          "at": -25.5,
+          "base": 0,
+          "end": 56.5,
+          "kind": "open",
+          "row": "lower.outer",
+          "start": 0,
+          "text": "56 1/2"
+        },
+        {
+          "at": -25.5,
+          "base": 0,
+          "end": 117.5,
+          "kind": "run",
+          "row": "lower.outer",
+          "start": 56.5,
+          "text": "61"
+        },
+        {
+          "at": -25.5,
+          "base": 0,
+          "end": 122,
+          "kind": "wall",
+          "row": "lower.outer",
+          "start": 117.5,
+          "text": "4 1/2",
+          "textX": 119.75,
+          "textZ": -29.25
+        },
+        {
+          "at": -25.5,
+          "base": 0,
+          "end": 170,
+          "kind": "open",
+          "row": "lower.outer",
+          "start": 122,
+          "text": "48"
+        },
+        {
+          "at": -38.25,
+          "base": 0,
+          "end": 170,
+          "kind": "wall",
+          "row": "wall",
+          "start": 0,
+          "text": "170"
+        },
+        {
+          "at": -41.50630954425358,
+          "base": -32.50630954425358,
+          "end": 12.75,
+          "kind": "toe-kick",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 0,
+          "text": "12 3/4",
+          "textX": -45.25630954425358,
+          "textZ": 6.375
+        },
+        {
+          "at": -41.50630954425358,
+          "base": -32.50630954425358,
+          "end": 34.5,
+          "kind": "box",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 12.75,
+          "text": "21 3/4"
+        },
+        {
+          "at": -41.50630954425358,
+          "base": -32.50630954425358,
+          "end": 36,
+          "kind": "countertop",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 34.5,
+          "text": "1 1/2",
+          "textX": -45.25630954425358,
+          "textZ": 35.25
+        },
+        {
+          "at": -41.50630954425358,
+          "base": -32.50630954425358,
+          "end": 96,
+          "kind": "open",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 36,
+          "text": "60"
+        },
+        {
+          "at": -54.25630954425358,
+          "base": -32.50630954425358,
+          "end": 36,
+          "kind": "counter-height",
+          "orientation": "vertical",
+          "row": "left.middle",
+          "start": 0,
+          "text": "36"
+        },
+        {
+          "at": -63.25630954425358,
+          "base": -32.50630954425358,
+          "end": 96,
+          "kind": "wall",
+          "orientation": "vertical",
+          "row": "left.outer",
+          "start": 0,
+          "text": "96"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 177.3125,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 176.5,
+          "text": "13/16",
+          "textX": 176.90625,
+          "textZ": -12.75
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 197.8125,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 177.3125,
+          "text": "20 1/2"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 218.3125,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 197.8125,
+          "text": "20 1/2"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 220.5,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 218.3125,
+          "text": "2 3/16",
+          "textX": 219.40625,
+          "textZ": -12.75
+        },
+        {
+          "at": -21.75,
+          "base": 0,
+          "end": 176.5,
+          "kind": "open",
+          "row": "lower.outer",
+          "start": 170,
+          "text": "6 1/2",
+          "textX": 173.25,
+          "textZ": -25.5
+        },
+        {
+          "at": -21.75,
+          "base": 0,
+          "end": 220.5,
+          "kind": "run",
+          "row": "lower.outer",
+          "start": 176.5,
+          "text": "44"
+        },
+        {
+          "at": -34.5,
+          "base": 0,
+          "end": 220.5,
+          "kind": "wall",
+          "row": "wall",
+          "start": 170,
+          "text": "50 1/2"
+        },
+        {
+          "at": 229.5,
+          "base": 220.5,
+          "end": 4,
+          "kind": "toe-kick",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 0,
+          "text": "4",
+          "textX": 233.25,
+          "textZ": 2
+        },
+        {
+          "at": 229.5,
+          "base": 220.5,
+          "end": 34.5,
+          "kind": "box",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 4,
+          "text": "30 1/2"
+        },
+        {
+          "at": 229.5,
+          "base": 220.5,
+          "end": 36,
+          "kind": "countertop",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 34.5,
+          "text": "1 1/2",
+          "textX": 233.25,
+          "textZ": 35.25
+        },
+        {
+          "at": 229.5,
+          "base": 220.5,
+          "end": 96,
+          "kind": "open",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 36,
+          "text": "60"
+        },
+        {
+          "at": 242.25,
+          "base": 220.5,
+          "end": 36,
+          "kind": "counter-height",
+          "orientation": "vertical",
+          "row": "right.middle",
+          "start": 0,
+          "text": "36"
+        },
+        {
+          "at": 251.25,
+          "base": 220.5,
+          "end": 96,
+          "kind": "wall",
+          "orientation": "vertical",
+          "row": "right.outer",
+          "start": 0,
+          "text": "96"
+        }
+      ],
+      "doorDetails": [
+        {
+          "openings": [
+            {
+              "height": 16.375,
+              "width": 8.375,
+              "x": 60.375,
+              "z": 14.875
+            }
+          ],
+          "partId": "5168a9a1-d296-456c-9b9b-4b8738522b6c:rleft"
+        },
+        {
+          "openings": [
+            {
+              "height": 16.375,
+              "width": 8.375,
+              "x": 74.875,
+              "z": 14.875
+            }
+          ],
+          "partId": "5168a9a1-d296-456c-9b9b-4b8738522b6c:rright"
+        },
+        {
+          "openings": [
+            {
+              "height": 16.375,
+              "width": 8.375,
+              "x": 89.375,
+              "z": 14.875
+            }
+          ],
+          "partId": "2f8234b2-f574-4a0b-bbc6-65d7c03066ee:rleft"
+        },
+        {
+          "openings": [
+            {
+              "height": 16.375,
+              "width": 8.375,
+              "x": 103.875,
+              "z": 14.875
+            }
+          ],
+          "partId": "2f8234b2-f574-4a0b-bbc6-65d7c03066ee:rright"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.5,
+              "width": 12.57699731413338,
+              "x": -30.50731659366285,
+              "z": 7
+            }
+          ],
+          "partId": "1ef55b05-c89b-4e88-b464-70f2c010b693:front:ee8399d7-7942-4e91-83b4-77e0d74e4ff5:left:end_panel"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.125,
+              "width": 14.375,
+              "x": 180.375,
+              "z": 7.125
+            }
+          ],
+          "partId": "a7207a24-3c1f-4ab2-a467-546079bb5075:r"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.125,
+              "width": 14.375,
+              "x": 200.875,
+              "z": 7.125
+            }
+          ],
+          "partId": "f3dfd241-110c-4e03-a0d1-309fbb742a50:r"
+        }
+      ],
+      "faces": [
+        {
+          "depth": 0,
+          "dx": 0,
+          "height": 96,
+          "key": "c97e638b-c2fe-40af-adeb-74d65b73cfd5",
+          "length": 170,
+          "side": "front",
+          "wallId": "c97e638b-c2fe-40af-adeb-74d65b73cfd5",
+          "wallLabel": "Wall 3"
+        },
+        {
+          "depth": 69.5,
+          "dx": 170,
+          "height": 96,
+          "key": "47f00a24-cd14-447f-812b-a941656a413c",
+          "length": 50.5,
+          "note": "69 1/2\" out",
+          "side": "front",
+          "wallId": "47f00a24-cd14-447f-812b-a941656a413c",
+          "wallLabel": "Wall 5"
+        }
+      ],
+      "height": 96,
+      "key": "c97e638b-c2fe-40af-adeb-74d65b73cfd5",
+      "length": 220.5,
+      "letter": "C",
+      "marks": [],
+      "partNumbers": [
+        {
+          "height": 4.5,
+          "key": "1ef964a5-fda0-4930-a5ad-7d228434674a:left",
+          "leader": {
+            "x1": 56.90625,
+            "x2": 56.90625,
+            "z1": 27.375,
+            "z2": 23.625
+          },
+          "text": "14",
+          "width": 6,
+          "x": 56.90625,
+          "z": 29.625
+        },
+        {
+          "height": 4.5,
+          "key": "5168a9a1-d296-456c-9b9b-4b8738522b6c",
+          "leader": null,
+          "text": "15",
+          "width": 6,
+          "x": 71.8125,
+          "z": 23.625
+        },
+        {
+          "height": 4.5,
+          "key": "2f8234b2-f574-4a0b-bbc6-65d7c03066ee",
+          "leader": null,
+          "text": "16",
+          "width": 6,
+          "x": 100.8125,
+          "z": 23.625
+        },
+        {
+          "height": 4.5,
+          "key": "1ef964a5-fda0-4930-a5ad-7d228434674a:right",
+          "leader": {
+            "x1": 116.40625,
+            "x2": 116.40625,
+            "z1": 27.375,
+            "z2": 23.625
+          },
+          "text": "17",
+          "width": 6,
+          "x": 116.40625,
+          "z": 29.625
+        },
+        {
+          "height": 4.5,
+          "key": "molding:toeKick",
+          "leader": null,
+          "text": "TK 24",
+          "width": 11.399999999999999,
+          "x": 87,
+          "z": 2
+        },
+        {
+          "height": 4.5,
+          "key": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20:left",
+          "leader": {
+            "x1": 176.90625,
+            "x2": 176.90625,
+            "z1": 23,
+            "z2": 19.25
+          },
+          "text": "18",
+          "width": 6,
+          "x": 176.90625,
+          "z": 25.25
+        },
+        {
+          "height": 4.5,
+          "key": "a7207a24-3c1f-4ab2-a467-546079bb5075",
+          "leader": null,
+          "text": "19",
+          "width": 6,
+          "x": 187.5625,
+          "z": 19.25
+        },
+        {
+          "height": 4.5,
+          "key": "f3dfd241-110c-4e03-a0d1-309fbb742a50",
+          "leader": null,
+          "text": "20",
+          "width": 6,
+          "x": 208.0625,
+          "z": 19.25
+        },
+        {
+          "height": 4.5,
+          "key": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20:right",
+          "leader": {
+            "x1": 219.40625,
+            "x2": 219.40625,
+            "z1": 23,
+            "z2": 19.25
+          },
+          "text": "21",
+          "width": 6,
+          "x": 219.40625,
+          "z": 25.25
+        },
+        {
+          "height": 4.5,
+          "key": "molding:toeKick",
+          "leader": null,
+          "text": "TK 24",
+          "width": 11.399999999999999,
+          "x": 198.5,
+          "z": 2
+        }
+      ],
+      "parts": [
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24,
+          "height": 21.75,
+          "id": "5168a9a1-d296-456c-9b9b-4b8738522b6c",
+          "kind": "cabinet",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 29,
+          "x": 57.3125,
+          "z": 12.75
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24,
+          "height": 21.75,
+          "id": "2f8234b2-f574-4a0b-bbc6-65d7c03066ee",
+          "kind": "cabinet",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 29,
+          "x": 86.3125,
+          "z": 12.75
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24.875,
+          "height": 22.625,
+          "id": "1ef964a5-fda0-4930-a5ad-7d228434674a:left",
+          "kind": "end_panel",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 0.8125,
+          "x": 56.5,
+          "z": 11.875
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 22.625,
+          "id": "1ef964a5-fda0-4930-a5ad-7d228434674a:right",
+          "kind": "filler",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 2.1875,
+          "x": 115.3125,
+          "z": 11.875
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 22.375,
+          "id": "5168a9a1-d296-456c-9b9b-4b8738522b6c:rleft",
+          "kind": "face",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 14.375,
+          "x": 57.375,
+          "z": 11.875
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 22.375,
+          "id": "5168a9a1-d296-456c-9b9b-4b8738522b6c:rright",
+          "kind": "face",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 14.375,
+          "x": 71.875,
+          "z": 11.875
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 22.375,
+          "id": "2f8234b2-f574-4a0b-bbc6-65d7c03066ee:rleft",
+          "kind": "face",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 14.375,
+          "x": 86.375,
+          "z": 11.875
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 22.375,
+          "id": "2f8234b2-f574-4a0b-bbc6-65d7c03066ee:rright",
+          "kind": "face",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 14.375,
+          "x": 100.875,
+          "z": 11.875
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 21,
+          "height": 4,
+          "id": "1ef964a5-fda0-4930-a5ad-7d228434674a:toe_kick",
+          "kind": "toe_kick",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 60,
+          "x": 57.5,
+          "z": 0
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24,
+          "height": 0.75,
+          "id": "e9a815ae-4235-4a0f-a41d-ded4b5ca519a",
+          "kind": "panel",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 60.1875,
+          "x": 57.3125,
+          "z": 12
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 25.625,
+          "height": 1.5,
+          "id": "1ef964a5-fda0-4930-a5ad-7d228434674a:countertop",
+          "kind": "countertop",
+          "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+          "width": 61.75,
+          "x": 55.75,
+          "z": 34.5
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 46,
+          "height": 96,
+          "id": "944c50bf-f302-46ad-9081-473417a7a720",
+          "kind": "wing_wall",
+          "lines": [
+            {
+              "x1": 117.5,
+              "x2": 117.5,
+              "z1": 0,
+              "z2": 96
+            },
+            {
+              "x1": 122,
+              "x2": 122,
+              "z1": 0,
+              "z2": 96
+            }
+          ],
+          "opaque": false,
+          "openEdges": [
+            "left",
+            "right"
+          ],
+          "width": 4.5,
+          "x": 117.5,
+          "z": 0
+        },
+        {
+          "back": 4.976984727600765,
+          "coversBoxEdges": false,
+          "front": 44.70696962059162,
+          "height": 4,
+          "id": "1ef55b05-c89b-4e88-b464-70f2c010b693:front:ee8399d7-7942-4e91-83b4-77e0d74e4ff5:left:toe_kick",
+          "kind": "toe_kick",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 32.50630954425358,
+          "x": -32.50630954425358,
+          "z": 0
+        },
+        {
+          "back": 4.976984727600765,
+          "coversBoxEdges": false,
+          "front": 46.943937922443155,
+          "height": 30.5,
+          "id": "1ef55b05-c89b-4e88-b464-70f2c010b693:front:ee8399d7-7942-4e91-83b4-77e0d74e4ff5:left:box",
+          "kind": "profile",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 32.50630954425358,
+          "x": -32.50630954425358,
+          "z": 4
+        },
+        {
+          "back": 22.87273114241306,
+          "coversBoxEdges": false,
+          "front": 47.59638701048319,
+          "height": 30.5,
+          "id": "1ef55b05-c89b-4e88-b464-70f2c010b693:front:ee8399d7-7942-4e91-83b4-77e0d74e4ff5:left:faces",
+          "kind": "profile",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 16.514365939527707,
+          "x": -16.514365939527707,
+          "z": 4
+        },
+        {
+          "back": 4.976984727600765,
+          "coversBoxEdges": false,
+          "front": 48.155629085946074,
+          "height": 1.5,
+          "id": "1ef55b05-c89b-4e88-b464-70f2c010b693:front:ee8399d7-7942-4e91-83b4-77e0d74e4ff5:left:countertop",
+          "kind": "countertop",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 32.50630954425358,
+          "x": -32.50630954425358,
+          "z": 34.5
+        },
+        {
+          "back": 4.976984727600765,
+          "coversBoxEdges": false,
+          "front": 47.59638701048319,
+          "height": 30.5,
+          "id": "1ef55b05-c89b-4e88-b464-70f2c010b693:front:ee8399d7-7942-4e91-83b4-77e0d74e4ff5:left:end_panel",
+          "kind": "end_panel",
+          "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+          "width": 32.50630954425358,
+          "x": -32.50630954425358,
+          "z": 4
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24,
+          "height": 30.5,
+          "id": "a7207a24-3c1f-4ab2-a467-546079bb5075",
+          "kind": "cabinet",
+          "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+          "width": 20.5,
+          "x": 177.3125,
+          "z": 4
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24,
+          "height": 30.5,
+          "id": "f3dfd241-110c-4e03-a0d1-309fbb742a50",
+          "kind": "cabinet",
+          "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+          "width": 20.5,
+          "x": 197.8125,
+          "z": 4
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24.875,
+          "height": 30.5,
+          "id": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20:left",
+          "kind": "end_panel",
+          "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+          "width": 0.8125,
+          "x": 176.5,
+          "z": 4
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.5,
+          "id": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20:right",
+          "kind": "filler",
+          "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+          "width": 2.1875,
+          "x": 218.3125,
+          "z": 4
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.125,
+          "id": "a7207a24-3c1f-4ab2-a467-546079bb5075:r",
+          "kind": "face",
+          "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+          "width": 20.375,
+          "x": 177.375,
+          "z": 4.125
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.125,
+          "id": "f3dfd241-110c-4e03-a0d1-309fbb742a50:r",
+          "kind": "face",
+          "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+          "width": 20.375,
+          "x": 197.875,
+          "z": 4.125
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 21,
+          "height": 4,
+          "id": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20:toe_kick",
+          "kind": "toe_kick",
+          "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+          "width": 43,
+          "x": 177.5,
+          "z": 0
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 25.625,
+          "height": 1.5,
+          "id": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20:countertop",
+          "kind": "countertop",
+          "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+          "width": 44.75,
+          "x": 175.75,
+          "z": 34.5
+        }
+      ],
+      "pulls": [
+        {
+          "outlines": [
+            [
+              [
+                70.4375,
+                28.1875
+              ],
+              [
+                70.4375,
+                32.5625,
+                1
+              ],
+              [
+                70.0625,
+                32.5625
+              ],
+              [
+                70.0625,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "5168a9a1-d296-456c-9b9b-4b8738522b6c:rleft"
+        },
+        {
+          "outlines": [
+            [
+              [
+                73.5625,
+                28.1875
+              ],
+              [
+                73.5625,
+                32.5625,
+                1
+              ],
+              [
+                73.1875,
+                32.5625
+              ],
+              [
+                73.1875,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "5168a9a1-d296-456c-9b9b-4b8738522b6c:rright"
+        },
+        {
+          "outlines": [
+            [
+              [
+                99.4375,
+                28.1875
+              ],
+              [
+                99.4375,
+                32.5625,
+                1
+              ],
+              [
+                99.0625,
+                32.5625
+              ],
+              [
+                99.0625,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "2f8234b2-f574-4a0b-bbc6-65d7c03066ee:rleft"
+        },
+        {
+          "outlines": [
+            [
+              [
+                102.5625,
+                28.1875
+              ],
+              [
+                102.5625,
+                32.5625,
+                1
+              ],
+              [
+                102.1875,
+                32.5625
+              ],
+              [
+                102.1875,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "2f8234b2-f574-4a0b-bbc6-65d7c03066ee:rright"
+        },
+        {
+          "outlines": [
+            [
+              [
+                196.4375,
+                28.1875
+              ],
+              [
+                196.4375,
+                32.5625,
+                1
+              ],
+              [
+                196.0625,
+                32.5625
+              ],
+              [
+                196.0625,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "a7207a24-3c1f-4ab2-a467-546079bb5075:r"
+        },
+        {
+          "outlines": [
+            [
+              [
+                199.5625,
+                28.1875
+              ],
+              [
+                199.5625,
+                32.5625,
+                1
+              ],
+              [
+                199.1875,
+                32.5625
+              ],
+              [
+                199.1875,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "f3dfd241-110c-4e03-a0d1-309fbb742a50:r"
+        }
+      ],
+      "side": "front",
+      "title": "Elevation C",
+      "wallId": "c97e638b-c2fe-40af-adeb-74d65b73cfd5",
+      "wallLabel": "Wall 3, Wall 5"
+    },
+    {
+      "dimensions": [
+        {
+          "at": -9,
+          "base": 0,
+          "end": 267.5,
+          "kind": "wall",
+          "row": "wall",
+          "start": 0,
+          "text": "267 1/2"
+        },
+        {
+          "at": 105,
+          "base": 96,
+          "end": 210.5,
+          "kind": "frame",
+          "row": "upper.inner",
+          "start": 209,
+          "text": "1 1/2",
+          "textX": 209.75,
+          "textZ": 108.75
+        },
+        {
+          "at": 105,
+          "base": 96,
+          "end": 226.5,
+          "kind": "frame-opening",
+          "row": "upper.inner",
+          "start": 210.5,
+          "text": "16"
+        },
+        {
+          "at": 105,
+          "base": 96,
+          "end": 228,
+          "kind": "frame",
+          "row": "upper.inner",
+          "start": 226.5,
+          "text": "1 1/2",
+          "textX": 227.25,
+          "textZ": 108.75
+        },
+        {
+          "at": 117.75,
+          "base": 96,
+          "end": 209,
+          "kind": "open",
+          "row": "upper.outer",
+          "start": 0,
+          "text": "209"
+        },
+        {
+          "at": 117.75,
+          "base": 96,
+          "end": 228,
+          "kind": "run",
+          "row": "upper.outer",
+          "start": 209,
+          "text": "19"
+        },
+        {
+          "at": 117.75,
+          "base": 96,
+          "end": 267.5,
+          "kind": "open",
+          "row": "upper.outer",
+          "start": 228,
+          "text": "39 1/2"
+        },
+        {
+          "at": -9,
+          "base": 0,
+          "end": 96,
+          "kind": "wall",
+          "orientation": "vertical",
+          "row": "left.outer",
+          "start": 0,
+          "text": "96"
+        },
+        {
+          "at": 276.5,
+          "base": 267.5,
+          "end": 38.5,
+          "kind": "open",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 0,
+          "text": "38 1/2"
+        },
+        {
+          "at": 276.5,
+          "base": 267.5,
+          "end": 40,
+          "kind": "frame",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 38.5,
+          "text": "1 1/2",
+          "textX": 280.25,
+          "textZ": 39.25
+        },
+        {
+          "at": 276.5,
+          "base": 267.5,
+          "end": 86.25,
+          "kind": "frame-opening",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 40,
+          "text": "46 1/4"
+        },
+        {
+          "at": 276.5,
+          "base": 267.5,
+          "end": 87.75,
+          "kind": "frame",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 86.25,
+          "text": "1 1/2",
+          "textX": 280.25,
+          "textZ": 87
+        },
+        {
+          "at": 276.5,
+          "base": 267.5,
+          "end": 96,
+          "kind": "open",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 87.75,
+          "text": "8 1/4",
+          "textX": 284,
+          "textZ": 91.875
+        },
+        {
+          "at": 293,
+          "base": 267.5,
+          "end": 96,
+          "kind": "wall",
+          "orientation": "vertical",
+          "row": "right.outer",
+          "start": 0,
+          "text": "96"
+        }
+      ],
+      "doorDetails": [
+        {
+          "openings": [
+            {
+              "height": 40.25,
+              "width": 10,
+              "x": 213.5,
+              "z": 43
+            }
+          ],
+          "partId": "4ac8d3b7-44f9-42ca-a1bc-4257b2297aab:r"
+        }
+      ],
+      "height": 96,
+      "key": "153da662-d09f-4000-a5dd-bf3447cc2aa8",
+      "length": 267.5,
+      "letter": "D",
+      "marks": [],
+      "partNumbers": [
+        {
+          "height": 4.5,
+          "key": "4ac8d3b7-44f9-42ca-a1bc-4257b2297aab",
+          "leader": null,
+          "text": "22",
+          "width": 6,
+          "x": 218.5,
+          "z": 63.5
+        },
+        {
+          "height": 4.5,
+          "key": "frame:4ac8d3b7-44f9-42ca-a1bc-4257b2297aab",
+          "leader": {
+            "x1": 209.75,
+            "x2": 209.75,
+            "z1": 72.875,
+            "z2": 63.125
+          },
+          "text": "23",
+          "width": 6,
+          "x": 209.75,
+          "z": 75.125
+        }
+      ],
+      "parts": [
+        {
+          "back": -5,
+          "coversBoxEdges": false,
+          "front": 0,
+          "height": 48.5,
+          "id": "4ac8d3b7-44f9-42ca-a1bc-4257b2297aab",
+          "kind": "cabinet",
+          "runId": "4cb22aaa-0a00-4fe6-8c0c-550718240645",
+          "width": 17.5,
+          "x": 209.75,
+          "z": 39.25
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": true,
+          "front": 0.8125,
+          "height": 49.25,
+          "holes": [
+            {
+              "height": 46.25,
+              "width": 16,
+              "x": 210.5,
+              "z": 40
+            }
+          ],
+          "id": "frame:4ac8d3b7-44f9-42ca-a1bc-4257b2297aab",
+          "kind": "frame",
+          "runId": "4cb22aaa-0a00-4fe6-8c0c-550718240645",
+          "width": 19,
+          "x": 209,
+          "z": 38.5
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": true,
+          "front": 0.8125,
+          "height": 46.25,
+          "id": "4ac8d3b7-44f9-42ca-a1bc-4257b2297aab:r",
+          "kind": "face",
+          "runId": "4cb22aaa-0a00-4fe6-8c0c-550718240645",
+          "width": 16,
+          "x": 210.5,
+          "z": 40
+        },
+        {
+          "back": -6,
+          "coversBoxEdges": false,
+          "front": 0,
+          "height": 48,
+          "id": "2893332f-3d25-4d60-91e4-1fce7db8c97c",
+          "kind": "recess",
+          "opaque": false,
+          "width": 18,
+          "x": 209.5,
+          "z": 39
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 122.5,
+          "height": 12,
+          "id": "soffit:right:d4b68f80-997b-473f-80d9-82c8ec473916:9c653c50-9b53-4e98-9b1d-c629f4944920",
+          "kind": "section",
+          "width": 14,
+          "x": 253.5,
+          "z": 84
+        }
+      ],
+      "pulls": [
+        {
+          "outlines": [
+            [
+              [
+                225.1875,
+                42.8125
+              ],
+              [
+                225.1875,
+                47.1875,
+                1
+              ],
+              [
+                224.8125,
+                47.1875
+              ],
+              [
+                224.8125,
+                42.8125,
+                1
+              ]
+            ]
+          ],
+          "partId": "4ac8d3b7-44f9-42ca-a1bc-4257b2297aab:r"
+        }
+      ],
+      "side": "front",
+      "title": "Elevation D",
+      "wallId": "153da662-d09f-4000-a5dd-bf3447cc2aa8",
+      "wallLabel": "Wall 7"
+    }
+  ],
+  "paperSize": "archD",
+  "payloadVersion": 1,
+  "plan": {
+    "dimensions": [
+      {
+        "end": [
+          -90,
+          13.5
+        ],
+        "kind": "wall",
+        "offset": 9,
+        "row": "wall",
+        "start": [
+          -90,
+          -109
+        ],
+        "text": "122 1/2"
+      },
+      {
+        "end": [
+          -41.498489425886106,
+          58.85545245277731
+        ],
+        "kind": "wall",
+        "offset": 9,
+        "row": "wall",
+        "start": [
+          -88.4984894258861,
+          16.855452452777307
+        ],
+        "text": "63 1/16"
+      },
+      {
+        "end": [
+          79,
+          60
+        ],
+        "kind": "space",
+        "offset": 9,
+        "row": "front",
+        "start": [
+          -38.5,
+          60
+        ],
+        "text": "117 1/2"
+      },
+      {
+        "end": [
+          83.5,
+          60
+        ],
+        "kind": "landing",
+        "offset": 9,
+        "row": "front",
+        "start": [
+          79,
+          60
+        ],
+        "text": "4 1/2",
+        "textAt": [
+          81.25,
+          72.75
+        ]
+      },
+      {
+        "end": [
+          131.5,
+          60
+        ],
+        "kind": "space",
+        "offset": 9,
+        "row": "front",
+        "start": [
+          83.5,
+          60
+        ],
+        "text": "48"
+      },
+      {
+        "end": [
+          131.5,
+          60
+        ],
+        "kind": "wall",
+        "offset": 21.75,
+        "row": "wall",
+        "start": [
+          -38.5,
+          60
+        ],
+        "text": "170"
+      },
+      {
+        "end": [
+          79,
+          55.5
+        ],
+        "kind": "wall",
+        "offset": 9,
+        "row": "wall",
+        "start": [
+          79,
+          9.5
+        ],
+        "text": "46"
+      },
+      {
+        "end": [
+          136,
+          55.5
+        ],
+        "kind": "wall",
+        "offset": -9,
+        "row": "wall",
+        "start": [
+          136,
+          -14
+        ],
+        "text": "69 1/2"
+      },
+      {
+        "end": [
+          182,
+          -9.5
+        ],
+        "kind": "wall",
+        "offset": 9,
+        "row": "wall",
+        "start": [
+          131.5,
+          -9.5
+        ],
+        "text": "50 1/2"
+      },
+      {
+        "end": [
+          186.5,
+          -14
+        ],
+        "kind": "wall",
+        "offset": -9,
+        "row": "wall",
+        "start": [
+          186.5,
+          -109
+        ],
+        "text": "95"
+      },
+      {
+        "end": [
+          182,
+          -119.5
+        ],
+        "kind": "space",
+        "offset": -9,
+        "row": "front",
+        "start": [
+          -27.5,
+          -119.5
+        ],
+        "text": "209 1/2"
+      },
+      {
+        "end": [
+          -27.5,
+          -119.5
+        ],
+        "kind": "recess",
+        "offset": -9,
+        "row": "front",
+        "start": [
+          -45.5,
+          -119.5
+        ],
+        "text": "18"
+      },
+      {
+        "end": [
+          -45.5,
+          -119.5
+        ],
+        "kind": "space",
+        "offset": -9,
+        "row": "front",
+        "start": [
+          -85.5,
+          -119.5
+        ],
+        "text": "40"
+      },
+      {
+        "end": [
+          182,
+          -119.5
+        ],
+        "kind": "wall",
+        "offset": -18,
+        "row": "wall",
+        "start": [
+          -85.5,
+          -119.5
+        ],
+        "text": "267 1/2"
+      },
+      {
+        "end": [
+          -72.625,
+          -75.5
+        ],
+        "kind": "depth",
+        "offset": 0,
+        "row": "depth",
+        "start": [
+          -85.5,
+          -75.5
+        ],
+        "text": "12 7/8",
+        "textAt": [
+          -79.0625,
+          -79.25
+        ]
+      },
+      {
+        "end": [
+          -60.625,
+          -66.5
+        ],
+        "kind": "depth",
+        "offset": 0,
+        "row": "depth",
+        "start": [
+          -85.5,
+          -66.5
+        ],
+        "text": "24 7/8"
+      },
+      {
+        "end": [
+          -40.96291301154095,
+          19.93921637953186
+        ],
+        "kind": "depth",
+        "offset": 0,
+        "row": "depth",
+        "start": [
+          -57.53789622685579,
+          38.48741188238419
+        ],
+        "text": "24 7/8"
+      },
+      {
+        "end": [
+          48.5,
+          55.5
+        ],
+        "kind": "depth",
+        "offset": 0,
+        "row": "depth",
+        "start": [
+          48.5,
+          30.625
+        ],
+        "text": "24 7/8"
+      },
+      {
+        "end": [
+          160,
+          -14
+        ],
+        "kind": "depth",
+        "offset": 0,
+        "row": "depth",
+        "start": [
+          160,
+          -38.875
+        ],
+        "text": "24 7/8"
+      },
+      {
+        "end": [
+          -33,
+          -108.1875
+        ],
+        "kind": "depth",
+        "offset": 0,
+        "row": "depth",
+        "start": [
+          -33,
+          -115
+        ],
+        "text": "6 13/16",
+        "textAt": [
+          -29.25,
+          -111.59375
+        ]
+      }
+    ],
+    "marks": [
+      {
+        "at": [
+          -44.125,
+          -66.5
+        ],
+        "direction": [
+          -1,
+          0
+        ],
+        "kind": "elevation",
+        "text": "A"
+      },
+      {
+        "at": [
+          -29.968451783291897,
+          7.635890719348403
+        ],
+        "direction": [
+          -0.666330983530245,
+          0.7456561006171789
+        ],
+        "kind": "elevation",
+        "text": "B"
+      },
+      {
+        "at": [
+          71.75,
+          -55.375
+        ],
+        "direction": [
+          0,
+          1
+        ],
+        "kind": "elevation",
+        "text": "C"
+      },
+      {
+        "at": [
+          -36.5,
+          -91.6875
+        ],
+        "direction": [
+          0,
+          -1
+        ],
+        "kind": "elevation",
+        "text": "D"
+      },
+      {
+        "at": [
+          -36.5,
+          -122.125
+        ],
+        "kind": "label",
+        "rotation": 0,
+        "text": "R1 · 18\" × 6\""
+      }
+    ],
+    "parts": [
+      {
+        "id": "d4b68f80-997b-473f-80d9-82c8ec473916:wall",
+        "kind": "wall",
+        "points": [
+          [
+            -85.5,
+            -109
+          ],
+          [
+            -85.5,
+            13.5
+          ],
+          [
+            -90,
+            15.513677046122
+          ],
+          [
+            -90,
+            -113.5
+          ]
+        ]
+      },
+      {
+        "dashed": true,
+        "id": "9c653c50-9b53-4e98-9b1d-c629f4944920",
+        "kind": "soffit",
+        "points": [
+          [
+            -85.5,
+            -109
+          ],
+          [
+            -85.5,
+            13.5
+          ],
+          [
+            -71.5,
+            13.5
+          ],
+          [
+            -71.5,
+            -109
+          ]
+        ]
+      },
+      {
+        "id": "1ef55b05-c89b-4e88-b464-70f2c010b693:wall",
+        "kind": "wall",
+        "points": [
+          [
+            -85.5,
+            13.5
+          ],
+          [
+            -38.5,
+            55.5
+          ],
+          [
+            -40.21768621828,
+            60
+          ],
+          [
+            -90,
+            15.513677046122
+          ]
+        ]
+      },
+      {
+        "id": "c97e638b-c2fe-40af-adeb-74d65b73cfd5:wall",
+        "kind": "wall",
+        "points": [
+          [
+            -38.5,
+            55.5
+          ],
+          [
+            131.5,
+            55.5
+          ],
+          [
+            136,
+            60
+          ],
+          [
+            -40.21768621828,
+            60
+          ]
+        ]
+      },
+      {
+        "id": "944c50bf-f302-46ad-9081-473417a7a720:wall",
+        "kind": "wall",
+        "points": [
+          [
+            83.5,
+            9.5
+          ],
+          [
+            83.5,
+            55.5
+          ],
+          [
+            79,
+            55.5
+          ],
+          [
+            79,
+            9.5
+          ]
+        ]
+      },
+      {
+        "id": "d9acce3c-4a84-418d-b6a4-afd04ff28960:wall",
+        "kind": "wall",
+        "points": [
+          [
+            131.5,
+            55.5
+          ],
+          [
+            131.5,
+            -14
+          ],
+          [
+            136,
+            -9.5
+          ],
+          [
+            136,
+            60
+          ]
+        ]
+      },
+      {
+        "id": "47f00a24-cd14-447f-812b-a941656a413c:wall",
+        "kind": "wall",
+        "points": [
+          [
+            131.5,
+            -14
+          ],
+          [
+            182,
+            -14
+          ],
+          [
+            186.5,
+            -9.5
+          ],
+          [
+            136,
+            -9.5
+          ]
+        ]
+      },
+      {
+        "id": "9b8bd2cd-654d-4f10-8015-4d6cba783142:wall",
+        "kind": "wall",
+        "points": [
+          [
+            182,
+            -14
+          ],
+          [
+            182,
+            -109
+          ],
+          [
+            186.5,
+            -113.5
+          ],
+          [
+            186.5,
+            -9.5
+          ]
+        ]
+      },
+      {
+        "id": "153da662-d09f-4000-a5dd-bf3447cc2aa8:wall",
+        "kind": "wall",
+        "points": [
+          [
+            182,
+            -109
+          ],
+          [
+            -85.5,
+            -109
+          ],
+          [
+            -90,
+            -113.5
+          ],
+          [
+            186.5,
+            -113.5
+          ]
+        ]
+      },
+      {
+        "id": "2893332f-3d25-4d60-91e4-1fce7db8c97c:fill",
+        "kind": "wall",
+        "points": [
+          [
+            -23,
+            -113.5
+          ],
+          [
+            -50,
+            -113.5
+          ],
+          [
+            -50,
+            -119.5
+          ],
+          [
+            -23,
+            -119.5
+          ]
+        ]
+      },
+      {
+        "closed": false,
+        "dashed": true,
+        "id": "2893332f-3d25-4d60-91e4-1fce7db8c97c:line-0",
+        "kind": "recess",
+        "points": [
+          [
+            -27.5,
+            -109
+          ],
+          [
+            -27.5,
+            -115
+          ]
+        ]
+      },
+      {
+        "closed": false,
+        "dashed": true,
+        "id": "2893332f-3d25-4d60-91e4-1fce7db8c97c:line-1",
+        "kind": "recess",
+        "points": [
+          [
+            -27.5,
+            -115
+          ],
+          [
+            -45.5,
+            -115
+          ]
+        ]
+      },
+      {
+        "closed": false,
+        "dashed": true,
+        "id": "2893332f-3d25-4d60-91e4-1fce7db8c97c:line-2",
+        "kind": "recess",
+        "points": [
+          [
+            -45.5,
+            -115
+          ],
+          [
+            -45.5,
+            -109
+          ]
+        ]
+      },
+      {
+        "id": "bfbac5fe-c42c-48fa-81ac-70a18a20703a",
+        "kind": "cabinet",
+        "points": [
+          [
+            -85.5,
+            -95.5
+          ],
+          [
+            -85.5,
+            -78.5
+          ],
+          [
+            -73.5,
+            -78.5
+          ],
+          [
+            -73.5,
+            -95.5
+          ]
+        ],
+        "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+        "top": 84
+      },
+      {
+        "id": "f0fcc5b7-54ec-4d7d-8788-9af8fe6a2b60",
+        "kind": "cabinet",
+        "points": [
+          [
+            -85.5,
+            -78.5
+          ],
+          [
+            -85.5,
+            -54.5
+          ],
+          [
+            -73.5,
+            -54.5
+          ],
+          [
+            -73.5,
+            -78.5
+          ]
+        ],
+        "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+        "top": 84
+      },
+      {
+        "id": "e61ed4f6-7591-4055-9a32-12ff305c552b",
+        "kind": "cabinet",
+        "points": [
+          [
+            -85.5,
+            -54.5
+          ],
+          [
+            -85.5,
+            -37.5
+          ],
+          [
+            -73.5,
+            -37.5
+          ],
+          [
+            -73.5,
+            -54.5
+          ]
+        ],
+        "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+        "top": 84
+      },
+      {
+        "id": "43e9e27f-b268-4466-83c5-b8889c54f6c3:left",
+        "kind": "end_panel",
+        "points": [
+          [
+            -85.5,
+            -96.3125
+          ],
+          [
+            -85.5,
+            -95.5
+          ],
+          [
+            -72.625,
+            -95.5
+          ],
+          [
+            -72.625,
+            -96.3125
+          ]
+        ],
+        "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+        "top": 84
+      },
+      {
+        "id": "bfbac5fe-c42c-48fa-81ac-70a18a20703a:r",
+        "kind": "face",
+        "points": [
+          [
+            -73.4375,
+            -95.4375
+          ],
+          [
+            -73.4375,
+            -78.5625
+          ],
+          [
+            -72.625,
+            -78.5625
+          ],
+          [
+            -72.625,
+            -95.4375
+          ]
+        ],
+        "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+        "top": 84
+      },
+      {
+        "id": "e61ed4f6-7591-4055-9a32-12ff305c552b:r",
+        "kind": "face",
+        "points": [
+          [
+            -73.4375,
+            -54.4375
+          ],
+          [
+            -73.4375,
+            -37.5625
+          ],
+          [
+            -72.625,
+            -37.5625
+          ],
+          [
+            -72.625,
+            -54.4375
+          ]
+        ],
+        "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+        "top": 84
+      },
+      {
+        "id": "43e9e27f-b268-4466-83c5-b8889c54f6c3:right",
+        "kind": "end_panel",
+        "points": [
+          [
+            -85.5,
+            -37.5
+          ],
+          [
+            -85.5,
+            -36.6875
+          ],
+          [
+            -72.625,
+            -36.6875
+          ],
+          [
+            -72.625,
+            -37.5
+          ]
+        ],
+        "runId": "43e9e27f-b268-4466-83c5-b8889c54f6c3",
+        "top": 84
+      },
+      {
+        "id": "7db46102-9f69-446f-9002-4553a28de95e",
+        "kind": "cabinet",
+        "points": [
+          [
+            -85.5,
+            -95.75
+          ],
+          [
+            -85.5,
+            -76.25
+          ],
+          [
+            -61.5,
+            -76.25
+          ],
+          [
+            -61.5,
+            -95.75
+          ]
+        ],
+        "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+        "top": 34.5
+      },
+      {
+        "id": "ec63139d-0099-412e-8a36-2b122087a2e0",
+        "kind": "cabinet",
+        "points": [
+          [
+            -85.5,
+            -76.25
+          ],
+          [
+            -85.5,
+            -56.75
+          ],
+          [
+            -61.5,
+            -56.75
+          ],
+          [
+            -61.5,
+            -76.25
+          ]
+        ],
+        "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+        "top": 34.5
+      },
+      {
+        "id": "c4a645e5-7a0c-497b-ace8-f0ecf926e916",
+        "kind": "cabinet",
+        "points": [
+          [
+            -85.5,
+            -56.75
+          ],
+          [
+            -85.5,
+            -37.25
+          ],
+          [
+            -61.5,
+            -37.25
+          ],
+          [
+            -61.5,
+            -56.75
+          ]
+        ],
+        "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+        "top": 34.5
+      },
+      {
+        "id": "18987cbe-0019-4d91-a3c2-b027e2bebfb0:left",
+        "kind": "end_panel",
+        "points": [
+          [
+            -85.5,
+            -96.5625
+          ],
+          [
+            -85.5,
+            -95.75
+          ],
+          [
+            -60.625,
+            -95.75
+          ],
+          [
+            -60.625,
+            -96.5625
+          ]
+        ],
+        "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+        "top": 34.5
+      },
+      {
+        "id": "7db46102-9f69-446f-9002-4553a28de95e:r.0",
+        "kind": "face",
+        "points": [
+          [
+            -61.4375,
+            -95.6875
+          ],
+          [
+            -61.4375,
+            -76.3125
+          ],
+          [
+            -60.625,
+            -76.3125
+          ],
+          [
+            -60.625,
+            -95.6875
+          ]
+        ],
+        "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+        "top": 34.5
+      },
+      {
+        "id": "ec63139d-0099-412e-8a36-2b122087a2e0:r",
+        "kind": "face",
+        "points": [
+          [
+            -61.4375,
+            -76.1875
+          ],
+          [
+            -61.4375,
+            -56.8125
+          ],
+          [
+            -60.625,
+            -56.8125
+          ],
+          [
+            -60.625,
+            -76.1875
+          ]
+        ],
+        "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+        "top": 34.5
+      },
+      {
+        "id": "c4a645e5-7a0c-497b-ace8-f0ecf926e916:r.0",
+        "kind": "face",
+        "points": [
+          [
+            -61.4375,
+            -56.6875
+          ],
+          [
+            -61.4375,
+            -37.3125
+          ],
+          [
+            -60.625,
+            -37.3125
+          ],
+          [
+            -60.625,
+            -56.6875
+          ]
+        ],
+        "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+        "top": 34.5
+      },
+      {
+        "id": "18987cbe-0019-4d91-a3c2-b027e2bebfb0:right",
+        "kind": "end_panel",
+        "points": [
+          [
+            -85.5,
+            -37.25
+          ],
+          [
+            -85.5,
+            -36.4375
+          ],
+          [
+            -60.625,
+            -36.4375
+          ],
+          [
+            -60.625,
+            -37.25
+          ]
+        ],
+        "runId": "18987cbe-0019-4d91-a3c2-b027e2bebfb0",
+        "top": 34.5
+      },
+      {
+        "id": "ed81c0b1-bafa-441d-a58c-d5ee1f7b7484",
+        "kind": "cabinet",
+        "points": [
+          [
+            -70.40046396250213,
+            26.993202416487463
+          ],
+          [
+            -44.675328491209456,
+            49.98162134828091
+          ],
+          [
+            -28.68338488648358,
+            32.08587493346862
+          ],
+          [
+            -54.40852035777625,
+            9.097456001675168
+          ]
+        ],
+        "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+        "top": 34.5
+      },
+      {
+        "id": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5:left",
+        "kind": "end_panel",
+        "points": [
+          [
+            -71.00630954425358,
+            26.45180849236914
+          ],
+          [
+            -70.40046396250213,
+            26.993202416487463
+          ],
+          [
+            -53.825480747187285,
+            8.445006913635135
+          ],
+          [
+            -54.43132632893874,
+            7.903612989516811
+          ]
+        ],
+        "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+        "top": 34.5
+      },
+      {
+        "id": "ed81c0b1-bafa-441d-a58c-d5ee1f7b7484:rleft",
+        "kind": "face",
+        "points": [
+          [
+            -54.32027116501703,
+            9.092498181857234
+          ],
+          [
+            -41.55091044194785,
+            20.50341627481268
+          ],
+          [
+            -41.009516517829525,
+            19.89757069306122
+          ],
+          [
+            -53.77887724089871,
+            8.486652600105774
+          ]
+        ],
+        "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+        "top": 34.5
+      },
+      {
+        "id": "ed81c0b1-bafa-441d-a58c-d5ee1f7b7484:rright",
+        "kind": "face",
+        "points": [
+          [
+            -41.457703429370696,
+            20.58670764775396
+          ],
+          [
+            -28.688342706301505,
+            31.997625740709406
+          ],
+          [
+            -28.14694878218318,
+            31.391780158957946
+          ],
+          [
+            -40.91630950525237,
+            19.9808620660025
+          ]
+        ],
+        "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+        "top": 34.5
+      },
+      {
+        "id": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5:right",
+        "kind": "end_panel",
+        "points": [
+          [
+            -44.675328491209456,
+            49.98162134828091
+          ],
+          [
+            -44.069482909457996,
+            50.523015272399235
+          ],
+          [
+            -27.49449969414315,
+            31.974819769546908
+          ],
+          [
+            -28.10034527589461,
+            31.433425845428584
+          ]
+        ],
+        "runId": "ee8399d7-7942-4e91-83b4-77e0d74e4ff5",
+        "top": 34.5
+      },
+      {
+        "id": "5168a9a1-d296-456c-9b9b-4b8738522b6c",
+        "kind": "cabinet",
+        "points": [
+          [
+            18.8125,
+            55.5
+          ],
+          [
+            47.8125,
+            55.5
+          ],
+          [
+            47.8125,
+            31.5
+          ],
+          [
+            18.8125,
+            31.5
+          ]
+        ],
+        "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+        "top": 34.5
+      },
+      {
+        "id": "2f8234b2-f574-4a0b-bbc6-65d7c03066ee",
+        "kind": "cabinet",
+        "points": [
+          [
+            47.8125,
+            55.5
+          ],
+          [
+            76.8125,
+            55.5
+          ],
+          [
+            76.8125,
+            31.5
+          ],
+          [
+            47.8125,
+            31.5
+          ]
+        ],
+        "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+        "top": 34.5
+      },
+      {
+        "id": "1ef964a5-fda0-4930-a5ad-7d228434674a:left",
+        "kind": "end_panel",
+        "points": [
+          [
+            18,
+            55.5
+          ],
+          [
+            18.8125,
+            55.5
+          ],
+          [
+            18.8125,
+            30.625
+          ],
+          [
+            18,
+            30.625
+          ]
+        ],
+        "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+        "top": 34.5
+      },
+      {
+        "id": "5168a9a1-d296-456c-9b9b-4b8738522b6c:rleft",
+        "kind": "face",
+        "points": [
+          [
+            18.875,
+            31.4375
+          ],
+          [
+            33.25,
+            31.4375
+          ],
+          [
+            33.25,
+            30.625
+          ],
+          [
+            18.875,
+            30.625
+          ]
+        ],
+        "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+        "top": 34.5
+      },
+      {
+        "id": "5168a9a1-d296-456c-9b9b-4b8738522b6c:rright",
+        "kind": "face",
+        "points": [
+          [
+            33.375,
+            31.4375
+          ],
+          [
+            47.75,
+            31.4375
+          ],
+          [
+            47.75,
+            30.625
+          ],
+          [
+            33.375,
+            30.625
+          ]
+        ],
+        "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+        "top": 34.5
+      },
+      {
+        "id": "2f8234b2-f574-4a0b-bbc6-65d7c03066ee:rleft",
+        "kind": "face",
+        "points": [
+          [
+            47.875,
+            31.4375
+          ],
+          [
+            62.25,
+            31.4375
+          ],
+          [
+            62.25,
+            30.625
+          ],
+          [
+            47.875,
+            30.625
+          ]
+        ],
+        "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+        "top": 34.5
+      },
+      {
+        "id": "2f8234b2-f574-4a0b-bbc6-65d7c03066ee:rright",
+        "kind": "face",
+        "points": [
+          [
+            62.375,
+            31.4375
+          ],
+          [
+            76.75,
+            31.4375
+          ],
+          [
+            76.75,
+            30.625
+          ],
+          [
+            62.375,
+            30.625
+          ]
+        ],
+        "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+        "top": 34.5
+      },
+      {
+        "id": "1ef964a5-fda0-4930-a5ad-7d228434674a:right",
+        "kind": "filler",
+        "points": [
+          [
+            76.8125,
+            31.4375
+          ],
+          [
+            79,
+            31.4375
+          ],
+          [
+            79,
+            30.625
+          ],
+          [
+            76.8125,
+            30.625
+          ]
+        ],
+        "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+        "top": 34.5
+      },
+      {
+        "id": "1ef964a5-fda0-4930-a5ad-7d228434674a:right:left",
+        "kind": "filler",
+        "points": [
+          [
+            76.8125,
+            33.8125
+          ],
+          [
+            77.5625,
+            33.8125
+          ],
+          [
+            77.5625,
+            31.3125
+          ],
+          [
+            76.8125,
+            31.3125
+          ]
+        ],
+        "runId": "1ef964a5-fda0-4930-a5ad-7d228434674a",
+        "top": 34.5
+      },
+      {
+        "id": "a7207a24-3c1f-4ab2-a467-546079bb5075",
+        "kind": "cabinet",
+        "points": [
+          [
+            138.8125,
+            -14
+          ],
+          [
+            159.3125,
+            -14
+          ],
+          [
+            159.3125,
+            -38
+          ],
+          [
+            138.8125,
+            -38
+          ]
+        ],
+        "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+        "top": 34.5
+      },
+      {
+        "id": "f3dfd241-110c-4e03-a0d1-309fbb742a50",
+        "kind": "cabinet",
+        "points": [
+          [
+            159.3125,
+            -14
+          ],
+          [
+            179.8125,
+            -14
+          ],
+          [
+            179.8125,
+            -38
+          ],
+          [
+            159.3125,
+            -38
+          ]
+        ],
+        "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+        "top": 34.5
+      },
+      {
+        "id": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20:left",
+        "kind": "end_panel",
+        "points": [
+          [
+            138,
+            -14
+          ],
+          [
+            138.8125,
+            -14
+          ],
+          [
+            138.8125,
+            -38.875
+          ],
+          [
+            138,
+            -38.875
+          ]
+        ],
+        "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+        "top": 34.5
+      },
+      {
+        "id": "a7207a24-3c1f-4ab2-a467-546079bb5075:r",
+        "kind": "face",
+        "points": [
+          [
+            138.875,
+            -38.0625
+          ],
+          [
+            159.25,
+            -38.0625
+          ],
+          [
+            159.25,
+            -38.875
+          ],
+          [
+            138.875,
+            -38.875
+          ]
+        ],
+        "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+        "top": 34.5
+      },
+      {
+        "id": "f3dfd241-110c-4e03-a0d1-309fbb742a50:r",
+        "kind": "face",
+        "points": [
+          [
+            159.375,
+            -38.0625
+          ],
+          [
+            179.75,
+            -38.0625
+          ],
+          [
+            179.75,
+            -38.875
+          ],
+          [
+            159.375,
+            -38.875
+          ]
+        ],
+        "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+        "top": 34.5
+      },
+      {
+        "id": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20:right",
+        "kind": "filler",
+        "points": [
+          [
+            179.8125,
+            -38.0625
+          ],
+          [
+            182,
+            -38.0625
+          ],
+          [
+            182,
+            -38.875
+          ],
+          [
+            179.8125,
+            -38.875
+          ]
+        ],
+        "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+        "top": 34.5
+      },
+      {
+        "id": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20:right:left",
+        "kind": "filler",
+        "points": [
+          [
+            179.8125,
+            -35.6875
+          ],
+          [
+            180.5625,
+            -35.6875
+          ],
+          [
+            180.5625,
+            -38.1875
+          ],
+          [
+            179.8125,
+            -38.1875
+          ]
+        ],
+        "runId": "c59714dd-8db1-4fe5-b3d6-0387ca3caf20",
+        "top": 34.5
+      },
+      {
+        "id": "4ac8d3b7-44f9-42ca-a1bc-4257b2297aab",
+        "kind": "cabinet",
+        "points": [
+          [
+            -27.75,
+            -114
+          ],
+          [
+            -45.25,
+            -114
+          ],
+          [
+            -45.25,
+            -109
+          ],
+          [
+            -27.75,
+            -109
+          ]
+        ],
+        "runId": "4cb22aaa-0a00-4fe6-8c0c-550718240645",
+        "top": 87.75
+      },
+      {
+        "id": "frame:4ac8d3b7-44f9-42ca-a1bc-4257b2297aab",
+        "kind": "frame",
+        "points": [
+          [
+            -27,
+            -108.1875
+          ],
+          [
+            -46,
+            -108.1875
+          ],
+          [
+            -46,
+            -109
+          ],
+          [
+            -27,
+            -109
+          ]
+        ],
+        "runId": "4cb22aaa-0a00-4fe6-8c0c-550718240645",
+        "top": 87.75
+      },
+      {
+        "closed": false,
+        "id": "top:0:0",
+        "kind": "countertop",
+        "points": [
+          [
+            -85.5,
+            -97.3125
+          ],
+          [
+            -59.875,
+            -97.3125
+          ],
+          [
+            -59.875,
+            -35.6875
+          ],
+          [
+            -85.5,
+            -35.6875
+          ]
+        ]
+      },
+      {
+        "closed": false,
+        "id": "top:0:1",
+        "kind": "countertop",
+        "points": [
+          [
+            -71.56555161971647,
+            25.952060254721452
+          ],
+          [
+            -54.49082016675394,
+            6.844622676406244
+          ],
+          [
+            -26.43550938103259,
+            31.915325931731715
+          ],
+          [
+            -43.51024083399511,
+            51.02276351004692
+          ]
+        ]
+      },
+      {
+        "closed": false,
+        "id": "top:0:2",
+        "kind": "countertop",
+        "points": [
+          [
+            17.25,
+            55.5
+          ],
+          [
+            17.25,
+            29.875
+          ],
+          [
+            79,
+            29.875
+          ]
+        ]
+      },
+      {
+        "closed": false,
+        "id": "top:0:3",
+        "kind": "countertop",
+        "points": [
+          [
+            137.25,
+            -14
+          ],
+          [
+            137.25,
+            -39.625
+          ],
+          [
+            182,
+            -39.625
+          ]
+        ]
+      }
+    ]
+  },
+  "plotScale": 24,
+  "room": {
+    "id": "01a1e577-f8e0-7870-a47f-c52d7c85cb9b",
+    "name": "GC N3 Odd bits"
+  },
+  "units": "in"
+}
