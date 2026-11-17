@@ -945,7 +945,7 @@
           "height": 12,
           "id": "9c653c50-9b53-4e98-9b1d-c629f4944920",
           "kind": "soffit",
-          "opaque": false,
+          "opaque": true,
           "width": 122.5,
           "x": 0,
           "z": 84
@@ -2558,7 +2558,7 @@
               "z2": 96
             }
           ],
-          "opaque": false,
+          "opaque": true,
           "openEdges": [
             "left",
             "right"

@@ -1689,7 +1689,7 @@
           "height": 108,
           "id": "7214e71f-5588-4276-b2f6-64b21703d88f",
           "kind": "projection",
-          "opaque": false,
+          "opaque": true,
           "width": 60,
           "x": 60,
           "z": 0
