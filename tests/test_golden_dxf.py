@@ -58,13 +58,25 @@ def entity_summary(entity):
     elif kind == "HATCH":
         paths = []
         for path in entity.paths:
-            # The drawing writers emit polyline hatch boundaries, including holes.
-            assert hasattr(path, "vertices"), "Add edge-path hatch serialization"
-            paths.append({
-                "flags": path.path_type_flags,
-                "closed": path.is_closed,
-                "vertices": path.vertices,
-            })
+            if hasattr(path, "vertices"):
+                paths.append({
+                    "flags": path.path_type_flags,
+                    "closed": path.is_closed,
+                    "vertices": path.vertices,
+                })
+            else:
+                edges = []
+                for edge in path.edges:
+                    assert edge.EDGE_TYPE == "ArcEdge", "Add hatch edge geometry serialization"
+                    edges.append({
+                        "type": edge.EDGE_TYPE,
+                        "center": edge.center,
+                        "radius": edge.radius,
+                        "start_angle": edge.start_angle,
+                        "end_angle": edge.end_angle,
+                        "ccw": edge.ccw,
+                    })
+                paths.append({"flags": path.path_type_flags, "edges": edges})
         result["paths"] = paths
         result["pattern"] = entity.pattern.as_list() if entity.pattern else None
         result["seeds"] = entity.seeds

@@ -41044,8 +41044,8 @@
             "attachment_point": 5,
             "char_height": 2.25,
             "insert": [
-              -79.0625,
-              -79.25,
+              -90.375,
+              -75.5,
               0.0
             ],
             "layer": "DIMENSIONS",
@@ -41087,7 +41087,7 @@
             ],
             "layer": "0",
             "start": [
-              -85.5,
+              -83.625,
               -75.5,
               0.0
             ],
@@ -41095,8 +41095,8 @@
           },
           {
             "end": [
-              -79.0625,
-              -76.625,
+              -87.75,
+              -75.5,
               0.0
             ],
             "layer": "0",
@@ -41702,8 +41702,8 @@
             "attachment_point": 5,
             "char_height": 2.25,
             "insert": [
-              -29.25,
-              -111.59375,
+              -33.0,
+              -102.75,
               0.0
             ],
             "layer": "DIMENSIONS",
@@ -41742,8 +41742,8 @@
           },
           {
             "end": [
-              -31.875,
-              -111.59375,
+              -33.0,
+              -105.375,
               0.0
             ],
             "layer": "0",
@@ -41757,13 +41757,13 @@
           {
             "end": [
               -33.0,
-              -108.1875,
+              -115.0,
               0.0
             ],
             "layer": "0",
             "start": [
               -33.0,
-              -115.0,
+              -110.625,
               0.0
             ],
             "type": "LINE"
@@ -42729,12 +42729,31 @@
         "entities": [
           {
             "align_point": [
+              -17.0,
+              -91.6875,
+              0.0
+            ],
+            "halign": 1,
+            "height": 4.8,
+            "insert": [
+              -17.0,
+              -91.6875,
+              0.0
+            ],
+            "layer": "TEXT",
+            "style": "FF_TEXT",
+            "text": "D",
+            "type": "TEXT",
+            "valign": 2
+          },
+          {
+            "align_point": [
               -29.968452,
               7.635891,
               0.0
             ],
             "halign": 1,
-            "height": 3.0,
+            "height": 4.8,
             "insert": [
               -29.968452,
               7.635891,
@@ -42767,31 +42786,12 @@
           },
           {
             "align_point": [
-              -36.5,
-              -91.6875,
-              0.0
-            ],
-            "halign": 1,
-            "height": 3.0,
-            "insert": [
-              -36.5,
-              -91.6875,
-              0.0
-            ],
-            "layer": "TEXT",
-            "style": "FF_TEXT",
-            "text": "D",
-            "type": "TEXT",
-            "valign": 2
-          },
-          {
-            "align_point": [
               -44.125,
               -66.5,
               0.0
             ],
             "halign": 1,
-            "height": 3.0,
+            "height": 4.8,
             "insert": [
               -44.125,
               -66.5,
@@ -42810,7 +42810,7 @@
               0.0
             ],
             "halign": 1,
-            "height": 3.0,
+            "height": 4.8,
             "insert": [
               71.75,
               -55.375,
@@ -43094,8 +43094,8 @@
             "layer": "DIMENSIONS",
             "text": "<>",
             "text_midpoint": [
-              -79.0625,
-              -79.25,
+              -90.375,
+              -75.5,
               0.0
             ],
             "type": "DIMENSION",
@@ -43249,8 +43249,8 @@
             "layer": "DIMENSIONS",
             "text": "<>",
             "text_midpoint": [
-              -29.25,
-              -111.59375,
+              -33.0,
+              -102.75,
               0.0
             ],
             "type": "DIMENSION",
@@ -43444,6 +43444,170 @@
           },
           {
             "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "MARKERS",
+            "paths": [
+              {
+                "edges": [
+                  {
+                    "ccw": 1,
+                    "center": [
+                      -17.0,
+                      -91.6875
+                    ],
+                    "end_angle": 360.0,
+                    "radius": 6.0,
+                    "start_angle": 0.0,
+                    "type": "ArcEdge"
+                  }
+                ],
+                "flags": 1
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "MARKERS",
+            "paths": [
+              {
+                "edges": [
+                  {
+                    "ccw": 1,
+                    "center": [
+                      -29.968452,
+                      7.635891
+                    ],
+                    "end_angle": 360.0,
+                    "radius": 6.0,
+                    "start_angle": 0.0,
+                    "type": "ArcEdge"
+                  }
+                ],
+                "flags": 1
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "MARKERS",
+            "paths": [
+              {
+                "edges": [
+                  {
+                    "ccw": 1,
+                    "center": [
+                      -44.125,
+                      -66.5
+                    ],
+                    "end_angle": 360.0,
+                    "radius": 6.0,
+                    "start_angle": 0.0,
+                    "type": "ArcEdge"
+                  }
+                ],
+                "flags": 1
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "MARKERS",
+            "paths": [
+              {
+                "edges": [
+                  {
+                    "ccw": 1,
+                    "center": [
+                      71.75,
+                      -55.375
+                    ],
+                    "end_angle": 360.0,
+                    "radius": 6.0,
+                    "start_angle": 0.0,
+                    "type": "ArcEdge"
+                  }
+                ],
+                "flags": 1
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
             "elevation": [
               0.0,
               0.0,
@@ -43462,18 +43626,18 @@
                 "flags": 3,
                 "vertices": [
                   [
-                    -32.9,
-                    -97.6875,
+                    -36.679357,
+                    1.638912,
                     0.0
                   ],
                   [
-                    -36.5,
-                    -102.1875,
+                    -37.164826,
+                    15.688977,
                     0.0
                   ],
                   [
-                    -40.1,
-                    -97.6875,
+                    -23.257547,
+                    13.63287,
                     0.0
                   ]
                 ]
@@ -43506,62 +43670,18 @@
                 "flags": 3,
                 "vertices": [
                   [
-                    -36.6508,
-                    9.711036,
+                    -44.125,
+                    -75.5,
                     0.0
                   ],
                   [
-                    -36.964927,
-                    15.46528,
-                    0.0
-                  ],
-                  [
-                    -31.282076,
-                    14.508619,
-                    0.0
-                  ]
-                ]
-              }
-            ],
-            "pattern": null,
-            "pattern_name": "SOLID",
-            "pattern_type": 1,
-            "seeds": [],
-            "solid_fill": 1,
-            "type": "HATCH"
-          },
-          {
-            "associative": 0,
-            "elevation": [
-              0.0,
-              0.0,
-              0.0
-            ],
-            "extrusion": [
-              0.0,
-              0.0,
-              1.0
-            ],
-            "hatch_style": 1,
-            "layer": "MARKERS",
-            "paths": [
-              {
-                "closed": 1,
-                "flags": 3,
-                "vertices": [
-                  [
-                    -50.125,
-                    -70.1,
-                    0.0
-                  ],
-                  [
-                    -54.625,
+                    -54.925,
                     -66.5,
                     0.0
                   ],
                   [
-                    -50.125,
-                    -62.9,
+                    -44.125,
+                    -57.5,
                     0.0
                   ]
                 ]
@@ -43594,18 +43714,62 @@
                 "flags": 3,
                 "vertices": [
                   [
-                    68.15,
-                    -49.375,
+                    -8.0,
+                    -91.6875,
+                    0.0
+                  ],
+                  [
+                    -17.0,
+                    -102.4875,
+                    0.0
+                  ],
+                  [
+                    -26.0,
+                    -91.6875,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 1,
+            "layer": "MARKERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    62.75,
+                    -55.375,
                     0.0
                   ],
                   [
                     71.75,
-                    -44.875,
+                    -44.575,
                     0.0
                   ],
                   [
-                    75.35,
-                    -49.375,
+                    80.75,
+                    -55.375,
                     0.0
                   ]
                 ]
@@ -43790,8 +43954,8 @@
           },
           {
             "center": [
-              -29.968452,
-              7.635891,
+              -17.0,
+              -91.6875,
               0.0
             ],
             "layer": "MARKERS",
@@ -43800,8 +43964,8 @@
           },
           {
             "center": [
-              -36.5,
-              -91.6875,
+              -29.968452,
+              7.635891,
               0.0
             ],
             "layer": "MARKERS",
@@ -46112,22 +46276,22 @@
             "type": "LWPOLYLINE",
             "vertices": [
               [
-                -32.9,
-                -97.6875,
+                -36.679357,
+                1.638912,
                 0.0,
                 0.0,
                 0.0
               ],
               [
-                -36.5,
-                -102.1875,
+                -37.164826,
+                15.688977,
                 0.0,
                 0.0,
                 0.0
               ],
               [
-                -40.1,
-                -97.6875,
+                -23.257547,
+                13.63287,
                 0.0,
                 0.0,
                 0.0
@@ -46140,50 +46304,22 @@
             "type": "LWPOLYLINE",
             "vertices": [
               [
-                -36.6508,
-                9.711036,
+                -44.125,
+                -75.5,
                 0.0,
                 0.0,
                 0.0
               ],
               [
-                -36.964927,
-                15.46528,
-                0.0,
-                0.0,
-                0.0
-              ],
-              [
-                -31.282076,
-                14.508619,
-                0.0,
-                0.0,
-                0.0
-              ]
-            ]
-          },
-          {
-            "flags": 1,
-            "layer": "MARKERS",
-            "type": "LWPOLYLINE",
-            "vertices": [
-              [
-                -50.125,
-                -70.1,
-                0.0,
-                0.0,
-                0.0
-              ],
-              [
-                -54.625,
+                -54.925,
                 -66.5,
                 0.0,
                 0.0,
                 0.0
               ],
               [
-                -50.125,
-                -62.9,
+                -44.125,
+                -57.5,
                 0.0,
                 0.0,
                 0.0
@@ -46196,22 +46332,50 @@
             "type": "LWPOLYLINE",
             "vertices": [
               [
-                68.15,
-                -49.375,
+                -8.0,
+                -91.6875,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -17.0,
+                -102.4875,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -26.0,
+                -91.6875,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "MARKERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                62.75,
+                -55.375,
                 0.0,
                 0.0,
                 0.0
               ],
               [
                 71.75,
-                -44.875,
+                -44.575,
                 0.0,
                 0.0,
                 0.0
               ],
               [
-                75.35,
-                -49.375,
+                80.75,
+                -55.375,
                 0.0,
                 0.0,
                 0.0
@@ -46556,12 +46720,31 @@
     "modelspace": [
       {
         "align_point": [
+          -17.0,
+          -91.6875,
+          0.0
+        ],
+        "halign": 1,
+        "height": 4.8,
+        "insert": [
+          -17.0,
+          -91.6875,
+          0.0
+        ],
+        "layer": "TEXT",
+        "style": "FF_TEXT",
+        "text": "D",
+        "type": "TEXT",
+        "valign": 2
+      },
+      {
+        "align_point": [
           -29.968452,
           7.635891,
           0.0
         ],
         "halign": 1,
-        "height": 3.0,
+        "height": 4.8,
         "insert": [
           -29.968452,
           7.635891,
@@ -46594,31 +46777,12 @@
       },
       {
         "align_point": [
-          -36.5,
-          -91.6875,
-          0.0
-        ],
-        "halign": 1,
-        "height": 3.0,
-        "insert": [
-          -36.5,
-          -91.6875,
-          0.0
-        ],
-        "layer": "TEXT",
-        "style": "FF_TEXT",
-        "text": "D",
-        "type": "TEXT",
-        "valign": 2
-      },
-      {
-        "align_point": [
           -44.125,
           -66.5,
           0.0
         ],
         "halign": 1,
-        "height": 3.0,
+        "height": 4.8,
         "insert": [
           -44.125,
           -66.5,
@@ -46637,7 +46801,7 @@
           0.0
         ],
         "halign": 1,
-        "height": 3.0,
+        "height": 4.8,
         "insert": [
           71.75,
           -55.375,
@@ -46921,8 +47085,8 @@
         "layer": "DIMENSIONS",
         "text": "<>",
         "text_midpoint": [
-          -79.0625,
-          -79.25,
+          -90.375,
+          -75.5,
           0.0
         ],
         "type": "DIMENSION",
@@ -47076,8 +47240,8 @@
         "layer": "DIMENSIONS",
         "text": "<>",
         "text_midpoint": [
-          -29.25,
-          -111.59375,
+          -33.0,
+          -102.75,
           0.0
         ],
         "type": "DIMENSION",
@@ -47271,6 +47435,170 @@
       },
       {
         "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "MARKERS",
+        "paths": [
+          {
+            "edges": [
+              {
+                "ccw": 1,
+                "center": [
+                  -17.0,
+                  -91.6875
+                ],
+                "end_angle": 360.0,
+                "radius": 6.0,
+                "start_angle": 0.0,
+                "type": "ArcEdge"
+              }
+            ],
+            "flags": 1
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "MARKERS",
+        "paths": [
+          {
+            "edges": [
+              {
+                "ccw": 1,
+                "center": [
+                  -29.968452,
+                  7.635891
+                ],
+                "end_angle": 360.0,
+                "radius": 6.0,
+                "start_angle": 0.0,
+                "type": "ArcEdge"
+              }
+            ],
+            "flags": 1
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "MARKERS",
+        "paths": [
+          {
+            "edges": [
+              {
+                "ccw": 1,
+                "center": [
+                  -44.125,
+                  -66.5
+                ],
+                "end_angle": 360.0,
+                "radius": 6.0,
+                "start_angle": 0.0,
+                "type": "ArcEdge"
+              }
+            ],
+            "flags": 1
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "MARKERS",
+        "paths": [
+          {
+            "edges": [
+              {
+                "ccw": 1,
+                "center": [
+                  71.75,
+                  -55.375
+                ],
+                "end_angle": 360.0,
+                "radius": 6.0,
+                "start_angle": 0.0,
+                "type": "ArcEdge"
+              }
+            ],
+            "flags": 1
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
         "elevation": [
           0.0,
           0.0,
@@ -47289,18 +47617,18 @@
             "flags": 3,
             "vertices": [
               [
-                -32.9,
-                -97.6875,
+                -36.679357,
+                1.638912,
                 0.0
               ],
               [
-                -36.5,
-                -102.1875,
+                -37.164826,
+                15.688977,
                 0.0
               ],
               [
-                -40.1,
-                -97.6875,
+                -23.257547,
+                13.63287,
                 0.0
               ]
             ]
@@ -47333,62 +47661,18 @@
             "flags": 3,
             "vertices": [
               [
-                -36.6508,
-                9.711036,
+                -44.125,
+                -75.5,
                 0.0
               ],
               [
-                -36.964927,
-                15.46528,
-                0.0
-              ],
-              [
-                -31.282076,
-                14.508619,
-                0.0
-              ]
-            ]
-          }
-        ],
-        "pattern": null,
-        "pattern_name": "SOLID",
-        "pattern_type": 1,
-        "seeds": [],
-        "solid_fill": 1,
-        "type": "HATCH"
-      },
-      {
-        "associative": 0,
-        "elevation": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "extrusion": [
-          0.0,
-          0.0,
-          1.0
-        ],
-        "hatch_style": 1,
-        "layer": "MARKERS",
-        "paths": [
-          {
-            "closed": 1,
-            "flags": 3,
-            "vertices": [
-              [
-                -50.125,
-                -70.1,
-                0.0
-              ],
-              [
-                -54.625,
+                -54.925,
                 -66.5,
                 0.0
               ],
               [
-                -50.125,
-                -62.9,
+                -44.125,
+                -57.5,
                 0.0
               ]
             ]
@@ -47421,18 +47705,62 @@
             "flags": 3,
             "vertices": [
               [
-                68.15,
-                -49.375,
+                -8.0,
+                -91.6875,
+                0.0
+              ],
+              [
+                -17.0,
+                -102.4875,
+                0.0
+              ],
+              [
+                -26.0,
+                -91.6875,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 1,
+        "layer": "MARKERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                62.75,
+                -55.375,
                 0.0
               ],
               [
                 71.75,
-                -44.875,
+                -44.575,
                 0.0
               ],
               [
-                75.35,
-                -49.375,
+                80.75,
+                -55.375,
                 0.0
               ]
             ]
@@ -47617,8 +47945,8 @@
       },
       {
         "center": [
-          -29.968452,
-          7.635891,
+          -17.0,
+          -91.6875,
           0.0
         ],
         "layer": "MARKERS",
@@ -47627,8 +47955,8 @@
       },
       {
         "center": [
-          -36.5,
-          -91.6875,
+          -29.968452,
+          7.635891,
           0.0
         ],
         "layer": "MARKERS",
@@ -49939,22 +50267,22 @@
         "type": "LWPOLYLINE",
         "vertices": [
           [
-            -32.9,
-            -97.6875,
+            -36.679357,
+            1.638912,
             0.0,
             0.0,
             0.0
           ],
           [
-            -36.5,
-            -102.1875,
+            -37.164826,
+            15.688977,
             0.0,
             0.0,
             0.0
           ],
           [
-            -40.1,
-            -97.6875,
+            -23.257547,
+            13.63287,
             0.0,
             0.0,
             0.0
@@ -49967,50 +50295,22 @@
         "type": "LWPOLYLINE",
         "vertices": [
           [
-            -36.6508,
-            9.711036,
+            -44.125,
+            -75.5,
             0.0,
             0.0,
             0.0
           ],
           [
-            -36.964927,
-            15.46528,
-            0.0,
-            0.0,
-            0.0
-          ],
-          [
-            -31.282076,
-            14.508619,
-            0.0,
-            0.0,
-            0.0
-          ]
-        ]
-      },
-      {
-        "flags": 1,
-        "layer": "MARKERS",
-        "type": "LWPOLYLINE",
-        "vertices": [
-          [
-            -50.125,
-            -70.1,
-            0.0,
-            0.0,
-            0.0
-          ],
-          [
-            -54.625,
+            -54.925,
             -66.5,
             0.0,
             0.0,
             0.0
           ],
           [
-            -50.125,
-            -62.9,
+            -44.125,
+            -57.5,
             0.0,
             0.0,
             0.0
@@ -50023,22 +50323,50 @@
         "type": "LWPOLYLINE",
         "vertices": [
           [
-            68.15,
-            -49.375,
+            -8.0,
+            -91.6875,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -17.0,
+            -102.4875,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -26.0,
+            -91.6875,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "MARKERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            62.75,
+            -55.375,
             0.0,
             0.0,
             0.0
           ],
           [
             71.75,
-            -44.875,
+            -44.575,
             0.0,
             0.0,
             0.0
           ],
           [
-            75.35,
-            -49.375,
+            80.75,
+            -55.375,
             0.0,
             0.0,
             0.0
