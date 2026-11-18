@@ -6901,14 +6901,14 @@
           {
             "align_point": [
               120.40625,
-              43.25,
+              38.25,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               120.40625,
-              43.25,
+              38.25,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -6996,14 +6996,14 @@
           {
             "align_point": [
               149.75,
-              31.25,
+              19.25,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               149.75,
-              31.25,
+              19.25,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -7015,14 +7015,14 @@
           {
             "align_point": [
               150.0,
-              90.0,
+              78.0,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               150.0,
-              90.0,
+              78.0,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -7129,6 +7129,25 @@
           {
             "align_point": [
               33.0,
+              19.25,
+              0.0
+            ],
+            "halign": 1,
+            "height": 3.0,
+            "insert": [
+              33.0,
+              19.25,
+              0.0
+            ],
+            "layer": "PART_NUMBERS",
+            "style": "FF_TEXT",
+            "text": "5",
+            "type": "TEXT",
+            "valign": 2
+          },
+          {
+            "align_point": [
+              33.0,
               2.0,
               0.0
             ],
@@ -7142,25 +7161,6 @@
             "layer": "PART_NUMBERS",
             "style": "FF_TEXT",
             "text": "FB 1",
-            "type": "TEXT",
-            "valign": 2
-          },
-          {
-            "align_point": [
-              33.0,
-              31.25,
-              0.0
-            ],
-            "halign": 1,
-            "height": 3.0,
-            "insert": [
-              33.0,
-              31.25,
-              0.0
-            ],
-            "layer": "PART_NUMBERS",
-            "style": "FF_TEXT",
-            "text": "5",
             "type": "TEXT",
             "valign": 2
           },
@@ -7243,14 +7243,14 @@
           {
             "align_point": [
               59.34375,
-              43.25,
+              38.25,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               59.34375,
-              43.25,
+              38.25,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -7262,14 +7262,14 @@
           {
             "align_point": [
               6.65625,
-              43.25,
+              38.25,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               6.65625,
-              43.25,
+              38.25,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -8891,6 +8891,1026 @@
             "version": 0
           },
           {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    117.40625,
+                    36.0,
+                    0.0
+                  ],
+                  [
+                    123.40625,
+                    36.0,
+                    0.0
+                  ],
+                  [
+                    123.40625,
+                    40.5,
+                    0.0
+                  ],
+                  [
+                    117.40625,
+                    40.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    131.4,
+                    101.25,
+                    0.0
+                  ],
+                  [
+                    142.8,
+                    101.25,
+                    0.0
+                  ],
+                  [
+                    142.8,
+                    105.75,
+                    0.0
+                  ],
+                  [
+                    131.4,
+                    105.75,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    132.25,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    138.25,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    138.25,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    132.25,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    132.5,
+                    76.125,
+                    0.0
+                  ],
+                  [
+                    138.5,
+                    76.125,
+                    0.0
+                  ],
+                  [
+                    138.5,
+                    80.625,
+                    0.0
+                  ],
+                  [
+                    132.5,
+                    80.625,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    144.79375,
+                    -0.25,
+                    0.0
+                  ],
+                  [
+                    154.39375,
+                    -0.25,
+                    0.0
+                  ],
+                  [
+                    154.39375,
+                    4.25,
+                    0.0
+                  ],
+                  [
+                    144.79375,
+                    4.25,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    146.75,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    152.75,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    152.75,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    146.75,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    147.0,
+                    75.75,
+                    0.0
+                  ],
+                  [
+                    153.0,
+                    75.75,
+                    0.0
+                  ],
+                  [
+                    153.0,
+                    80.25,
+                    0.0
+                  ],
+                  [
+                    147.0,
+                    80.25,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    157.2,
+                    103.5,
+                    0.0
+                  ],
+                  [
+                    168.6,
+                    103.5,
+                    0.0
+                  ],
+                  [
+                    168.6,
+                    108.0,
+                    0.0
+                  ],
+                  [
+                    157.2,
+                    108.0,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    161.25,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    167.25,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    167.25,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    161.25,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    161.5,
+                    76.125,
+                    0.0
+                  ],
+                  [
+                    167.5,
+                    76.125,
+                    0.0
+                  ],
+                  [
+                    167.5,
+                    80.625,
+                    0.0
+                  ],
+                  [
+                    161.5,
+                    80.625,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    17.0,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    23.0,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    23.0,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    17.0,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    27.575,
+                    33.0,
+                    0.0
+                  ],
+                  [
+                    37.175,
+                    33.0,
+                    0.0
+                  ],
+                  [
+                    37.175,
+                    37.5,
+                    0.0
+                  ],
+                  [
+                    27.575,
+                    37.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    28.2,
+                    -0.25,
+                    0.0
+                  ],
+                  [
+                    37.8,
+                    -0.25,
+                    0.0
+                  ],
+                  [
+                    37.8,
+                    4.25,
+                    0.0
+                  ],
+                  [
+                    28.2,
+                    4.25,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    3.65625,
+                    36.0,
+                    0.0
+                  ],
+                  [
+                    9.65625,
+                    36.0,
+                    0.0
+                  ],
+                  [
+                    9.65625,
+                    40.5,
+                    0.0
+                  ],
+                  [
+                    3.65625,
+                    40.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    30.0,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    36.0,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    36.0,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    30.0,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    31.25,
+                    53.25,
+                    0.0
+                  ],
+                  [
+                    37.25,
+                    53.25,
+                    0.0
+                  ],
+                  [
+                    37.25,
+                    57.75,
+                    0.0
+                  ],
+                  [
+                    31.25,
+                    57.75,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    31.25,
+                    69.0,
+                    0.0
+                  ],
+                  [
+                    37.25,
+                    69.0,
+                    0.0
+                  ],
+                  [
+                    37.25,
+                    73.5,
+                    0.0
+                  ],
+                  [
+                    31.25,
+                    73.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    31.25,
+                    84.75,
+                    0.0
+                  ],
+                  [
+                    37.25,
+                    84.75,
+                    0.0
+                  ],
+                  [
+                    37.25,
+                    89.25,
+                    0.0
+                  ],
+                  [
+                    31.25,
+                    89.25,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    43.0,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    49.0,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    49.0,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    43.0,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    56.34375,
+                    36.0,
+                    0.0
+                  ],
+                  [
+                    62.34375,
+                    36.0,
+                    0.0
+                  ],
+                  [
+                    62.34375,
+                    40.5,
+                    0.0
+                  ],
+                  [
+                    56.34375,
+                    40.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
             "center": [
               119.1875,
               4.0,
@@ -9305,7 +10325,7 @@
             "layer": "PART_NUMBERS",
             "start": [
               120.40625,
-              41.0,
+              36.0,
               0.0
             ],
             "type": "LINE"
@@ -9950,34 +10970,6 @@
             "start": [
               122.0,
               55.75,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
-              149.75,
-              19.25,
-              0.0
-            ],
-            "layer": "PART_NUMBERS",
-            "start": [
-              149.75,
-              29.0,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
-              150.0,
-              78.0,
-              0.0
-            ],
-            "layer": "PART_NUMBERS",
-            "start": [
-              150.0,
-              87.75,
               0.0
             ],
             "type": "LINE"
@@ -11392,20 +12384,6 @@
             "start": [
               8.0,
               5.75,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
-              33.0,
-              19.25,
-              0.0
-            ],
-            "layer": "PART_NUMBERS",
-            "start": [
-              33.0,
-              29.0,
               0.0
             ],
             "type": "LINE"
@@ -11839,7 +12817,7 @@
             "layer": "PART_NUMBERS",
             "start": [
               59.34375,
-              41.0,
+              36.0,
               0.0
             ],
             "type": "LINE"
@@ -11909,7 +12887,7 @@
             "layer": "PART_NUMBERS",
             "start": [
               6.65625,
-              41.0,
+              36.0,
               0.0
             ],
             "type": "LINE"
@@ -12546,6 +13524,706 @@
           },
           {
             "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                117.40625,
+                36.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                123.40625,
+                36.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                123.40625,
+                40.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                117.40625,
+                40.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                131.4,
+                101.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                142.8,
+                101.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                142.8,
+                105.75,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                131.4,
+                105.75,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                132.25,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                138.25,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                138.25,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                132.25,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                132.5,
+                76.125,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                138.5,
+                76.125,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                138.5,
+                80.625,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                132.5,
+                80.625,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                144.79375,
+                -0.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                154.39375,
+                -0.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                154.39375,
+                4.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                144.79375,
+                4.25,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                146.75,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                152.75,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                152.75,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                146.75,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                147.0,
+                75.75,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                153.0,
+                75.75,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                153.0,
+                80.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                147.0,
+                80.25,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                157.2,
+                103.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                168.6,
+                103.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                168.6,
+                108.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                157.2,
+                108.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                161.25,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                167.25,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                167.25,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                161.25,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                161.5,
+                76.125,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                167.5,
+                76.125,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                167.5,
+                80.625,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                161.5,
+                80.625,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                17.0,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                23.0,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                23.0,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                17.0,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                27.575,
+                33.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.175,
+                33.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.175,
+                37.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                27.575,
+                37.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                28.2,
+                -0.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.8,
+                -0.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.8,
+                4.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                28.2,
+                4.25,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                3.65625,
+                36.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                9.65625,
+                36.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                9.65625,
+                40.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                3.65625,
+                40.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                30.0,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                36.0,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                36.0,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                30.0,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                31.25,
+                53.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.25,
+                53.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.25,
+                57.75,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                31.25,
+                57.75,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                31.25,
+                69.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.25,
+                69.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.25,
+                73.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                31.25,
+                73.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                31.25,
+                84.75,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.25,
+                84.75,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.25,
+                89.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                31.25,
+                89.25,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                43.0,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                49.0,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                49.0,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                43.0,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                56.34375,
+                36.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                62.34375,
+                36.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                62.34375,
+                40.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                56.34375,
+                40.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
             "layer": "WALLS",
             "type": "LWPOLYLINE",
             "vertices": [
@@ -12691,14 +14369,14 @@
       {
         "align_point": [
           120.40625,
-          43.25,
+          38.25,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           120.40625,
-          43.25,
+          38.25,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -12786,14 +14464,14 @@
       {
         "align_point": [
           149.75,
-          31.25,
+          19.25,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           149.75,
-          31.25,
+          19.25,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -12805,14 +14483,14 @@
       {
         "align_point": [
           150.0,
-          90.0,
+          78.0,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           150.0,
-          90.0,
+          78.0,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -12919,6 +14597,25 @@
       {
         "align_point": [
           33.0,
+          19.25,
+          0.0
+        ],
+        "halign": 1,
+        "height": 3.0,
+        "insert": [
+          33.0,
+          19.25,
+          0.0
+        ],
+        "layer": "PART_NUMBERS",
+        "style": "FF_TEXT",
+        "text": "5",
+        "type": "TEXT",
+        "valign": 2
+      },
+      {
+        "align_point": [
+          33.0,
           2.0,
           0.0
         ],
@@ -12932,25 +14629,6 @@
         "layer": "PART_NUMBERS",
         "style": "FF_TEXT",
         "text": "FB 1",
-        "type": "TEXT",
-        "valign": 2
-      },
-      {
-        "align_point": [
-          33.0,
-          31.25,
-          0.0
-        ],
-        "halign": 1,
-        "height": 3.0,
-        "insert": [
-          33.0,
-          31.25,
-          0.0
-        ],
-        "layer": "PART_NUMBERS",
-        "style": "FF_TEXT",
-        "text": "5",
         "type": "TEXT",
         "valign": 2
       },
@@ -13033,14 +14711,14 @@
       {
         "align_point": [
           59.34375,
-          43.25,
+          38.25,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           59.34375,
-          43.25,
+          38.25,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -13052,14 +14730,14 @@
       {
         "align_point": [
           6.65625,
-          43.25,
+          38.25,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           6.65625,
-          43.25,
+          38.25,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -14681,6 +16359,1026 @@
         "version": 0
       },
       {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                117.40625,
+                36.0,
+                0.0
+              ],
+              [
+                123.40625,
+                36.0,
+                0.0
+              ],
+              [
+                123.40625,
+                40.5,
+                0.0
+              ],
+              [
+                117.40625,
+                40.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                131.4,
+                101.25,
+                0.0
+              ],
+              [
+                142.8,
+                101.25,
+                0.0
+              ],
+              [
+                142.8,
+                105.75,
+                0.0
+              ],
+              [
+                131.4,
+                105.75,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                132.25,
+                17.0,
+                0.0
+              ],
+              [
+                138.25,
+                17.0,
+                0.0
+              ],
+              [
+                138.25,
+                21.5,
+                0.0
+              ],
+              [
+                132.25,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                132.5,
+                76.125,
+                0.0
+              ],
+              [
+                138.5,
+                76.125,
+                0.0
+              ],
+              [
+                138.5,
+                80.625,
+                0.0
+              ],
+              [
+                132.5,
+                80.625,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                144.79375,
+                -0.25,
+                0.0
+              ],
+              [
+                154.39375,
+                -0.25,
+                0.0
+              ],
+              [
+                154.39375,
+                4.25,
+                0.0
+              ],
+              [
+                144.79375,
+                4.25,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                146.75,
+                17.0,
+                0.0
+              ],
+              [
+                152.75,
+                17.0,
+                0.0
+              ],
+              [
+                152.75,
+                21.5,
+                0.0
+              ],
+              [
+                146.75,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                147.0,
+                75.75,
+                0.0
+              ],
+              [
+                153.0,
+                75.75,
+                0.0
+              ],
+              [
+                153.0,
+                80.25,
+                0.0
+              ],
+              [
+                147.0,
+                80.25,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                157.2,
+                103.5,
+                0.0
+              ],
+              [
+                168.6,
+                103.5,
+                0.0
+              ],
+              [
+                168.6,
+                108.0,
+                0.0
+              ],
+              [
+                157.2,
+                108.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                161.25,
+                17.0,
+                0.0
+              ],
+              [
+                167.25,
+                17.0,
+                0.0
+              ],
+              [
+                167.25,
+                21.5,
+                0.0
+              ],
+              [
+                161.25,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                161.5,
+                76.125,
+                0.0
+              ],
+              [
+                167.5,
+                76.125,
+                0.0
+              ],
+              [
+                167.5,
+                80.625,
+                0.0
+              ],
+              [
+                161.5,
+                80.625,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                17.0,
+                17.0,
+                0.0
+              ],
+              [
+                23.0,
+                17.0,
+                0.0
+              ],
+              [
+                23.0,
+                21.5,
+                0.0
+              ],
+              [
+                17.0,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                27.575,
+                33.0,
+                0.0
+              ],
+              [
+                37.175,
+                33.0,
+                0.0
+              ],
+              [
+                37.175,
+                37.5,
+                0.0
+              ],
+              [
+                27.575,
+                37.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                28.2,
+                -0.25,
+                0.0
+              ],
+              [
+                37.8,
+                -0.25,
+                0.0
+              ],
+              [
+                37.8,
+                4.25,
+                0.0
+              ],
+              [
+                28.2,
+                4.25,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                3.65625,
+                36.0,
+                0.0
+              ],
+              [
+                9.65625,
+                36.0,
+                0.0
+              ],
+              [
+                9.65625,
+                40.5,
+                0.0
+              ],
+              [
+                3.65625,
+                40.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                30.0,
+                17.0,
+                0.0
+              ],
+              [
+                36.0,
+                17.0,
+                0.0
+              ],
+              [
+                36.0,
+                21.5,
+                0.0
+              ],
+              [
+                30.0,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                31.25,
+                53.25,
+                0.0
+              ],
+              [
+                37.25,
+                53.25,
+                0.0
+              ],
+              [
+                37.25,
+                57.75,
+                0.0
+              ],
+              [
+                31.25,
+                57.75,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                31.25,
+                69.0,
+                0.0
+              ],
+              [
+                37.25,
+                69.0,
+                0.0
+              ],
+              [
+                37.25,
+                73.5,
+                0.0
+              ],
+              [
+                31.25,
+                73.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                31.25,
+                84.75,
+                0.0
+              ],
+              [
+                37.25,
+                84.75,
+                0.0
+              ],
+              [
+                37.25,
+                89.25,
+                0.0
+              ],
+              [
+                31.25,
+                89.25,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                43.0,
+                17.0,
+                0.0
+              ],
+              [
+                49.0,
+                17.0,
+                0.0
+              ],
+              [
+                49.0,
+                21.5,
+                0.0
+              ],
+              [
+                43.0,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                56.34375,
+                36.0,
+                0.0
+              ],
+              [
+                62.34375,
+                36.0,
+                0.0
+              ],
+              [
+                62.34375,
+                40.5,
+                0.0
+              ],
+              [
+                56.34375,
+                40.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
         "center": [
           119.1875,
           4.0,
@@ -15095,7 +17793,7 @@
         "layer": "PART_NUMBERS",
         "start": [
           120.40625,
-          41.0,
+          36.0,
           0.0
         ],
         "type": "LINE"
@@ -15740,34 +18438,6 @@
         "start": [
           122.0,
           55.75,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
-          149.75,
-          19.25,
-          0.0
-        ],
-        "layer": "PART_NUMBERS",
-        "start": [
-          149.75,
-          29.0,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
-          150.0,
-          78.0,
-          0.0
-        ],
-        "layer": "PART_NUMBERS",
-        "start": [
-          150.0,
-          87.75,
           0.0
         ],
         "type": "LINE"
@@ -17182,20 +19852,6 @@
         "start": [
           8.0,
           5.75,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
-          33.0,
-          19.25,
-          0.0
-        ],
-        "layer": "PART_NUMBERS",
-        "start": [
-          33.0,
-          29.0,
           0.0
         ],
         "type": "LINE"
@@ -17629,7 +20285,7 @@
         "layer": "PART_NUMBERS",
         "start": [
           59.34375,
-          41.0,
+          36.0,
           0.0
         ],
         "type": "LINE"
@@ -17699,7 +20355,7 @@
         "layer": "PART_NUMBERS",
         "start": [
           6.65625,
-          41.0,
+          36.0,
           0.0
         ],
         "type": "LINE"
@@ -18333,6 +20989,706 @@
           0.0
         ],
         "type": "LINE"
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            117.40625,
+            36.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            123.40625,
+            36.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            123.40625,
+            40.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            117.40625,
+            40.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            131.4,
+            101.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            142.8,
+            101.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            142.8,
+            105.75,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            131.4,
+            105.75,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            132.25,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            138.25,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            138.25,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            132.25,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            132.5,
+            76.125,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            138.5,
+            76.125,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            138.5,
+            80.625,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            132.5,
+            80.625,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            144.79375,
+            -0.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            154.39375,
+            -0.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            154.39375,
+            4.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            144.79375,
+            4.25,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            146.75,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            152.75,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            152.75,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            146.75,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            147.0,
+            75.75,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            153.0,
+            75.75,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            153.0,
+            80.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            147.0,
+            80.25,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            157.2,
+            103.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            168.6,
+            103.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            168.6,
+            108.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            157.2,
+            108.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            161.25,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            167.25,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            167.25,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            161.25,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            161.5,
+            76.125,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            167.5,
+            76.125,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            167.5,
+            80.625,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            161.5,
+            80.625,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            17.0,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            23.0,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            23.0,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            17.0,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            27.575,
+            33.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            37.175,
+            33.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            37.175,
+            37.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            27.575,
+            37.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            28.2,
+            -0.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            37.8,
+            -0.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            37.8,
+            4.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            28.2,
+            4.25,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            3.65625,
+            36.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            9.65625,
+            36.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            9.65625,
+            40.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            3.65625,
+            40.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            30.0,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            36.0,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            36.0,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            30.0,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            31.25,
+            53.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            37.25,
+            53.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            37.25,
+            57.75,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            31.25,
+            57.75,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            31.25,
+            69.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            37.25,
+            69.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            37.25,
+            73.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            31.25,
+            73.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            31.25,
+            84.75,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            37.25,
+            84.75,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            37.25,
+            89.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            31.25,
+            89.25,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            43.0,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            49.0,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            49.0,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            43.0,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            56.34375,
+            36.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            62.34375,
+            36.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            62.34375,
+            40.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            56.34375,
+            40.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
       },
       {
         "flags": 1,
@@ -23500,14 +26856,14 @@
           {
             "align_point": [
               130.125,
-              31.25,
+              19.25,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               130.125,
-              31.25,
+              19.25,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -23519,14 +26875,14 @@
           {
             "align_point": [
               130.59375,
-              43.25,
+              44.25,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               130.59375,
-              43.25,
+              44.25,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -23557,14 +26913,14 @@
           {
             "align_point": [
               47.90625,
-              43.25,
+              38.25,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               47.90625,
-              43.25,
+              38.25,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -23576,14 +26932,14 @@
           {
             "align_point": [
               48.375,
-              31.25,
+              19.25,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               48.375,
-              31.25,
+              19.25,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -24845,6 +28201,618 @@
             ],
             "type": "DIMENSION",
             "version": 0
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    112.05,
+                    30.5,
+                    0.0
+                  ],
+                  [
+                    123.45,
+                    30.5,
+                    0.0
+                  ],
+                  [
+                    123.45,
+                    35.0,
+                    0.0
+                  ],
+                  [
+                    112.05,
+                    35.0,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    112.3,
+                    -0.25,
+                    0.0
+                  ],
+                  [
+                    123.7,
+                    -0.25,
+                    0.0
+                  ],
+                  [
+                    123.7,
+                    4.25,
+                    0.0
+                  ],
+                  [
+                    112.3,
+                    4.25,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    114.75,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    120.75,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    120.75,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    114.75,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    125.3,
+                    33.0,
+                    0.0
+                  ],
+                  [
+                    136.7,
+                    33.0,
+                    0.0
+                  ],
+                  [
+                    136.7,
+                    37.5,
+                    0.0
+                  ],
+                  [
+                    125.3,
+                    37.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    127.125,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    133.125,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    133.125,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    127.125,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    127.59375,
+                    42.0,
+                    0.0
+                  ],
+                  [
+                    133.59375,
+                    42.0,
+                    0.0
+                  ],
+                  [
+                    133.59375,
+                    46.5,
+                    0.0
+                  ],
+                  [
+                    127.59375,
+                    46.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    44.90625,
+                    36.0,
+                    0.0
+                  ],
+                  [
+                    50.90625,
+                    36.0,
+                    0.0
+                  ],
+                  [
+                    50.90625,
+                    40.5,
+                    0.0
+                  ],
+                  [
+                    44.90625,
+                    40.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    45.375,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    51.375,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    51.375,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    45.375,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    54.8,
+                    -0.25,
+                    0.0
+                  ],
+                  [
+                    66.2,
+                    -0.25,
+                    0.0
+                  ],
+                  [
+                    66.2,
+                    4.25,
+                    0.0
+                  ],
+                  [
+                    54.8,
+                    4.25,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    57.75,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    63.75,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    63.75,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    57.75,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    70.3,
+                    33.0,
+                    0.0
+                  ],
+                  [
+                    81.7,
+                    33.0,
+                    0.0
+                  ],
+                  [
+                    81.7,
+                    37.5,
+                    0.0
+                  ],
+                  [
+                    70.3,
+                    37.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    86.25,
+                    30.25,
+                    0.0
+                  ],
+                  [
+                    92.25,
+                    30.25,
+                    0.0
+                  ],
+                  [
+                    92.25,
+                    34.75,
+                    0.0
+                  ],
+                  [
+                    86.25,
+                    34.75,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
           },
           {
             "associative": 0,
@@ -26332,20 +30300,6 @@
           },
           {
             "end": [
-              130.125,
-              19.25,
-              0.0
-            ],
-            "layer": "PART_NUMBERS",
-            "start": [
-              130.125,
-              29.0,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
               130.1875,
               34.5,
               0.0
@@ -26381,7 +30335,7 @@
             "layer": "PART_NUMBERS",
             "start": [
               130.59375,
-              41.0,
+              42.0,
               0.0
             ],
             "type": "LINE"
@@ -27039,7 +30993,7 @@
             "layer": "PART_NUMBERS",
             "start": [
               47.90625,
-              41.0,
+              36.0,
               0.0
             ],
             "type": "LINE"
@@ -27068,20 +31022,6 @@
             "start": [
               47.5,
               4.0,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
-              48.375,
-              19.25,
-              0.0
-            ],
-            "layer": "PART_NUMBERS",
-            "start": [
-              48.375,
-              29.0,
               0.0
             ],
             "type": "LINE"
@@ -28152,6 +32092,426 @@
           },
           {
             "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                112.05,
+                30.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                123.45,
+                30.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                123.45,
+                35.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                112.05,
+                35.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                112.3,
+                -0.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                123.7,
+                -0.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                123.7,
+                4.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                112.3,
+                4.25,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                114.75,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                120.75,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                120.75,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                114.75,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                125.3,
+                33.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                136.7,
+                33.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                136.7,
+                37.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                125.3,
+                37.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                127.125,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                133.125,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                133.125,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                127.125,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                127.59375,
+                42.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                133.59375,
+                42.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                133.59375,
+                46.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                127.59375,
+                46.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                44.90625,
+                36.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                50.90625,
+                36.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                50.90625,
+                40.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                44.90625,
+                40.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                45.375,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                51.375,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                51.375,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                45.375,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                54.8,
+                -0.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                66.2,
+                -0.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                66.2,
+                4.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                54.8,
+                4.25,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                57.75,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                63.75,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                63.75,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                57.75,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                70.3,
+                33.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                81.7,
+                33.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                81.7,
+                37.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                70.3,
+                37.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                86.25,
+                30.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                92.25,
+                30.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                92.25,
+                34.75,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                86.25,
+                34.75,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
             "layer": "WALLS",
             "type": "LWPOLYLINE",
             "vertices": [
@@ -28354,14 +32714,14 @@
       {
         "align_point": [
           130.125,
-          31.25,
+          19.25,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           130.125,
-          31.25,
+          19.25,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -28373,14 +32733,14 @@
       {
         "align_point": [
           130.59375,
-          43.25,
+          44.25,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           130.59375,
-          43.25,
+          44.25,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -28411,14 +32771,14 @@
       {
         "align_point": [
           47.90625,
-          43.25,
+          38.25,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           47.90625,
-          43.25,
+          38.25,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -28430,14 +32790,14 @@
       {
         "align_point": [
           48.375,
-          31.25,
+          19.25,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           48.375,
-          31.25,
+          19.25,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -29699,6 +34059,618 @@
         ],
         "type": "DIMENSION",
         "version": 0
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                112.05,
+                30.5,
+                0.0
+              ],
+              [
+                123.45,
+                30.5,
+                0.0
+              ],
+              [
+                123.45,
+                35.0,
+                0.0
+              ],
+              [
+                112.05,
+                35.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                112.3,
+                -0.25,
+                0.0
+              ],
+              [
+                123.7,
+                -0.25,
+                0.0
+              ],
+              [
+                123.7,
+                4.25,
+                0.0
+              ],
+              [
+                112.3,
+                4.25,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                114.75,
+                17.0,
+                0.0
+              ],
+              [
+                120.75,
+                17.0,
+                0.0
+              ],
+              [
+                120.75,
+                21.5,
+                0.0
+              ],
+              [
+                114.75,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                125.3,
+                33.0,
+                0.0
+              ],
+              [
+                136.7,
+                33.0,
+                0.0
+              ],
+              [
+                136.7,
+                37.5,
+                0.0
+              ],
+              [
+                125.3,
+                37.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                127.125,
+                17.0,
+                0.0
+              ],
+              [
+                133.125,
+                17.0,
+                0.0
+              ],
+              [
+                133.125,
+                21.5,
+                0.0
+              ],
+              [
+                127.125,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                127.59375,
+                42.0,
+                0.0
+              ],
+              [
+                133.59375,
+                42.0,
+                0.0
+              ],
+              [
+                133.59375,
+                46.5,
+                0.0
+              ],
+              [
+                127.59375,
+                46.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                44.90625,
+                36.0,
+                0.0
+              ],
+              [
+                50.90625,
+                36.0,
+                0.0
+              ],
+              [
+                50.90625,
+                40.5,
+                0.0
+              ],
+              [
+                44.90625,
+                40.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                45.375,
+                17.0,
+                0.0
+              ],
+              [
+                51.375,
+                17.0,
+                0.0
+              ],
+              [
+                51.375,
+                21.5,
+                0.0
+              ],
+              [
+                45.375,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                54.8,
+                -0.25,
+                0.0
+              ],
+              [
+                66.2,
+                -0.25,
+                0.0
+              ],
+              [
+                66.2,
+                4.25,
+                0.0
+              ],
+              [
+                54.8,
+                4.25,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                57.75,
+                17.0,
+                0.0
+              ],
+              [
+                63.75,
+                17.0,
+                0.0
+              ],
+              [
+                63.75,
+                21.5,
+                0.0
+              ],
+              [
+                57.75,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                70.3,
+                33.0,
+                0.0
+              ],
+              [
+                81.7,
+                33.0,
+                0.0
+              ],
+              [
+                81.7,
+                37.5,
+                0.0
+              ],
+              [
+                70.3,
+                37.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                86.25,
+                30.25,
+                0.0
+              ],
+              [
+                92.25,
+                30.25,
+                0.0
+              ],
+              [
+                92.25,
+                34.75,
+                0.0
+              ],
+              [
+                86.25,
+                34.75,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
       },
       {
         "associative": 0,
@@ -31186,20 +36158,6 @@
       },
       {
         "end": [
-          130.125,
-          19.25,
-          0.0
-        ],
-        "layer": "PART_NUMBERS",
-        "start": [
-          130.125,
-          29.0,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
           130.1875,
           34.5,
           0.0
@@ -31235,7 +36193,7 @@
         "layer": "PART_NUMBERS",
         "start": [
           130.59375,
-          41.0,
+          42.0,
           0.0
         ],
         "type": "LINE"
@@ -31893,7 +36851,7 @@
         "layer": "PART_NUMBERS",
         "start": [
           47.90625,
-          41.0,
+          36.0,
           0.0
         ],
         "type": "LINE"
@@ -31922,20 +36880,6 @@
         "start": [
           47.5,
           4.0,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
-          48.375,
-          19.25,
-          0.0
-        ],
-        "layer": "PART_NUMBERS",
-        "start": [
-          48.375,
-          29.0,
           0.0
         ],
         "type": "LINE"
@@ -33003,6 +37947,426 @@
           0.0
         ],
         "type": "LINE"
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            112.05,
+            30.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            123.45,
+            30.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            123.45,
+            35.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            112.05,
+            35.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            112.3,
+            -0.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            123.7,
+            -0.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            123.7,
+            4.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            112.3,
+            4.25,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            114.75,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            120.75,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            120.75,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            114.75,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            125.3,
+            33.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            136.7,
+            33.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            136.7,
+            37.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            125.3,
+            37.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            127.125,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            133.125,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            133.125,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            127.125,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            127.59375,
+            42.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            133.59375,
+            42.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            133.59375,
+            46.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            127.59375,
+            46.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            44.90625,
+            36.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            50.90625,
+            36.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            50.90625,
+            40.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            44.90625,
+            40.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            45.375,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            51.375,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            51.375,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            45.375,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            54.8,
+            -0.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            66.2,
+            -0.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            66.2,
+            4.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            54.8,
+            4.25,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            57.75,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            63.75,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            63.75,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            57.75,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            70.3,
+            33.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            81.7,
+            33.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            81.7,
+            37.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            70.3,
+            37.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            86.25,
+            30.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            92.25,
+            30.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            92.25,
+            34.75,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            86.25,
+            34.75,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
       },
       {
         "flags": 1,
@@ -36710,14 +42074,14 @@
           {
             "align_point": [
               1.25,
-              25.25,
+              19.25,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               1.25,
-              25.25,
+              19.25,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -36748,14 +42112,14 @@
           {
             "align_point": [
               34.75,
-              31.25,
+              19.25,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               34.75,
-              31.25,
+              19.25,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -36824,14 +42188,14 @@
           {
             "align_point": [
               97.09375,
-              43.25,
+              19.25,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               97.09375,
-              43.25,
+              19.25,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -36843,14 +42207,14 @@
           {
             "align_point": [
               97.5,
-              23.25,
+              11.25,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               97.5,
-              23.25,
+              11.25,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -36862,14 +42226,14 @@
           {
             "align_point": [
               98.75,
-              23.25,
+              29.25,
               0.0
             ],
             "halign": 1,
             "height": 3.0,
             "insert": [
               98.75,
-              23.25,
+              29.25,
               0.0
             ],
             "layer": "PART_NUMBERS",
@@ -37716,6 +43080,465 @@
             "version": 0
           },
           {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    -1.75,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    4.25,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    4.25,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    -1.75,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    16.25,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    22.25,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    22.25,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    16.25,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    31.75,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    37.75,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    37.75,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    31.75,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    44.70625,
+                    -0.25,
+                    0.0
+                  ],
+                  [
+                    56.10625,
+                    -0.25,
+                    0.0
+                  ],
+                  [
+                    56.10625,
+                    4.25,
+                    0.0
+                  ],
+                  [
+                    44.70625,
+                    4.25,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    47.25,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    53.25,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    53.25,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    47.25,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    78.25,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    84.25,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    84.25,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    78.25,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    94.09375,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    100.09375,
+                    17.0,
+                    0.0
+                  ],
+                  [
+                    100.09375,
+                    21.5,
+                    0.0
+                  ],
+                  [
+                    94.09375,
+                    21.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    94.5,
+                    9.0,
+                    0.0
+                  ],
+                  [
+                    100.5,
+                    9.0,
+                    0.0
+                  ],
+                  [
+                    100.5,
+                    13.5,
+                    0.0
+                  ],
+                  [
+                    94.5,
+                    13.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
+            "associative": 0,
+            "color": 7,
+            "elevation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extrusion": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "hatch_style": 0,
+            "layer": "PART_NUMBERS",
+            "paths": [
+              {
+                "closed": 1,
+                "flags": 3,
+                "vertices": [
+                  [
+                    95.75,
+                    27.0,
+                    0.0
+                  ],
+                  [
+                    101.75,
+                    27.0,
+                    0.0
+                  ],
+                  [
+                    101.75,
+                    31.5,
+                    0.0
+                  ],
+                  [
+                    95.75,
+                    31.5,
+                    0.0
+                  ]
+                ]
+              }
+            ],
+            "pattern": null,
+            "pattern_name": "SOLID",
+            "pattern_type": 1,
+            "seeds": [],
+            "solid_fill": 1,
+            "true_color": 16777215,
+            "type": "HATCH"
+          },
+          {
             "attribs": [],
             "insert": [
               97.5,
@@ -38222,20 +44045,6 @@
           },
           {
             "end": [
-              1.25,
-              19.25,
-              0.0
-            ],
-            "layer": "PART_NUMBERS",
-            "start": [
-              1.25,
-              23.0,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
               100.0,
               29.5,
               0.0
@@ -38706,20 +44515,6 @@
             "start": [
               4.75,
               5.75,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
-              34.75,
-              19.25,
-              0.0
-            ],
-            "layer": "PART_NUMBERS",
-            "start": [
-              34.75,
-              29.0,
               0.0
             ],
             "type": "LINE"
@@ -39650,34 +45445,6 @@
           },
           {
             "end": [
-              97.09375,
-              19.25,
-              0.0
-            ],
-            "layer": "PART_NUMBERS",
-            "start": [
-              97.09375,
-              41.0,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
-              97.5,
-              17.25,
-              0.0
-            ],
-            "layer": "PART_NUMBERS",
-            "start": [
-              97.5,
-              21.0,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
               97.5,
               34.5,
               0.0
@@ -39714,20 +45481,6 @@
             "start": [
               100.4375,
               4.0,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
-              98.75,
-              17.25,
-              0.0
-            ],
-            "layer": "PART_NUMBERS",
-            "start": [
-              98.75,
-              21.0,
               0.0
             ],
             "type": "LINE"
@@ -39815,6 +45568,321 @@
               0.0
             ],
             "type": "LINE"
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                -1.75,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                4.25,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                4.25,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -1.75,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                16.25,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                22.25,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                22.25,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                16.25,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                31.75,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.75,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                37.75,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                31.75,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                44.70625,
+                -0.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                56.10625,
+                -0.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                56.10625,
+                4.25,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                44.70625,
+                4.25,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                47.25,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                53.25,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                53.25,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                47.25,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                78.25,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                84.25,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                84.25,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                78.25,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                94.09375,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                100.09375,
+                17.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                100.09375,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                94.09375,
+                21.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                94.5,
+                9.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                100.5,
+                9.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                100.5,
+                13.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                94.5,
+                13.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "flags": 1,
+            "layer": "PART_NUMBERS",
+            "type": "LWPOLYLINE",
+            "vertices": [
+              [
+                95.75,
+                27.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                101.75,
+                27.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                101.75,
+                31.5,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                95.75,
+                31.5,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
           },
           {
             "flags": 1,
@@ -40231,14 +46299,14 @@
       {
         "align_point": [
           1.25,
-          25.25,
+          19.25,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           1.25,
-          25.25,
+          19.25,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -40269,14 +46337,14 @@
       {
         "align_point": [
           34.75,
-          31.25,
+          19.25,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           34.75,
-          31.25,
+          19.25,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -40345,14 +46413,14 @@
       {
         "align_point": [
           97.09375,
-          43.25,
+          19.25,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           97.09375,
-          43.25,
+          19.25,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -40364,14 +46432,14 @@
       {
         "align_point": [
           97.5,
-          23.25,
+          11.25,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           97.5,
-          23.25,
+          11.25,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -40383,14 +46451,14 @@
       {
         "align_point": [
           98.75,
-          23.25,
+          29.25,
           0.0
         ],
         "halign": 1,
         "height": 3.0,
         "insert": [
           98.75,
-          23.25,
+          29.25,
           0.0
         ],
         "layer": "PART_NUMBERS",
@@ -41237,6 +47305,465 @@
         "version": 0
       },
       {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                -1.75,
+                17.0,
+                0.0
+              ],
+              [
+                4.25,
+                17.0,
+                0.0
+              ],
+              [
+                4.25,
+                21.5,
+                0.0
+              ],
+              [
+                -1.75,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                16.25,
+                17.0,
+                0.0
+              ],
+              [
+                22.25,
+                17.0,
+                0.0
+              ],
+              [
+                22.25,
+                21.5,
+                0.0
+              ],
+              [
+                16.25,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                31.75,
+                17.0,
+                0.0
+              ],
+              [
+                37.75,
+                17.0,
+                0.0
+              ],
+              [
+                37.75,
+                21.5,
+                0.0
+              ],
+              [
+                31.75,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                44.70625,
+                -0.25,
+                0.0
+              ],
+              [
+                56.10625,
+                -0.25,
+                0.0
+              ],
+              [
+                56.10625,
+                4.25,
+                0.0
+              ],
+              [
+                44.70625,
+                4.25,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                47.25,
+                17.0,
+                0.0
+              ],
+              [
+                53.25,
+                17.0,
+                0.0
+              ],
+              [
+                53.25,
+                21.5,
+                0.0
+              ],
+              [
+                47.25,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                78.25,
+                17.0,
+                0.0
+              ],
+              [
+                84.25,
+                17.0,
+                0.0
+              ],
+              [
+                84.25,
+                21.5,
+                0.0
+              ],
+              [
+                78.25,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                94.09375,
+                17.0,
+                0.0
+              ],
+              [
+                100.09375,
+                17.0,
+                0.0
+              ],
+              [
+                100.09375,
+                21.5,
+                0.0
+              ],
+              [
+                94.09375,
+                21.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                94.5,
+                9.0,
+                0.0
+              ],
+              [
+                100.5,
+                9.0,
+                0.0
+              ],
+              [
+                100.5,
+                13.5,
+                0.0
+              ],
+              [
+                94.5,
+                13.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
+        "associative": 0,
+        "color": 7,
+        "elevation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "extrusion": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "hatch_style": 0,
+        "layer": "PART_NUMBERS",
+        "paths": [
+          {
+            "closed": 1,
+            "flags": 3,
+            "vertices": [
+              [
+                95.75,
+                27.0,
+                0.0
+              ],
+              [
+                101.75,
+                27.0,
+                0.0
+              ],
+              [
+                101.75,
+                31.5,
+                0.0
+              ],
+              [
+                95.75,
+                31.5,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "pattern": null,
+        "pattern_name": "SOLID",
+        "pattern_type": 1,
+        "seeds": [],
+        "solid_fill": 1,
+        "true_color": 16777215,
+        "type": "HATCH"
+      },
+      {
         "attribs": [],
         "insert": [
           97.5,
@@ -41743,20 +48270,6 @@
       },
       {
         "end": [
-          1.25,
-          19.25,
-          0.0
-        ],
-        "layer": "PART_NUMBERS",
-        "start": [
-          1.25,
-          23.0,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
           100.0,
           29.5,
           0.0
@@ -42227,20 +48740,6 @@
         "start": [
           4.75,
           5.75,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
-          34.75,
-          19.25,
-          0.0
-        ],
-        "layer": "PART_NUMBERS",
-        "start": [
-          34.75,
-          29.0,
           0.0
         ],
         "type": "LINE"
@@ -43171,34 +49670,6 @@
       },
       {
         "end": [
-          97.09375,
-          19.25,
-          0.0
-        ],
-        "layer": "PART_NUMBERS",
-        "start": [
-          97.09375,
-          41.0,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
-          97.5,
-          17.25,
-          0.0
-        ],
-        "layer": "PART_NUMBERS",
-        "start": [
-          97.5,
-          21.0,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
           97.5,
           34.5,
           0.0
@@ -43235,20 +49706,6 @@
         "start": [
           100.4375,
           4.0,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
-          98.75,
-          17.25,
-          0.0
-        ],
-        "layer": "PART_NUMBERS",
-        "start": [
-          98.75,
-          21.0,
           0.0
         ],
         "type": "LINE"
@@ -43336,6 +49793,321 @@
           0.0
         ],
         "type": "LINE"
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            -1.75,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            4.25,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            4.25,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -1.75,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            16.25,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            22.25,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            22.25,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            16.25,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            31.75,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            37.75,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            37.75,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            31.75,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            44.70625,
+            -0.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            56.10625,
+            -0.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            56.10625,
+            4.25,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            44.70625,
+            4.25,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            47.25,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            53.25,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            53.25,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            47.25,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            78.25,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            84.25,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            84.25,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            78.25,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            94.09375,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            100.09375,
+            17.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            100.09375,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            94.09375,
+            21.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            94.5,
+            9.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            100.5,
+            9.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            100.5,
+            13.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            94.5,
+            13.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "flags": 1,
+        "layer": "PART_NUMBERS",
+        "type": "LWPOLYLINE",
+        "vertices": [
+          [
+            95.75,
+            27.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            101.75,
+            27.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            101.75,
+            31.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            95.75,
+            31.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
       },
       {
         "flags": 1,

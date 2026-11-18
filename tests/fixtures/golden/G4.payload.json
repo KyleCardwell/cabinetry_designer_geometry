@@ -308,16 +308,11 @@
         {
           "height": 4.5,
           "key": "738c73a7-adda-40e0-bca9-a881403c1ffa:left",
-          "leader": {
-            "x1": 13.40625,
-            "x2": 13.40625,
-            "z1": 50.75,
-            "z2": 47
-          },
+          "leader": null,
           "text": "1",
           "width": 6,
           "x": 13.40625,
-          "z": 53
+          "z": 47
         },
         {
           "height": 4.5,
@@ -358,58 +353,38 @@
         {
           "height": 4.5,
           "key": "738c73a7-adda-40e0-bca9-a881403c1ffa:right",
-          "leader": {
-            "x1": 119.40625,
-            "x2": 119.40625,
-            "z1": 50.75,
-            "z2": 47
-          },
+          "leader": null,
           "text": "9",
           "width": 6,
           "x": 119.40625,
-          "z": 53
+          "z": 47
         },
         {
           "height": 4.5,
           "key": "tee:36718dec-9ae3-48e7-bce7-f3d95d207a1c|0e8d791b-a3a5-4fe6-8b08-a1b8e954b8ba",
-          "leader": {
-            "x1": 48.8125,
-            "x2": 48.8125,
-            "z1": 56.75,
-            "z2": 47
-          },
+          "leader": null,
           "text": "3",
           "width": 6,
           "x": 48.8125,
-          "z": 59
+          "z": 47
         },
         {
           "height": 4.5,
           "key": "tee:h:87b307e7-2f67-48a7-a80e-a52d4249d55b|0e8d791b-a3a5-4fe6-8b08-a1b8e954b8ba",
-          "leader": {
-            "x1": 66.3125,
-            "x2": 66.3125,
-            "z1": 67.75,
-            "z2": 64
-          },
+          "leader": null,
           "text": "5",
           "width": 6,
           "x": 66.3125,
-          "z": 70
+          "z": 64
         },
         {
           "height": 4.5,
           "key": "tee:0e8d791b-a3a5-4fe6-8b08-a1b8e954b8ba|6ae1c6d6-ec28-40d7-aee3-f3b0898ed2fb",
-          "leader": {
-            "x1": 83.8125,
-            "x2": 83.8125,
-            "z1": 56.75,
-            "z2": 47
-          },
+          "leader": null,
           "text": "7",
           "width": 6,
           "x": 83.8125,
-          "z": 59
+          "z": 47
         },
         {
           "height": 4.5,
