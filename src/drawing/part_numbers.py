@@ -1,4 +1,4 @@
-"""Draw the designer's pre-positioned part number text and leaders (SPEC-50.14)."""
+"""Draw the designer's pre-positioned boxed part numbers and leaders (GC5)."""
 
 from ezdxf.enums import TextEntityAlignment
 from ezdxf.layouts import Modelspace
@@ -9,9 +9,16 @@ from .models import PayloadPartNumber
 
 
 def add_part_numbers(modelspace: Modelspace, badges: list[PayloadPartNumber]) -> None:
-    """Centre each badge's text and draw its optional leader."""
+    """Fill and outline each badge, then centre its text and draw its leader."""
     for badge in badges:
         attrs = {"layer": "PART_NUMBERS"}
+        x0, x1 = badge.x - badge.width / 2, badge.x + badge.width / 2
+        z0, z1 = badge.z - badge.height / 2, badge.z + badge.height / 2
+        corners = [(x0, z0), (x1, z0), (x1, z1), (x0, z1)]
+        hatch = modelspace.add_hatch(dxfattribs=attrs)
+        hatch.set_solid_fill(color=7, style=0, rgb=(255, 255, 255))
+        hatch.paths.add_polyline_path(corners, is_closed=True)
+        modelspace.add_lwpolyline(corners, close=True, dxfattribs=attrs)
         modelspace.add_text(
             badge.text,
             height=2 * badge.height / 3,
