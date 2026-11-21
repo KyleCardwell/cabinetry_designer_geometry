@@ -1,0 +1,2304 @@
+{
+  "elevations": [
+    {
+      "dimensions": [
+        {
+          "at": -4.5,
+          "base": 0,
+          "end": 2,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 0,
+          "text": "2",
+          "textX": 1,
+          "textZ": -6.375
+        },
+        {
+          "at": -4.5,
+          "base": 0,
+          "end": 31,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 2,
+          "text": "29"
+        },
+        {
+          "at": -4.5,
+          "base": 0,
+          "end": 60,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 31,
+          "text": "29"
+        },
+        {
+          "at": -4.5,
+          "base": 0,
+          "end": 89.5,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 60,
+          "text": "29 1/2"
+        },
+        {
+          "at": -4.5,
+          "base": 0,
+          "end": 119,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 89.5,
+          "text": "29 1/2"
+        },
+        {
+          "at": -4.5,
+          "base": 0,
+          "end": 119.8125,
+          "kind": "piece",
+          "row": "lower.inner",
+          "start": 119,
+          "text": "13/16",
+          "textX": 119.40625,
+          "textZ": -6.375
+        },
+        {
+          "at": -10.875,
+          "base": 0,
+          "end": 119.8125,
+          "kind": "run",
+          "row": "lower.outer",
+          "start": 0,
+          "text": "119 13/16"
+        },
+        {
+          "at": -10.875,
+          "base": 0,
+          "end": 144,
+          "kind": "open",
+          "row": "lower.outer",
+          "start": 119.8125,
+          "text": "24 3/16"
+        },
+        {
+          "at": -15.375,
+          "base": 0,
+          "end": 144,
+          "kind": "wall",
+          "row": "wall",
+          "start": 0,
+          "text": "144"
+        },
+        {
+          "at": 100.5,
+          "base": 96,
+          "end": 2,
+          "kind": "piece",
+          "row": "upper.inner",
+          "start": 0,
+          "text": "2",
+          "textX": 1,
+          "textZ": 102.375
+        },
+        {
+          "at": 100.5,
+          "base": 96,
+          "end": 31,
+          "kind": "piece",
+          "row": "upper.inner",
+          "start": 2,
+          "text": "29"
+        },
+        {
+          "at": 100.5,
+          "base": 96,
+          "end": 60,
+          "kind": "piece",
+          "row": "upper.inner",
+          "start": 31,
+          "text": "29"
+        },
+        {
+          "at": 100.5,
+          "base": 96,
+          "end": 77.5,
+          "kind": "piece",
+          "row": "upper.inner",
+          "start": 60,
+          "text": "17 1/2"
+        },
+        {
+          "at": 100.5,
+          "base": 96,
+          "end": 95,
+          "kind": "piece",
+          "row": "upper.inner",
+          "start": 77.5,
+          "text": "17 1/2"
+        },
+        {
+          "at": 100.5,
+          "base": 96,
+          "end": 95.8125,
+          "kind": "piece",
+          "row": "upper.inner",
+          "start": 95,
+          "text": "13/16",
+          "textX": 95.40625,
+          "textZ": 102.375
+        },
+        {
+          "at": 106.875,
+          "base": 96,
+          "end": 95.8125,
+          "kind": "run",
+          "row": "upper.outer",
+          "start": 0,
+          "text": "95 13/16"
+        },
+        {
+          "at": 106.875,
+          "base": 96,
+          "end": 144,
+          "kind": "open",
+          "row": "upper.outer",
+          "start": 95.8125,
+          "text": "48 3/16"
+        },
+        {
+          "at": -4.5,
+          "base": 0,
+          "end": 4,
+          "kind": "toe-kick",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 0,
+          "text": "4"
+        },
+        {
+          "at": -4.5,
+          "base": 0,
+          "end": 34.5,
+          "kind": "box",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 4,
+          "text": "30 1/2"
+        },
+        {
+          "at": -4.5,
+          "base": 0,
+          "end": 36,
+          "kind": "countertop",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 34.5,
+          "text": "1 1/2",
+          "textX": -6.375,
+          "textZ": 35.25
+        },
+        {
+          "at": -4.5,
+          "base": 0,
+          "end": 54,
+          "kind": "clearance",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 36,
+          "text": "18"
+        },
+        {
+          "at": -4.5,
+          "base": 0,
+          "end": 90,
+          "kind": "box",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 54,
+          "text": "36"
+        },
+        {
+          "at": -4.5,
+          "base": 0,
+          "end": 96,
+          "kind": "molding",
+          "orientation": "vertical",
+          "row": "left.inner",
+          "start": 90,
+          "text": "6"
+        },
+        {
+          "at": -10.875,
+          "base": 0,
+          "end": 36,
+          "kind": "counter-height",
+          "orientation": "vertical",
+          "row": "left.middle",
+          "start": 0,
+          "text": "36"
+        },
+        {
+          "at": -15.375,
+          "base": 0,
+          "end": 96,
+          "kind": "wall",
+          "orientation": "vertical",
+          "row": "left.outer",
+          "start": 0,
+          "text": "96"
+        },
+        {
+          "at": 148.5,
+          "base": 144,
+          "end": 4,
+          "kind": "toe-kick",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 0,
+          "text": "4"
+        },
+        {
+          "at": 148.5,
+          "base": 144,
+          "end": 34.5,
+          "kind": "box",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 4,
+          "text": "30 1/2"
+        },
+        {
+          "at": 148.5,
+          "base": 144,
+          "end": 36,
+          "kind": "countertop",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 34.5,
+          "text": "1 1/2",
+          "textX": 150.375,
+          "textZ": 35.25
+        },
+        {
+          "at": 148.5,
+          "base": 144,
+          "end": 54,
+          "kind": "clearance",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 36,
+          "text": "18"
+        },
+        {
+          "at": 148.5,
+          "base": 144,
+          "end": 90,
+          "kind": "box",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 54,
+          "text": "36"
+        },
+        {
+          "at": 148.5,
+          "base": 144,
+          "end": 96,
+          "kind": "molding",
+          "orientation": "vertical",
+          "row": "right.inner",
+          "start": 90,
+          "text": "6"
+        },
+        {
+          "at": 154.875,
+          "base": 144,
+          "end": 36,
+          "kind": "counter-height",
+          "orientation": "vertical",
+          "row": "right.middle",
+          "start": 0,
+          "text": "36"
+        },
+        {
+          "at": 159.375,
+          "base": 144,
+          "end": 96,
+          "kind": "wall",
+          "orientation": "vertical",
+          "row": "right.outer",
+          "start": 0,
+          "text": "96"
+        }
+      ],
+      "doorDetails": [
+        {
+          "openings": [
+            {
+              "height": 24.125,
+              "width": 8.375,
+              "x": 5.0625,
+              "z": 7.125
+            }
+          ],
+          "partId": "Base-L:1:rleft"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.125,
+              "width": 8.375,
+              "x": 19.5625,
+              "z": 7.125
+            }
+          ],
+          "partId": "Base-L:1:rright"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.125,
+              "width": 8.375,
+              "x": 34.0625,
+              "z": 7.125
+            }
+          ],
+          "partId": "Base-L:2:rleft"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.125,
+              "width": 8.375,
+              "x": 48.5625,
+              "z": 7.125
+            }
+          ],
+          "partId": "Base-L:2:rright"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.125,
+              "width": 8.625,
+              "x": 63.0625,
+              "z": 7.125
+            }
+          ],
+          "partId": "Base-R:1:rleft"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.125,
+              "width": 8.625,
+              "x": 77.8125,
+              "z": 7.125
+            }
+          ],
+          "partId": "Base-R:1:rright"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.125,
+              "width": 8.625,
+              "x": 92.5625,
+              "z": 7.125
+            }
+          ],
+          "partId": "Base-R:2:rleft"
+        },
+        {
+          "openings": [
+            {
+              "height": 24.125,
+              "width": 8.625,
+              "x": 107.3125,
+              "z": 7.125
+            }
+          ],
+          "partId": "Base-R:2:rright"
+        },
+        {
+          "openings": [
+            {
+              "height": 30,
+              "width": 8.375,
+              "x": 5.0625,
+              "z": 56.875
+            }
+          ],
+          "partId": "Upper-L:1:rleft"
+        },
+        {
+          "openings": [
+            {
+              "height": 30,
+              "width": 8.375,
+              "x": 19.5625,
+              "z": 56.875
+            }
+          ],
+          "partId": "Upper-L:1:rright"
+        },
+        {
+          "openings": [
+            {
+              "height": 30,
+              "width": 8.375,
+              "x": 34.0625,
+              "z": 56.875
+            }
+          ],
+          "partId": "Upper-L:2:rleft"
+        },
+        {
+          "openings": [
+            {
+              "height": 30,
+              "width": 8.375,
+              "x": 48.5625,
+              "z": 56.875
+            }
+          ],
+          "partId": "Upper-L:2:rright"
+        },
+        {
+          "openings": [
+            {
+              "height": 30,
+              "width": 11.375,
+              "x": 63.0625,
+              "z": 56.875
+            }
+          ],
+          "partId": "Upper-R:1:r"
+        },
+        {
+          "openings": [
+            {
+              "height": 30,
+              "width": 11.375,
+              "x": 80.5625,
+              "z": 56.875
+            }
+          ],
+          "partId": "Upper-R:2:r"
+        }
+      ],
+      "height": 96,
+      "key": "W1",
+      "length": 144,
+      "letter": "A",
+      "marks": [],
+      "partNumbers": [
+        {
+          "height": 2.25,
+          "key": "Base-L:left",
+          "leader": null,
+          "text": "1",
+          "width": 3,
+          "x": 1,
+          "z": 19.25
+        },
+        {
+          "height": 2.25,
+          "key": "Base-L:1",
+          "leader": null,
+          "text": "2",
+          "width": 3,
+          "x": 16.5,
+          "z": 19.25
+        },
+        {
+          "height": 2.25,
+          "key": "Base-L:2",
+          "leader": null,
+          "text": "3",
+          "width": 3,
+          "x": 45.5,
+          "z": 19.25
+        },
+        {
+          "height": 2.25,
+          "key": "Base-R:1",
+          "leader": null,
+          "text": "4",
+          "width": 3,
+          "x": 74.75,
+          "z": 19.25
+        },
+        {
+          "height": 2.25,
+          "key": "Base-R:2",
+          "leader": null,
+          "text": "5",
+          "width": 3,
+          "x": 104.25,
+          "z": 19.25
+        },
+        {
+          "height": 2.25,
+          "key": "Base-R:right",
+          "leader": null,
+          "text": "6",
+          "width": 3,
+          "x": 119.40625,
+          "z": 19.25
+        },
+        {
+          "height": 2.25,
+          "key": "Upper-L:left",
+          "leader": null,
+          "text": "7",
+          "width": 3,
+          "x": 1,
+          "z": 72
+        },
+        {
+          "height": 2.25,
+          "key": "Upper-L:1",
+          "leader": null,
+          "text": "8",
+          "width": 3,
+          "x": 16.5,
+          "z": 72
+        },
+        {
+          "height": 2.25,
+          "key": "Upper-L:2",
+          "leader": null,
+          "text": "9",
+          "width": 3,
+          "x": 45.5,
+          "z": 72
+        },
+        {
+          "height": 2.25,
+          "key": "Upper-R:1",
+          "leader": null,
+          "text": "10",
+          "width": 3,
+          "x": 68.75,
+          "z": 72
+        },
+        {
+          "height": 2.25,
+          "key": "Upper-R:2",
+          "leader": null,
+          "text": "11",
+          "width": 3,
+          "x": 86.25,
+          "z": 72
+        },
+        {
+          "height": 2.25,
+          "key": "Upper-R:right",
+          "leader": null,
+          "text": "12",
+          "width": 3,
+          "x": 95.40625,
+          "z": 72
+        },
+        {
+          "height": 2.25,
+          "key": "molding:toeKick",
+          "leader": null,
+          "text": "TK 13",
+          "width": 5.699999999999999,
+          "x": 30,
+          "z": 2
+        },
+        {
+          "height": 2.25,
+          "key": "molding:topMold",
+          "leader": null,
+          "text": "TM 14",
+          "width": 5.699999999999999,
+          "x": 23.55,
+          "z": 91.5
+        },
+        {
+          "height": 2.25,
+          "key": "molding:crown",
+          "leader": null,
+          "text": "CR 15",
+          "width": 5.699999999999999,
+          "x": 36.45,
+          "z": 93.75
+        }
+      ],
+      "parts": [
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24,
+          "height": 30.5,
+          "id": "Base-L:1",
+          "kind": "cabinet",
+          "runId": "Base-L",
+          "width": 29,
+          "x": 2,
+          "z": 4
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24,
+          "height": 30.5,
+          "id": "Base-L:2",
+          "kind": "cabinet",
+          "runId": "Base-L",
+          "width": 29,
+          "x": 31,
+          "z": 4
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.5,
+          "id": "Base-L:left",
+          "kind": "filler",
+          "runId": "Base-L",
+          "width": 2,
+          "x": 0,
+          "z": 4
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.125,
+          "id": "Base-L:1:rleft",
+          "kind": "face",
+          "runId": "Base-L",
+          "width": 14.375,
+          "x": 2.0625,
+          "z": 4.125
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.125,
+          "id": "Base-L:1:rright",
+          "kind": "face",
+          "runId": "Base-L",
+          "width": 14.375,
+          "x": 16.5625,
+          "z": 4.125
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.125,
+          "id": "Base-L:2:rleft",
+          "kind": "face",
+          "runId": "Base-L",
+          "width": 14.375,
+          "x": 31.0625,
+          "z": 4.125
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.125,
+          "id": "Base-L:2:rright",
+          "kind": "face",
+          "runId": "Base-L",
+          "width": 14.375,
+          "x": 45.5625,
+          "z": 4.125
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24,
+          "height": 30.5,
+          "id": "Base-R:1",
+          "kind": "cabinet",
+          "runId": "Base-R",
+          "width": 29.5,
+          "x": 60,
+          "z": 4
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24,
+          "height": 30.5,
+          "id": "Base-R:2",
+          "kind": "cabinet",
+          "runId": "Base-R",
+          "width": 29.5,
+          "x": 89.5,
+          "z": 4
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 24.875,
+          "height": 30.5,
+          "id": "Base-R:right",
+          "kind": "end_panel",
+          "runId": "Base-R",
+          "width": 0.8125,
+          "x": 119,
+          "z": 4
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.125,
+          "id": "Base-R:1:rleft",
+          "kind": "face",
+          "runId": "Base-R",
+          "width": 14.625,
+          "x": 60.0625,
+          "z": 4.125
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.125,
+          "id": "Base-R:1:rright",
+          "kind": "face",
+          "runId": "Base-R",
+          "width": 14.625,
+          "x": 74.8125,
+          "z": 4.125
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.125,
+          "id": "Base-R:2:rleft",
+          "kind": "face",
+          "runId": "Base-R",
+          "width": 14.625,
+          "x": 89.5625,
+          "z": 4.125
+        },
+        {
+          "back": 24.0625,
+          "coversBoxEdges": true,
+          "front": 24.875,
+          "height": 30.125,
+          "id": "Base-R:2:rright",
+          "kind": "face",
+          "runId": "Base-R",
+          "width": 14.625,
+          "x": 104.3125,
+          "z": 4.125
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 12,
+          "height": 36,
+          "id": "Upper-L:1",
+          "kind": "cabinet",
+          "runId": "Upper-L",
+          "width": 29,
+          "x": 2,
+          "z": 54
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 12,
+          "height": 36,
+          "id": "Upper-L:2",
+          "kind": "cabinet",
+          "runId": "Upper-L",
+          "width": 29,
+          "x": 31,
+          "z": 54
+        },
+        {
+          "back": 12.0625,
+          "coversBoxEdges": true,
+          "front": 12.875,
+          "height": 36.125,
+          "id": "Upper-L:left",
+          "kind": "filler",
+          "runId": "Upper-L",
+          "width": 2,
+          "x": 0,
+          "z": 53.875
+        },
+        {
+          "back": 12.0625,
+          "coversBoxEdges": true,
+          "front": 12.875,
+          "height": 36,
+          "id": "Upper-L:1:rleft",
+          "kind": "face",
+          "runId": "Upper-L",
+          "width": 14.375,
+          "x": 2.0625,
+          "z": 53.875
+        },
+        {
+          "back": 12.0625,
+          "coversBoxEdges": true,
+          "front": 12.875,
+          "height": 36,
+          "id": "Upper-L:1:rright",
+          "kind": "face",
+          "runId": "Upper-L",
+          "width": 14.375,
+          "x": 16.5625,
+          "z": 53.875
+        },
+        {
+          "back": 12.0625,
+          "coversBoxEdges": true,
+          "front": 12.875,
+          "height": 36,
+          "id": "Upper-L:2:rleft",
+          "kind": "face",
+          "runId": "Upper-L",
+          "width": 14.375,
+          "x": 31.0625,
+          "z": 53.875
+        },
+        {
+          "back": 12.0625,
+          "coversBoxEdges": true,
+          "front": 12.875,
+          "height": 36,
+          "id": "Upper-L:2:rright",
+          "kind": "face",
+          "runId": "Upper-L",
+          "width": 14.375,
+          "x": 45.5625,
+          "z": 53.875
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 12,
+          "height": 36,
+          "id": "Upper-R:1",
+          "kind": "cabinet",
+          "runId": "Upper-R",
+          "width": 17.5,
+          "x": 60,
+          "z": 54
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 12,
+          "height": 36,
+          "id": "Upper-R:2",
+          "kind": "cabinet",
+          "runId": "Upper-R",
+          "width": 17.5,
+          "x": 77.5,
+          "z": 54
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 12.875,
+          "height": 36.125,
+          "id": "Upper-R:right",
+          "kind": "end_panel",
+          "runId": "Upper-R",
+          "width": 0.8125,
+          "x": 95,
+          "z": 53.875
+        },
+        {
+          "back": 12.0625,
+          "coversBoxEdges": true,
+          "front": 12.875,
+          "height": 36,
+          "id": "Upper-R:1:r",
+          "kind": "face",
+          "runId": "Upper-R",
+          "width": 17.375,
+          "x": 60.0625,
+          "z": 53.875
+        },
+        {
+          "back": 12.0625,
+          "coversBoxEdges": true,
+          "front": 12.875,
+          "height": 36,
+          "id": "Upper-R:2:r",
+          "kind": "face",
+          "runId": "Upper-R",
+          "width": 17.375,
+          "x": 77.5625,
+          "z": 53.875
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 21,
+          "height": 4,
+          "id": "Base-L:toe_kick",
+          "kind": "toe_kick",
+          "runId": "Base-L",
+          "width": 59.75,
+          "x": 0.25,
+          "z": 0
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 25.625,
+          "height": 1.5,
+          "id": "Base-L:countertop",
+          "kind": "countertop",
+          "runId": "Base-L",
+          "width": 60.75,
+          "x": -0.75,
+          "z": 34.5
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 21,
+          "height": 4,
+          "id": "Base-R:toe_kick",
+          "kind": "toe_kick",
+          "runId": "Base-R",
+          "width": 58.8125,
+          "x": 60,
+          "z": 0
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 25.625,
+          "height": 1.5,
+          "id": "Base-R:countertop",
+          "kind": "countertop",
+          "runId": "Base-R",
+          "width": 60.5625,
+          "x": 60,
+          "z": 34.5
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 13.125,
+          "height": 3,
+          "id": "Upper-L:top_mold",
+          "kind": "top_mold",
+          "outline": [
+            [
+              -0.25,
+              90,
+              0
+            ],
+            [
+              60,
+              90,
+              0
+            ],
+            [
+              60,
+              93,
+              0
+            ],
+            [
+              -0.25,
+              93,
+              0
+            ]
+          ],
+          "runId": "Upper-L",
+          "width": 60.25,
+          "x": -0.25,
+          "z": 90
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 15.875,
+          "height": 4.5,
+          "id": "Upper-L:crown",
+          "kind": "crown",
+          "outline": [
+            [
+              -3,
+              91.5,
+              0
+            ],
+            [
+              60,
+              91.5,
+              0
+            ],
+            [
+              60,
+              96,
+              0
+            ],
+            [
+              -3,
+              96,
+              0
+            ]
+          ],
+          "runId": "Upper-L",
+          "width": 63,
+          "x": -3,
+          "z": 91.5
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 13.125,
+          "height": 3,
+          "id": "Upper-R:top_mold",
+          "kind": "top_mold",
+          "outline": [
+            [
+              60,
+              90,
+              0
+            ],
+            [
+              96.0625,
+              90,
+              0
+            ],
+            [
+              96.0625,
+              93,
+              0
+            ],
+            [
+              60,
+              93,
+              0
+            ]
+          ],
+          "runId": "Upper-R",
+          "width": 36.0625,
+          "x": 60,
+          "z": 90
+        },
+        {
+          "back": 0,
+          "coversBoxEdges": false,
+          "front": 15.875,
+          "height": 4.5,
+          "id": "Upper-R:crown",
+          "kind": "crown",
+          "outline": [
+            [
+              60,
+              91.5,
+              0
+            ],
+            [
+              98.8125,
+              91.5,
+              0
+            ],
+            [
+              98.8125,
+              96,
+              0
+            ],
+            [
+              60,
+              96,
+              0
+            ]
+          ],
+          "runId": "Upper-R",
+          "width": 38.8125,
+          "x": 60,
+          "z": 91.5
+        }
+      ],
+      "pulls": [
+        {
+          "outlines": [
+            [
+              [
+                15.125,
+                28.1875
+              ],
+              [
+                15.125,
+                32.5625,
+                1
+              ],
+              [
+                14.75,
+                32.5625
+              ],
+              [
+                14.75,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "Base-L:1:rleft"
+        },
+        {
+          "outlines": [
+            [
+              [
+                18.25,
+                28.1875
+              ],
+              [
+                18.25,
+                32.5625,
+                1
+              ],
+              [
+                17.875,
+                32.5625
+              ],
+              [
+                17.875,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "Base-L:1:rright"
+        },
+        {
+          "outlines": [
+            [
+              [
+                44.125,
+                28.1875
+              ],
+              [
+                44.125,
+                32.5625,
+                1
+              ],
+              [
+                43.75,
+                32.5625
+              ],
+              [
+                43.75,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "Base-L:2:rleft"
+        },
+        {
+          "outlines": [
+            [
+              [
+                47.25,
+                28.1875
+              ],
+              [
+                47.25,
+                32.5625,
+                1
+              ],
+              [
+                46.875,
+                32.5625
+              ],
+              [
+                46.875,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "Base-L:2:rright"
+        },
+        {
+          "outlines": [
+            [
+              [
+                73.375,
+                28.1875
+              ],
+              [
+                73.375,
+                32.5625,
+                1
+              ],
+              [
+                73,
+                32.5625
+              ],
+              [
+                73,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "Base-R:1:rleft"
+        },
+        {
+          "outlines": [
+            [
+              [
+                76.5,
+                28.1875
+              ],
+              [
+                76.5,
+                32.5625,
+                1
+              ],
+              [
+                76.125,
+                32.5625
+              ],
+              [
+                76.125,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "Base-R:1:rright"
+        },
+        {
+          "outlines": [
+            [
+              [
+                102.875,
+                28.1875
+              ],
+              [
+                102.875,
+                32.5625,
+                1
+              ],
+              [
+                102.5,
+                32.5625
+              ],
+              [
+                102.5,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "Base-R:2:rleft"
+        },
+        {
+          "outlines": [
+            [
+              [
+                106,
+                28.1875
+              ],
+              [
+                106,
+                32.5625,
+                1
+              ],
+              [
+                105.625,
+                32.5625
+              ],
+              [
+                105.625,
+                28.1875,
+                1
+              ]
+            ]
+          ],
+          "partId": "Base-R:2:rright"
+        },
+        {
+          "outlines": [
+            [
+              [
+                15.125,
+                55.5625
+              ],
+              [
+                15.125,
+                59.9375,
+                1
+              ],
+              [
+                14.75,
+                59.9375
+              ],
+              [
+                14.75,
+                55.5625,
+                1
+              ]
+            ]
+          ],
+          "partId": "Upper-L:1:rleft"
+        },
+        {
+          "outlines": [
+            [
+              [
+                18.25,
+                55.5625
+              ],
+              [
+                18.25,
+                59.9375,
+                1
+              ],
+              [
+                17.875,
+                59.9375
+              ],
+              [
+                17.875,
+                55.5625,
+                1
+              ]
+            ]
+          ],
+          "partId": "Upper-L:1:rright"
+        },
+        {
+          "outlines": [
+            [
+              [
+                44.125,
+                55.5625
+              ],
+              [
+                44.125,
+                59.9375,
+                1
+              ],
+              [
+                43.75,
+                59.9375
+              ],
+              [
+                43.75,
+                55.5625,
+                1
+              ]
+            ]
+          ],
+          "partId": "Upper-L:2:rleft"
+        },
+        {
+          "outlines": [
+            [
+              [
+                47.25,
+                55.5625
+              ],
+              [
+                47.25,
+                59.9375,
+                1
+              ],
+              [
+                46.875,
+                59.9375
+              ],
+              [
+                46.875,
+                55.5625,
+                1
+              ]
+            ]
+          ],
+          "partId": "Upper-L:2:rright"
+        },
+        {
+          "outlines": [
+            [
+              [
+                76.125,
+                55.5625
+              ],
+              [
+                76.125,
+                59.9375,
+                1
+              ],
+              [
+                75.75,
+                59.9375
+              ],
+              [
+                75.75,
+                55.5625,
+                1
+              ]
+            ]
+          ],
+          "partId": "Upper-R:1:r"
+        },
+        {
+          "outlines": [
+            [
+              [
+                79.25,
+                55.5625
+              ],
+              [
+                79.25,
+                59.9375,
+                1
+              ],
+              [
+                78.875,
+                59.9375
+              ],
+              [
+                78.875,
+                55.5625,
+                1
+              ]
+            ]
+          ],
+          "partId": "Upper-R:2:r"
+        }
+      ],
+      "side": "front",
+      "title": "Elevation A",
+      "wallId": "W1",
+      "wallLabel": "Wall 1 · Wall 1"
+    }
+  ],
+  "paperSize": "archD",
+  "payloadVersion": 1,
+  "plan": {
+    "dimensions": [
+      {
+        "end": [
+          144,
+          4.5
+        ],
+        "kind": "wall",
+        "offset": 4.5,
+        "row": "wall",
+        "start": [
+          0,
+          4.5
+        ],
+        "text": "144"
+      },
+      {
+        "end": [
+          30,
+          0
+        ],
+        "kind": "depth",
+        "offset": 0,
+        "row": "depth",
+        "start": [
+          30,
+          -24.875
+        ],
+        "text": "24 7/8"
+      },
+      {
+        "end": [
+          89.90625,
+          0
+        ],
+        "kind": "depth",
+        "offset": 0,
+        "row": "depth",
+        "start": [
+          89.90625,
+          -24.875
+        ],
+        "text": "24 7/8"
+      },
+      {
+        "end": [
+          25.5,
+          0
+        ],
+        "kind": "depth",
+        "offset": 0,
+        "row": "depth",
+        "start": [
+          25.5,
+          -12.875
+        ],
+        "text": "12 7/8"
+      },
+      {
+        "end": [
+          73.40625,
+          0
+        ],
+        "kind": "depth",
+        "offset": 0,
+        "row": "depth",
+        "start": [
+          73.40625,
+          -12.875
+        ],
+        "text": "12 7/8"
+      }
+    ],
+    "marks": [
+      {
+        "at": [
+          59.90625,
+          -36.125
+        ],
+        "direction": [
+          0,
+          1
+        ],
+        "kind": "elevation",
+        "text": "A"
+      }
+    ],
+    "parts": [
+      {
+        "id": "W1:wall",
+        "kind": "wall",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            144,
+            0
+          ],
+          [
+            144,
+            4.5
+          ],
+          [
+            0,
+            4.5
+          ]
+        ]
+      },
+      {
+        "id": "Base-L:1",
+        "kind": "cabinet",
+        "points": [
+          [
+            2,
+            0
+          ],
+          [
+            31,
+            0
+          ],
+          [
+            31,
+            -24
+          ],
+          [
+            2,
+            -24
+          ]
+        ],
+        "runId": "Base-L",
+        "top": 34.5
+      },
+      {
+        "id": "Base-L:2",
+        "kind": "cabinet",
+        "points": [
+          [
+            31,
+            0
+          ],
+          [
+            60,
+            0
+          ],
+          [
+            60,
+            -24
+          ],
+          [
+            31,
+            -24
+          ]
+        ],
+        "runId": "Base-L",
+        "top": 34.5
+      },
+      {
+        "id": "Base-L:left",
+        "kind": "filler",
+        "points": [
+          [
+            0,
+            -24.0625
+          ],
+          [
+            2,
+            -24.0625
+          ],
+          [
+            2,
+            -24.875
+          ],
+          [
+            0,
+            -24.875
+          ]
+        ],
+        "runId": "Base-L",
+        "top": 34.5
+      },
+      {
+        "id": "Base-L:1:rleft",
+        "kind": "face",
+        "points": [
+          [
+            2.0625,
+            -24.0625
+          ],
+          [
+            16.4375,
+            -24.0625
+          ],
+          [
+            16.4375,
+            -24.875
+          ],
+          [
+            2.0625,
+            -24.875
+          ]
+        ],
+        "runId": "Base-L",
+        "top": 34.5
+      },
+      {
+        "id": "Base-L:1:rright",
+        "kind": "face",
+        "points": [
+          [
+            16.5625,
+            -24.0625
+          ],
+          [
+            30.9375,
+            -24.0625
+          ],
+          [
+            30.9375,
+            -24.875
+          ],
+          [
+            16.5625,
+            -24.875
+          ]
+        ],
+        "runId": "Base-L",
+        "top": 34.5
+      },
+      {
+        "id": "Base-L:2:rleft",
+        "kind": "face",
+        "points": [
+          [
+            31.0625,
+            -24.0625
+          ],
+          [
+            45.4375,
+            -24.0625
+          ],
+          [
+            45.4375,
+            -24.875
+          ],
+          [
+            31.0625,
+            -24.875
+          ]
+        ],
+        "runId": "Base-L",
+        "top": 34.5
+      },
+      {
+        "id": "Base-L:2:rright",
+        "kind": "face",
+        "points": [
+          [
+            45.5625,
+            -24.0625
+          ],
+          [
+            59.9375,
+            -24.0625
+          ],
+          [
+            59.9375,
+            -24.875
+          ],
+          [
+            45.5625,
+            -24.875
+          ]
+        ],
+        "runId": "Base-L",
+        "top": 34.5
+      },
+      {
+        "id": "Base-L:left:right",
+        "kind": "filler",
+        "points": [
+          [
+            1.25,
+            -21.6875
+          ],
+          [
+            2,
+            -21.6875
+          ],
+          [
+            2,
+            -24.1875
+          ],
+          [
+            1.25,
+            -24.1875
+          ]
+        ],
+        "runId": "Base-L",
+        "top": 34.5
+      },
+      {
+        "id": "Base-R:1",
+        "kind": "cabinet",
+        "points": [
+          [
+            60,
+            0
+          ],
+          [
+            89.5,
+            0
+          ],
+          [
+            89.5,
+            -24
+          ],
+          [
+            60,
+            -24
+          ]
+        ],
+        "runId": "Base-R",
+        "top": 34.5
+      },
+      {
+        "id": "Base-R:2",
+        "kind": "cabinet",
+        "points": [
+          [
+            89.5,
+            0
+          ],
+          [
+            119,
+            0
+          ],
+          [
+            119,
+            -24
+          ],
+          [
+            89.5,
+            -24
+          ]
+        ],
+        "runId": "Base-R",
+        "top": 34.5
+      },
+      {
+        "id": "Base-R:1:rleft",
+        "kind": "face",
+        "points": [
+          [
+            60.0625,
+            -24.0625
+          ],
+          [
+            74.6875,
+            -24.0625
+          ],
+          [
+            74.6875,
+            -24.875
+          ],
+          [
+            60.0625,
+            -24.875
+          ]
+        ],
+        "runId": "Base-R",
+        "top": 34.5
+      },
+      {
+        "id": "Base-R:1:rright",
+        "kind": "face",
+        "points": [
+          [
+            74.8125,
+            -24.0625
+          ],
+          [
+            89.4375,
+            -24.0625
+          ],
+          [
+            89.4375,
+            -24.875
+          ],
+          [
+            74.8125,
+            -24.875
+          ]
+        ],
+        "runId": "Base-R",
+        "top": 34.5
+      },
+      {
+        "id": "Base-R:2:rleft",
+        "kind": "face",
+        "points": [
+          [
+            89.5625,
+            -24.0625
+          ],
+          [
+            104.1875,
+            -24.0625
+          ],
+          [
+            104.1875,
+            -24.875
+          ],
+          [
+            89.5625,
+            -24.875
+          ]
+        ],
+        "runId": "Base-R",
+        "top": 34.5
+      },
+      {
+        "id": "Base-R:2:rright",
+        "kind": "face",
+        "points": [
+          [
+            104.3125,
+            -24.0625
+          ],
+          [
+            118.9375,
+            -24.0625
+          ],
+          [
+            118.9375,
+            -24.875
+          ],
+          [
+            104.3125,
+            -24.875
+          ]
+        ],
+        "runId": "Base-R",
+        "top": 34.5
+      },
+      {
+        "id": "Base-R:right",
+        "kind": "end_panel",
+        "points": [
+          [
+            119,
+            0
+          ],
+          [
+            119.8125,
+            0
+          ],
+          [
+            119.8125,
+            -24.875
+          ],
+          [
+            119,
+            -24.875
+          ]
+        ],
+        "runId": "Base-R",
+        "top": 34.5
+      },
+      {
+        "id": "Upper-L:1",
+        "kind": "cabinet",
+        "points": [
+          [
+            2,
+            0
+          ],
+          [
+            31,
+            0
+          ],
+          [
+            31,
+            -12
+          ],
+          [
+            2,
+            -12
+          ]
+        ],
+        "runId": "Upper-L",
+        "top": 90
+      },
+      {
+        "id": "Upper-L:2",
+        "kind": "cabinet",
+        "points": [
+          [
+            31,
+            0
+          ],
+          [
+            60,
+            0
+          ],
+          [
+            60,
+            -12
+          ],
+          [
+            31,
+            -12
+          ]
+        ],
+        "runId": "Upper-L",
+        "top": 90
+      },
+      {
+        "id": "Upper-L:left",
+        "kind": "filler",
+        "points": [
+          [
+            0,
+            -12.0625
+          ],
+          [
+            2,
+            -12.0625
+          ],
+          [
+            2,
+            -12.875
+          ],
+          [
+            0,
+            -12.875
+          ]
+        ],
+        "runId": "Upper-L",
+        "top": 90
+      },
+      {
+        "id": "Upper-L:1:rleft",
+        "kind": "face",
+        "points": [
+          [
+            2.0625,
+            -12.0625
+          ],
+          [
+            16.4375,
+            -12.0625
+          ],
+          [
+            16.4375,
+            -12.875
+          ],
+          [
+            2.0625,
+            -12.875
+          ]
+        ],
+        "runId": "Upper-L",
+        "top": 90
+      },
+      {
+        "id": "Upper-L:1:rright",
+        "kind": "face",
+        "points": [
+          [
+            16.5625,
+            -12.0625
+          ],
+          [
+            30.9375,
+            -12.0625
+          ],
+          [
+            30.9375,
+            -12.875
+          ],
+          [
+            16.5625,
+            -12.875
+          ]
+        ],
+        "runId": "Upper-L",
+        "top": 90
+      },
+      {
+        "id": "Upper-L:2:rleft",
+        "kind": "face",
+        "points": [
+          [
+            31.0625,
+            -12.0625
+          ],
+          [
+            45.4375,
+            -12.0625
+          ],
+          [
+            45.4375,
+            -12.875
+          ],
+          [
+            31.0625,
+            -12.875
+          ]
+        ],
+        "runId": "Upper-L",
+        "top": 90
+      },
+      {
+        "id": "Upper-L:2:rright",
+        "kind": "face",
+        "points": [
+          [
+            45.5625,
+            -12.0625
+          ],
+          [
+            59.9375,
+            -12.0625
+          ],
+          [
+            59.9375,
+            -12.875
+          ],
+          [
+            45.5625,
+            -12.875
+          ]
+        ],
+        "runId": "Upper-L",
+        "top": 90
+      },
+      {
+        "id": "Upper-L:left:right",
+        "kind": "filler",
+        "points": [
+          [
+            1.25,
+            -9.6875
+          ],
+          [
+            2,
+            -9.6875
+          ],
+          [
+            2,
+            -12.1875
+          ],
+          [
+            1.25,
+            -12.1875
+          ]
+        ],
+        "runId": "Upper-L",
+        "top": 90
+      },
+      {
+        "id": "Upper-R:1",
+        "kind": "cabinet",
+        "points": [
+          [
+            60,
+            0
+          ],
+          [
+            77.5,
+            0
+          ],
+          [
+            77.5,
+            -12
+          ],
+          [
+            60,
+            -12
+          ]
+        ],
+        "runId": "Upper-R",
+        "top": 90
+      },
+      {
+        "id": "Upper-R:2",
+        "kind": "cabinet",
+        "points": [
+          [
+            77.5,
+            0
+          ],
+          [
+            95,
+            0
+          ],
+          [
+            95,
+            -12
+          ],
+          [
+            77.5,
+            -12
+          ]
+        ],
+        "runId": "Upper-R",
+        "top": 90
+      },
+      {
+        "id": "Upper-R:1:r",
+        "kind": "face",
+        "points": [
+          [
+            60.0625,
+            -12.0625
+          ],
+          [
+            77.4375,
+            -12.0625
+          ],
+          [
+            77.4375,
+            -12.875
+          ],
+          [
+            60.0625,
+            -12.875
+          ]
+        ],
+        "runId": "Upper-R",
+        "top": 90
+      },
+      {
+        "id": "Upper-R:2:r",
+        "kind": "face",
+        "points": [
+          [
+            77.5625,
+            -12.0625
+          ],
+          [
+            94.9375,
+            -12.0625
+          ],
+          [
+            94.9375,
+            -12.875
+          ],
+          [
+            77.5625,
+            -12.875
+          ]
+        ],
+        "runId": "Upper-R",
+        "top": 90
+      },
+      {
+        "id": "Upper-R:right",
+        "kind": "end_panel",
+        "points": [
+          [
+            95,
+            0
+          ],
+          [
+            95.8125,
+            0
+          ],
+          [
+            95.8125,
+            -12.875
+          ],
+          [
+            95,
+            -12.875
+          ]
+        ],
+        "runId": "Upper-R",
+        "top": 90
+      },
+      {
+        "closed": false,
+        "id": "top:0:0",
+        "kind": "countertop",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            -0.75,
+            0
+          ],
+          [
+            -0.75,
+            -25.625
+          ],
+          [
+            120.5625,
+            -25.625
+          ],
+          [
+            120.5625,
+            0
+          ]
+        ]
+      }
+    ]
+  },
+  "plotScale": 12,
+  "room": {
+    "id": "room-d5-joined",
+    "name": "Joined runs"
+  },
+  "units": "in"
+}
