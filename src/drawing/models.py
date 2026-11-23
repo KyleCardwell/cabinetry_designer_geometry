@@ -63,6 +63,16 @@ class PayloadPartNumber(BaseModel):
     leader: PayloadLine | None = None
 
 
+class PayloadStrip(BaseModel):
+    """A horizontal slice of a band that hides and is hidden at its own depth (SPEC-D7)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    z1: float
+    z2: float
+    front: float
+
+
 class PayloadPart(BaseModel):
     """An elevation part, optionally outlined by absolute (x, z[, bulge]) points.
 
@@ -96,6 +106,24 @@ class PayloadPart(BaseModel):
     profileId: str | None = None
     opaque: bool = True
     openEdges: list[Literal["left", "right", "top", "bottom"]] = []
+    strips: list[PayloadStrip] = []
+
+    @model_validator(mode="after")
+    def check_strips(self):
+        if not self.strips:
+            return self
+        tolerance = 1e-6
+        for strip in self.strips:
+            if not strip.z1 < strip.z2:
+                raise ValueError("Part strip must have z1 < z2")
+            if strip.front > self.front + tolerance:
+                raise ValueError("Part strip front must not exceed the part's front")
+        for before, after in zip(self.strips, self.strips[1:]):
+            if abs(before.z2 - after.z1) > tolerance:
+                raise ValueError("Part strips must be contiguous")
+        if abs(self.strips[0].z1 - self.z) > tolerance or abs(self.strips[-1].z2 - (self.z + self.height)) > tolerance:
+            raise ValueError("Part strips must cover the part's z range")
+        return self
 
     @model_validator(mode="after")
     def check_outline(self):

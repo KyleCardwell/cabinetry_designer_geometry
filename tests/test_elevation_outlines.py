@@ -236,3 +236,17 @@ def test_bulge_validation_checks_limit_rounding_and_flattened_bounds():
     assert part.outline[1][2] == 0.414214
     with pytest.raises(ValidationError, match="distinct endpoints"):
         PayloadPart.model_validate(_arc_part(outline=[[0, 0, 1], [0, 0], [4, 4]]))
+
+
+def test_part_strips_must_be_contiguous_and_cover_the_part():
+    base = {"id": "c", "kind": "crown", "x": 0, "z": 90, "width": 10, "height": 5,
+            "back": 0, "front": 17, "coversBoxEdges": False}
+    good = [{"z1": 90, "z2": 93, "front": 14}, {"z1": 93, "z2": 95, "front": 17}]
+    assert len(PayloadPart.model_validate({**base, "strips": good}).strips) == 2
+    for bad in (
+        [{"z1": 90, "z2": 92, "front": 14}, {"z1": 93, "z2": 95, "front": 17}],  # gap
+        [{"z1": 91, "z2": 93, "front": 14}, {"z1": 93, "z2": 95, "front": 17}],  # short at bottom
+        [{"z1": 90, "z2": 93, "front": 14}, {"z1": 93, "z2": 95, "front": 18}],  # deeper than the part
+    ):
+        with pytest.raises(ValueError):
+            PayloadPart.model_validate({**base, "strips": bad})

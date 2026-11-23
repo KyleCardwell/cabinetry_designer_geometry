@@ -153,3 +153,44 @@ def test_visible_regions_leave_out_what_nearer_opaque_shapes_cover():
     assert regions["section"].area == pytest.approx(20 * 30.5)  # the post covers 20 to 24 7/8
     assert regions["box"].area == pytest.approx(27.1875 * 30.5)  # the section and the post cover it to 30
     assert visible_regions(shapes[:1], {"section"})["section"].area == pytest.approx(24.875 * 30.5)
+
+
+def _segments(lines, axis):
+    """Sorted (fixed, lo, hi) for the axis-aligned lines: axis 'v' = vertical (x fixed), 'h' = horizontal."""
+    out = []
+    for l in lines:
+        (x0, z0), (x1, z1) = (l.start.x, l.start.y), (l.end.x, l.end.y)
+        if axis == "v" and abs(x0 - x1) < 1e-9:
+            out.append((round(x0, 6), round(min(z0, z1), 6), round(max(z0, z1), 6)))
+        if axis == "h" and abs(z0 - z1) < 1e-9:
+            out.append((round(z0, 6), round(min(x0, x1), 6), round(max(x0, x1), 6)))
+    return sorted(out)
+
+
+def _crown(strips):
+    return HlrShape("C", rect_polygon(0, 90, 10, 5), 17, drop_hidden=True, strips=strips)
+
+
+_PROJECTION = HlrShape("P", rect_polygon(5, 0, 15, 96), 15)
+_STRIPS = ((90, 93, 14), (93, 95, 17))
+
+
+@pytest.mark.parametrize("case", [1, 2, 3, 4])
+def test_band_strips_hide_and_are_hidden_at_their_own_depth(case):
+    if case == 1:
+        visible, hidden = _run(_crown(_STRIPS), _PROJECTION)["C"]
+        assert _segments(visible, "h") == [(90, 0, 5), (95, 0, 10)]
+        assert _segments(visible, "v") == [(0, 90, 95), (10, 93, 95)]
+        assert hidden == []
+    elif case == 2:
+        visible, hidden = _run(_crown(_STRIPS), _PROJECTION)["P"]
+        left = [s for s in _segments(visible, "v") if s[0] == 5]
+        assert left == [(5, 0, 93), (5, 95, 96)]
+        assert [s for s in _segments(hidden, "v") if s[0] == 5] == [(5, 93, 95)]
+    elif case == 3:
+        result = _run(_crown(()), _PROJECTION)
+        assert _length(result["C"][0]) == pytest.approx(2 * 5 + 2 * 10)
+        assert [s for s in _segments(result["P"][1], "v") if s[0] == 5] == [(5, 90, 95)]
+    else:
+        region = visible_regions([_crown(_STRIPS), _PROJECTION], {"P"})["P"]
+        assert region.area == pytest.approx(15 * 96 - 5 * 2)

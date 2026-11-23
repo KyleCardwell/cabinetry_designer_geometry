@@ -240,6 +240,7 @@ def make_elevation_doc(
             lines=_edge_lines(part),
             opaque=part.opaque,
             outlined=not part.openEdges,
+            strips=tuple((strip.z1, strip.z2, strip.front) for strip in part.strips),
         )
         for part in parts
     ]
