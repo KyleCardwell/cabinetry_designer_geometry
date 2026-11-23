@@ -175,7 +175,7 @@ _PROJECTION = HlrShape("P", rect_polygon(5, 0, 15, 96), 15)
 _STRIPS = ((90, 93, 14), (93, 95, 17))
 
 
-@pytest.mark.parametrize("case", [1, 2, 3, 4])
+@pytest.mark.parametrize("case", [1, 2, 3, 4, 5, 6])
 def test_band_strips_hide_and_are_hidden_at_their_own_depth(case):
     if case == 1:
         visible, hidden = _run(_crown(_STRIPS), _PROJECTION)["C"]
@@ -191,6 +191,25 @@ def test_band_strips_hide_and_are_hidden_at_their_own_depth(case):
         result = _run(_crown(()), _PROJECTION)
         assert _length(result["C"][0]) == pytest.approx(2 * 5 + 2 * 10)
         assert [s for s in _segments(result["P"][1], "v") if s[0] == 5] == [(5, 90, 95)]
-    else:
+    elif case == 4:
         region = visible_regions([_crown(_STRIPS), _PROJECTION], {"P"})["P"]
         assert region.area == pytest.approx(15 * 96 - 5 * 2)
+    elif case == 5:
+        leg = HlrShape("L", rect_polygon(8, 90, 4, 5), 17, strips=_STRIPS)
+        plain_leg = HlrShape("L", leg.polygon, 17)
+        result = _run(_crown(_STRIPS), leg)
+        plain = _run(_crown(()), plain_leg)
+        for shape_id in ("C", "L"):
+            visible, hidden = result[shape_id]
+            assert _segments(visible, "h") == _segments(plain[shape_id][0], "h")
+            assert _segments(visible, "v") == _segments(plain[shape_id][0], "v")
+            assert hidden == []
+    else:
+        top = HlrShape("T", rect_polygon(83, 34.5, 36, 1.5), 25.875,
+                       strips=((34.5, 34.875, 25), (34.875, 36, 25.375)))
+        plain_top = HlrShape("T", top.polygon, top.front)
+        projection = HlrShape("P", rect_polygon(54, 0, 30, 96), 27)
+        hidden = _run(top, projection)["T"][1]
+        plain_hidden = _run(plain_top, projection)["T"][1]
+        assert _segments(hidden, "h") == _segments(plain_hidden, "h") == [(34.5, 83, 84), (36, 83, 84)]
+        assert _segments(hidden, "v") == _segments(plain_hidden, "v") == [(83, 34.5, 36)]

@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from math import hypot
 
-from shapely.geometry import GeometryCollection, LineString, MultiLineString, Polygon
+from shapely.geometry import GeometryCollection, LineString, MultiLineString, MultiPolygon, Polygon
 from shapely.ops import unary_union
 
 from ..models.geometry import Line2D, Point2D
@@ -41,29 +41,52 @@ def _zones(shape: HlrShape):
     """(box, front) per zone of `shape`: its strips across its x range +-1", else the whole plane."""
     if not shape.strips or shape.polygon.is_empty:
         return [(None, shape.front)]
-    x0, _, x1, _ = shape.polygon.bounds
-    return [(Polygon([(x0 - 1, z1), (x1 + 1, z1), (x1 + 1, z2), (x0 - 1, z2)]), front)
-            for z1, z2, front in shape.strips]
+    x0, bottom, x1, top = shape.polygon.bounds
+    zones = []
+    for index, (z1, z2, front) in enumerate(shape.strips):
+        if index == 0:
+            z1 = bottom - 1
+        if index == len(shape.strips) - 1:
+            z2 = top + 1
+        zones.append((Polygon([(x0 - 1, z1), (x1 + 1, z1), (x1 + 1, z2), (x0 - 1, z2)]), front))
+    return zones
+
+
+def _polygonal(geom):
+    """Keep only polygon parts with area: touching strip boundaries hide nothing."""
+    if geom is None or geom.is_empty:
+        return None
+    if isinstance(geom, Polygon):
+        return geom if geom.area > EPSILON else None
+    if isinstance(geom, (MultiPolygon, GeometryCollection)):
+        polygons = []
+        for part in geom.geoms:
+            polygonal = _polygonal(part)
+            if isinstance(polygonal, Polygon):
+                polygons.append(polygonal)
+            elif isinstance(polygonal, MultiPolygon):
+                polygons.extend(polygonal.geoms)
+        if polygons:
+            return polygons[0] if len(polygons) == 1 else MultiPolygon(polygons)
+    return None
 
 
 def _nearer_cells(other: HlrShape, shape: HlrShape, front: float):
     """The polygon of `other` that counts as nearer than `front` (None when none), SPEC-D7."""
     if shape.group is not None and other.group == shape.group and other.group_opaque \
             and other.group_front > shape.group_front + EPSILON:
-        return other.polygon
+        return _polygonal(other.polygon)
     if not other.opaque:
         return None
     if not other.strips or other.polygon.is_empty:
-        return other.polygon if other.front > front + EPSILON else None
-    x0, _, x1, _ = other.polygon.bounds
-    near = [(z1, z2) for z1, z2, f in other.strips if f > front + EPSILON]
+        return _polygonal(other.polygon) if other.front > front + EPSILON else None
+    near = [box for box, f in _zones(other) if f > front + EPSILON]
     if not near:
         return None
     if len(near) == len(other.strips):
-        return other.polygon
-    cells = [other.polygon.intersection(Polygon([(x0 - 1, z1), (x1 + 1, z1), (x1 + 1, z2), (x0 - 1, z2)]))
-             for z1, z2 in near]
-    return unary_union(cells)
+        return _polygonal(other.polygon)
+    cells = [_polygonal(other.polygon.intersection(box)) for box in near]
+    return _polygonal(unary_union([cell for cell in cells if cell is not None]))
 
 
 def _strip_cover(shapes: list[HlrShape], shape: HlrShape, dashing: bool = False):
@@ -83,8 +106,10 @@ def _strip_cover(shapes: list[HlrShape], shape: HlrShape, dashing: bool = False)
         if not cells:
             continue
         union = unary_union(cells)
-        pieces.append(union if box is None else union.intersection(box))
-    return unary_union(pieces) if pieces else None
+        piece = _polygonal(union if box is None else union.intersection(box))
+        if piece is not None:
+            pieces.append(piece)
+    return _polygonal(unary_union(pieces)) if pieces else None
 
 
 def rect_polygon(x: float, z: float, width: float, height: float, holes=()) -> Polygon:

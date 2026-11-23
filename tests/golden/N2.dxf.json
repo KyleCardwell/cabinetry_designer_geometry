@@ -29390,20 +29390,6 @@
             ],
             "layer": "COUNTERTOPS",
             "start": [
-              105.0,
-              34.5,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
-              105.0,
-              34.875,
-              0.0
-            ],
-            "layer": "COUNTERTOPS",
-            "start": [
               47.0,
               34.875,
               0.0
@@ -29418,35 +29404,7 @@
             ],
             "layer": "COUNTERTOPS",
             "start": [
-              105.0,
-              34.875,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
-              105.0,
-              35.0,
-              0.0
-            ],
-            "layer": "COUNTERTOPS",
-            "start": [
               47.0,
-              35.0,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
-              105.0,
-              36.0,
-              0.0
-            ],
-            "layer": "COUNTERTOPS",
-            "start": [
-              105.0,
               35.0,
               0.0
             ],
@@ -30022,48 +29980,6 @@
             "start": [
               105.0,
               29.5,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
-              130.0,
-              34.5,
-              0.0
-            ],
-            "layer": "COUNTERTOPS",
-            "start": [
-              130.0,
-              34.875,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
-              130.0,
-              34.875,
-              0.0
-            ],
-            "layer": "COUNTERTOPS",
-            "start": [
-              130.0,
-              35.0,
-              0.0
-            ],
-            "type": "LINE"
-          },
-          {
-            "end": [
-              130.0,
-              35.0,
-              0.0
-            ],
-            "layer": "COUNTERTOPS",
-            "start": [
-              130.0,
-              36.0,
               0.0
             ],
             "type": "LINE"
@@ -35322,20 +35238,6 @@
         ],
         "layer": "COUNTERTOPS",
         "start": [
-          105.0,
-          34.5,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
-          105.0,
-          34.875,
-          0.0
-        ],
-        "layer": "COUNTERTOPS",
-        "start": [
           47.0,
           34.875,
           0.0
@@ -35350,35 +35252,7 @@
         ],
         "layer": "COUNTERTOPS",
         "start": [
-          105.0,
-          34.875,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
-          105.0,
-          35.0,
-          0.0
-        ],
-        "layer": "COUNTERTOPS",
-        "start": [
           47.0,
-          35.0,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
-          105.0,
-          36.0,
-          0.0
-        ],
-        "layer": "COUNTERTOPS",
-        "start": [
-          105.0,
           35.0,
           0.0
         ],
@@ -35954,48 +35828,6 @@
         "start": [
           105.0,
           29.5,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
-          130.0,
-          34.5,
-          0.0
-        ],
-        "layer": "COUNTERTOPS",
-        "start": [
-          130.0,
-          34.875,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
-          130.0,
-          34.875,
-          0.0
-        ],
-        "layer": "COUNTERTOPS",
-        "start": [
-          130.0,
-          35.0,
-          0.0
-        ],
-        "type": "LINE"
-      },
-      {
-        "end": [
-          130.0,
-          35.0,
-          0.0
-        ],
-        "layer": "COUNTERTOPS",
-        "start": [
-          130.0,
-          36.0,
           0.0
         ],
         "type": "LINE"
